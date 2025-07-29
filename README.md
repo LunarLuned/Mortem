@@ -1,9 +1,3 @@
-# Fabric Example Mod
+# MORTEM - a fabric mod that aims to add a list of additions made to add more of a challenge to Minecraft.
 
-## Setup
-
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+If added in a modpack or recorded with, credit is requested but not required. The same goes for referencing any code from the mod; it is fully open source.
