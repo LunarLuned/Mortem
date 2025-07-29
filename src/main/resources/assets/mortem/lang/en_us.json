@@ -1,0 +1,10 @@
+{
+  "block.mortem.crumbling_stone": "Crumbling Stone",
+  "block.mortem.crumbling_deepslate": "Crumbling Deepslate",
+  "block.mortem.crumbling_netherrack": "Crumbling Netherrack",
+  "block.mortem.crumbling_end_stone": "Crumbling End Stone",
+
+  "item.mortem.lesser_health_potion": "Lesser Health Potion",
+  "item.mortem.health_potion": "Health Potion",
+  "item.mortem.greater_health_potion": "Greater Health Potion"
+}

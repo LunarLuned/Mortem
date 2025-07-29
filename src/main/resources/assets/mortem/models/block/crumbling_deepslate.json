@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "mortem:block/crumbling_deepslate_top",
+    "side": "mortem:block/crumbling_deepslate"
+  }
+}

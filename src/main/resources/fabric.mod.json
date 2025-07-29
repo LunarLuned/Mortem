@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "mortem",
+	"version": "${version}",
+	"name": "Mortem",
+	"description": "A list of additions made to add more of a challenge to Minecraft.",
+	"authors": [
+		"LunarLuned"
+	],
+	"contact": {
+		"homepage": "https://www.twitter.com/lunarluned",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/mortem/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.lunarluned.mortem.Mortem"
+		],
+		"client": [
+			"net.lunarluned.mortem.MortemClient"
+		]
+	},
+	"mixins": [
+		"mortem.mixins.json",
+		{
+			"config": "mortem.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.7",
+		"minecraft": "~1.21.3",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
