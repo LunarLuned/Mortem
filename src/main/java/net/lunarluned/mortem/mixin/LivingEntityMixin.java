@@ -34,7 +34,7 @@ public abstract class LivingEntityMixin {
     }
 
     @ModifyVariable(method = "hurtServer", at = @At("HEAD"), argsOnly = true)
-    private float multiplyDamageForVoidTouched(float amount) {
+    private float mortem_multiplyDamageForWeakness(float amount) {
         if (this.hasEffect(MobEffects.WEAKNESS)) {
             return amount + (amount * (0.45f * (this.getEffect(MobEffects.WEAKNESS).getAmplifier() + 1)));
         }
@@ -42,7 +42,7 @@ public abstract class LivingEntityMixin {
     }
 
     @Inject(method = "tick", at = @At("HEAD"))
-    public void tick(CallbackInfo ci) {
+    public void mortem_tick(CallbackInfo ci) {
         if ((this.hasEffect(MobEffects.WEAKNESS) && (this.hasEffect(MobEffects.REGENERATION)))) {
             this.removeAllEffects();
             this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 6000, 0));

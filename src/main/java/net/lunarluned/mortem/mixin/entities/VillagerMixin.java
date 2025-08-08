@@ -1,4 +1,4 @@
-package net.lunarluned.mortem.mixin;
+package net.lunarluned.mortem.mixin.entities;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
@@ -20,7 +20,7 @@ public abstract class VillagerMixin extends AbstractVillager {
     }
 
     @Inject(method = "golemSpawnConditionsMet", at = @At("HEAD"), cancellable = true)
-    private void mortemGolemSpawnConditionsMet(long l, CallbackInfoReturnable<Boolean> cir) {
+    private void mortem_golemSpawnConditionsMet(long l, CallbackInfoReturnable<Boolean> cir) {
         // okay so this just adds more time for iron golems to spawn, i wanted to 'buff' iron golem spawns
         // but its kinda impossible because they just spawn one if they dont detect it. i suffer because
         // i never cheated the system.

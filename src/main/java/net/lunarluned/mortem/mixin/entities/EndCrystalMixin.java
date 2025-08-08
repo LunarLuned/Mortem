@@ -1,10 +1,9 @@
-package net.lunarluned.mortem.mixin;
+package net.lunarluned.mortem.mixin.entities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.boss.enderdragon.EndCrystal;
 import net.minecraft.world.item.EndCrystalItem;
 import net.minecraft.world.item.context.UseOnContext;
@@ -14,24 +13,18 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.dimension.end.EndDragonFight;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 @Mixin(EndCrystalItem.class)
 public class EndCrystalMixin {
 
     @Inject(method = "useOn", at = @At("HEAD"), cancellable = true)
-    public void mortemUseOn(UseOnContext useOnContext, CallbackInfoReturnable<InteractionResult> cir) {
+    public void mortem_useOn(UseOnContext useOnContext, CallbackInfoReturnable<InteractionResult> cir) {
         // i aint gonna hold yall i just grabbed the old code and removed the obsidian functionality. im sure theres a cleaner way of doing this but I DONT CARE
         // (ill probably do it later)
         Level level = useOnContext.getLevel();

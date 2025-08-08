@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class TNTBlockMixin {
 
     @Inject(method = "useWithoutItem", at = @At("HEAD"), cancellable = true)
-    private void mortemTNTUse(BlockState blockState, Level level, BlockPos pos, Player player, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
+    private void mortem_tntUse(BlockState blockState, Level level, BlockPos pos, Player player, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
         // Only act if this blocks *is* TNT
         if (!((Object) this instanceof TntBlock)) return;
 

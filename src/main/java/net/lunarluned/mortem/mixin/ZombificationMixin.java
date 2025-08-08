@@ -28,7 +28,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ZombificationMixin {
 
     @Inject(method = "doHurtTarget", at = @At("HEAD"))
-    public void mortemDoHurtTarget(ServerLevel serverLevel, Entity entity, CallbackInfoReturnable<Boolean> cir) {
+    public void mortem_doHurtTarget(ServerLevel serverLevel, Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (entity instanceof Player player) {
             int randomValue = Mth.nextInt(RandomSource.create(), 1, 10);
             int effectiveInfectChance = getInfectChance(player);

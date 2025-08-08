@@ -4,14 +4,16 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "CobwebMixin",
-    "EndCrystalMixin",
+    "entities.EndCrystalMixin",
+    "entities.EnderDragonMixin",
+    "entities.EndermanMixin",
     "FoodCancelMixin",
-    "IronGolemMixin",
+    "entities.IronGolemMixin",
     "LivingEntityMixin",
     "TNTBlockMixin",
-    "VillagerMixin",
-    "WardenMixin",
-    "WitherMixin",
+    "entities.VillagerMixin",
+    "entities.WardenMixin",
+    "entities.WitherMixin",
     "ZombificationMixin"
   ],
   "injectors": {
