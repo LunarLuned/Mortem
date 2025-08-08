@@ -6,8 +6,10 @@
     "CobwebMixin",
     "EndCrystalMixin",
     "FoodCancelMixin",
+    "IronGolemMixin",
     "LivingEntityMixin",
     "TNTBlockMixin",
+    "VillagerMixin",
     "ZombificationMixin"
   ],
   "injectors": {
