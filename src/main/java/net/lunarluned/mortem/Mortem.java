@@ -2,8 +2,6 @@ package net.lunarluned.mortem;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +27,7 @@ public class Mortem implements ModInitializer {
 		registerEffects();
 		registerCreativeTabs();
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Post Mortem.");
 	}
+
 }

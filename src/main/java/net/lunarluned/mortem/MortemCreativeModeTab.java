@@ -31,7 +31,7 @@ public class MortemCreativeModeTab {
 
         // Combat Tab
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(entries -> {
-            entries.addBefore(Items.HONEY_BOTTLE, ModItems.LESSER_HEALTH_POTION);
+            entries.addBefore(Items.HONEY_BOTTLE, ModItems.HEALING_VIAL);
         });
     }
 

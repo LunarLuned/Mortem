@@ -12,17 +12,9 @@ import net.minecraft.world.item.Item;
 
 public class ModItems {
 
-    public static final Item LESSER_HEALTH_POTION = registerItem("lesser_health_potion",
+    public static final Item HEALING_VIAL = registerItem("healing_vial",
             new Item(new Item.Properties()
-                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:lesser_health_potion")))));
-
-    public static final Item HEALTH_POTION = registerItem("health_potion",
-            new Item(new Item.Properties()
-            .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:health_potion")))));
-
-    public static final Item GREATER_HEALTH_POTION = registerItem("greater_health_potion",
-            new Item(new Item.Properties()
-                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:greater_health_potion")))));
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:healing_vial")))));
 
 
     private static Item registerItem(String name, Item item) {
