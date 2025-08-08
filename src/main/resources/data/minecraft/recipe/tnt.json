@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:gunpowder",
+    "minecraft:gunpowder",
+    "minecraft:sand",
+    "minecraft:gunpowder",
+    "minecraft:sand",
+    "minecraft:sand",
+    "minecraft:sand",
+    "minecraft:gunpowder"
+  ],
+  "result": {
+    "id": "minecraft:tnt",
+    "count": 1
+  }
+}

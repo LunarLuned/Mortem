@@ -1,12 +1,16 @@
 {
-	"required": true,
-	"package": "net.lunarluned.mortem.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"CobwebMixin",
-		"FoodCancelMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.lunarluned.mortem.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "CobwebMixin",
+    "EndCrystalMixin",
+    "FoodCancelMixin",
+    "LivingEntityMixin",
+    "TNTBlockMixin",
+    "ZombificationMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

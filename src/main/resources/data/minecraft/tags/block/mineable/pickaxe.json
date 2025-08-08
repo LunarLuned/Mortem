@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "mortem:hardened_iron_ore",
+    "mortem:crumbling_stone",
+    "mortem:crumbling_netherrack",
+    "mortem:crumbling_end_stone",
+    "mortem:crumbling_deepslate"
+  ]
+}

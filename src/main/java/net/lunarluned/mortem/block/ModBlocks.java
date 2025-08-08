@@ -3,6 +3,7 @@ package net.lunarluned.mortem.block;
 
 import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.block.custom.CrumblingBlock;
+import net.lunarluned.mortem.block.custom.HardenedIronOre;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -29,6 +30,10 @@ public class ModBlocks {
     public static final Block CRUMBLING_END_STONE = registerBlock("crumbling_end_stone",
             new CrumblingBlock(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "crumbling_end_stone")))
                     .strength(1f).sound(SoundType.STONE)));
+
+    public static final Block HARDENED_IRON_ORE = registerBlock("hardened_iron_ore",
+            new HardenedIronOre(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "hardened_iron_ore")))
+                    .strength(2f).sound(SoundType.STONE)));
 
 
     private static Block registerBlock(String name, Block block) {

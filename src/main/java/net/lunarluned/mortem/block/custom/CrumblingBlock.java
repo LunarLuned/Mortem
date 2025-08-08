@@ -23,7 +23,7 @@ public class CrumblingBlock extends Block {
     public CrumblingBlock(Properties settings) {
         super(settings);
     }
-//&& player.getRandom().nextInt(100) <= Peculia.getConfig().items.itemsConfig.itemChances.echoing_chance)
+//&& player.getRandom().nextInt(100) <= Peculia.getConfig().item.itemsConfig.itemChances.echoing_chance)
     public void stepOn(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Entity entity) {
             if (entity instanceof Player) {
                 setToAir(state, level, pos);

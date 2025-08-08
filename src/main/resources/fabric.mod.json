@@ -3,13 +3,15 @@
 	"id": "mortem",
 	"version": "${version}",
 	"name": "Mortem",
-	"description": "A list of additions made to add more of a challenge to Minecraft.",
+	"description": "A 'soft conversion' of Minecraft; adding a harder challenge to the game while touching up on many things left behind and forgotten.",
 	"authors": [
-		"LunarLuned"
+		"LunarLuned",
+		"YeaItsMist",
+		"LucaMoka"
 	],
 	"contact": {
 		"homepage": "https://www.twitter.com/lunarluned",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/LunarLuned/Mortem"
 	},
 	"license": "MIT",
 	"icon": "assets/mortem/icon.png",

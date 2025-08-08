@@ -1,8 +1,15 @@
 {
+  "itemgroup.mortem.mortem": "Mortem",
+  "mortem.infected_text": "You have been infected. A cure can be made.",
+
+  "effect.mortem.infected": "Infected",
+  "effect.mortem.immune": "Immune",
+
   "block.mortem.crumbling_stone": "Crumbling Stone",
   "block.mortem.crumbling_deepslate": "Crumbling Deepslate",
   "block.mortem.crumbling_netherrack": "Crumbling Netherrack",
   "block.mortem.crumbling_end_stone": "Crumbling End Stone",
+  "block.mortem.hardened_iron_ore": "Hardened Iron Ore",
 
   "item.mortem.lesser_health_potion": "Lesser Health Potion",
   "item.mortem.health_potion": "Health Potion",

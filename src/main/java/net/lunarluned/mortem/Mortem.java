@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 
 import static net.lunarluned.mortem.MortemCreativeModeTab.registerCreativeTabs;
 import static net.lunarluned.mortem.block.ModBlocks.registerModBlocks;
+import static net.lunarluned.mortem.effect.ModEffects.registerEffects;
+import static net.lunarluned.mortem.item.ModItemGroups.registerItemGroups;
 import static net.lunarluned.mortem.item.ModItems.registerModItems;
 
 public class Mortem implements ModInitializer {
@@ -23,6 +25,8 @@ public class Mortem implements ModInitializer {
 	public void onInitialize() {
 		registerModBlocks();
 		registerModItems();
+		registerItemGroups();
+		registerEffects();
 		registerCreativeTabs();
 
 		LOGGER.info("Hello Fabric world!");
