@@ -10,6 +10,8 @@
     "LivingEntityMixin",
     "TNTBlockMixin",
     "VillagerMixin",
+    "WardenMixin",
+    "WitherMixin",
     "ZombificationMixin"
   ],
   "injectors": {

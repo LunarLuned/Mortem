@@ -61,7 +61,6 @@ public class EndCrystalMixin {
                             endDragonFight.tryRespawn();
                         }
                     }
-
                     useOnContext.getItemInHand().shrink(1);
                     cir.setReturnValue(InteractionResult.SUCCESS);
                 }
