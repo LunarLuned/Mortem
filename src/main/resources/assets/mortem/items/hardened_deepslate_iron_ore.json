@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type" : "minecraft:model",
+    "model": "mortem:block/hardened_deepslate_iron_ore"
+  }
+}

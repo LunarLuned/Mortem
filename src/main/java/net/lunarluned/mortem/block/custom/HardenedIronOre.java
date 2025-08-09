@@ -1,5 +1,6 @@
 package net.lunarluned.mortem.block.custom;
 
+import com.terraformersmc.modmenu.util.mod.Mod;
 import net.lunarluned.mortem.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
@@ -34,6 +35,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
 
+import static net.lunarluned.mortem.block.ModBlocks.HARDENED_DEEPSLATE_IRON_ORE;
+
 public class HardenedIronOre extends Block {
     public HardenedIronOre(Properties properties) {
         super(properties);
@@ -60,7 +63,11 @@ public class HardenedIronOre extends Block {
 
     @Override
     protected void onExplosionHit(BlockState blockState, ServerLevel level, BlockPos blockPos, Explosion explosion, BiConsumer<ItemStack, BlockPos> biConsumer) {
+        if (this.defaultBlockState().is(HARDENED_DEEPSLATE_IRON_ORE)) {
+        level.setBlock(blockPos, Blocks.DEEPSLATE_IRON_ORE.defaultBlockState(), 3);
+        } else {
         level.setBlock(blockPos, Blocks.IRON_ORE.defaultBlockState(), 3);
+        }
         level.playSound(null, blockPos, SoundEvents.STONE_BREAK, SoundSource.BLOCKS, 2.0F, 0.25F);
         BlockEntity blockEntity = blockState.hasBlockEntity() ? level.getBlockEntity(blockPos) : null;
         LootParams.Builder builder = (new LootParams.Builder(level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(blockPos)).withParameter(LootContextParams.TOOL, ItemStack.EMPTY).withOptionalParameter(LootContextParams.BLOCK_ENTITY, blockEntity).withOptionalParameter(LootContextParams.THIS_ENTITY, explosion.getDirectSourceEntity());
