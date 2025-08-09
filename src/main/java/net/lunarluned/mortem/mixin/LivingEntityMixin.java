@@ -2,13 +2,20 @@ package net.lunarluned.mortem.mixin;
 
 import net.lunarluned.mortem.effect.ModEffects;
 import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,9 +24,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin {
+public abstract class LivingEntityMixin extends Entity {
+
+    public LivingEntityMixin(EntityType<?> entityType, Level level) {
+        super(entityType, level);
+    }
 
     @Shadow public abstract boolean hasEffect(Holder<MobEffect> holder);
 
@@ -29,10 +41,6 @@ public abstract class LivingEntityMixin {
 
     @Shadow public abstract boolean addEffect(MobEffectInstance mobEffectInstance);
 
-    protected LivingEntityMixin(EntityType<? extends LivingEntity> entityType, Level level) {
-        super();
-    }
-
     @ModifyVariable(method = "hurtServer", at = @At("HEAD"), argsOnly = true)
     private float mortem_multiplyDamageForWeakness(float amount) {
         if (this.hasEffect(MobEffects.WEAKNESS)) {
@@ -40,6 +48,23 @@ public abstract class LivingEntityMixin {
         }
         return amount;
     }
+
+    @Inject(method = "hurtServer", at = @At("HEAD"), cancellable = true)
+    private void mortem_enderManStunShield(ServerLevel serverLevel, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
+        if ((Object) this instanceof Player player) {
+            // Endermen stun shields now for 5 seconds.
+            if (damageSource.getEntity() instanceof EnderMan) {
+                if (player.isBlocking()) {
+                    player.getCooldowns().addCooldown(new ItemStack(Items.SHIELD), 100);
+                    player.stopUsingItem();
+                    player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SHIELD_BLOCK, SoundSource.HOSTILE, 1.0F, 1);
+                    player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SHIELD_BREAK, SoundSource.HOSTILE, 1.0F, 0.5f);
+                    cir.setReturnValue(false);
+                }
+            }
+        }
+    }
+
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void mortem_tick(CallbackInfo ci) {
