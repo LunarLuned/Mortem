@@ -33,7 +33,7 @@ public class ModBlocks {
 
     public static final Block HARDENED_IRON_ORE = registerBlock("hardened_iron_ore",
             new HardenedIronOre(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "hardened_iron_ore")))
-                    .strength(2f).sound(SoundType.STONE)));
+                    .strength(10f).sound(SoundType.STONE)));
 
 
     private static Block registerBlock(String name, Block block) {

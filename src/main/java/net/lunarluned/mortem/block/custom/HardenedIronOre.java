@@ -45,7 +45,10 @@ public class HardenedIronOre extends Block {
 
         if (tool != null) {
             int miningLevel = tool.getMaxDamage();
-            if (miningLevel > 131) {
+            if (miningLevel < 130) {
+                return Collections.emptyList();
+            }
+            else if (miningLevel > 131) {
                 return Collections.singletonList(new ItemStack(Items.RAW_IRON, 1));
             } else {
                 return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 1, 4)));
@@ -61,6 +64,7 @@ public class HardenedIronOre extends Block {
         level.playSound(null, blockPos, SoundEvents.STONE_BREAK, SoundSource.BLOCKS, 2.0F, 0.25F);
         BlockEntity blockEntity = blockState.hasBlockEntity() ? level.getBlockEntity(blockPos) : null;
         LootParams.Builder builder = (new LootParams.Builder(level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(blockPos)).withParameter(LootContextParams.TOOL, ItemStack.EMPTY).withOptionalParameter(LootContextParams.BLOCK_ENTITY, blockEntity).withOptionalParameter(LootContextParams.THIS_ENTITY, explosion.getDirectSourceEntity());
+        blockState.getDrops(builder).forEach((itemStack) -> biConsumer.accept(itemStack, blockPos));
         blockState.getDrops(builder).forEach((itemStack) -> biConsumer.accept(itemStack, blockPos));
     }
 }
