@@ -15,6 +15,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -44,6 +45,13 @@ public class ZombificationMixin {
                     }
                 }
             }
+        } else if (entity instanceof Villager villager) {
+            if (!villager.hasEffect(ModEffects.INFECTED) || !villager.hasEffect(ModEffects.IMMUNE)) {
+                if (!villager.level().isClientSide()) {
+                    villager.addEffect(new MobEffectInstance(ModEffects.INFECTED, 12000, 0));
+                }
+            }
+
         }
     }
 

@@ -1,6 +1,5 @@
 package net.lunarluned.mortem.block.custom;
 
-import com.terraformersmc.modmenu.util.mod.Mod;
 import net.lunarluned.mortem.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
@@ -50,11 +49,13 @@ public class HardenedIronOre extends Block {
             int miningLevel = tool.getMaxDamage();
             if (miningLevel < 130) {
                 return Collections.emptyList();
+            } else if (miningLevel == 190) {
+                return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 2, 5)));
             }
-            else if (miningLevel > 131) {
+            else if (miningLevel > 200) {
                 return Collections.singletonList(new ItemStack(Items.RAW_IRON, 1));
             } else {
-                return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 1, 4)));
+                return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 1, 2)));
             }
         }
 

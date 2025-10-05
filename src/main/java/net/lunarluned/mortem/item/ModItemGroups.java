@@ -13,14 +13,10 @@ import net.minecraft.world.item.ItemStack;
 public class ModItemGroups {
     public static final CreativeModeTab MORTEM = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
             ResourceLocation.parse(Mortem.MOD_ID),
-            FabricItemGroup.builder().icon(() -> new ItemStack(ModBlocks.CRUMBLING_STONE))
+            FabricItemGroup.builder().icon(() -> new ItemStack(ModBlocks.HARDENED_IRON_ORE))
                     .title(Component.translatable("itemgroup.mortem.mortem"))
                     .displayItems((displayContext, entries) -> {
-                        entries.accept(ModBlocks.HARDENED_IRON_ORE);
-                        entries.accept(ModBlocks.CRUMBLING_STONE);
-                        entries.accept(ModBlocks.CRUMBLING_DEEPSLATE);
-                        entries.accept(ModBlocks.CRUMBLING_NETHERRACK);
-                        entries.accept(ModBlocks.CRUMBLING_END_STONE);
+                        entries.accept(ModBlocks.HARDENED_DEEPSLATE_IRON_ORE);
                     }).build());
 
     public static void registerItemGroups() {

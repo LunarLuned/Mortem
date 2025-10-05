@@ -15,28 +15,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 public class ModBlocks {
-    public static final Block CRUMBLING_STONE = registerBlock("crumbling_stone",
-            new CrumblingBlock(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "crumbling_stone")))
-                    .strength(1f).sound(SoundType.STONE)));
-
-    public static final Block CRUMBLING_DEEPSLATE = registerBlock("crumbling_deepslate",
-            new CrumblingBlock(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "crumbling_deepslate")))
-                    .strength(1f).sound(SoundType.DEEPSLATE)));
-
-    public static final Block CRUMBLING_NETHERRACK = registerBlock("crumbling_netherrack",
-            new CrumblingBlock(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "crumbling_netherrack")))
-                    .strength(1f).sound(SoundType.NETHERRACK)));
-
-    public static final Block CRUMBLING_END_STONE = registerBlock("crumbling_end_stone",
-            new CrumblingBlock(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "crumbling_end_stone")))
-                    .strength(1f).sound(SoundType.STONE)));
 
     public static final Block HARDENED_IRON_ORE = registerBlock("hardened_iron_ore",
-            new HardenedIronOre(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "hardened_iron_ore")))
+            new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "hardened_iron_ore")))
                     .strength(10f).sound(SoundType.STONE)));
 
     public static final Block HARDENED_DEEPSLATE_IRON_ORE = registerBlock("hardened_deepslate_iron_ore",
-            new HardenedIronOre(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "hardened_deepslate_iron_ore")))
+            new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "hardened_deepslate_iron_ore")))
                     .strength(16f).sound(SoundType.DEEPSLATE)));
 
     private static Block registerBlock(String name, Block block) {

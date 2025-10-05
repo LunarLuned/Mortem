@@ -23,10 +23,10 @@ public class TNTBlockMixin {
 
     @Inject(method = "useWithoutItem", at = @At("HEAD"), cancellable = true)
     private void mortem_tntUse(BlockState blockState, Level level, BlockPos pos, Player player, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
-        // Only act if this blocks *is* TNT
+        // Only act if this block *is* TNT
         if (!((Object) this instanceof TntBlock)) return;
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide() && !player.isCrouching()) {
             level.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
             PrimedTnt primed = new PrimedTnt(level, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, player);
             level.addFreshEntity(primed);
