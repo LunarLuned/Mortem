@@ -68,7 +68,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void mortem_tick(CallbackInfo ci) {
-        if ((this.hasEffect(MobEffects.WEAKNESS) && (this.hasEffect(MobEffects.REGENERATION)))) {
+        if ((this.hasEffect(MobEffects.WEAKNESS) && (this.hasEffect(MobEffects.REGENERATION)) && (this.hasEffect(ModEffects.INFECTED)))) {
             this.removeAllEffects();
             this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 6000, 0));
         }
