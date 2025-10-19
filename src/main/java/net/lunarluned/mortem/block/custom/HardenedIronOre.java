@@ -50,7 +50,7 @@ public class HardenedIronOre extends Block {
             if (miningLevel < 130) {
                 return Collections.emptyList();
             } else if (miningLevel == 190) {
-                return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 2, 5)));
+                return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 3, 6)));
             }
             else if (miningLevel > 200) {
                 return Collections.singletonList(new ItemStack(Items.RAW_IRON, 1));
