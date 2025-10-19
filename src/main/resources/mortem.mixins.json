@@ -15,10 +15,12 @@
     "entities.VillagerMixin",
     "entities.WardenMixin",
     "entities.WitherMixin",
-    "items.ArmorMaterialsMixin",
-    "items.ItemStackMixin"
+    "items.ArmorMaterialsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  },
+  "client": [
+    "client.MultiplayerToolBreakMixin"
+  ]
 }

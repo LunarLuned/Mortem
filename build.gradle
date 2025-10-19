@@ -22,12 +22,10 @@ repositories {
 
 loom {
 	accessWidenerPath = file{"src/main/resources/mortem.accesswidener"}
-	splitEnvironmentSourceSets()
 
 	mods {
 		"modid" {
 			sourceSet sourceSets.main
-			sourceSet sourceSets.client
 		}
 	}
 
