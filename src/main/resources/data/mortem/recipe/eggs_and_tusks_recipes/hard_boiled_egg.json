@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": "#minecraft:eggs",
+  "result": {
+    "id": "mortem:hard_boiled_egg"
+  },
+  "experience": 0.1,
+  "cookingtime": 100
+}
