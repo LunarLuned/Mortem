@@ -34,7 +34,7 @@ public abstract class LivingEntityNaturalRegenMixin {
                     "HEAD"
             ),
             cancellable = true)
-    private void redirectHealForNaturalRegen(float amount, CallbackInfo ci) {
+    private void mortem_redirectHealForNaturalRegen(float amount, CallbackInfo ci) {
         // Only adjust for server-side players
         if (this.asLivingEntity() instanceof Player player) {
             if (!player.hasEffect(MobEffects.REGENERATION)) {
@@ -62,10 +62,7 @@ public abstract class LivingEntityNaturalRegenMixin {
                     }
                 }
             } else {
-                float g = Objects.requireNonNull(this.asLivingEntity()).getHealth();
-                if (g > 0.0F) {
-                    Objects.requireNonNull(this.asLivingEntity()).setHealth(g + amount);
-                }
+                return;
             }
         }
     }

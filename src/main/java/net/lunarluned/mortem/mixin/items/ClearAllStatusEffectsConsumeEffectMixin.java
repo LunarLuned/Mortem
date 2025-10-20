@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ClearAllStatusEffectsConsumeEffectMixin {
 
     @Inject(at = @At("HEAD"), method = "apply", cancellable = true)
-    private void milkRework(Level level, ItemStack itemStack, LivingEntity livingEntity, CallbackInfoReturnable<Boolean> cir) {
+    private void mortem_milkRework(Level level, ItemStack itemStack, LivingEntity livingEntity, CallbackInfoReturnable<Boolean> cir) {
             cir.setReturnValue(true);
     }
 }

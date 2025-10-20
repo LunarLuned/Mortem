@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public interface ArmorMaterialsMixin {
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
-    private static void changeArmorValues(CallbackInfo ci) {
+    private static void mortem_changeArmorValues(CallbackInfo ci) {
         ArmorMaterials.DIAMOND.defense().put(ArmorType.LEGGINGS, 5);
         ArmorMaterials.DIAMOND.defense().put(ArmorType.CHESTPLATE, 7);
         ArmorMaterials.LEATHER.defense().put(ArmorType.LEGGINGS, 3);
