@@ -12,10 +12,12 @@
     "entities.EnderDragonMixin",
     "entities.EndermanMixin",
     "entities.IronGolemMixin",
+    "entities.LivingEntityNaturalRegenMixin",
     "entities.VillagerMixin",
     "entities.WardenMixin",
     "entities.WitherMixin",
-    "items.ArmorMaterialsMixin"
+    "items.ArmorMaterialsMixin",
+    "items.ClearAllStatusEffectsConsumeEffectMixin"
   ],
   "injectors": {
     "defaultRequire": 1

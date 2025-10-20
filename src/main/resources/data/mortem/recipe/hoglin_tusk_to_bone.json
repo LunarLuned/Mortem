@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "mortem:hoglin_tusk"
+  ],
+  "result": {
+    "id": "minecraft:bone",
+    "count": 3
+  }
+}

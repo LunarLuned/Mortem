@@ -73,6 +73,5 @@ public class HardenedIronOre extends Block {
         BlockEntity blockEntity = blockState.hasBlockEntity() ? level.getBlockEntity(blockPos) : null;
         LootParams.Builder builder = (new LootParams.Builder(level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(blockPos)).withParameter(LootContextParams.TOOL, ItemStack.EMPTY).withOptionalParameter(LootContextParams.BLOCK_ENTITY, blockEntity).withOptionalParameter(LootContextParams.THIS_ENTITY, explosion.getDirectSourceEntity());
         blockState.getDrops(builder).forEach((itemStack) -> biConsumer.accept(itemStack, blockPos));
-        blockState.getDrops(builder).forEach((itemStack) -> biConsumer.accept(itemStack, blockPos));
     }
 }

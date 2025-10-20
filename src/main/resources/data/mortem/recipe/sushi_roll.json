@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "SSS",
+    "#T#"
+  ],
+  "key": {
+    "#": "minecraft:dried_kelp",
+    "S": "minecraft:salmon",
+    "T": "mortem:scrambled_eggs"
+  },
+  "result": {
+    "id": "mortem:sushi_roll",
+    "count": 6
+  }
+}

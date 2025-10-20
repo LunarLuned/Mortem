@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:sugar",
+    "minecraft:resin_clump",
+    "minecraft:resin_clump",
+    "minecraft:sugar"
+  ],
+  "result": {
+    "id": "mortem:resin_candy",
+    "count": 1
+  }
+}

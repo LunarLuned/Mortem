@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B",
+    "G "
+  ],
+  "key": {
+    "B": "minecraft:warped_fungus",
+    "#": "minecraft:crimson_fungus",
+    "G": "mortem:hoglin_tusk"
+  },
+  "result": {
+    "id": "mortem:fungal_stew",
+    "count": 1
+  }
+}

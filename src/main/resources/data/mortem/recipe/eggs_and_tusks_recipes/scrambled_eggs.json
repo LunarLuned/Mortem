@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": "mortem:egg_bowl",
+  "result": {
+    "id": "mortem:scrambled_eggs"
+  },
+  "experience": 0.1,
+  "cookingtime": 100
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B",
+    "G "
+  ],
+  "key": {
+    "#": "minecraft:red_mushroom",
+    "B": "minecraft:brown_mushroom",
+    "G": "mortem:hoglin_tusk"
+  },
+  "result": {
+    "id": "mortem:mushroom_stew_tusk",
+    "count": 1
+  }
+}

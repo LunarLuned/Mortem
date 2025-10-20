@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:water_bucket",
+    "minecraft:spider_eye",
+    "minecraft:spider_eye",
+    "minecraft:cocoa_beans",
+    "minecraft:sugar",
+    "minecraft:wither_rose",
+    "minecraft:turtle_scute",
+    "minecraft:wither_rose",
+    "minecraft:wither_rose"
+  ],
+  "result": {
+    "id": "mortem:drug",
+    "count": 4
+  }
+}

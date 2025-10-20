@@ -12,7 +12,22 @@
   "block.mortem.hardened_deepslate_iron_ore": "Hardened Deepslate Iron Ore",
   "block.mortem.hardened_iron_ore": "Hardened Iron Ore",
 
-  "item.mortem.lesser_health_potion": "Lesser Health Potion",
-  "item.mortem.health_potion": "Health Potion",
-  "item.mortem.greater_health_potion": "Greater Health Potion"
+  "item.mortem.hoglin_tusk": "Hoglin Tusk",
+
+  "item.mortem.egg_bowl": "Bowl of Uncooked Eggs",
+  "item.mortem.egg_tusk": "Tusk of Uncooked Eggs",
+
+  "item.mortem.drug": "Drug",
+  "item.mortem.resin_candy": "Resin Candy",
+
+  "item.mortem.hard_boiled_egg": "Hard Boiled Egg",
+  "item.mortem.scrambled_eggs": "Bowl of Scrambled Eggs",
+  "item.mortem.sushi_roll": "Salmon, Egg & Kelp Sushi Roll",
+
+
+  "item.mortem.crimson_stew": "Crimson Stew",
+  "item.mortem.warped_stew": "Warped Stew",
+  "item.mortem.fungal_stew": "Fungal Stew",
+  "item.mortem.mushroom_stew_tusk": "Tusk of Mushroom Stew",
+  "item.mortem.scrambled_eggs_tusk": "Tusk of Scrambled Eggs"
 }

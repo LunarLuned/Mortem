@@ -17,13 +17,24 @@ public class MortemCreativeModeTab {
 
         // Natural Blocks Tab
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
-            entries.addBefore(Blocks.IRON_ORE, ModBlocks.HARDENED_IRON_ORE);
+            entries.addBefore(Blocks.IRON_ORE, ModBlocks.HARDENED_IRON_ORE, ModBlocks.HARDENED_DEEPSLATE_IRON_ORE);
         });
 
-        // Combat Tab
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(entries -> {
-            entries.addBefore(Items.HONEY_BOTTLE, ModItems.HEALING_VIAL);
+        // Food and Drinks Tab
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
+            entries.addAfter(Items.COOKIE, ModItems.RESIN_CANDY);
+            entries.addAfter(Items.SPIDER_EYE, ModItems.DRUG);
+            entries.addBefore(Items.MUSHROOM_STEW, ModItems.CRIMSON_STEW, ModItems.WARPED_STEW, ModItems.FUNGAL_STEW, ModItems.SCRAMBLED_EGGS_TUSK, ModItems.MUSHROOM_STEW_TUSK);
+            entries.addBefore(Items.CARROT, ModItems.HARD_BOILED_EGG, ModItems.SCRAMBLED_EGGS);
+            entries.addAfter(Items.DRIED_KELP, ModItems.SUSHI_ROLL);
         });
+
+        // Ingredients Tab
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {
+            entries.addAfter(Items.EGG, ModItems.EGG_BOWL, ModItems.EGG_TUSK);
+            entries.addAfter(Items.BOWL, ModItems.HOGLIN_TUSK);
+        });
+
     }
 
 }
