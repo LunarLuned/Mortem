@@ -11,14 +11,14 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
+                "max": 20.0,
+                "min": 12.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:copper",
-          "weight": 5
+          "name": "minecraft:copper_nugget",
+          "weight": 20
         },
         {
           "type": "minecraft:item",
@@ -27,8 +27,8 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 5.0,
-                "min": 1.0
+                "max": 8.0,
+                "min": 3.0
               },
               "function": "minecraft:set_count"
             }
@@ -43,13 +43,13 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 2.0
+                "max": 13.0,
+                "min": 8.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:gold_ingot",
+          "name": "minecraft:gold_nugget",
           "weight": 15
         },
         {
@@ -59,8 +59,8 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 3.0
+                "max": 20.0,
+                "min": 9.0
               },
               "function": "minecraft:set_count"
             }
@@ -114,7 +114,7 @@
             }
           ],
           "name": "minecraft:rotten_flesh",
-          "weight": 25
+          "weight": 15
         },
         {
           "type": "minecraft:item",
@@ -146,22 +146,6 @@
           "type": "minecraft:item",
           "name": "minecraft:golden_horse_armor",
           "weight": 10
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:diamond_horse_armor",
-          "weight": 5
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:enchant_randomly",
-              "options": "#minecraft:on_random_loot"
-            }
-          ],
-          "name": "minecraft:book",
-          "weight": 20
         },
         {
           "type": "minecraft:item",
