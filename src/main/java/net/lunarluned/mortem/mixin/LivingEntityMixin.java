@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -62,6 +63,32 @@ public abstract class LivingEntityMixin extends Entity {
                     cir.setReturnValue(false);
                 }
             }
+        }
+    }
+
+    @Unique
+    private int fireTickCounter = 0;
+
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void mortem_applyWeaknessWhenOnFire(CallbackInfo ci) {
+        LivingEntity self = (LivingEntity) (Object) this;
+
+        if (self.isOnFire()) {
+            fireTickCounter++;
+            if (fireTickCounter > 60) {
+                    self.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 100, 0, false, true));
+                }
+            if (fireTickCounter > 200) {
+                    self.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 100, 1, false, true));
+                }
+            if (fireTickCounter > 400) {
+                    self.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 100, 2, false, true));
+                }
+        } else {
+            if (fireTickCounter > 60) {
+                self.removeEffect(MobEffects.WEAKNESS);
+            }
+            fireTickCounter = 0;
         }
     }
 
