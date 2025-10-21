@@ -59,13 +59,13 @@ public class ModConsumables {
 
         SWEET_POTATO = defaultFood().consumeSeconds(1F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.ABSORPTION, 500, 0), 0.9F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HASTE, 500, 0), 0.9F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SATURATION, 20, 0), 0.25F)).build();
         RAW_BACON = defaultFood().consumeSeconds(.75F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NAUSEA, 100, 1), 0.7F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HUNGER, 100, 1), 0.7f)).build();
-        COOKED_BACON = defaultDrink().consumeSeconds(0.5F).build();
+        COOKED_BACON = defaultFood().consumeSeconds(0.5F).build();
         BEEF_PATTY = defaultFood().consumeSeconds(.95F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NAUSEA, 100, 1), 0.7F)).build();
-        COOKED_BEEF_PATTY = defaultDrink().consumeSeconds(0.75F).build();
-        BURGER = defaultDrink().consumeSeconds(1.35F).build();
-        BACON_BURGER = defaultDrink().consumeSeconds(1.45F).build();
-        TOAST = defaultDrink().consumeSeconds(0.25f).build();
-        TOASTED_BREAD = defaultDrink().consumeSeconds(1.0F).build();
+        COOKED_BEEF_PATTY = defaultFood().consumeSeconds(0.75F).build();
+        BURGER = defaultFood().consumeSeconds(2.35F).build();
+        BACON_BURGER = defaultFood().consumeSeconds(2.45F).build();
+        TOAST = defaultFood().consumeSeconds(0.25f).build();
+        TOASTED_BREAD = defaultFood().consumeSeconds(1.0F).build();
 
 
         /*OMINOUS_BOTTLE = defaultDrink().soundAfterConsume(SoundEvents.OMINOUS_BOTTLE_DISPOSE).build();

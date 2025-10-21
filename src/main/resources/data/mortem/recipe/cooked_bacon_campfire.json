@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": "mortem:raw_bacon",
+  "result": {
+    "id": "mortem:cooked_bacon"
+  },
+  "experience": 0.1,
+  "cookingtime": 80
+}
