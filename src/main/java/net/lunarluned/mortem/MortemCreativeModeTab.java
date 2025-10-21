@@ -27,6 +27,12 @@ public class MortemCreativeModeTab {
             entries.addBefore(Items.MUSHROOM_STEW, ModItems.CRIMSON_STEW, ModItems.WARPED_STEW, ModItems.FUNGAL_STEW, ModItems.SCRAMBLED_EGGS_TUSK, ModItems.MUSHROOM_STEW_TUSK);
             entries.addBefore(Items.CARROT, ModItems.HARD_BOILED_EGG, ModItems.SCRAMBLED_EGGS);
             entries.addAfter(Items.DRIED_KELP, ModItems.SUSHI_ROLL);
+            entries.addAfter(Items.POTATO, ModItems.SWEET_POTATO);
+            entries.addAfter(Items.PORKCHOP, ModItems.RAW_BACON);
+            entries.addAfter(Items.COOKED_PORKCHOP, ModItems.COOKED_BACON);
+            entries.addAfter(Items.BEEF, ModItems.BEEF_PATTY);
+            entries.addAfter(Items.COOKED_BEEF, ModItems.COOKED_BEEF_PATTY);
+            entries.addAfter(Items.BREAD, ModItems.TOASTED_BREAD, ModItems.TOAST, ModItems.BURGER, ModItems.BACON_BURGER);
         });
 
         // Ingredients Tab

@@ -70,7 +70,41 @@ public class ModItems {
             new Item(new Item.Properties().usingConvertsTo(HOGLIN_TUSK).food(ModFoods.SCRAMBLED_EGGS_TUSK, ModConsumables.SCRAMBLED_EGGS_TUSK)
                     .useItemDescriptionPrefix().stacksTo(16).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:scrambled_eggs_tusk")))));
 
+    public static final Item SWEET_POTATO = registerItem("sweet_potato",
+            new Item(new Item.Properties().food(ModFoods.SWEET_POTATO, ModConsumables.SWEET_POTATO)
+                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:sweet_potato")))));
 
+    public static final Item RAW_BACON = registerItem("raw_bacon",
+            new Item(new Item.Properties().food(ModFoods.RAW_BACON, ModConsumables.RAW_BACON)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:raw_bacon")))));
+
+    public static final Item COOKED_BACON = registerItem("cooked_bacon",
+            new Item(new Item.Properties().food(ModFoods.COOKED_BACON, ModConsumables.COOKED_BACON)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cooked_bacon")))));
+
+    public static final Item BEEF_PATTY = registerItem("beef_patty",
+            new Item(new Item.Properties().food(ModFoods.BEEF_PATTY, ModConsumables.BEEF_PATTY)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:beef_patty")))));
+
+    public static final Item COOKED_BEEF_PATTY = registerItem("cooked_beef_patty",
+            new Item(new Item.Properties().food(ModFoods.COOKED_BEEF_PATTY, ModConsumables.COOKED_BEEF_PATTY)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cooked_beef_patty")))));
+
+    public static final Item BURGER = registerItem("burger",
+            new Item(new Item.Properties().food(ModFoods.BURGER, ModConsumables.BURGER)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:burger")))));
+
+    public static final Item BACON_BURGER = registerItem("bacon_burger",
+            new Item(new Item.Properties().food(ModFoods.BACON_BURGER, ModConsumables.BACON_BURGER)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:bacon_burger")))));
+
+    public static final Item TOAST = registerItem("toast",
+            new Item(new Item.Properties().food(ModFoods.TOAST, ModConsumables.TOAST)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:toast")))));
+
+    public static final Item TOASTED_BREAD = registerItem("toasted_bread",
+            new Item(new Item.Properties().food(ModFoods.TOASTED_BREAD, ModConsumables.TOASTED_BREAD)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:toasted_bread")))));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, ResourceLocation.tryBuild(Mortem.MOD_ID, name), item);

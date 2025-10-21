@@ -24,6 +24,16 @@ public class ModConsumables {
 
     public static final Consumable SUSHI_ROLL;
 
+    public static final Consumable SWEET_POTATO;
+    public static final Consumable RAW_BACON;
+    public static final Consumable COOKED_BACON;
+    public static final Consumable BEEF_PATTY;
+    public static final Consumable COOKED_BEEF_PATTY;
+    public static final Consumable BURGER;
+    public static final Consumable BACON_BURGER;
+    public static final Consumable TOAST;
+    public static final Consumable TOASTED_BREAD;
+
     public ModConsumables() {
     }
 
@@ -46,6 +56,17 @@ public class ModConsumables {
         SCRAMBLED_EGGS_TUSK = defaultDrink().consumeSeconds(2F).build();
 
         SUSHI_ROLL = defaultDrink().consumeSeconds(1.15F).build();
+
+        SWEET_POTATO = defaultFood().consumeSeconds(1F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.ABSORPTION, 500, 0), 0.9F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HASTE, 500, 0), 0.9F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SATURATION, 20, 0), 0.25F)).build();
+        RAW_BACON = defaultFood().consumeSeconds(.75F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NAUSEA, 100, 1), 0.7F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HUNGER, 100, 1), 0.7f)).build();
+        COOKED_BACON = defaultDrink().consumeSeconds(0.5F).build();
+        BEEF_PATTY = defaultFood().consumeSeconds(.95F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NAUSEA, 100, 1), 0.7F)).build();
+        COOKED_BEEF_PATTY = defaultDrink().consumeSeconds(0.75F).build();
+        BURGER = defaultDrink().consumeSeconds(1.35F).build();
+        BACON_BURGER = defaultDrink().consumeSeconds(1.45F).build();
+        TOAST = defaultDrink().consumeSeconds(0.25f).build();
+        TOASTED_BREAD = defaultDrink().consumeSeconds(1.0F).build();
+
 
         /*OMINOUS_BOTTLE = defaultDrink().soundAfterConsume(SoundEvents.OMINOUS_BOTTLE_DISPOSE).build();
         DRIED_KELP = defaultFood().consumeSeconds(0.8F).build();

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": "minecraft:bread",
+  "result": {
+    "id": "mortem:toasted_bread"
+  },
+  "experience": 0.1,
+  "cookingtime": 150
+}

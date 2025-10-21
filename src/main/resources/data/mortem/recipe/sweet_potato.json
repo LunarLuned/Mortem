@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#H#",
+    "BBB",
+    "#H#"
+  ],
+  "key": {
+    "#": "minecraft:sugar",
+    "H": "minecraft:honey_bottle",
+    "B": "minecraft:baked_potato"
+  },
+  "result": {
+    "id": "mortem:sweet_potato",
+    "count": 3
+  }
+}
