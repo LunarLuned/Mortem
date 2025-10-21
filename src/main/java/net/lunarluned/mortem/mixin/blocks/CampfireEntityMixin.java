@@ -43,7 +43,7 @@ public abstract class CampfireEntityMixin {
             List<Player> nearbyEntities = serverLevel.getEntitiesOfClass(Player.class, aABB);
 
             for (Player player : nearbyEntities) {
-                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0));
+                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0, true, false));
             }
         }
 
