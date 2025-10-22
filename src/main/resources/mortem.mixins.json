@@ -3,12 +3,12 @@
   "package": "net.lunarluned.mortem.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "blocks.CampfireEntityMixin",
-    "blocks.CobwebMixin",
     "FoodCancelMixin",
     "LivingEntityMixin",
-    "blocks.TNTBlockMixin",
     "ZombificationMixin",
+    "blocks.CampfireEntityMixin",
+    "blocks.CobwebMixin",
+    "blocks.TNTBlockMixin",
     "entities.EndCrystalMixin",
     "entities.EnderDragonMixin",
     "entities.EndermanMixin",
@@ -18,7 +18,8 @@
     "entities.WardenMixin",
     "entities.WitherMixin",
     "items.ArmorMaterialsMixin",
-    "items.ClearAllStatusEffectsConsumeEffectMixin"
+    "items.ClearAllStatusEffectsConsumeEffectMixin",
+    "items.ToolMaterialMixin"
   ],
   "injectors": {
     "defaultRequire": 1
