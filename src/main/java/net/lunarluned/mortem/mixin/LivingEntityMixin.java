@@ -28,6 +28,8 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Objects;
+
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
 
@@ -43,10 +45,12 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Shadow public abstract boolean addEffect(MobEffectInstance mobEffectInstance);
 
+    @Shadow public abstract boolean removeEffect(Holder<MobEffect> holder);
+
     @ModifyVariable(method = "hurtServer", at = @At("HEAD"), argsOnly = true)
     private float mortem_multiplyDamageForWeakness(float amount) {
         if (this.hasEffect(MobEffects.WEAKNESS)) {
-            return amount + (amount * (0.45f * (this.getEffect(MobEffects.WEAKNESS).getAmplifier() + 1)));
+            return amount + (amount * (0.45f * (Objects.requireNonNull(this.getEffect(MobEffects.WEAKNESS)).getAmplifier() + 1)));
         }
         return amount;
     }
@@ -96,12 +100,18 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
-
     @Inject(method = "tick", at = @At("HEAD"))
     public void mortem_tick(CallbackInfo ci) {
         if ((this.hasEffect(MobEffects.WEAKNESS) && (this.hasEffect(MobEffects.REGENERATION)) && (this.hasEffect(ModEffects.INFECTED)))) {
             this.removeAllEffects();
             this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 6000, 0));
+        }
+
+        if ((this.hasEffect(MobEffects.REGENERATION)) && (Objects.requireNonNull(this.getEffect(MobEffects.REGENERATION)).getAmplifier() >= 1 && (this.hasEffect(ModEffects.STAGNATED)))) {
+            int regenDuration = Objects.requireNonNull(this.getEffect(MobEffects.REGENERATION)).getDuration();
+            this.removeEffect(ModEffects.STAGNATED);
+            this.removeEffect(MobEffects.REGENERATION);
+            this.addEffect(new MobEffectInstance(MobEffects.REGENERATION, regenDuration /2, 1));
         }
     }
 
