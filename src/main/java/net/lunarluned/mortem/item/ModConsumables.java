@@ -55,7 +55,7 @@ public class ModConsumables {
         MUSHROOM_STEW_TUSK = defaultDrink().consumeSeconds(1F).build();
         SCRAMBLED_EGGS_TUSK = defaultDrink().consumeSeconds(2F).build();
 
-        SUSHI_ROLL = defaultDrink().consumeSeconds(1.15F).build();
+        SUSHI_ROLL = defaultFood().consumeSeconds(1.15F).build();
 
         SWEET_POTATO = defaultFood().consumeSeconds(1F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.ABSORPTION, 500, 0), 0.9F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HASTE, 500, 0), 0.9F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SATURATION, 20, 0), 0.25F)).build();
         RAW_BACON = defaultFood().consumeSeconds(.75F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NAUSEA, 100, 1), 0.7F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HUNGER, 100, 1), 0.7f)).build();
