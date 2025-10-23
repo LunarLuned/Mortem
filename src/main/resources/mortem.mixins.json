@@ -20,6 +20,7 @@
     "entities.WardenMixin",
     "entities.WitherMixin",
     "items.ArmorMaterialsMixin",
+    "items.BowMixin",
     "items.ClearAllStatusEffectsConsumeEffectMixin",
     "items.ToolMaterialMixin"
   ],

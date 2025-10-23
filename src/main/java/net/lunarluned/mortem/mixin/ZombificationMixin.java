@@ -1,25 +1,17 @@
 package net.lunarluned.mortem.mixin;
 
-import net.lunarluned.mortem.effect.InfectedEffect;
 import net.lunarluned.mortem.effect.ModEffects;
-import net.minecraft.ChatFormatting;
-import net.minecraft.core.Holder;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -40,7 +32,6 @@ public class ZombificationMixin {
                     } else {
                         if (!player.level().isClientSide()) {
                             player.addEffect(new MobEffectInstance(ModEffects.INFECTED, 12000, 0));
-                            player.displayClientMessage(Component.translatable("mortem.infected_text").withStyle(ChatFormatting.DARK_RED), false);
                         }
                     }
                 }
