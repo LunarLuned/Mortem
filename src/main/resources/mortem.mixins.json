@@ -11,6 +11,7 @@
     "blocks.CobwebMixin",
     "blocks.TNTBlockMixin",
     "entities.EndCrystalMixin",
+    "entities.EndCrystalMobMixin",
     "entities.EnderDragonMixin",
     "entities.EndermanMixin",
     "entities.IronGolemMixin",
