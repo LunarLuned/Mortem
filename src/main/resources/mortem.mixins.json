@@ -6,6 +6,7 @@
     "FoodCancelMixin",
     "LivingEntityMixin",
     "ZombificationMixin",
+    "blocks.AnvilMixin",
     "blocks.CampfireEntityMixin",
     "blocks.CobwebMixin",
     "blocks.TNTBlockMixin",
