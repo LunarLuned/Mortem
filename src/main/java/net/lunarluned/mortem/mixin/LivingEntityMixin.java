@@ -100,8 +100,21 @@ public abstract class LivingEntityMixin extends Entity {
         }
     }
 
+    @Inject(method = "aiStep", at = @At("HEAD"))
+    public void mortem_infectDamageTake(CallbackInfo ci) {
+        Level var19 = this.level();
+        if (var19 instanceof ServerLevel serverLevel) {
+        if (this.hasEffect(ModEffects.INFECTED) && Objects.requireNonNull(this.getEffect(ModEffects.INFECTED)).endsWithin(600) && !this.isInvulnerable()) {
+
+            this.hurtServer(serverLevel, this.damageSources().starve(), 1F);
+
+        }
+        }
+
+    }
+
     @Inject(method = "tick", at = @At("HEAD"))
-    public void mortem_tick(CallbackInfo ci) {
+    public void mortem_cancelOutEffects(CallbackInfo ci) {
         if ((this.hasEffect(MobEffects.WEAKNESS) && (this.hasEffect(MobEffects.REGENERATION)) && (this.hasEffect(ModEffects.INFECTED)))) {
             this.removeAllEffects();
             this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 6000, 0));
