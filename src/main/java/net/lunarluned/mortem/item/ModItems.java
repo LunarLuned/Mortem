@@ -111,6 +111,6 @@ public class ModItems {
     }
 
     public static void registerModItems() {
-        Mortem.LOGGER.info("Registering Mod Items for" + Mortem.MOD_ID);
+        Mortem.LOGGER.info("Registering Mod Items for " + Mortem.MOD_ID);
     }
 }

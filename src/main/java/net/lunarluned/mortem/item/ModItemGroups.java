@@ -38,8 +38,8 @@ public class ModItemGroups {
                         entries.accept(ModItems.COOKED_BEEF_PATTY);
                         entries.accept(ModItems.BURGER);
                         entries.accept(ModItems.BACON_BURGER);
-                        entries.accept(ModItems.TOAST);
                         entries.accept(ModItems.TOASTED_BREAD);
+                        entries.accept(ModItems.TOAST);
 
                         entries.accept(ModItems.CRIMSON_STEW);
                         entries.accept(ModItems.WARPED_STEW);
