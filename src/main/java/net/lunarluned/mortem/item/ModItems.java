@@ -1,13 +1,11 @@
 package net.lunarluned.mortem.item;
 
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.lunarluned.mortem.Mortem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
