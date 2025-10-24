@@ -2,6 +2,8 @@ package net.lunarluned.mortem.mixin.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -14,6 +16,7 @@ import net.minecraft.world.item.crafting.CampfireCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -32,6 +35,16 @@ public abstract class CampfireEntityMixin {
     private static void mortem_animateTick(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState, CampfireBlockEntity campfireBlockEntity, RecipeManager.CachedCheck<SingleRecipeInput, CampfireCookingRecipe> cachedCheck, CallbackInfo ci) {
         if (!serverLevel.isClientSide()) {
 
+            int randomValue = Mth.nextInt(RandomSource.create(), 1, 100);
+
+            if (blockState.getValue(CampfireBlock.LIT)) {
+                if (serverLevel.isRainingAt(blockPos.above()) && randomValue < 20) {
+                    CampfireBlock.dowse(null, serverLevel, blockPos, blockState);
+                    serverLevel.playSound(null, blockPos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    serverLevel.setBlock(blockPos, blockState.setValue(CampfireBlock.LIT, false), 3);
+                }
+            }
+
             int m;
             int l;
             int k = blockPos.getX();
@@ -46,6 +59,5 @@ public abstract class CampfireEntityMixin {
                 player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0, true, false));
             }
         }
-
     }
 }
