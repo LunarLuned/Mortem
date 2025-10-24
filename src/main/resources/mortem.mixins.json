@@ -19,6 +19,7 @@
     "entities.VillagerMixin",
     "entities.WardenMixin",
     "entities.WitherMixin",
+    "items.AbstractArrowMixin",
     "items.ArmorMaterialsMixin",
     "items.BowMixin",
     "items.ClearAllStatusEffectsConsumeEffectMixin",
