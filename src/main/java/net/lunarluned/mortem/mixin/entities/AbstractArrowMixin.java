@@ -11,6 +11,8 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.BaseFireBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
@@ -67,9 +69,12 @@ public abstract class AbstractArrowMixin extends Projectile {
 
     @Unique
     public void startFire(BlockPos firePosition, Level level) {
-                level.destroyBlock(firePosition, true);
-                level.setBlock(firePosition, BaseFireBlock.getState(level, firePosition), 11);
+        Block blockInLevel = level.getBlockState(firePosition).getBlock();
+        if (!blockInLevel.equals(Blocks.WATER) && !blockInLevel.equals(Blocks.LAVA)) {
+            level.destroyBlock(firePosition, true);
+            level.setBlock(firePosition, BaseFireBlock.getState(level, firePosition), 11);
         }
+    }
 
     @Inject(method = "tick", at = @At("TAIL"))
     public void tick(CallbackInfo ci) {
