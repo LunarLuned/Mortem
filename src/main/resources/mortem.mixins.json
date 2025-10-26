@@ -21,6 +21,7 @@
     "entities.WitherMixin",
     "entities.ZombificationMixin",
     "items.ArmorMaterialsMixin",
+    "items.BlocksAttacksMixin",
     "items.BowMixin",
     "items.ClearAllStatusEffectsConsumeEffectMixin",
     "items.FoodCancelMixin",

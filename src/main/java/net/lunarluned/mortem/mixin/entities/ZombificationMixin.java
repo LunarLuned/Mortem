@@ -26,7 +26,7 @@ public class ZombificationMixin {
             int randomValue = Mth.nextInt(RandomSource.create(), 1, 10);
             int effectiveInfectChance = getInfectChance(player);
             if (randomValue < effectiveInfectChance) {
-                if (!player.hasEffect(ModEffects.INFECTED)) {
+                if (!player.hasEffect(ModEffects.INFECTED) && !player.isBlocking()) {
                     if (player.hasEffect(ModEffects.IMMUNE)) {
                         player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.HOSTILE, 1.0F, 3);
                     } else {
