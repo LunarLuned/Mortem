@@ -1,4 +1,4 @@
-package net.lunarluned.mortem.mixin;
+package net.lunarluned.mortem.mixin.entities;
 
 import net.lunarluned.mortem.effect.ModEffects;
 import net.minecraft.server.level.ServerLevel;

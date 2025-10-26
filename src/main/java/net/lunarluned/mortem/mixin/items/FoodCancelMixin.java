@@ -1,4 +1,4 @@
-package net.lunarluned.mortem.mixin;
+package net.lunarluned.mortem.mixin.items;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
