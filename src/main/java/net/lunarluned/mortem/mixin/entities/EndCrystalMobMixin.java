@@ -26,11 +26,16 @@ public abstract class EndCrystalMobMixin extends Entity {
 
             ItemStack mainHand = ((Player)damageSource.getEntity()).getMainHandItem();
 
-            if (mainHand.is(ItemTags.PICKAXES)) {
-                DamageSource damageSource2 = damageSource.getEntity() != null ? this.damageSources().explosion(this, damageSource.getEntity()) : null;
-                serverLevel.explode(this, damageSource2, null, this.getX(), this.getY(), this.getZ(), 6.0F, false, Level.ExplosionInteraction.BLOCK);
+            if (!((Player)damageSource.getEntity()).isCreative()) {
+                if (mainHand.is(ItemTags.PICKAXES)) {
+                    DamageSource damageSource2 = damageSource.getEntity() != null ? this.damageSources().explosion(this, damageSource.getEntity()) : null;
+                    serverLevel.explode(this, this.getX(), this.getY(), this.getZ(), 1, Level.ExplosionInteraction.MOB);
+                } else {
+                    cir.setReturnValue(false);
+                }
             } else {
-                cir.setReturnValue(false);
+                DamageSource damageSource2 = damageSource.getEntity() != null ? this.damageSources().explosion(this, damageSource.getEntity()) : null;
+                serverLevel.explode(this, this.getX(), this.getY(), this.getZ(), 1, Level.ExplosionInteraction.MOB);
             }
         }
     }
