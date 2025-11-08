@@ -129,4 +129,32 @@ public abstract class LivingEntityMixin extends Entity {
     }
 
 
+
+    @Unique
+    private int fireDamageCooldown = 0;
+
+    @Inject(method = "hurtServer", at = @At("HEAD"), cancellable = true)
+    private void mortem_preventFireIFrames(ServerLevel serverLevel, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
+        LivingEntity self = (LivingEntity) (Object) this;
+
+        // Only modify fire damage
+        if (damageSource == damageSources().onFire() || damageSource == damageSources().lava()) {
+
+            // Handle separate cooldown
+            if (fireDamageCooldown > 0) {
+                cir.setReturnValue(false); // cancel damage this tick
+                return;
+            }
+
+            fireDamageCooldown = 20; // e.g., 1 second cooldown
+            self.invulnerableTime = 0; // ignore normal i-frames
+        }
+    }
+
+    // Tick down the cooldown every tick
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void mortem_tickFireCooldown(CallbackInfo ci) {
+        if (fireDamageCooldown > 0) fireDamageCooldown--;
+    }
+
     }
