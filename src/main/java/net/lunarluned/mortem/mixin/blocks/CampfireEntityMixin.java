@@ -16,6 +16,7 @@ import net.minecraft.world.item.crafting.CampfireCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -56,8 +57,13 @@ public abstract class CampfireEntityMixin {
             List<Player> nearbyEntities = serverLevel.getEntitiesOfClass(Player.class, aABB);
 
             for (Player player : nearbyEntities) {
-                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0, true, false));
+                int randomValue2 = Mth.nextInt(RandomSource.create(), 1, 10);
+                if ((randomValue2 == 1) && player.getFoodData().getFoodLevel() >= 18) {
+                player.heal(1);
+                }
             }
         }
     }
+
+
 }
