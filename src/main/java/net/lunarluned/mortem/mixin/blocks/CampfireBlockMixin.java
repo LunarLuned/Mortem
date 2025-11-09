@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -38,6 +39,15 @@ public class CampfireBlockMixin {
                 }
             }
             cir.setReturnValue(InteractionResult.SUCCESS);
+        }
+    }
+
+    @Inject(at = @At("RETURN"), method = "getStateForPlacement", cancellable = true)
+    protected void getStateForPlacementProxy(BlockPlaceContext blockPlaceContext, CallbackInfoReturnable<BlockState> cir) {
+        if (cir.getReturnValue() != null) {
+            cir.setReturnValue(cir.getReturnValue()
+                    .setValue(CampfireBlock.LIT, false)
+            );
         }
     }
 
