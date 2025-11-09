@@ -1,5 +1,7 @@
 package net.lunarluned.mortem.mixin.blocks;
 
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.lunarluned.mortem.MortemTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -8,16 +10,15 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CampfireCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CampfireBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -30,7 +31,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 
 @Mixin(CampfireBlockEntity.class)
-public abstract class CampfireEntityMixin {
+public abstract class CampfireEntityMixin extends BlockEntity {
+
+    public CampfireEntityMixin(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
+        super(blockEntityType, blockPos, blockState);
+    }
+
 
     @Inject(method = "cookTick", at = @At("HEAD"))
     private static void mortem_animateTick(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState, CampfireBlockEntity campfireBlockEntity, RecipeManager.CachedCheck<SingleRecipeInput, CampfireCookingRecipe> cachedCheck, CallbackInfo ci) {
@@ -57,12 +63,49 @@ public abstract class CampfireEntityMixin {
             List<Player> nearbyEntities = serverLevel.getEntitiesOfClass(Player.class, aABB);
 
             for (Player player : nearbyEntities) {
-                int randomValue2 = Mth.nextInt(RandomSource.create(), 1, 10);
-                if ((randomValue2 == 1) && player.getFoodData().getFoodLevel() >= 18) {
-                player.heal(1);
+                if (!player.hasEffect(MobEffects.REGENERATION)) {
+                    player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0, true, true));
                 }
             }
         }
+    }
+    @Inject(method = "cookTick", at = @At("TAIL"))
+    private static void onTick(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState, CampfireBlockEntity campfireBlockEntity, RecipeManager.CachedCheck<SingleRecipeInput, CampfireCookingRecipe> cachedCheck, CallbackInfo ci) {
+
+        RandomSource random = serverLevel.getRandom();
+        if (random.nextInt(100) >= 5) return;
+
+        // Try to ignite one nearby position
+        attemptUnderneathBlockSpread(serverLevel, blockPos, random);
+    }
+
+    @Unique
+    private static void attemptUnderneathBlockSpread(ServerLevel level, BlockPos blockPos, RandomSource random) {
+        int dx = random.nextInt(5) - 3;
+        int dz = random.nextInt(5) - 3;
+        int dy = random.nextInt(5) - 3;
+
+        BlockPos target = blockPos.offset(dx, dy, dz);
+
+        if (!level.getBlockState(target).isAir()) return;
+
+        BlockPos below = target.below();
+        BlockState belowState = level.getBlockState(below);
+        Block belowBlock = belowState.getBlock();
+
+        try {
+            FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
+            if (registry.get(belowBlock) != null && belowState.is(MortemTags.FLAMMABLE_BLOCKS)) {
+                level.setBlock(target, Blocks.FIRE.defaultBlockState(), 3);
+                return;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+/*
+
+
+ */
     }
 
 
