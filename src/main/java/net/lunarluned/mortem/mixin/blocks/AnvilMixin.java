@@ -1,79 +1,64 @@
 package net.lunarluned.mortem.mixin.blocks;
 
-
-import net.minecraft.client.gui.screens.inventory.AnvilScreen;
-import net.minecraft.client.gui.screens.inventory.ItemCombinerScreen;
-import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Inventory;
+import com.mojang.serialization.MapCodec;
+import net.lunarluned.mortem.MortemTags;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(AnvilMenu.class)
-public abstract class AnvilMixin extends ItemCombinerMenu {
+@Mixin(AnvilBlock.class)
+public class AnvilMixin extends Block {
+    @Shadow @Final public static EnumProperty<Direction> FACING;
 
-
-    @Shadow
-    @Final
-    private DataSlot cost;
-
-    public AnvilMixin(@Nullable MenuType<?> menuType, int i, Inventory inventory, ContainerLevelAccess containerLevelAccess, ItemCombinerMenuSlotDefinition itemCombinerMenuSlotDefinition) {
-        super(menuType, i, inventory, containerLevelAccess, itemCombinerMenuSlotDefinition);
+    public AnvilMixin(Properties properties) {
+        super(properties);
     }
 
-    @Inject(method = "mayPickup", at = @At("HEAD"), cancellable = true)
-    private void mortem_mayPickup(Player player, boolean present, CallbackInfoReturnable<Boolean> cir) {
-        ItemStack left = this.inputSlots.getItem(0);
-        ItemStack right = this.inputSlots.getItem(1);
 
-        boolean hasBook = right.getItem() == Items.ENCHANTED_BOOK;
-        boolean enchantedLeft = !EnchantmentHelper.getEnchantmentsForCrafting(left).isEmpty();
-        boolean enchantedRight = !EnchantmentHelper.getEnchantmentsForCrafting(right).isEmpty();
-        if (!hasBook && !enchantedLeft && !enchantedRight) {
-            cost.set(0);
-            cir.setReturnValue(true);
-        } else {
-            cir.setReturnValue((player.hasInfiniteMaterials() || player.experienceLevel >= this.cost.get()) && this.cost.get() > 0);
-        }
-    }
-
-    @Inject(method = "createResult", at = @At("TAIL"), cancellable = true)
-    private void mortem_createResult(CallbackInfo ci) {
-        ItemStack left = this.inputSlots.getItem(0);
-        ItemStack right = this.inputSlots.getItem(1);
-
-        boolean hasBook = right.getItem() == Items.ENCHANTED_BOOK;
-        boolean enchantedLeft = !EnchantmentHelper.getEnchantmentsForCrafting(left).isEmpty();
-        boolean enchantedRight = !EnchantmentHelper.getEnchantmentsForCrafting(right).isEmpty();
-
-        // Only consume XP if enchanted items/books are involved
-        if (!hasBook && !enchantedLeft && !enchantedRight) {
-            cost.set(0);
+    @Inject(method = "useWithoutItem", at = @At("HEAD"), cancellable = true)
+    private void onUse(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
+        InteractionHand hand = player.getUsedItemHand();
+        ItemStack stack = player.getItemInHand(hand);
+        if (stack.is(Items.IRON_INGOT) && !blockState.is(Blocks.ANVIL)) {
+            if (!level.isClientSide()) {
+                if (blockState.is(Blocks.CHIPPED_ANVIL)) {
+                    level.setBlock(blockPos, Blocks.ANVIL.defaultBlockState().setValue(FACING, (Direction)blockState.getValue(FACING)), 3);
+                    cir.setReturnValue(InteractionResult.SUCCESS);
+                    level.playSound(null, blockPos, SoundEvents.IRON_GOLEM_REPAIR, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    if (!player.isCreative()) {
+                        stack.consume(1, player);
+                    }
+                } else if (blockState.is(Blocks.DAMAGED_ANVIL)) {
+                    level.setBlock(blockPos, Blocks.CHIPPED_ANVIL.defaultBlockState().setValue(FACING, (Direction)blockState.getValue(FACING)), 3);
+                    cir.setReturnValue(InteractionResult.SUCCESS);
+                    level.playSound(null, blockPos, SoundEvents.IRON_GOLEM_REPAIR, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    if (!player.isCreative()) {
+                        stack.consume(1, player);
+                    }
+                } else {
+                    cir.setReturnValue(InteractionResult.SUCCESS);
+                }
             }
+            cir.setReturnValue(InteractionResult.SUCCESS);
         }
-
-    /**
-     * @author lunarluned
-     * @reason removed the increasing cost of repairing
-     */
-    @Overwrite
-    public static int calculateIncreasedRepairCost(int cost) {
-        return cost;
     }
-
 }
