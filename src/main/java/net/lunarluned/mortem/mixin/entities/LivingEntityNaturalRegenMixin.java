@@ -5,20 +5,15 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityReference;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameRules;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Objects;
@@ -30,18 +25,9 @@ public abstract class LivingEntityNaturalRegenMixin {
 
     @Unique public int regenerationChance = 30;
 
-    @Shadow @Nullable protected EntityReference<Player> lastHurtByPlayer;
-
-    @Inject(
-            method = "heal",
-            at = @At(
-                    "HEAD"
-            ),
-            cancellable = true)
+    @Inject(method = "heal", at = @At("HEAD"), cancellable = true)
     private void mortem_redirectHealForNaturalRegen(float amount, CallbackInfo ci) {
-        // Only adjust for server-side players
         if (this.asLivingEntity() instanceof Player player) {
-            if (!player.hasEffect(MobEffects.REGENERATION)) {
                 if (player.hasEffect(ModEffects.STAGNATED)) {
                     regenerationChance = 20;
                     switch (Objects.requireNonNull(player.getEffect(ModEffects.STAGNATED)).getAmplifier()) {
@@ -61,10 +47,8 @@ public abstract class LivingEntityNaturalRegenMixin {
                             regenerationChance = 0;
                             break;
                     }
-                    }
-                    regenerationChance = 30;
-            } else {
-            regenerationChance = 75;
+            } if (player.isOnFire()) {
+                    regenerationChance = regenerationChance / 2;
             }
                 // Server level and gamerule check
                 ServerLevel level = player.level() instanceof ServerLevel ? (ServerLevel) player.level() : null;
