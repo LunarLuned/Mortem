@@ -1,5 +1,6 @@
 package net.lunarluned.mortem.effect;
 
+import net.lunarluned.mortem.MortemTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -102,7 +103,7 @@ public class InfectedEffect extends MobEffect {
         return true;
     }
 
-    //please god make a 'able_to_be_zombified' tag later bro
+    // ok i added the tag but im too lazy to make it work rn
 
     public void onMobHurt(ServerLevel serverLevel, LivingEntity l, int i, DamageSource damageSource, float f) {
         if (l.getHealth() < 1) {
