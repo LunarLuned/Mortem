@@ -12,9 +12,11 @@ public class MortemTags {
     public static final TagKey<Block> FLAMMABLE_BLOCKS = TagKey.create(Registries.BLOCK, ResourceLocation.tryBuild("mortem", "flammable_blocks"));
 
 
-    public static final TagKey<EntityType<?>> ABLE_TO_BE_ZOMBIFIED = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.tryBuild("mortem", "able_to_be_zombified"));
+    public static final TagKey<EntityType<?>> CANNOT_BE_ZOMBIFIED = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.tryBuild("mortem", "cannot_be_zombified"));
     public static final TagKey<EntityType<?>> FUNGUS_IMMUNE = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.tryBuild("mortem", "fungus_immune"));
 
 
     public static final TagKey<Item> TORCHES = TagKey.create(Registries.ITEM, ResourceLocation.tryBuild("mortem", "torches"));
+
+    public static final TagKey<Item> JAMS = TagKey.create(Registries.ITEM, ResourceLocation.tryBuild("mortem", "jams"));
 }

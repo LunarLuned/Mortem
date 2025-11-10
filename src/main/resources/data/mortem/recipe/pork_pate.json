@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        "minecraft:honey_bottle",
+        "minecraft:glass_bottle",
+        "minecraft:honey_bottle",
+        "minecraft:cooked_porkchop"
+    ],
+    "result": {
+        "id": "mortem:pork_pate",
+        "count": 1
+    }
+}

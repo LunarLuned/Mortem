@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        "minecraft:honey_bottle",
+        "minecraft:glass_bottle",
+        "minecraft:honey_bottle",
+        "minecraft:cocoa_beans"
+    ],
+    "result": {
+        "id": "mortem:cocoa_spread",
+        "count": 1
+    }
+}

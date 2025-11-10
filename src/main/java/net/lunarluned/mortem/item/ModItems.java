@@ -104,6 +104,56 @@ public class ModItems {
             new Item(new Item.Properties().food(ModFoods.TOASTED_BREAD, ModConsumables.TOASTED_BREAD)
                     .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:toasted_bread")))));
 
+
+
+    public static final Item SWEET_BERRY_JAM = registerItem("sweet_berry_jam",
+            new Item(new Item.Properties().food(ModFoods.SWEET_BERRY_JAM, ModConsumables.SWEET_BERRY_JAM)
+                    .useItemDescriptionPrefix().stacksTo(16).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:sweet_berry_jam")))));
+
+    public static final Item APPLE_JAM = registerItem("apple_jam",
+            new Item(new Item.Properties().food(ModFoods.APPLE_JAM, ModConsumables.APPLE_JAM)
+                    .useItemDescriptionPrefix().stacksTo(16).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:apple_jam")))));
+
+    public static final Item CACTUS_JAM = registerItem("cactus_jam",
+            new Item(new Item.Properties().food(ModFoods.CACTUS_JAM, ModConsumables.CACTUS_JAM)
+                    .useItemDescriptionPrefix().stacksTo(16).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cactus_jam")))));
+
+    public static final Item COCOA_SPREAD = registerItem("cocoa_spread",
+            new Item(new Item.Properties().food(ModFoods.COCOA_SPREAD, ModConsumables.COCOA_SPREAD)
+                    .useItemDescriptionPrefix().stacksTo(16).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cocoa_spread")))));
+
+    public static final Item MUSHROOM_PUREE = registerItem("mushroom_puree",
+            new Item(new Item.Properties().food(ModFoods.MUSHROOM_PUREE, ModConsumables.MUSHROOM_PUREE)
+                    .useItemDescriptionPrefix().stacksTo(16).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:mushroom_puree")))));
+
+    public static final Item PORK_PATE = registerItem("pork_pate",
+            new Item(new Item.Properties().food(ModFoods.PORK_PATE, ModConsumables.PORK_PATE)
+                    .useItemDescriptionPrefix().stacksTo(16).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:pork_pate")))));
+
+    public static final Item BERRY_SPREAD_TOAST = registerItem("berry_spread_toast",
+            new Item(new Item.Properties().food(ModFoods.BERRY_SPREAD_TOAST, ModConsumables.BERRY_SPREAD_TOAST)
+                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:berry_spread_toast")))));
+
+    public static final Item APPLE_SPREAD_TOAST = registerItem("apple_spread_toast",
+            new Item(new Item.Properties().food(ModFoods.APPLE_SPREAD_TOAST, ModConsumables.APPLE_SPREAD_TOAST)
+                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:apple_spread_toast")))));
+
+    public static final Item CACTUS_SPREAD_TOAST = registerItem("cactus_spread_toast",
+            new Item(new Item.Properties().food(ModFoods.CACTUS_SPREAD_TOAST, ModConsumables.CACTUS_SPREAD_TOAST)
+                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cactus_spread_toast")))));
+
+    public static final Item COCOA_SPREAD_TOAST = registerItem("cocoa_spread_toast",
+            new Item(new Item.Properties().food(ModFoods.COCOA_SPREAD_TOAST, ModConsumables.COCOA_SPREAD_TOAST)
+                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cocoa_spread_toast")))));
+
+    public static final Item MUSHROOM_SPREAD_TOAST = registerItem("mushroom_spread_toast",
+            new Item(new Item.Properties().food(ModFoods.MUSHROOM_SPREAD_TOAST, ModConsumables.MUSHROOM_SPREAD_TOAST)
+                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:mushroom_spread_toast")))));
+
+    public static final Item PORK_SPREAD_TOAST = registerItem("pork_spread_toast",
+            new Item(new Item.Properties().food(ModFoods.PORK_SPREAD_TOAST, ModConsumables.PORK_SPREAD_TOAST)
+                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:pork_spread_toast")))));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, ResourceLocation.tryBuild(Mortem.MOD_ID, name), item);
     }

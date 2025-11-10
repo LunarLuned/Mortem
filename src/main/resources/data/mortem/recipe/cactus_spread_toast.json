@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#H#",
+    "###"
+  ],
+  "key": {
+    "#": "mortem:toast",
+    "H": "mortem:cactus_jam"
+  },
+  "result": {
+    "id": "mortem:cactus_spread_toast",
+    "count": 8
+  }
+}

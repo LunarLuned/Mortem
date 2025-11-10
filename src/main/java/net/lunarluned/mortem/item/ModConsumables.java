@@ -34,6 +34,20 @@ public class ModConsumables {
     public static final Consumable TOAST;
     public static final Consumable TOASTED_BREAD;
 
+    public static final Consumable SWEET_BERRY_JAM;
+    public static final Consumable APPLE_JAM;
+    public static final Consumable CACTUS_JAM;
+    public static final Consumable COCOA_SPREAD;
+    public static final Consumable MUSHROOM_PUREE;
+    public static final Consumable PORK_PATE;
+
+    public static final Consumable BERRY_SPREAD_TOAST;
+    public static final Consumable APPLE_SPREAD_TOAST;
+    public static final Consumable CACTUS_SPREAD_TOAST;
+    public static final Consumable COCOA_SPREAD_TOAST;
+    public static final Consumable MUSHROOM_SPREAD_TOAST;
+    public static final Consumable PORK_SPREAD_TOAST;
+
     public ModConsumables() {
     }
 
@@ -59,13 +73,28 @@ public class ModConsumables {
 
         SWEET_POTATO = defaultFood().consumeSeconds(1F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.ABSORPTION, 500, 0), 0.9F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HASTE, 500, 0), 0.9F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SATURATION, 20, 0), 0.25F)).build();
         RAW_BACON = defaultFood().consumeSeconds(.75F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NAUSEA, 100, 1), 0.7F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HUNGER, 100, 1), 0.7f)).build();
-        COOKED_BACON = defaultFood().consumeSeconds(0.5F).build();
+        COOKED_BACON = defaultFood().consumeSeconds(0.45F).build();
         BEEF_PATTY = defaultFood().consumeSeconds(.95F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NAUSEA, 100, 1), 0.7F)).build();
         COOKED_BEEF_PATTY = defaultFood().consumeSeconds(0.75F).build();
         BURGER = defaultFood().consumeSeconds(2.35F).build();
         BACON_BURGER = defaultFood().consumeSeconds(2.45F).build();
-        TOAST = defaultFood().consumeSeconds(0.25f).build();
+        TOAST = defaultFood().consumeSeconds(0.55f).build();
         TOASTED_BREAD = defaultFood().consumeSeconds(1.0F).build();
+
+        SWEET_BERRY_JAM = defaultDrink().consumeSeconds(1.25f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.STRENGTH, 40, 0), 1F)).build();
+        APPLE_JAM = defaultDrink().consumeSeconds(1.65f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.REGENERATION, 40, 0), 1F)).build();
+        CACTUS_JAM = defaultDrink().consumeSeconds(1.4f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NAUSEA, 120, 0), 1F)).build();
+        COCOA_SPREAD = defaultDrink().consumeSeconds(1.25f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SPEED, 40, 0), 1F)).build();
+        MUSHROOM_PUREE = defaultDrink().consumeSeconds(1.45f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 100, 0), 1F)).build();
+        PORK_PATE = defaultDrink().consumeSeconds(1.85f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SLOWNESS, 60, 0), 1F)).build();
+
+        BERRY_SPREAD_TOAST = defaultFood().consumeSeconds(.65f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.STRENGTH, 100, 0), .65F)).build();
+        APPLE_SPREAD_TOAST = defaultFood().consumeSeconds(.8f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0), .5F)).build();
+        CACTUS_SPREAD_TOAST = defaultFood().consumeSeconds(1f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NAUSEA, 60, 0), .25F)).build();
+        COCOA_SPREAD_TOAST = defaultFood().consumeSeconds(.5f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SPEED, 140, 0), .6F)).build();
+        MUSHROOM_SPREAD_TOAST = defaultFood().consumeSeconds(.9f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0), .5F)).build();
+        PORK_SPREAD_TOAST = defaultFood().consumeSeconds(1.2f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SLOWNESS, 30, 0), 0.2F)).build();
+
 
 
         /*OMINOUS_BOTTLE = defaultDrink().soundAfterConsume(SoundEvents.OMINOUS_BOTTLE_DISPOSE).build();

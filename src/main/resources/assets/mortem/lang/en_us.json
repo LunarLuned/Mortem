@@ -14,6 +14,17 @@
   "effect.mortem.fungally_infected": "Fungally Infected",
   "effect.mortem.immune": "Immune",
 
+  "item.minecraft.potion.effect.infected": "Potion of Infection",
+  "item.minecraft.splash_potion.effect.infected": "Splash Potion of Infection",
+  "item.minecraft.lingering_potion.effect.infected": "Lingering Potion of Infection",
+  "item.minecraft.tipped_arrow.effect.infected": "Arrow of Infection",
+
+  "item.minecraft.potion.effect.immune": "Potion of Immunity",
+  "item.minecraft.splash_potion.effect.immune": "Splash Potion of Immunity",
+  "item.minecraft.lingering_potion.effect.immune": "Lingering Potion of Immunity",
+  "item.minecraft.tipped_arrow.effect.immune": "Arrow of Immunity",
+
+
   "block.mortem.crumbling_stone": "Crumbling Stone",
   "block.mortem.crumbling_deepslate": "Crumbling Deepslate",
   "block.mortem.crumbling_netherrack": "Crumbling Netherrack",
@@ -42,6 +53,19 @@
   "item.mortem.toast": "Toast",
   "item.mortem.toasted_bread": "Toasted Bread",
 
+  "item.mortem.sweet_berry_jam": "Sweet Berry Jam",
+  "item.mortem.apple_jam": "Apple Jam",
+  "item.mortem.cactus_jam": "Cactus Jam",
+  "item.mortem.cocoa_spread": "Cocoa Spread",
+  "item.mortem.mushroom_puree": "Mushroom Puree",
+  "item.mortem.pork_pate": "Pork Pâté",
+
+  "item.mortem.berry_spread_toast": "Toast with Sweet Berry Jam",
+  "item.mortem.apple_spread_toast": "Toast with Apple Jam",
+  "item.mortem.cactus_spread_toast": "Toast with Cactus Jam",
+  "item.mortem.cocoa_spread_toast": "Toast with Cocoa Spread",
+  "item.mortem.mushroom_spread_toast": "Toast with Mushroom Puree",
+  "item.mortem.pork_spread_toast": "Toast with Pork Pâté",
 
   "item.mortem.crimson_stew": "Crimson Stew",
   "item.mortem.warped_stew": "Warped Stew",

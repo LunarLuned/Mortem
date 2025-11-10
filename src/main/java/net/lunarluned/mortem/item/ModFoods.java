@@ -33,19 +33,18 @@ public class ModFoods {
     public static final FoodProperties BACON_BURGER = (new FoodProperties.Builder().nutrition(10).saturationModifier(0.7f).build());
     public static final FoodProperties TOAST = (new FoodProperties.Builder().nutrition(2).saturationModifier(.25f).build());
     public static final FoodProperties TOASTED_BREAD = (new FoodProperties.Builder().nutrition(5).saturationModifier(0.5f).build());
-/*
-    public static final FoodProperties SWEET_BERRY_JAM = (new FoodProperties.Builder().nutrition(6).saturationMod(3f).fast().effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 40, 0), 1F).build());
-    public static final FoodProperties APPLE_JAM = (new FoodProperties.Builder().nutrition(6).saturationMod(4f).fast().effect(new MobEffectInstance(MobEffects.REGENERATION, 40, 0), 1F).build());
-    public static final FoodProperties CACTUS_JAM = (new FoodProperties.Builder().nutrition(7).saturationMod(6f).fast().effect(new MobEffectInstance(MobEffects.CONFUSION, 80, 0), 0.7F).build());
-    public static final FoodProperties COCOA_SPREAD = (new FoodProperties.Builder().nutrition(4).saturationMod(1f).fast().effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 40, 0), 1F).build());
-    public static final FoodProperties MUSHROOM_PUREE = (new FoodProperties.Builder().nutrition(6).saturationMod(2f).fast().effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 80, 0), 1F).build());
-    public static final FoodProperties PORK_PATE = (new FoodProperties.Builder().nutrition(7).saturationMod(6f).fast().effect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0), .7F).build());
 
-    public static final FoodProperties BERRY_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(10).saturationMod(6f).fast().effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 70, 0), 0.5F).build());
-    public static final FoodProperties APPLE_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(10).saturationMod(7f).fast().effect(new MobEffectInstance(MobEffects.REGENERATION, 70, 0), 0.5F).build());
-    public static final FoodProperties CACTUS_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(11).saturationMod(6f).fast().effect(new MobEffectInstance(MobEffects.CONFUSION, 70, 0), 0.1F).build());
-    public static final FoodProperties COCOA_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(7).saturationMod(7f).fast().effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 0), 0.6F).build());
-    public static final FoodProperties MUSHROOM_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(10).saturationMod(6f).fast().effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 110, 0), 0.4F).build());
-    public static final FoodProperties PORK_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(12).saturationMod(6f).fast().effect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 70, 0), 0.1F).build());
- */
+    public static final FoodProperties SWEET_BERRY_JAM = (new FoodProperties.Builder().nutrition(6).saturationModifier(.6f).build());
+    public static final FoodProperties APPLE_JAM = (new FoodProperties.Builder().nutrition(6).saturationModifier(0.75f).build());
+    public static final FoodProperties CACTUS_JAM = (new FoodProperties.Builder().nutrition(7).saturationModifier(0.65f).build());
+    public static final FoodProperties COCOA_SPREAD = (new FoodProperties.Builder().nutrition(4).saturationModifier(0.45f).build());
+    public static final FoodProperties MUSHROOM_PUREE = (new FoodProperties.Builder().nutrition(6).saturationModifier(0.6f).build());
+    public static final FoodProperties PORK_PATE = (new FoodProperties.Builder().nutrition(7).saturationModifier(.65f).build());
+
+    public static final FoodProperties BERRY_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(8).saturationModifier(.5f).build());
+    public static final FoodProperties APPLE_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(8).saturationModifier(.6f).build());
+    public static final FoodProperties CACTUS_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(10).saturationModifier(.5f).build());
+    public static final FoodProperties COCOA_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(6).saturationModifier(.6f).build());
+    public static final FoodProperties MUSHROOM_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(9).saturationModifier(.5f).build());
+    public static final FoodProperties PORK_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(12).saturationModifier(.4f).build());
 }

@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_honey_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:honey_bottle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mortem:sweet_berry_jam"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_honey_bottle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mortem:sweet_berry_jam",
+      "mortem:apple_jam",
+      "mortem:cactus_jam",
+      "mortem:cocoa_spread",
+      "mortem:mushroom_puree",
+      "mortem:pork_pate"
+    ]
+  }
+}

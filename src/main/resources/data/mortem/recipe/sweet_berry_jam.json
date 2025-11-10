@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        "minecraft:honey_bottle",
+        "minecraft:glass_bottle",
+        "minecraft:honey_bottle",
+        "minecraft:sweet_berries"
+    ],
+    "result": {
+        "id": "mortem:sweet_berry_jam",
+        "count": 1
+    }
+}

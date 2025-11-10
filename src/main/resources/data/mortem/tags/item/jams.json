@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mortem:sweet_berry_jam",
+    "mortem:apple_jam",
+    "mortem:cactus_jam",
+    "mortem:cocoa_spread",
+    "mortem:mushroom_puree",
+    "mortem:pork_pate"
+  ]
+}

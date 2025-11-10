@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#H#",
+    "###"
+  ],
+  "key": {
+    "#": "mortem:toast",
+    "H": "mortem:mushroom_puree"
+  },
+  "result": {
+    "id": "mortem:mushroom_spread_toast",
+    "count": 8
+  }
+}

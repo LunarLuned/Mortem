@@ -32,7 +32,8 @@ public class MortemCreativeModeTab {
             entries.addAfter(Items.COOKED_PORKCHOP, ModItems.COOKED_BACON);
             entries.addAfter(Items.BEEF, ModItems.BEEF_PATTY);
             entries.addAfter(Items.COOKED_BEEF, ModItems.COOKED_BEEF_PATTY);
-            entries.addAfter(Items.BREAD, ModItems.TOASTED_BREAD, ModItems.TOAST, ModItems.BURGER, ModItems.BACON_BURGER);
+            entries.addAfter(Items.BREAD, ModItems.TOASTED_BREAD, ModItems.TOAST, ModItems.BERRY_SPREAD_TOAST, ModItems.APPLE_SPREAD_TOAST, ModItems.CACTUS_SPREAD_TOAST, ModItems.COCOA_SPREAD_TOAST, ModItems.MUSHROOM_SPREAD_TOAST, ModItems.PORK_SPREAD_TOAST, ModItems.BURGER, ModItems.BACON_BURGER);
+            entries.addAfter(Items.HONEY_BOTTLE, ModItems.SWEET_BERRY_JAM, ModItems.APPLE_JAM, ModItems.CACTUS_JAM, ModItems.COCOA_SPREAD, ModItems.MUSHROOM_PUREE, ModItems.PORK_PATE);
         });
 
         // Ingredients Tab

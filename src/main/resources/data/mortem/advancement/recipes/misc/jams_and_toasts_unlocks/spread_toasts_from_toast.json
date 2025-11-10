@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bread": {
+    "has_toast": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:bread"
+            "items": "mortem:toast"
           }
         ]
       },
@@ -13,22 +13,25 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mortem:toasted_bread"
+        "recipe": "mortem:berry_spread_toast"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_potato",
+      "has_toast",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mortem:toasted_bread",
-      "mortem:toast",
-      "mortem:toasted_bread_campfire"
+      "mortem:berry_spread_toast",
+      "mortem:apple_spread_toast",
+      "mortem:cactus_spread_toast",
+      "mortem:cocoa_spread_toast",
+      "mortem:mushroom_spread_toast",
+      "mortem:pork_spread_toast"
     ]
   }
 }

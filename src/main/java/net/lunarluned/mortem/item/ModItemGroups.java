@@ -38,6 +38,20 @@ public class ModItemGroups {
                         entries.accept(ModItems.TOASTED_BREAD);
                         entries.accept(ModItems.TOAST);
 
+                        entries.accept(ModItems.SWEET_BERRY_JAM);
+                        entries.accept(ModItems.APPLE_JAM);
+                        entries.accept(ModItems.CACTUS_JAM);
+                        entries.accept(ModItems.COCOA_SPREAD);
+                        entries.accept(ModItems.MUSHROOM_PUREE);
+                        entries.accept(ModItems.PORK_PATE);
+
+                        entries.accept(ModItems.BERRY_SPREAD_TOAST);
+                        entries.accept(ModItems.APPLE_SPREAD_TOAST);
+                        entries.accept(ModItems.CACTUS_SPREAD_TOAST);
+                        entries.accept(ModItems.COCOA_SPREAD_TOAST);
+                        entries.accept(ModItems.MUSHROOM_SPREAD_TOAST);
+                        entries.accept(ModItems.PORK_SPREAD_TOAST);
+
                         entries.accept(ModItems.CRIMSON_STEW);
                         entries.accept(ModItems.WARPED_STEW);
                         entries.accept(ModItems.FUNGAL_STEW);
