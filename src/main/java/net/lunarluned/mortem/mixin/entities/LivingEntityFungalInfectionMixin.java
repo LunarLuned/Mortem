@@ -1,5 +1,6 @@
 package net.lunarluned.mortem.mixin.entities;
 
+import net.lunarluned.mortem.MortemTags;
 import net.lunarluned.mortem.effect.ModEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -11,6 +12,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import org.jetbrains.annotations.Nullable;
@@ -27,15 +29,6 @@ import java.util.Optional;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityFungalInfectionMixin extends Entity {
 
-
-    @Shadow public abstract boolean hasEffect(Holder<MobEffect> holder);
-
-    @Shadow @Nullable public abstract MobEffectInstance getEffect(Holder<MobEffect> holder);
-
-    @Shadow public abstract boolean addEffect(MobEffectInstance mobEffectInstance);
-
-    @Unique private int fungalEffectTicks = 0;
-    @Unique private int tempDuration = 0;
 
     @Unique private int fungalBiomeTicks = 0;
     @Unique
@@ -77,19 +70,21 @@ public abstract class LivingEntityFungalInfectionMixin extends Entity {
         }
 
         if (inTarget) {
-            fungalBiomeTicks++;
-            if ((fungalBiomeTicks >= TICKS_REQUIRED) || self.getHealth() <= self.getMaxHealth() / 2) {
-                if (!self.hasEffect(ModEffects.IMMUNE)) {
-                    if (!self.hasEffect(ModEffects.FUNGAL_INFECTED)) {
-                        self.addEffect(new MobEffectInstance(ModEffects.FUNGAL_INFECTED, APPLIED_EFFECT_DURATION, 0, false, true));
+            if (!this.getType().is(MortemTags.FUNGUS_IMMUNE)) {
+                fungalBiomeTicks++;
+                if ((fungalBiomeTicks >= TICKS_REQUIRED) || self.getHealth() <= self.getMaxHealth() / 2) {
+                    if (!self.hasEffect(ModEffects.IMMUNE)) {
+                        if (!self.hasEffect(ModEffects.FUNGALLY_INFECTED)) {
+                            self.addEffect(new MobEffectInstance(ModEffects.FUNGALLY_INFECTED, APPLIED_EFFECT_DURATION, 0, false, true));
+                        }
                     }
+                    fungalBiomeTicks = 0;
                 }
-                fungalBiomeTicks = 0;
             }
         } else {
             // reset the counter on leaving
             fungalBiomeTicks = 0;
-            self.removeEffect(ModEffects.FUNGAL_INFECTED);
+            self.removeEffect(ModEffects.FUNGALLY_INFECTED);
         }
     }
 

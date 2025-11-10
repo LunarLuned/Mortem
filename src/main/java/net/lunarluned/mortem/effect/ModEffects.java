@@ -15,7 +15,7 @@ import java.util.UUID;
 
 public class ModEffects {
     public static Holder<MobEffect> INFECTED;
-    public static Holder<MobEffect> FUNGAL_INFECTED;
+    public static Holder<MobEffect> FUNGALLY_INFECTED;
 
     public static Holder<MobEffect> IMMUNE;
 
@@ -30,7 +30,7 @@ public class ModEffects {
     public static void registerEffects() {
         IMMUNE = register("immune", new ImmuneEffect(MobEffectCategory.BENEFICIAL, 14264576));
         INFECTED = register("infected", new InfectedEffect(MobEffectCategory.HARMFUL, 1657351));
-        FUNGAL_INFECTED = register("fungal_infected", new FungalInfectedEffect(MobEffectCategory.HARMFUL, 1657351).addAttributeModifier(
+        FUNGALLY_INFECTED = register("fungally_infected", new FungalInfectedEffect(MobEffectCategory.HARMFUL, 1657351).addAttributeModifier(
                 Attributes.MOVEMENT_SPEED,
                 ResourceLocation.parse("9b5f8b8e-3f7a-4a3d-9c3a-1d1a2a4e7f10"),
                 -0.15D,
