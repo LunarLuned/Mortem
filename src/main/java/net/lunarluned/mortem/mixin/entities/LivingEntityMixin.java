@@ -116,8 +116,10 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "tick", at = @At("HEAD"))
     public void mortem_cancelOutEffects(CallbackInfo ci) {
         if ((this.hasEffect(MobEffects.WEAKNESS) && (this.hasEffect(MobEffects.REGENERATION)) && (this.hasEffect(ModEffects.INFECTED)))) {
-            this.removeAllEffects();
-            this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 6000, 0));
+            if (this.getRandom().nextInt(10) < 1) {
+                this.removeAllEffects();
+                this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 6000, 0));
+            }
         }
 
         if ((this.hasEffect(MobEffects.REGENERATION)) && (Objects.requireNonNull(this.getEffect(MobEffects.REGENERATION)).getAmplifier() >= 1 && (this.hasEffect(ModEffects.STAGNATED)))) {
