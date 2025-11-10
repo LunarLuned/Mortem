@@ -10,6 +10,7 @@ import static net.lunarluned.mortem.block.ModBlocks.registerModBlocks;
 import static net.lunarluned.mortem.effect.ModEffects.registerEffects;
 import static net.lunarluned.mortem.item.ModItemGroups.registerItemGroups;
 import static net.lunarluned.mortem.item.ModItems.registerModItems;
+import static net.lunarluned.mortem.potion.ModPotions.registerPotions;
 
 public class Mortem implements ModInitializer {
 	public static final String MOD_ID = "mortem";
@@ -23,6 +24,7 @@ public class Mortem implements ModInitializer {
 		registerItemGroups();
 		registerEffects();
 		registerCreativeTabs();
+		registerPotions();
 
 		LOGGER.info("Post Mortem.");
 	}
