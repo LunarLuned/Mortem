@@ -93,11 +93,17 @@ public abstract class CampfireEntityMixin extends BlockEntity {
         BlockState belowState = level.getBlockState(below);
         Block belowBlock = belowState.getBlock();
 
+        BlockPos above = target.multiply(2);
+        BlockState aboveState = level.getBlockState(above);
+        Block aboveBlock = aboveState.getBlock();
+
         try {
             FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
             if (registry.get(belowBlock) != null && belowState.is(MortemTags.FLAMMABLE_BLOCKS)) {
                 level.setBlock(target, Blocks.FIRE.defaultBlockState(), 3);
-                return;
+            }
+            if (registry.get(aboveBlock) != null && aboveState.is(MortemTags.FLAMMABLE_BLOCKS)) {
+                level.setBlock(target, Blocks.FIRE.defaultBlockState(), 3);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
