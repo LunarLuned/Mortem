@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:adventure/become_zombified",
+  "display": {
+    "icon": {
+      "id": "minecraft:campfire"
+    },
+    "title": "advancements.adventure.trial_by_fire.title",
+    "description": "advancements.adventure.trial_by_fire.description",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "on_fire_with_regen": {
+      "trigger": "minecraft:enter_block",
+      "conditions": {
+        "block": "minecraft:campfire"
+      }
+    },
+    "having_regen": {
+      "trigger": "minecraft:effects_changed",
+      "conditions": {
+        "effects": {
+          "minecraft:weakness": {},
+          "minecraft:regeneration": {},
+          "mortem:infected": {}
+        }
+      }
+    }
+  }
+}

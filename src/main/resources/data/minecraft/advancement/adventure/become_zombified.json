@@ -1,0 +1,24 @@
+{
+  "parent": "minecraft:adventure/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:zombie_head"
+    },
+    "title": "advancements.adventure.become_zombified.title",
+    "description": "advancements.adventure.become_zombified.description",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "having_infected": {
+      "trigger": "minecraft:effects_changed",
+      "conditions": {
+        "effects": {
+          "mortem:infected": {}
+        }
+      }
+    }
+  }
+}

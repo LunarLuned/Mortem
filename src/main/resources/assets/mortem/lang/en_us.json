@@ -1,8 +1,17 @@
 {
   "itemgroup.mortem.mortem": "Mortem",
-  "mortem.infected_text": "You have been infected. A cure can be made.",
+
+  "advancements.adventure.trial_by_fire.title": "Trial by Fire",
+  "advancements.adventure.trial_by_fire.description": "Cure your zombification by burning yourself with a campfire.",
+
+  "advancements.adventure.cure_zombified.title": "Crawl On Me, Sink Into Me",
+  "advancements.adventure.cure_zombified.description": "Cure yourself from zombification",
+
+  "advancements.adventure.become_zombified.title": "What's In Your Head?",
+  "advancements.adventure.become_zombified.description": "Become infected by a zombie",
 
   "effect.mortem.infected": "Infected",
+  "effect.mortem.fungally_infected": "Fungally Infected",
   "effect.mortem.immune": "Immune",
 
   "block.mortem.crumbling_stone": "Crumbling Stone",
