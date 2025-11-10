@@ -4,8 +4,8 @@
     "icon": {
       "id": "minecraft:campfire"
     },
-    "title": "advancements.adventure.trial_by_fire.title",
-    "description": "advancements.adventure.trial_by_fire.description",
+    "title": {"translate": "advancements.adventure.trial_by_fire.title"},
+    "description": {"translate": "advancements.adventure.trial_by_fire.description"},
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

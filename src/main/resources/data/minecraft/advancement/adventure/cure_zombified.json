@@ -4,8 +4,12 @@
     "icon": {
       "id": "minecraft:golden_apple"
     },
-    "title": "advancements.adventure.cure_zombified.title",
-    "description": "advancements.adventure.cure_zombified.description",
+    "title": {
+      "translate": "advancements.adventure.cure_zombified.title"
+    },
+    "description": {
+      "translate": "advancements.adventure.cure_zombified.description"
+    },
     "frame": "task",
     "show_toast": false,
     "announce_to_chat": true,
@@ -21,15 +25,13 @@
             "entity": "this",
             "predicate": {
               "effects": {
-                "mortem:immune": {}
+                "mortem:infected": {},
+                "minecraft:weakness": {},
+                "minecraft:regeneration": {}
               }
             }
           }
-        ],
-        "effects": {
-          "mortem:infected": {}
-        },
-        "source": []
+        ]
       }
     }
   }
