@@ -1,5 +1,6 @@
 package net.lunarluned.mortem.mixin.entities;
 
+import net.lunarluned.mortem.MortemTags;
 import net.lunarluned.mortem.effect.ModEffects;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
@@ -46,6 +47,8 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow public abstract boolean addEffect(MobEffectInstance mobEffectInstance);
 
     @Shadow public abstract boolean removeEffect(Holder<MobEffect> holder);
+
+    @Shadow @Nullable public abstract LivingEntity asLivingEntity();
 
     @ModifyVariable(method = "hurtServer", at = @At("HEAD"), argsOnly = true)
     private float mortem_multiplyDamageForWeakness(float amount) {
@@ -116,9 +119,25 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "tick", at = @At("HEAD"))
     public void mortem_cancelOutEffects(CallbackInfo ci) {
         if ((this.hasEffect(MobEffects.WEAKNESS) && (this.hasEffect(MobEffects.REGENERATION)) && (this.hasEffect(ModEffects.INFECTED)))) {
-            if (this.getRandom().nextInt(10) < 1) {
+            if ((this.tickCount % 10 == 0)) {
                 this.removeAllEffects();
                 this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 6000, 0));
+            }
+        }
+
+        if ((this.hasEffect(ModEffects.INFECTED)) && this.getType().is(MortemTags.CANNOT_BE_ZOMBIFIED)) {
+                this.removeEffect(ModEffects.INFECTED);
+        }
+
+        if ((this.hasEffect(ModEffects.IMMUNE)) && (this.hasEffect(ModEffects.INFECTED))) {
+            if ((this.tickCount % 10 == 0)) {
+                this.removeEffect(ModEffects.INFECTED);
+            }
+        }
+
+        if ((this.hasEffect(ModEffects.IMMUNE)) && (this.hasEffect(ModEffects.FUNGALLY_INFECTED))) {
+            if ((this.tickCount % 10 == 0)) {
+                this.removeEffect(ModEffects.FUNGALLY_INFECTED);
             }
         }
 

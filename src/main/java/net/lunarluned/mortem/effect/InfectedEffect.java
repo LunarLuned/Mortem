@@ -18,7 +18,12 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.animal.horse.Mule;
+import net.minecraft.world.entity.animal.horse.ZombieHorse;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.piglin.Piglin;
+import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.WanderingTrader;
 import net.minecraft.world.entity.player.Player;
@@ -33,7 +38,15 @@ public class InfectedEffect extends MobEffect {
     }
 
     @Override
+    public void onEffectStarted(LivingEntity livingEntity, int i) {
+        if (livingEntity.getType().is(MortemTags.CANNOT_BE_ZOMBIFIED)) {
+            livingEntity.removeEffect(ModEffects.INFECTED);
+        }
+    }
+
+    @Override
     public boolean applyEffectTick(ServerLevel serverLevel, LivingEntity livingEntity, int amplifier) {
+
             int randomValue = Mth.nextInt(RandomSource.create(), 1, 100);
         if (randomValue < 5) serverLevel.playSound(null, livingEntity.blockPosition(), SoundEvents.ZOMBIE_AMBIENT, SoundSource.HOSTILE, 0.2F, 0.8F + serverLevel.getRandom().nextFloat() * 0.4F);
         if (amplifier >= 0) {
@@ -106,7 +119,7 @@ public class InfectedEffect extends MobEffect {
     // ok i added the tag but im too lazy to make it work rn
 
     public void onMobHurt(ServerLevel serverLevel, LivingEntity l, int i, DamageSource damageSource, float f) {
-        if (l.getHealth() < 1) {
+        if ((l.getHealth() < 1) && !l.getType().is(MortemTags.CANNOT_BE_ZOMBIFIED)) {
             if (l.getHealth() == 1) {
                 l.die(damageSource);
             }
@@ -114,6 +127,10 @@ public class InfectedEffect extends MobEffect {
                 spawnDrowned(serverLevel, l, l.getX(), l.getY(), l.getZ());
             } if (l instanceof Villager || l instanceof Vindicator || l instanceof Witch || l instanceof WanderingTrader) {
                 spawnVillagerZombie(serverLevel, l, l.getX(), l.getY(), l.getZ());
+            } if (l instanceof Horse || l instanceof Mule) {
+                spawnZombieHorse(serverLevel, l, l.getX(), l.getY(), l.getZ());
+            } if (l instanceof Piglin || l instanceof PiglinBrute) {
+                spawnZombifiedPiglin(serverLevel, l, l.getX(), l.getY(), l.getZ());
             } else {
                 spawnZombie(serverLevel, l, l.getX(), l.getY(), l.getZ());
             }
@@ -164,6 +181,36 @@ public class InfectedEffect extends MobEffect {
             zombie.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 200, 1, true, true));
             zombie.addEffect(new MobEffectInstance(MobEffects.SPEED, 350, 0, true, true));
             zombie.playSound(SoundEvents.ZOMBIE_INFECT);
+        }
+    }
+    private void spawnZombifiedPiglin(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
+        ZombifiedPiglin zPiglin = (ZombifiedPiglin) EntityType.ZOMBIFIED_PIGLIN.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        if (zPiglin != null) {
+            RandomSource randomSource = livingEntity.getRandom();
+            float g = ((float)Math.PI / 2F);
+            float h = Mth.randomBetween(randomSource, (-(float)Math.PI / 2F), ((float)Math.PI / 2F));
+            Vector3f vector3f = livingEntity.getLookAngle().toVector3f().mul(0.3F).mul(1.0F, 1.5F, 1.0F).rotateY(h);
+            zPiglin.snapTo(d, e, f, serverLevel.getRandom().nextFloat() * 360.0F, 0.0F);
+            zPiglin.setDeltaMovement(new Vec3(vector3f));
+            serverLevel.addFreshEntity(zPiglin);
+            zPiglin.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 200, 1, true, true));
+            zPiglin.addEffect(new MobEffectInstance(MobEffects.SPEED, 350, 0, true, true));
+            zPiglin.playSound(SoundEvents.ZOMBIE_INFECT);
+        }
+    }
+    private void spawnZombieHorse(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
+        ZombieHorse zHorse = (ZombieHorse) EntityType.ZOMBIE_HORSE.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        if (zHorse != null) {
+            RandomSource randomSource = livingEntity.getRandom();
+            float g = ((float)Math.PI / 2F);
+            float h = Mth.randomBetween(randomSource, (-(float)Math.PI / 2F), ((float)Math.PI / 2F));
+            Vector3f vector3f = livingEntity.getLookAngle().toVector3f().mul(0.3F).mul(1.0F, 1.5F, 1.0F).rotateY(h);
+            zHorse.snapTo(d, e, f, serverLevel.getRandom().nextFloat() * 360.0F, 0.0F);
+            zHorse.setDeltaMovement(new Vec3(vector3f));
+            serverLevel.addFreshEntity(zHorse);
+            zHorse.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 200, 1, true, true));
+            zHorse.addEffect(new MobEffectInstance(MobEffects.SPEED, 350, 0, true, true));
+            zHorse.playSound(SoundEvents.ZOMBIE_INFECT);
         }
     }
 }
