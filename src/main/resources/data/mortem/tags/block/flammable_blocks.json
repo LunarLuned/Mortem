@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "#minecraft:logs_that_burn",
+    "#minecraft:wool",
     "#minecraft:leaves",
     "minecraft:cherry_planks",
     "minecraft:pale_oak_planks",
