@@ -9,6 +9,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.InsideBlockEffectType;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -50,7 +51,7 @@ public class CampfireBlockMixin {
 
     @Inject(method = "entityInside", at = @At("TAIL"))
     private void mortem_setFireEntityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, CallbackInfo ci) {
-        if (blockState.hasProperty(CampfireBlock.LIT) && blockState.getValue(CampfireBlock.LIT)) {
+        if (blockState.hasProperty(CampfireBlock.LIT) && blockState.getValue(CampfireBlock.LIT) && !(entity instanceof ItemEntity)) {
             insideBlockEffectApplier.apply(InsideBlockEffectType.CLEAR_FREEZE);
             insideBlockEffectApplier.apply(InsideBlockEffectType.FIRE_IGNITE);
             insideBlockEffectApplier.runAfter(InsideBlockEffectType.FIRE_IGNITE, (entityx) -> entityx.hurt(entityx.level().damageSources().inFire(), 1));
