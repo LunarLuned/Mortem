@@ -1,0 +1,10 @@
+{
+  "effect.fungal_infection.terrors": {
+    "subtitle": "effect.fungal_infection.terrors",
+    "sounds": [
+      "mortem:effect/fungal_infection/terrors",
+      "mortem:effect/fungal_infection/terrors_2",
+      "mortem:effect/fungal_infection/terrors_3"
+    ]
+  }
+}

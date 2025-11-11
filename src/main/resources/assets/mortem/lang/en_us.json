@@ -71,5 +71,7 @@
   "item.mortem.warped_stew": "Warped Stew",
   "item.mortem.fungal_stew": "Fungal Stew",
   "item.mortem.mushroom_stew_tusk": "Tusk of Mushroom Stew",
-  "item.mortem.scrambled_eggs_tusk": "Tusk of Scrambled Eggs"
+  "item.mortem.scrambled_eggs_tusk": "Tusk of Scrambled Eggs",
+
+  "effect.fungal_infection.terrors": "Fungal Infection furthers"
 }

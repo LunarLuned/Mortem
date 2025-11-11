@@ -3,11 +3,13 @@ package net.lunarluned.mortem.mixin.entities;
 import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.MortemTags;
 import net.lunarluned.mortem.effect.ModEffects;
+import net.lunarluned.mortem.sounds.MortemSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
@@ -69,11 +71,16 @@ public abstract class LivingEntityFungalInfectionMixin extends Entity {
             if (inTarget) {
                 fungalBiomeTicks++;
 
+                if (fungalBiomeTicks == TICKS_REQUIRED % 1800) {
+                    this.level().playLocalSound(this, MortemSoundEvents.FUNGAL_TERRORS, net.minecraft.sounds.SoundSource.BLOCKS, 1.0F, 1.0F);
+                }
+
                 if ((fungalBiomeTicks >= TICKS_REQUIRED) || self.getHealth() <= self.getMaxHealth() / 2.0F) {
                     if (!self.hasEffect(ModEffects.IMMUNE) && !self.hasEffect(ModEffects.FUNGALLY_INFECTED)) {
                         self.addEffect(new MobEffectInstance(ModEffects.FUNGALLY_INFECTED, APPLIED_EFFECT_DURATION, 0, false, true));
                     }
                 }
+
             } else {
                 if (fungalBiomeTicks > 0) {
                     fungalBiomeTicks = Math.max(0, fungalBiomeTicks - 5);
