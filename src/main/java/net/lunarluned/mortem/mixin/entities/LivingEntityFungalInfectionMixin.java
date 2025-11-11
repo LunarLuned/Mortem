@@ -1,5 +1,6 @@
 package net.lunarluned.mortem.mixin.entities;
 
+import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.MortemTags;
 import net.lunarluned.mortem.effect.ModEffects;
 import net.minecraft.core.BlockPos;
@@ -9,12 +10,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -29,10 +31,8 @@ import java.util.Optional;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityFungalInfectionMixin extends Entity {
 
-
     @Unique private int fungalBiomeTicks = 0;
-    @Unique
-    private static final int TICKS_REQUIRED = 18000;
+    @Unique private static final int TICKS_REQUIRED = 18000;
     @Unique private static final int APPLIED_EFFECT_DURATION = 18000;
 
     public LivingEntityFungalInfectionMixin(EntityType<?> entityType, Level level) {
@@ -41,23 +41,20 @@ public abstract class LivingEntityFungalInfectionMixin extends Entity {
 
     @Inject(method = "tick", at = @At("TAIL"))
     private void mortem_fungalTick(CallbackInfo ci) {
-        LivingEntity self = (LivingEntity)(Object)this;
+        LivingEntity self = (LivingEntity) (Object) this;
 
-        if (self == null) {
-            return;
-        }
+        if (self == null) return;
 
         Level level = self.level();
-        if (level == null || level.isClientSide()) return;
+        if (level == null) return;
+
+        if (level.isClientSide()) return;
 
         BlockPos pos = self.blockPosition();
-
-        // get the biome holder at the entity's current pos
         Holder<Biome> biomeHolder = level.getBiome(pos);
 
-        // Try to unwrap the registry key to check biome id
-        Optional<ResourceKey<Biome>> optKey = biomeHolder.unwrapKey();
         boolean inTarget = false;
+        Optional<ResourceKey<Biome>> optKey = biomeHolder.unwrapKey();
         if (optKey.isPresent()) {
             ResourceKey<Biome> key = optKey.get();
             ResourceLocation id = key.location();
@@ -66,27 +63,35 @@ public abstract class LivingEntityFungalInfectionMixin extends Entity {
                 inTarget = true;
             }
         } else {
-
         }
 
-        if (inTarget) {
-            if (!this.getType().is(MortemTags.FUNGUS_IMMUNE)) {
+        if (!this.getType().is(MortemTags.FUNGUS_IMMUNE)) {
+            if (inTarget) {
                 fungalBiomeTicks++;
-                if ((fungalBiomeTicks >= TICKS_REQUIRED) || self.getHealth() <= self.getMaxHealth() / 2) {
-                    if (!self.hasEffect(ModEffects.IMMUNE)) {
-                        if (!self.hasEffect(ModEffects.FUNGALLY_INFECTED)) {
-                            self.addEffect(new MobEffectInstance(ModEffects.FUNGALLY_INFECTED, APPLIED_EFFECT_DURATION, 0, false, true));
-                        }
+
+                if ((fungalBiomeTicks >= TICKS_REQUIRED) || self.getHealth() <= self.getMaxHealth() / 2.0F) {
+                    if (!self.hasEffect(ModEffects.IMMUNE) && !self.hasEffect(ModEffects.FUNGALLY_INFECTED)) {
+                        self.addEffect(new MobEffectInstance(ModEffects.FUNGALLY_INFECTED, APPLIED_EFFECT_DURATION, 0, false, true));
                     }
-                    fungalBiomeTicks = 0;
+                }
+            } else {
+                if (fungalBiomeTicks > 0) {
+                    fungalBiomeTicks = Math.max(0, fungalBiomeTicks - 5);
                 }
             }
-        } else {
-            // reset the counter on leaving
-            fungalBiomeTicks = 0;
-            self.removeEffect(ModEffects.FUNGALLY_INFECTED);
         }
     }
 
+    @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
+    private void mortem_writeNbt(ValueOutput valueOutput, CallbackInfo ci) {
+        valueOutput.putInt("Fungal", this.fungalBiomeTicks);
+    }
 
+    @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
+    private void mortem_readNbt(ValueInput valueInput, CallbackInfo ci) {
+        if (valueInput.contains("Fungal")) {
+            this.fungalBiomeTicks = valueInput.getIntOr("Fungal", 0);
+        }
+    }
 }
+
