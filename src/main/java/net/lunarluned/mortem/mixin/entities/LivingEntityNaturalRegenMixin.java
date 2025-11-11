@@ -23,13 +23,12 @@ public abstract class LivingEntityNaturalRegenMixin {
 
     @Shadow @Nullable public abstract LivingEntity asLivingEntity();
 
-    @Unique public int regenerationChance = 30;
+    @Unique public int regenerationChance = 35;
 
     @Inject(method = "heal", at = @At("HEAD"), cancellable = true)
     private void mortem_redirectHealForNaturalRegen(float amount, CallbackInfo ci) {
         if (this.asLivingEntity() instanceof Player player) {
                 if (player.hasEffect(ModEffects.STAGNATED)) {
-                    regenerationChance = 20;
                     switch (Objects.requireNonNull(player.getEffect(ModEffects.STAGNATED)).getAmplifier()) {
                         case 0:
                             regenerationChance = 20;

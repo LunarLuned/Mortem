@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
@@ -70,14 +71,18 @@ public abstract class LivingEntityFungalInfectionMixin extends Entity {
         if (!this.getType().is(MortemTags.FUNGUS_IMMUNE)) {
             if (inTarget) {
                 fungalBiomeTicks++;
-
-                if (fungalBiomeTicks == TICKS_REQUIRED % 1800) {
-                    this.level().playLocalSound(this, MortemSoundEvents.FUNGAL_TERRORS, net.minecraft.sounds.SoundSource.BLOCKS, 1.0F, 1.0F);
+                if (!this.level().isClientSide()) {
+                    if (fungalBiomeTicks > 1 && (this.tickCount % 1800 == 0)) {
+                        self.level().playSound(self, self.blockPosition(), MortemSoundEvents.FUNGAL_TERRORS, SoundSource.PLAYERS, 1, 1);
+                    }
                 }
 
                 if ((fungalBiomeTicks >= TICKS_REQUIRED) || self.getHealth() <= self.getMaxHealth() / 2.0F) {
                     if (!self.hasEffect(ModEffects.IMMUNE) && !self.hasEffect(ModEffects.FUNGALLY_INFECTED)) {
                         self.addEffect(new MobEffectInstance(ModEffects.FUNGALLY_INFECTED, APPLIED_EFFECT_DURATION, 0, false, true));
+                        self.level().playSound(self, self.blockPosition(), MortemSoundEvents.FUNGAL_TERRORS, SoundSource.PLAYERS, 1, 2);
+                        self.level().playSound(self, self.blockPosition(), MortemSoundEvents.FUNGAL_TERRORS, SoundSource.PLAYERS, 1F, 0.1F);
+                        fungalBiomeTicks = 0;
                     }
                 }
 
@@ -86,18 +91,20 @@ public abstract class LivingEntityFungalInfectionMixin extends Entity {
                     fungalBiomeTicks = Math.max(0, fungalBiomeTicks - 5);
                 }
             }
+        } else {
+            return;
         }
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
     private void mortem_writeNbt(ValueOutput valueOutput, CallbackInfo ci) {
-        valueOutput.putInt("Fungal", this.fungalBiomeTicks);
+        valueOutput.putInt("fungal", this.fungalBiomeTicks);
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
     private void mortem_readNbt(ValueInput valueInput, CallbackInfo ci) {
-        if (valueInput.contains("Fungal")) {
-            this.fungalBiomeTicks = valueInput.getIntOr("Fungal", 0);
+        if (valueInput.contains("fungal")) {
+            this.fungalBiomeTicks = valueInput.getIntOr("fungal", 0);
         }
     }
 }

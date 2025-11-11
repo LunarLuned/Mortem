@@ -47,9 +47,13 @@ public class InfectedEffect extends MobEffect {
     @Override
     public boolean applyEffectTick(ServerLevel serverLevel, LivingEntity livingEntity, int amplifier) {
 
-            int randomValue = Mth.nextInt(RandomSource.create(), 1, 100);
+        int randomValue = 0;
+
+        if (livingEntity.tickCount % 100 == 0) {
+            randomValue = Mth.nextInt(RandomSource.create(), 1, 100);
+        }
         if (randomValue < 5) serverLevel.playSound(null, livingEntity.blockPosition(), SoundEvents.ZOMBIE_AMBIENT, SoundSource.HOSTILE, 0.2F, 0.8F + serverLevel.getRandom().nextFloat() * 0.4F);
-        if (amplifier >= 0) {
+        if (amplifier == 0) {
                 if (randomValue < 2) {
                     randomValue = Mth.nextInt(RandomSource.create(), 1, 4);
                     switch (randomValue) {
@@ -67,7 +71,7 @@ public class InfectedEffect extends MobEffect {
                             break;
                     }
                 }
-                if (amplifier >= 1) {
+                if (amplifier == 1) {
                     if (randomValue < 3) {
                         randomValue = Mth.nextInt(RandomSource.create(), 1, 4);
                         switch (randomValue) {

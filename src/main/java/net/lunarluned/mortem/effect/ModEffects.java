@@ -30,11 +30,11 @@ public class ModEffects {
     public static void registerEffects() {
         IMMUNE = register("immune", new ImmuneEffect(MobEffectCategory.BENEFICIAL, 14264576));
         INFECTED = register("infected", new InfectedEffect(MobEffectCategory.HARMFUL, 1657351));
-        FUNGALLY_INFECTED = register("fungally_infected", new FungalInfectedEffect(MobEffectCategory.HARMFUL, 1657351).addAttributeModifier(
+        FUNGALLY_INFECTED = register("fungally_infected", new FungalInfectedEffect(MobEffectCategory.HARMFUL, 16253176).addAttributeModifier(
                 Attributes.MOVEMENT_SPEED,
                 ResourceLocation.parse("9b5f8b8e-3f7a-4a3d-9c3a-1d1a2a4e7f10"),
                 -0.15D,
-                AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
+                AttributeModifier.Operation.ADD_MULTIPLIED_BASE
         ));
         STAGNATED = register("stagnated", new StagnatedEffect(MobEffectCategory.HARMFUL, 1657351));
     }

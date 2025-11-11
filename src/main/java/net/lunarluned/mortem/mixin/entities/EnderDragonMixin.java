@@ -34,7 +34,7 @@ public abstract class EnderDragonMixin extends LivingEntity {
     @Inject(at = @At("HEAD"), method = "createAttributes", cancellable = true)
     private static void mortem_changeDragonAttributes(CallbackInfoReturnable<AttributeSupplier.Builder> cir) {
         // buff dragon's health to 300, adds 20 armor
-            cir.setReturnValue(Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 300.0D).add(Attributes.ARMOR, 20.0D));
+            cir.setReturnValue(Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 300.0D).add(Attributes.ARMOR, 15.0D));
     }
 
     @Inject(at = @At("HEAD"), method = "Lnet/minecraft/world/entity/boss/enderdragon/EnderDragon;hurt(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/boss/EnderDragonPart;Lnet/minecraft/world/damagesource/DamageSource;F)Z", cancellable = true)

@@ -10,10 +10,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(Zombie.class)
+@Mixin(Monster.class)
 public abstract class MonsterEntityMixin {
 
-    @Inject(method = "createAttributes", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "createMonsterAttributes", at = @At("RETURN"), cancellable = true)
     private static void modifyFollowRange(CallbackInfoReturnable<AttributeSupplier.Builder> cir) {
         AttributeSupplier.Builder builder = cir.getReturnValue();
 
