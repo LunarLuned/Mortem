@@ -10,6 +10,8 @@ import net.minecraft.world.level.block.Block;
 public class MortemTags {
     public static final TagKey<Block> ARROW_BREAKABLE = TagKey.create(Registries.BLOCK, ResourceLocation.tryBuild("mortem", "arrow_breakable"));
     public static final TagKey<Block> FLAMMABLE_BLOCKS = TagKey.create(Registries.BLOCK, ResourceLocation.tryBuild("mortem", "flammable_blocks"));
+    public static final TagKey<Block> EXPLOSION_PROOF = TagKey.create(Registries.BLOCK, ResourceLocation.tryBuild("mortem", "explosion_proof_blocks"));
+
 
 
     public static final TagKey<EntityType<?>> CANNOT_BE_ZOMBIFIED = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.tryBuild("mortem", "cannot_be_zombified"));

@@ -5,6 +5,7 @@
   "mixins": [
     "blocks.AnvilMenuMixin",
     "blocks.AnvilMixin",
+    "blocks.BlockExplosionResistanceMixin",
     "blocks.CampfireBlockMixin",
     "blocks.CampfireEntityMixin",
     "blocks.CobwebMixin",
