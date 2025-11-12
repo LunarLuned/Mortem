@@ -54,20 +54,22 @@
   "item.mortem.cactus_jam": "Bottol o' cactus squash",
   "item.mortem.cocoa_spread": "Bottol o' cocoas spread",
   "item.mortem.mushroom_puree": "Bottol o' mashed mushroom",
-  "item.mortem.pork_pate": "Bottol o' Pork made-to-paste",
+  "item.mortem.pork_pate": "Bottol o' Ham jam",
 
   "item.mortem.berry_spread_toast": "Berry o' spread burn't",
   "item.mortem.apple_spread_toast": "Apple o' spread burn't",
   "item.mortem.cactus_spread_toast": "Scrumpy o' spread burn't",
   "item.mortem.cocoa_spread_toast": "Cocoa o' burn't",
   "item.mortem.mushroom_spread_toast": "Mushroom o' spread burn't",
-  "item.mortem.pork_spread_toast": "Pork made-to-paste o' spread burn't",
+  "item.mortem.pork_spread_toast": "Ham jam o' spread burn't",
 
   "item.mortem.crimson_stew": "Stew o' fungus",
   "item.mortem.warped_stew": "Stew o' unearthly",
   "item.mortem.fungal_stew": "Stew o' fungal",
   "item.mortem.mushroom_stew_tusk": "Shroom goulash",
   "item.mortem.scrambled_eggs_tusk": "Cackle in 'er tusk",
+
+  "enchantment.mortem.ricochet": "Ricoshot",
 
   "effect.fungal_infection.terrors": "Yer givin in to the Fungal"
 }

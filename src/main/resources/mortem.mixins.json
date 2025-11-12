@@ -11,6 +11,8 @@
     "blocks.CobwebMixin",
     "blocks.IceMeltRandomTickMixin",
     "blocks.TNTBlockMixin",
+    "enchantments.ImpalingWetDamageMixin",
+    "enchantments.RicochetThrownTridentMixin",
     "entities.AbstractArrowMixin",
     "entities.EndCrystalMixin",
     "entities.EndCrystalMobMixin",
