@@ -3,7 +3,7 @@ package net.lunarluned.mortem.mixin.entities;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.EnderMan;
@@ -12,18 +12,45 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.UUID;
 
 @Mixin(EnderMan.class)
 public abstract class EndermanMixin extends Monster {
 
 
-    @Shadow protected abstract boolean teleport();
-
     protected EndermanMixin(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Unique
+    private static final double AGGRO_RADIUS = 8.0;
+
+
+    @Inject(method = "setPersistentAngerTarget", at = @At("TAIL"))
+    private void mortem_spreadAnger(UUID uUID, CallbackInfo ci) {
+        EnderMan self = (EnderMan) (Object) this;
+        Level world = self.level();
+
+        if (uUID == null || world.isClientSide()) return;
+
+        LivingEntity targetEntity = world.getPlayerByUUID(uUID);
+        if (targetEntity == null) return;
+
+        for (EnderMan ender : world.getEntities(EntityType.ENDERMAN,
+                self.getBoundingBox().inflate(AGGRO_RADIUS),
+                e -> e != self)) {
+
+            if (ender.getPersistentAngerTarget() == null) {
+                ender.setLastHurtByMob(targetEntity);
+                ender.setPersistentAngerTarget(uUID);
+            }
+        }
     }
 
     @Inject(at = @At("HEAD"), method = "createAttributes", cancellable = true)
