@@ -1,0 +1,73 @@
+{
+  "itemgroup.mortem.mortem": "Mor'tem",
+
+  "advancements.adventure.trial_by_fire.title": "Yer own trial o' fire",
+  "advancements.adventure.trial_by_fire.description": "Fix yer ailments with the blessin' o' flame",
+
+  "advancements.adventure.cure_zombified.title": "Davy jones' crawl",
+  "advancements.adventure.cure_zombified.description": "Fix yer ailments and fight off lady death's breath",
+
+  "advancements.adventure.become_zombified.title": "Your black spot",
+  "advancements.adventure.become_zombified.description": "Become taken in by men's killer",
+
+  "effect.mortem.infected": "Men's killer",
+  "effect.mortem.fungally_infected": "Fungal lung",
+  "effect.mortem.immune": "Angel's grace",
+
+  "item.minecraft.potion.effect.infected": "Brew o' Men's killer",
+  "item.minecraft.splash_potion.effect.infected": "Grenade o' Men's killer",
+  "item.minecraft.lingering_potion.effect.infected": "Bottled fog o' Men's killer",
+  "item.minecraft.tipped_arrow.effect.infected": "Bolt o' Men's killer",
+
+  "item.minecraft.potion.effect.immune": "Brew o' Angels grace",
+  "item.minecraft.splash_potion.effect.immune": "Grenade o' Angels grace",
+  "item.minecraft.lingering_potion.effect.immune": "Bottled fog o' Angels grace",
+  "item.minecraft.tipped_arrow.effect.immune": "Bolt o' Angels grace",
+
+
+  "block.mortem.hardened_deepslate_iron_ore": "Harde & tough orrre o' steel",
+  "block.mortem.hardened_iron_ore": "Harde orrre o' steel",
+
+  "item.mortem.hoglin_tusk": "Tusk o' the pig beast",
+
+  "item.mortem.egg_bowl": "Cackle in 'er tusk",
+  "item.mortem.egg_tusk": "Crack'd cackle",
+
+  "item.mortem.drug": "Big ol' pile of thing",
+  "item.mortem.resin_candy": "Sweet circle",
+
+  "item.mortem.hard_boiled_egg": "Boil'd cackle",
+  "item.mortem.scrambled_eggs": "Scramble",
+  "item.mortem.sushi_roll": "Salmon, cackle & sea lettuce thing",
+  "item.mortem.sweet_potato": "Sweeten'd tater",
+  "item.mortem.raw_bacon": "Raw strip'd bacon",
+  "item.mortem.cooked_bacon": "Smoked strip'd bacon",
+  "item.mortem.beef_patty": "Raw beef patt'y",
+  "item.mortem.cooked_beef_patty": "Smoked beef patt'y",
+  "item.mortem.burger": "Burg",
+  "item.mortem.bacon_burger": "Burg o' bacon",
+  "item.mortem.toast": "Burn't",
+  "item.mortem.toasted_bread": "Burn't bread",
+
+  "item.mortem.sweet_berry_jam": "Bottol o' berries jammed",
+  "item.mortem.apple_jam": "Bottol o' apples jammed",
+  "item.mortem.cactus_jam": "Bottol o' cactus squash",
+  "item.mortem.cocoa_spread": "Bottol o' cocoas spread",
+  "item.mortem.mushroom_puree": "Bottol o' mashed mushroom",
+  "item.mortem.pork_pate": "Bottol o' Pork made-to-paste",
+
+  "item.mortem.berry_spread_toast": "Berry o' spread burn't",
+  "item.mortem.apple_spread_toast": "Apple o' spread burn't",
+  "item.mortem.cactus_spread_toast": "Scrumpy o' spread burn't",
+  "item.mortem.cocoa_spread_toast": "Cocoa o' burn't",
+  "item.mortem.mushroom_spread_toast": "Mushroom o' spread burn't",
+  "item.mortem.pork_spread_toast": "Pork made-to-paste o' spread burn't",
+
+  "item.mortem.crimson_stew": "Stew o' fungus",
+  "item.mortem.warped_stew": "Stew o' unearthly",
+  "item.mortem.fungal_stew": "Stew o' fungal",
+  "item.mortem.mushroom_stew_tusk": "Shroom goulash",
+  "item.mortem.scrambled_eggs_tusk": "Cackle in 'er tusk",
+
+  "effect.fungal_infection.terrors": "Yer givin in to the Fungal"
+}
