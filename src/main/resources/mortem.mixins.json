@@ -8,6 +8,7 @@
     "blocks.CampfireBlockMixin",
     "blocks.CampfireEntityMixin",
     "blocks.CobwebMixin",
+    "blocks.IceMeltRandomTickMixin",
     "blocks.TNTBlockMixin",
     "entities.AbstractArrowMixin",
     "entities.EndCrystalMixin",
