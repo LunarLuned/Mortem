@@ -2,8 +2,6 @@ package net.lunarluned.mortem;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.minecraft.ResourceLocationException;
-import net.minecraft.commands.arguments.ResourceLocationArgument;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

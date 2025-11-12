@@ -1,26 +1,23 @@
-package net.lunarluned.mortem.mixin.entities;
+package net.lunarluned.mortem.mixin.entities.hostile;
 
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.entity.monster.Spider;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(Monster.class)
-public abstract class MonsterEntityMixin {
+@Mixin(Spider.class)
+public abstract class SpiderMixin {
 
-    @Inject(method = "createMonsterAttributes", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "createAttributes", at = @At("RETURN"), cancellable = true)
     private static void modifyFollowRange(CallbackInfoReturnable<AttributeSupplier.Builder> cir) {
         AttributeSupplier.Builder builder = cir.getReturnValue();
 
-        // Get existing follow range and double it
-        builder.add(Attributes.FOLLOW_RANGE, 64);
+        builder.add(Attributes.FOLLOW_RANGE, 48);
 
-        // Set the modified builder back
         cir.setReturnValue(builder);
     }
 }
