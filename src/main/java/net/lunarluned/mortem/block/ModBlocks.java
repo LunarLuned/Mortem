@@ -18,11 +18,11 @@ public class ModBlocks {
 
     public static final Block HARDENED_IRON_ORE = registerBlock("hardened_iron_ore",
             new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "hardened_iron_ore")))
-                    .strength(10f).sound(SoundType.STONE)));
+                    .strength(8f).explosionResistance(0).sound(SoundType.STONE)));
 
     public static final Block HARDENED_DEEPSLATE_IRON_ORE = registerBlock("hardened_deepslate_iron_ore",
             new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "hardened_deepslate_iron_ore")))
-                    .strength(16f).sound(SoundType.DEEPSLATE)));
+                    .strength(12f).explosionResistance(2).sound(SoundType.DEEPSLATE)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

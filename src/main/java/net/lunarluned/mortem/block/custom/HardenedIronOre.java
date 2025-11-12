@@ -1,40 +1,36 @@
 package net.lunarluned.mortem.block.custom;
 
-import net.lunarluned.mortem.block.ModBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
-import org.joml.Vector3f;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
 
 import static net.lunarluned.mortem.block.ModBlocks.HARDENED_DEEPSLATE_IRON_ORE;
+import static net.lunarluned.mortem.misc.EnchantmentHolderHelper.resolveHolder;
 
 public class HardenedIronOre extends Block {
     public HardenedIronOre(Properties properties) {
@@ -42,8 +38,15 @@ public class HardenedIronOre extends Block {
     }
 
     @Override
-    protected List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
+    protected @NotNull List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack tool = builder.getOptionalParameter(LootContextParams.TOOL);
+        Level level = builder.getLevel();
+
+        ResourceKey<Enchantment> enchantKey = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.tryBuild("minecraft", "silk_touch"));
+
+        Holder.Reference<Enchantment> holder = resolveHolder(level, Registries.ENCHANTMENT, enchantKey);
+
+
 
         if (tool != null) {
             int miningLevel = tool.getMaxDamage();
@@ -53,7 +56,9 @@ public class HardenedIronOre extends Block {
                 return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 3, 6)));
             }
             else if (miningLevel > 200) {
-                return Collections.singletonList(new ItemStack(Items.RAW_IRON, 1));
+                if (EnchantmentHelper.getItemEnchantmentLevel(holder, tool) > 0) {
+                    return Collections.singletonList(new ItemStack(this.asItem()));
+                } else return Collections.singletonList(new ItemStack(Items.RAW_IRON, 1));
             } else {
                 return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 1, 2)));
             }
