@@ -37,6 +37,7 @@ public class ModItemGroups {
                         entries.accept(ModItems.BACON_BURGER);
                         entries.accept(ModItems.TOASTED_BREAD);
                         entries.accept(ModItems.TOAST);
+                        entries.accept(ModItems.BREAKFAST_SANDWICH);
 
                         entries.accept(ModItems.SWEET_BERRY_JAM);
                         entries.accept(ModItems.APPLE_JAM);

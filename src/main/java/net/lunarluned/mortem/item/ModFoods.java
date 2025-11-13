@@ -29,6 +29,7 @@ public class ModFoods {
     public static final FoodProperties COOKED_BACON = (new FoodProperties.Builder().nutrition(3).saturationModifier(0.25f).build());
     public static final FoodProperties BEEF_PATTY = (new FoodProperties.Builder().nutrition(3).saturationModifier(0.0f).build());
     public static final FoodProperties COOKED_BEEF_PATTY = (new FoodProperties.Builder().nutrition(4).saturationModifier(.25f).build());
+    public static final FoodProperties BREAKFAST_SANDWICH = (new FoodProperties.Builder().nutrition(6).saturationModifier(.45f).build());
     public static final FoodProperties BURGER = (new FoodProperties.Builder().nutrition(8).saturationModifier(.65f).build());
     public static final FoodProperties BACON_BURGER = (new FoodProperties.Builder().nutrition(10).saturationModifier(0.7f).build());
     public static final FoodProperties TOAST = (new FoodProperties.Builder().nutrition(2).saturationModifier(.25f).build());

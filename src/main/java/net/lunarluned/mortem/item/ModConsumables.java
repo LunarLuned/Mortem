@@ -29,6 +29,7 @@ public class ModConsumables {
     public static final Consumable COOKED_BACON;
     public static final Consumable BEEF_PATTY;
     public static final Consumable COOKED_BEEF_PATTY;
+    public static final Consumable BREAKFAST_SANDWICH;
     public static final Consumable BURGER;
     public static final Consumable BACON_BURGER;
     public static final Consumable TOAST;
@@ -76,6 +77,7 @@ public class ModConsumables {
         COOKED_BACON = defaultFood().consumeSeconds(0.45F).build();
         BEEF_PATTY = defaultFood().consumeSeconds(.95F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.NAUSEA, 100, 1), 0.7F)).build();
         COOKED_BEEF_PATTY = defaultFood().consumeSeconds(0.75F).build();
+        BREAKFAST_SANDWICH = defaultFood().consumeSeconds(1.95F).build();
         BURGER = defaultFood().consumeSeconds(2.35F).build();
         BACON_BURGER = defaultFood().consumeSeconds(2.45F).build();
         TOAST = defaultFood().consumeSeconds(0.55f).build();

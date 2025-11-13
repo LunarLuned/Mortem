@@ -29,7 +29,7 @@ public class MortemCreativeModeTab {
             entries.addAfter(Items.DRIED_KELP, ModItems.SUSHI_ROLL);
             entries.addAfter(Items.POTATO, ModItems.SWEET_POTATO);
             entries.addAfter(Items.PORKCHOP, ModItems.RAW_BACON);
-            entries.addAfter(Items.COOKED_PORKCHOP, ModItems.COOKED_BACON);
+            entries.addAfter(Items.COOKED_PORKCHOP, ModItems.COOKED_BACON, ModItems.BREAKFAST_SANDWICH);
             entries.addAfter(Items.BEEF, ModItems.BEEF_PATTY);
             entries.addAfter(Items.COOKED_BEEF, ModItems.COOKED_BEEF_PATTY);
             entries.addAfter(Items.BREAD, ModItems.TOASTED_BREAD, ModItems.TOAST, ModItems.BERRY_SPREAD_TOAST, ModItems.APPLE_SPREAD_TOAST, ModItems.CACTUS_SPREAD_TOAST, ModItems.COCOA_SPREAD_TOAST, ModItems.MUSHROOM_SPREAD_TOAST, ModItems.PORK_SPREAD_TOAST, ModItems.BURGER, ModItems.BACON_BURGER);

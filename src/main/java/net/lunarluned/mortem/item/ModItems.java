@@ -88,6 +88,11 @@ public class ModItems {
             new Item(new Item.Properties().food(ModFoods.COOKED_BEEF_PATTY, ModConsumables.COOKED_BEEF_PATTY)
                     .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cooked_beef_patty")))));
 
+    public static final Item BREAKFAST_SANDWICH = registerItem("breakfast_sandwich",
+            new Item(new Item.Properties().food(ModFoods.BREAKFAST_SANDWICH, ModConsumables.BREAKFAST_SANDWICH)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:breakfast_sandwich")))));
+
+
     public static final Item BURGER = registerItem("burger",
             new Item(new Item.Properties().food(ModFoods.BURGER, ModConsumables.BURGER)
                     .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:burger")))));

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_jam": {
+    "has_bacon": {
       "conditions": {
         "items": [
           {
-            "tag": "mortem:jams"
+            "items": "mortem:cooked_bacon"
           }
         ]
       },
@@ -13,25 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mortem:berry_spread_toast"
+        "recipe": "mortem:breakfast_sandwich"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_jam",
+      "has_bacon",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mortem:berry_spread_toast",
-      "mortem:apple_spread_toast",
-      "mortem:cactus_spread_toast",
-      "mortem:cocoa_spread_toast",
-      "mortem:mushroom_spread_toast",
-      "mortem:pork_spread_toast"
+      "mortem:breakfast_sandwich"
     ]
   }
 }

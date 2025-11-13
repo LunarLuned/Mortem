@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "BCB",
+    " # "
+  ],
+  "key": {
+    "#": "mortem:toast",
+    "B": "mortem:cooked_bacon",
+    "C": "mortem:scrambled_eggs"
+  },
+  "result": {
+    "id": "mortem:breakfast_sandwich",
+    "count": 1
+  }
+}
