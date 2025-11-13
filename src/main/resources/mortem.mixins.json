@@ -32,6 +32,7 @@
     "entities.hostile.CreeperMixin",
     "entities.hostile.SkeletonMixin",
     "entities.hostile.SpiderMixin",
+    "entities.hostile.ZombieMixin",
     "items.ArmorMaterialsMixin",
     "items.BlocksAttacksMixin",
     "items.BowMixin",

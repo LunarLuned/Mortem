@@ -49,9 +49,7 @@ public class InfectedEffect extends MobEffect {
 
         int randomValue = 0;
 
-        if (livingEntity.tickCount % 100 == 0) {
             randomValue = Mth.nextInt(RandomSource.create(), 1, 100);
-        }
         if (randomValue < 5) serverLevel.playSound(null, livingEntity.blockPosition(), SoundEvents.ZOMBIE_AMBIENT, SoundSource.HOSTILE, 0.2F, 0.8F + serverLevel.getRandom().nextFloat() * 0.4F);
         if (amplifier == 0) {
                 if (randomValue < 2) {
