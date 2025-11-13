@@ -54,7 +54,7 @@ public abstract class LivingEntityNaturalRegenMixin {
                 if (level != null
                         && level.getGameRules().getBoolean(GameRules.RULE_NATURAL_REGENERATION)
                         // player must have enough hunger to regen
-                        && player.getFoodData().getFoodLevel() >= 18
+                        && player.getFoodData().getFoodLevel() <= 18
                         // must actually be damaged
                         && player.getHealth() < player.getMaxHealth()
                         && !player.isSpectator()
