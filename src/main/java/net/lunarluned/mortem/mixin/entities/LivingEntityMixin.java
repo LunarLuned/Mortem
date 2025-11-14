@@ -121,7 +121,7 @@ public abstract class LivingEntityMixin extends Entity {
         if ((this.hasEffect(MobEffects.WEAKNESS) && (this.hasEffect(MobEffects.REGENERATION)) && (this.hasEffect(ModEffects.INFECTED)))) {
             if ((this.tickCount % 10 == 0)) {
                 this.removeAllEffects();
-                this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 6000, 0));
+                this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 400, 0));
             }
         }
 

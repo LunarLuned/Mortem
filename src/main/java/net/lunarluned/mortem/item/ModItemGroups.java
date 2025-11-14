@@ -59,6 +59,13 @@ public class ModItemGroups {
                         entries.accept(ModItems.MUSHROOM_STEW_TUSK);
                         entries.accept(ModItems.SCRAMBLED_EGGS_TUSK);
 
+                        entries.accept(ModItems.POISON_ELIXIR);
+                        entries.accept(ModItems.ENHANCED_POISON_ELIXIR);
+                        entries.accept(ModItems.MISFORTUNE_ELIXIR);
+                        entries.accept(ModItems.ENHANCED_MISFORTUNE_ELIXIR);
+                        entries.accept(ModItems.VITALIZATION_ELIXIR);
+                        entries.accept(ModItems.ENHANCED_VITALIZATION_ELIXIR);
+
                     }).build());
 
 

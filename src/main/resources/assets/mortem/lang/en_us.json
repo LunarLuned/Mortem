@@ -12,7 +12,20 @@
 
   "effect.mortem.infected": "Infected",
   "effect.mortem.fungally_infected": "Fungally Infected",
-  "effect.mortem.immune": "Immune",
+  "effect.mortem.immune": "Immunity",
+  "effect.mortem.extended_immunity": "Extended Immunity",
+  "effect.mortem.deep_infection": "Deeply Infected",
+  "effect.mortem.enhanced_immune": "Elixir's Immunity",
+  "effect.mortem.enhanced_resistance": "Elixir's Resistance",
+  "effect.mortem.enhanced_luck": "Elixir's Luck",
+
+  "item.mortem.poison_elixir": "Elixir of Poison",
+  "item.mortem.misfortune_elixir": "Elixir of Misfortune",
+  "item.mortem.vitalization_elixir": "Elixir of Vitalization",
+
+  "item.mortem.enhanced_poison_elixir": "Enhanced Elixir of Poison",
+  "item.mortem.enhanced_misfortune_elixir": "Enhanced Elixir of Misfortune",
+  "item.mortem.enhanced_vitalization_elixir": "Enhanced Elixir of Vitalization",
 
   "item.minecraft.potion.effect.infected": "Potion of Infection",
   "item.minecraft.splash_potion.effect.infected": "Splash Potion of Infection",
@@ -23,6 +36,16 @@
   "item.minecraft.splash_potion.effect.immune": "Splash Potion of Immunity",
   "item.minecraft.lingering_potion.effect.immune": "Lingering Potion of Immunity",
   "item.minecraft.tipped_arrow.effect.immune": "Arrow of Immunity",
+
+  "item.minecraft.potion.effect.deep_infection": "Potion of Deep Infection",
+  "item.minecraft.splash_potion.effect.deep_infection": "Splash Potion of Deep Infection",
+  "item.minecraft.lingering_potion.effect.deep_infection": "Lingering Potion of Deep Infection",
+  "item.minecraft.tipped_arrow.effect.deep_infection": "Arrow of Deep Infection",
+
+  "item.minecraft.potion.effect.extended_immunity": "Potion of Extended Immunity",
+  "item.minecraft.splash_potion.effect.extended_immunity": "Splash Potion of Extended Immunity",
+  "item.minecraft.lingering_potion.effect.extended_immunity": "Lingering Potion of Extended Immunity",
+  "item.minecraft.tipped_arrow.effect.extended_immunity": "Arrow of Extended Immunity",
 
 
   "block.mortem.crumbling_stone": "Crumbling Stone",

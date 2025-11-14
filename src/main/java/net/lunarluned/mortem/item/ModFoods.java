@@ -4,8 +4,14 @@ import net.minecraft.world.food.FoodProperties;
 
 public class ModFoods {
 
-    public static final FoodProperties DRUG = new FoodProperties.Builder().nutrition(1).saturationModifier(0.25f).alwaysEdible().build();
-    public static final FoodProperties RESIN_CANDY = new FoodProperties.Builder().nutrition(1).saturationModifier(.1f).alwaysEdible().build();
+    // Misc Foods
+
+    public static final FoodProperties POISON_ELIXIR = (new FoodProperties.Builder().nutrition(1).build());
+    public static final FoodProperties ENHANCED_POISON_ELIXIR = (new FoodProperties.Builder().nutrition(2).build());
+    public static final FoodProperties MISFORTUNE_ELIXIR = (new FoodProperties.Builder().nutrition(1).build());
+    public static final FoodProperties ENHANCED_MISFORTUNE_ELIXIR = (new FoodProperties.Builder().nutrition(2).build());
+    public static final FoodProperties VITALIZATION_ELIXIR = (new FoodProperties.Builder().nutrition(1).build());
+    public static final FoodProperties ENHANCED_VITALIZATION_ELIXIR = (new FoodProperties.Builder().nutrition(2).build());
 
     // Nether Foods
 
@@ -21,6 +27,9 @@ public class ModFoods {
     public static final FoodProperties SUSHI_ROLL = (new FoodProperties.Builder().nutrition(4).saturationModifier(.25F).build());
 
     // Overworld Foods
+
+    public static final FoodProperties DRUG = new FoodProperties.Builder().nutrition(1).saturationModifier(0.25f).alwaysEdible().build();
+    public static final FoodProperties RESIN_CANDY = new FoodProperties.Builder().nutrition(1).saturationModifier(.1f).alwaysEdible().build();
 
     public static final FoodProperties SWEET_POTATO = (new FoodProperties.Builder().nutrition(3).saturationModifier(1.5f).build());
     public static final FoodProperties RAW_BACON = (new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).build());

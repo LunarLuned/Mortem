@@ -1,19 +1,43 @@
 package net.lunarluned.mortem.item;
 
 import net.lunarluned.mortem.Mortem;
+import net.lunarluned.mortem.item.custom.ElixirItem;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Rarity;
 
 public class ModItems {
 
-    public static final Item HEALING_VIAL = registerItem("healing_vial",
-            new Item(new Item.Properties().food(ModFoods.DRUG, ModConsumables.DRUG)
-                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:healing_vial")))));
+    public static final Item POISON_ELIXIR = registerItem("poison_elixir",
+            new ElixirItem(0, new Item.Properties().food(ModFoods.POISON_ELIXIR, ModConsumables.POISON_ELIXIR)
+                    .useItemDescriptionPrefix().rarity(Rarity.UNCOMMON).stacksTo(16).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:poison_elixir")))));
+
+    public static final Item ENHANCED_POISON_ELIXIR = registerItem("enhanced_poison_elixir",
+            new ElixirItem(1, new Item.Properties().food(ModFoods.ENHANCED_POISON_ELIXIR, ModConsumables.ENHANCED_POISON_ELIXIR)
+                    .useItemDescriptionPrefix().rarity(Rarity.RARE).stacksTo(8).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:enhanced_poison_elixir")))));
+
+    public static final Item MISFORTUNE_ELIXIR = registerItem("misfortune_elixir",
+            new ElixirItem(2, new Item.Properties().food(ModFoods.MISFORTUNE_ELIXIR, ModConsumables.MISFORTUNE_ELIXIR)
+                    .useItemDescriptionPrefix().rarity(Rarity.UNCOMMON).stacksTo(16).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:misfortune_elixir")))));
+
+    public static final Item ENHANCED_MISFORTUNE_ELIXIR = registerItem("enhanced_misfortune_elixir",
+            new ElixirItem(3, new Item.Properties().food(ModFoods.ENHANCED_MISFORTUNE_ELIXIR, ModConsumables.ENHANCED_MISFORTUNE_ELIXIR)
+                    .useItemDescriptionPrefix().rarity(Rarity.RARE).stacksTo(8).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:enhanced_misfortune_elixir")))));
+
+    public static final Item VITALIZATION_ELIXIR = registerItem("vitalization_elixir",
+            new ElixirItem(4, new Item.Properties().food(ModFoods.VITALIZATION_ELIXIR, ModConsumables.VITALIZATION_ELIXIR)
+                    .useItemDescriptionPrefix().rarity(Rarity.UNCOMMON).stacksTo(16).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:vitalization_elixir")))));
+
+    public static final Item ENHANCED_VITALIZATION_ELIXIR = registerItem("enhanced_vitalization_elixir",
+            new ElixirItem(5, new Item.Properties().food(ModFoods.ENHANCED_VITALIZATION_ELIXIR, ModConsumables.ENHANCED_VITALIZATION_ELIXIR)
+                    .useItemDescriptionPrefix().rarity(Rarity.RARE).stacksTo(8).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:enhanced_vitalization_elixir")))));
+
 
     public static final Item HOGLIN_TUSK = registerItem("hoglin_tusk",
             new Item(new Item.Properties()

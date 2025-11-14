@@ -6,13 +6,16 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
-import net.minecraft.world.item.consume_effects.ClearAllStatusEffectsConsumeEffect;
-import net.minecraft.world.item.consume_effects.RemoveStatusEffectsConsumeEffect;
-import net.minecraft.world.item.consume_effects.TeleportRandomlyConsumeEffect;
-
-import java.util.List;
 
 public class ModConsumables {
+
+    public static final Consumable POISON_ELIXIR;
+    public static final Consumable ENHANCED_POISON_ELIXIR;
+    public static final Consumable MISFORTUNE_ELIXIR;
+    public static final Consumable ENHANCED_MISFORTUNE_ELIXIR;
+    public static final Consumable VITALIZATION_ELIXIR;
+    public static final Consumable ENHANCED_VITALIZATION_ELIXIR;
+
     public static final Consumable DRUG;
     public static final Consumable RESIN_CANDY;
 
@@ -56,11 +59,24 @@ public class ModConsumables {
         return Consumable.builder().consumeSeconds(1.6F).animation(ItemUseAnimation.EAT).sound(SoundEvents.GENERIC_EAT).hasConsumeParticles(true);
     }
 
+    public static Consumable.Builder defaultElixir() {
+        return Consumable.builder().consumeSeconds(2.5F).animation(ItemUseAnimation.DRINK).soundAfterConsume(SoundEvents.SOUL_ESCAPE).sound(SoundEvents.HONEY_DRINK).hasConsumeParticles(true);
+    }
+
     public static Consumable.Builder defaultDrink() {
         return Consumable.builder().consumeSeconds(1.6F).animation(ItemUseAnimation.DRINK).sound(SoundEvents.GENERIC_DRINK).hasConsumeParticles(false);
     }
 
     static {
+
+        POISON_ELIXIR = defaultElixir().build();
+        ENHANCED_POISON_ELIXIR = defaultElixir().build();
+        MISFORTUNE_ELIXIR = defaultElixir().build();
+        ENHANCED_MISFORTUNE_ELIXIR = defaultElixir().build();
+        VITALIZATION_ELIXIR = defaultElixir().build();
+        ENHANCED_VITALIZATION_ELIXIR = defaultElixir().build();
+
+
         DRUG = defaultFood().consumeSeconds(0.3F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SPEED, 250, 1), 0.5F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.POISON, 300, 1), 0.8F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.9F)).build();
         RESIN_CANDY = defaultFood().consumeSeconds(0.5F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SPEED, 250, 0), 0.1F)).build();
 
