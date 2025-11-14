@@ -2,7 +2,14 @@ package net.lunarluned.mortem;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
+import net.lunarluned.mortem.item.ModItems;
+import net.lunarluned.mortem.potion.ModPotions;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,6 +43,21 @@ public class Mortem implements ModInitializer {
 
 		registerEnchantmentEffects();
 
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(ModPotions.INFECTED, Ingredient.of(Items.GOLDEN_APPLE), ModPotions.IMMUNE);
+		});
+
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(ModPotions.INFECTED, Ingredient.of(Items.ENCHANTED_GOLDEN_APPLE), ModPotions.EXTENDED_IMMUNITY);
+		});
+
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(Potions.MUNDANE, Ingredient.of(Items.ROTTEN_FLESH), ModPotions.INFECTED);
+		});
+
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(Potions.THICK, Ingredient.of(Items.ROTTEN_FLESH), ModPotions.INFECTED);
+		});
 
 		LOGGER.info("Post Mortem.");
 	}
