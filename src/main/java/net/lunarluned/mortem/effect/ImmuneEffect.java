@@ -27,6 +27,9 @@ public class ImmuneEffect extends MobEffect {
     @Override
     public boolean applyEffectTick(ServerLevel serverLevel, LivingEntity livingEntity, int amplifier) {
 
+        if (livingEntity instanceof Zombie) {
+            livingEntity.hurtServer(serverLevel, livingEntity.damageSources().magic(), 8.0F);
+        }
         return super.applyEffectTick(serverLevel, livingEntity, amplifier);
     }
 
