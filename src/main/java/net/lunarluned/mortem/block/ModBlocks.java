@@ -12,9 +12,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.PoweredRailBlock;
+import net.minecraft.world.level.block.RailBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 public class ModBlocks {
+
+    public static final Block COPPER_RAIL = registerBlock("copper_rail",
+            new RailBlock(BlockBehaviour.Properties.of().strength(.7f).setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "copper_rail"))).sound(SoundType.METAL).noCollision()));
 
     public static final Block HARDENED_IRON_ORE = registerBlock("hardened_iron_ore",
             new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.tryBuild(Mortem.MOD_ID, "hardened_iron_ore")))

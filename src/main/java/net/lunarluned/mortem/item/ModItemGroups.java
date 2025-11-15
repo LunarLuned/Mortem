@@ -16,6 +16,7 @@ public class ModItemGroups {
             FabricItemGroup.builder().icon(() -> new ItemStack(ModBlocks.HARDENED_IRON_ORE))
                     .title(Component.translatable("itemgroup.mortem.mortem"))
                     .displayItems((displayContext, entries) -> {
+                        entries.accept(ModBlocks.COPPER_RAIL);
                         entries.accept(ModBlocks.HARDENED_IRON_ORE);
                         entries.accept(ModBlocks.HARDENED_DEEPSLATE_IRON_ORE);
                         entries.accept(ModItems.DRUG);

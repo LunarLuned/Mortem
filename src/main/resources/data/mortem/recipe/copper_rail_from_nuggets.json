@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "mortem:copper_rail",
+  "pattern": [
+    "c c",
+    "c/c",
+    "c c"
+  ],
+  "key": {
+    "c": "minecraft:copper_nugget",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "mortem:copper_rail",
+    "count": 2
+  }
+}
