@@ -20,6 +20,11 @@ public class MortemCreativeModeTab {
             entries.addBefore(Blocks.IRON_ORE, ModBlocks.HARDENED_IRON_ORE, ModBlocks.HARDENED_DEEPSLATE_IRON_ORE);
         });
 
+        // Redstone Blocks Tab
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(entries -> {
+            entries.addBefore(Blocks.RAIL, ModBlocks.COPPER_RAIL);
+        });
+
         // Food and Drinks Tab
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
             entries.addAfter(Items.COOKIE, ModItems.RESIN_CANDY);
