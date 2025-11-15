@@ -73,7 +73,7 @@ public abstract class MultiplayerToolBreakMixin {
 
     @Unique
     private boolean toolDurabilityLow(ItemStack itemStack) {
-        return (itemStack.getItem() instanceof Item)
+        return (itemStack.getItem() instanceof Item) && itemStack.isEnchanted()
                 && (itemStack.getMaxDamage() - itemStack.getDamageValue() <= 3);
     }
 }
