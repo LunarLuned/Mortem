@@ -5,3 +5,4 @@ accessible field net/minecraft/world/item/equipment/ArmorMaterial defense Ljava/
 accessible field net/minecraft/world/inventory/ItemCombinerMenu inputSlots Lnet/minecraft/world/Container;
 accessible method net/minecraft/core/component/DataComponents register (Ljava/lang/String;Ljava/util/function/UnaryOperator;)Lnet/minecraft/core/component/DataComponentType;
 accessible field net/minecraft/world/entity/Mob targetSelector Lnet/minecraft/world/entity/ai/goal/GoalSelector;
+accessible method net/minecraft/world/level/block/RailState countPotentialConnections ()I
