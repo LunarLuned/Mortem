@@ -2,6 +2,7 @@ package net.lunarluned.mortem.mixin.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.lunarluned.mortem.MortemTags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.client.player.LocalPlayer;
@@ -14,8 +15,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.BlockHitResult;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -25,8 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Environment(EnvType.CLIENT)
 @Mixin(MultiPlayerGameMode.class)
 public abstract class MultiplayerToolBreakMixin {
-
-    @Shadow public abstract void releaseUsingItem(Player player);
 
     // If item being used to mine is at low durability, cancel the mine.
 
@@ -38,7 +37,11 @@ public abstract class MultiplayerToolBreakMixin {
         ItemStack heldItem = player.getMainHandItem();
 
         if (toolDurabilityLow(heldItem) && heldItem.isBarVisible()) {
-            cir.setReturnValue(InteractionResult.FAIL.consumesAction());
+            cir.cancel();
+            if (!heldItem.is(MortemTags.METAL_ITEMS)) {
+                player.playSound(SoundEvents.WOOD_BREAK);
+            } else
+                player.playSound(SoundEvents.METAL_BREAK);
         }
     }
 
@@ -52,8 +55,29 @@ public abstract class MultiplayerToolBreakMixin {
 
         if (toolDurabilityLow(heldItem) && heldItem.isBarVisible()) {
             ci.cancel();
-            player.playSound(SoundEvents.WOOD_BREAK);
+            if (!heldItem.is(MortemTags.METAL_ITEMS)) {
+                player.playSound(SoundEvents.WOOD_BREAK);
+            } else
+                player.playSound(SoundEvents.METAL_BREAK);
         }
+    }
+
+    // these two were added simply because it wasnt working fully and i basically just wanted to make sure. This Might not Even Work!
+    @Inject(method = "performUseItemOn", at = @At("HEAD"), cancellable = true)
+    private void mortem_performUseItemOn(LocalPlayer localPlayer, InteractionHand interactionHand, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
+        if (localPlayer == null) return;
+
+        ItemStack heldItem = localPlayer.getMainHandItem();
+
+        cancelBreak(heldItem, localPlayer, cir);
+    }
+    @Inject(method = "useItemOn", at = @At("HEAD"), cancellable = true)
+    private void mortem_useItemOn(LocalPlayer localPlayer, InteractionHand interactionHand, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
+        if (localPlayer == null) return;
+
+        ItemStack heldItem = localPlayer.getMainHandItem();
+
+        cancelBreak(heldItem, localPlayer, cir);
     }
 
     // If item being used is still being used while it's at that durabilty, cancel the use and play a sound.
@@ -64,16 +88,22 @@ public abstract class MultiplayerToolBreakMixin {
 
         ItemStack heldItem = player.getMainHandItem();
 
-        if (toolDurabilityLow(heldItem) && heldItem.isBarVisible()) {
-            cir.cancel();
-            releaseUsingItem(player);
-            player.playSound(SoundEvents.WOOD_BREAK);
-        }
+        cancelBreak(heldItem, player, cir);
     }
 
     @Unique
     private boolean toolDurabilityLow(ItemStack itemStack) {
         return (itemStack.getItem() instanceof Item) && itemStack.isEnchanted()
                 && (itemStack.getMaxDamage() - itemStack.getDamageValue() <= 3);
+    }
+    @Unique
+    private void cancelBreak(ItemStack heldItem, Player player, CallbackInfoReturnable<InteractionResult> cir) {
+        if (toolDurabilityLow(heldItem) && heldItem.isBarVisible()) {
+            cir.cancel();
+            if (!heldItem.is(MortemTags.METAL_ITEMS)) {
+                player.playSound(SoundEvents.WOOD_BREAK);
+            } else
+                player.playSound(SoundEvents.METAL_BREAK);
+        }
     }
 }

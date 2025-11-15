@@ -19,6 +19,6 @@ public class MortemTags {
 
 
     public static final TagKey<Item> TORCHES = TagKey.create(Registries.ITEM, ResourceLocation.tryBuild("mortem", "torches"));
-
+    public static final TagKey<Item> METAL_ITEMS = TagKey.create(Registries.ITEM, ResourceLocation.tryBuild("mortem", "metal_items"));
     public static final TagKey<Item> JAMS = TagKey.create(Registries.ITEM, ResourceLocation.tryBuild("mortem", "jams"));
 }
