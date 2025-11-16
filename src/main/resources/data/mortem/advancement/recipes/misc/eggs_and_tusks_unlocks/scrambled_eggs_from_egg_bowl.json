@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mortem:mushroom_stew_tusk"
+        "recipe": "mortem:scrambled_eggs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

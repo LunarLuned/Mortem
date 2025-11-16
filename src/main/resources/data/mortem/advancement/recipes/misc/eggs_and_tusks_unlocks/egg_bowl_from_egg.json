@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_egg_tusk": {
+    "has_egg": {
       "conditions": {
         "items": [
           {
-            "items": "mortem:egg_tusk"
+            "items": "minecraft:egg"
           }
         ]
       },
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mortem:scrambled_eggs_tusk"
+        "recipe": "mortem:egg_bowl"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_egg_tusk",
+      "has_egg",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mortem:scrambled_eggs_tusk"
+      "mortem:egg_bowl"
     ]
   }
 }

@@ -4,8 +4,13 @@
     "icon": {
       "id": "minecraft:zombie_head"
     },
-    "title": {"translate": "advancements.adventure.become_zombified.title"},
-    "description": {"translate": "advancements.adventure.become_zombified.description"},
+    "title": {
+      "translate": "advancements.adventure.become_zombified.title"
+    },
+    "description":
+    {
+      "translate": "advancements.adventure.become_zombified.description"
+    },
     "frame": "task",
     "show_toast": false,
     "announce_to_chat": true,
