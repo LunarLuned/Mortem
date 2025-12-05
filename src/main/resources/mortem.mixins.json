@@ -10,6 +10,7 @@
     "blocks.CampfireBlockMixin",
     "blocks.CampfireEntityMixin",
     "blocks.CobwebMixin",
+    "blocks.FireBlockMixin",
     "blocks.IceMeltRandomTickMixin",
     "blocks.SugarCaneBlockMixin",
     "blocks.SweetBerryBushBlockMixin",
