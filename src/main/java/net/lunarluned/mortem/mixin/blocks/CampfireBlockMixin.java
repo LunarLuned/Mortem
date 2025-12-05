@@ -35,11 +35,11 @@ public class CampfireBlockMixin {
                 if (blockState.hasProperty(CampfireBlock.LIT) && !blockState.getValue(CampfireBlock.LIT)) {
                     level.playSound(null, blockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
                     level.setBlock(blockPos, blockState.setValue(CampfireBlock.LIT, true), 3);
-                }
 
-                if (player.getRandom().nextInt(10) >= 5) {
-                    stack.shrink(1);
-                    player.addItem(new ItemStack(Items.STICK));
+                    if (!player.isCreative() && player.getRandom().nextInt(10) >= 5) {
+                        stack.shrink(1);
+                        player.addItem(new ItemStack(Items.STICK));
+                    }
                 }
             }
             cir.setReturnValue(InteractionResult.SUCCESS);
