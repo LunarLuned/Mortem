@@ -2,14 +2,18 @@ package net.lunarluned.mortem;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
-import net.lunarluned.mortem.item.ModItems;
 import net.lunarluned.mortem.potion.ModPotions;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,6 +61,25 @@ public class Mortem implements ModInitializer {
 
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
 			builder.registerPotionRecipe(Potions.THICK, Ingredient.of(Items.ROTTEN_FLESH), ModPotions.INFECTED);
+		});
+
+		// Crops broken without needed tools has a chance to trample the farmland
+		PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
+			if (world.isClientSide()) return;
+
+			Block block = state.getBlock();
+
+			if (!(block instanceof CropBlock)) return;
+
+			ItemStack tool = player.getMainHandItem();
+
+			if (tool.is(MortemTags.FARMING_TOOLS)) return;
+			if (world.getRandom().nextInt(9) < 6) return;
+
+			BlockPos below = pos.below();
+			if (world.getBlockState(below).is(Blocks.FARMLAND)) {
+				world.setBlockAndUpdate(below, Blocks.DIRT.defaultBlockState());
+			}
 		});
 
 		LOGGER.info("Post Mortem.");
