@@ -1,7 +1,12 @@
-package net.lunarluned.mortem.mixin.entities;
+package net.lunarluned.mortem.mixin.entities.hostile;
 
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -24,6 +29,8 @@ import java.util.UUID;
 public abstract class EndermanMixin extends Monster {
 
 
+    @Shadow protected abstract boolean teleport(double d, double e, double f);
+
     protected EndermanMixin(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
@@ -31,6 +38,40 @@ public abstract class EndermanMixin extends Monster {
     @Unique
     private static final double AGGRO_RADIUS = 8.0;
 
+
+    @Override
+    public boolean doHurtTarget(ServerLevel serverLevel, Entity entity) {
+        if (super.doHurtTarget(serverLevel, entity)) {
+            if (entity instanceof LivingEntity && entity.getRandom().nextInt(9) > 3) {
+                int i = 0;
+                if (this.level().getDifficulty() == Difficulty.NORMAL) {
+                    i = 7;
+                } else if (this.level().getDifficulty() == Difficulty.HARD) {
+                    i = 15;
+                }
+
+                if (i > 0) {
+                    randomlyTeleport(entity);
+                }
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Unique
+    protected void randomlyTeleport(Entity entity) {
+        if (!this.level().isClientSide() && this.isAlive()) {
+            double d = this.getX() + (this.random.nextDouble() - (double)0.5F) * (double)4.0F;
+            double e = this.getY();
+            double f = this.getZ() + (this.random.nextDouble() - (double)0.5F) * (double)4.0F;
+            this.level().playSound((Entity)null, this.xo, this.yo, this.zo, SoundEvents.ENDERMAN_TELEPORT, this.getSoundSource(), 1.0F, 1.0F);
+            this.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
+            entity.teleportTo(d, e, f);
+        }
+    }
 
     @Inject(method = "setPersistentAngerTarget", at = @At("TAIL"))
     private void mortem_spreadAnger(UUID uUID, CallbackInfo ci) {
