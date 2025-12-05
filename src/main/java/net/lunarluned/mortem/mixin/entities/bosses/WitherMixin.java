@@ -1,4 +1,4 @@
-package net.lunarluned.mortem.mixin.entities;
+package net.lunarluned.mortem.mixin.entities.bosses;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
