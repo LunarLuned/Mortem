@@ -12,6 +12,7 @@ import net.minecraft.world.entity.InsideBlockEffectType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CampfireBlock;
@@ -34,6 +35,11 @@ public class CampfireBlockMixin {
                 if (blockState.hasProperty(CampfireBlock.LIT) && !blockState.getValue(CampfireBlock.LIT)) {
                     level.playSound(null, blockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
                     level.setBlock(blockPos, blockState.setValue(CampfireBlock.LIT, true), 3);
+                }
+
+                if (player.getRandom().nextInt(10) >= 5) {
+                    stack.shrink(1);
+                    player.addItem(new ItemStack(Items.STICK));
                 }
             }
             cir.setReturnValue(InteractionResult.SUCCESS);
