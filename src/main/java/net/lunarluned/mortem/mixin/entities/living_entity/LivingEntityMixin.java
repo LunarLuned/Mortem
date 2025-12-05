@@ -1,4 +1,4 @@
-package net.lunarluned.mortem.mixin.entities;
+package net.lunarluned.mortem.mixin.entities.living_entity;
 
 import net.lunarluned.mortem.MortemTags;
 import net.lunarluned.mortem.effect.ModEffects;
@@ -7,12 +7,16 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
+import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -61,8 +65,8 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "hurtServer", at = @At("HEAD"), cancellable = true)
     private void mortem_enderManStunShield(ServerLevel serverLevel, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
         if ((Object) this instanceof Player player) {
-            // Endermen stun shields now for 5 seconds.
-            if (damageSource.getEntity() instanceof EnderMan) {
+            // Endermen & Explosions stun shields now for 5 seconds.
+            if (damageSource.getEntity() instanceof EnderMan || damageSource.is(DamageTypes.EXPLOSION) || damageSource.getEntity() instanceof Creeper) {
                 if (player.isBlocking()) {
                     player.getCooldowns().addCooldown(new ItemStack(Items.SHIELD), 100);
                     player.stopUsingItem();
