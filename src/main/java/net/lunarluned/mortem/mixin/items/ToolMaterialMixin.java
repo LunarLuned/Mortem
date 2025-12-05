@@ -20,12 +20,12 @@ public class ToolMaterialMixin {
 
 
     @Mutable
-    @Shadow @Final public static ToolMaterial GOLD;
+    @Shadow
+    @Final
+    public static ToolMaterial GOLD;
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void mortem_changeToolValues(CallbackInfo ci) {
         GOLD = new ToolMaterial(BlockTags.INCORRECT_FOR_GOLD_TOOL, 225, 15.0F, 2.0F, 22, ItemTags.GOLD_TOOL_MATERIALS);
     }
-
-
-    }
+}

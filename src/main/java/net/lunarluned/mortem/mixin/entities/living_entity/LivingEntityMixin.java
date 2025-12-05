@@ -62,6 +62,22 @@ public abstract class LivingEntityMixin extends Entity {
         return amount;
     }
 
+    @Inject(method = "hurtServer", at = @At("HEAD"))
+    private void mortem_shieldHitChanceToStun(ServerLevel serverLevel, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
+        if ((Object) this instanceof Player player) {
+            if (player.isBlocking()) {
+                if (player.getRandom().nextInt(10) > 9) {
+                    player.getCooldowns().addCooldown(new ItemStack(Items.SHIELD), 20);
+                    player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SHIELD_BLOCK, SoundSource.HOSTILE, 1.0F, -0.1F);
+                    player.stopUsingItem();
+                }
+                if (player.getRandom().nextInt(10) > 5) {
+                    player.getFoodData().addExhaustion(5);
+                }
+            }
+        }
+    }
+
     @Inject(method = "hurtServer", at = @At("HEAD"), cancellable = true)
     private void mortem_enderManStunShield(ServerLevel serverLevel, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
         if ((Object) this instanceof Player player) {
@@ -70,6 +86,7 @@ public abstract class LivingEntityMixin extends Entity {
                 if (player.isBlocking()) {
                     player.getCooldowns().addCooldown(new ItemStack(Items.SHIELD), 100);
                     player.stopUsingItem();
+                    player.getFoodData().addExhaustion(6);
                     player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SHIELD_BLOCK, SoundSource.HOSTILE, 1.0F, 1);
                     player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SHIELD_BREAK, SoundSource.HOSTILE, 1.0F, 0.5f);
                     cir.setReturnValue(false);

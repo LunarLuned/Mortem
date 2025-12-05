@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityElytraMixin {
 
-    @ModifyVariable(method = "hurtServer", at = @At("STORE"), ordinal = 0)
+    @ModifyVariable(method = "hurtServer", at = @At("STORE"), ordinal = 0, argsOnly = true)
     private float scaleElytraCollisionDamage(float originalDamage) {
         LivingEntity self = (LivingEntity) (Object) this;
 

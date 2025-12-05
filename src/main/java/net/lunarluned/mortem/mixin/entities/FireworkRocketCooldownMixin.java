@@ -26,6 +26,7 @@ public abstract class FireworkRocketCooldownMixin extends Item {
         if (player.isFallFlying() && !level.isClientSide()) {
             ItemStack itemStack = player.getItemInHand(interactionHand);
 
+            player.getFoodData().addExhaustion(6);
             player.getCooldowns().addCooldown(itemStack, 20);
         }
     }
