@@ -77,7 +77,7 @@ public class EatCropGoal extends Goal {
             double dy = targetPos.getY() - zombie.getY();
             double dz = targetPos.getZ() + 0.5 - zombie.getZ();
             double distSq = dx*dx + dy*dy + dz*dz;
-            return distSq <= (SEARCH_RADIUS * SEARCH_RADIUS); // still in reasonable range
+            return distSq <= (SEARCH_RADIUS * SEARCH_RADIUS);
         }
         return false;
     }
@@ -113,21 +113,20 @@ public class EatCropGoal extends Goal {
         if (distSq <= MAX_REACH_SQ) {
             // attempt to "eat" the crop
             BlockState state = level.getBlockState(targetPos);
-            if (state.getBlock() instanceof CropBlock) {
-                CropBlock crop = (CropBlock) state.getBlock();
+            if (state.getBlock() instanceof CropBlock crop) {
                 if (crop.isMaxAge(state)) {
                     if (!level.isClientSide()) {
-                        level.setBlock(targetPos, Blocks.AIR.defaultBlockState(), 3);
+                        level.destroyBlock(targetPos, false, zombie);
                     }
                     level.playSound(zombie, this.zombie.xo, this.zombie.yo, this.zombie.zo, SoundEvents.GENERIC_EAT, this.zombie.getSoundSource(), 1.0F, 1.0F);
                     zombie.heal(4.0F);
                 } else {
                     if (!level.isClientSide()) {
-                        level.setBlock(targetPos, Blocks.AIR.defaultBlockState(), 3);
+                        level.destroyBlock(targetPos, false, zombie);
+                    }
                         zombie.heal(1.0F);
                         level.playSound(zombie, this.zombie.xo, this.zombie.yo, this.zombie.zo, SoundEvents.GENERIC_EAT, this.zombie.getSoundSource(), 1.0F, 1.0F);
                     }
-                }
             }
             eatCooldown = 100 + zombie.getRandom().nextInt(100);
             targetPos = null;
