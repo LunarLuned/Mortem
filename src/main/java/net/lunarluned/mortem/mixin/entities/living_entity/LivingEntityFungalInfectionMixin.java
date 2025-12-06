@@ -69,7 +69,7 @@ public abstract class LivingEntityFungalInfectionMixin extends Entity {
                 }
 
                 if ((fungalBiomeTicks >= TICKS_REQUIRED) || self.getHealth() <= self.getMaxHealth() / 2.0F) {
-                    if (!self.hasEffect(ModEffects.IMMUNE) && !self.hasEffect(ModEffects.FUNGALLY_INFECTED)) {
+                    if (!self.hasEffect(ModEffects.ENHANCED_IMMUNITY) || !self.hasEffect(ModEffects.IMMUNE) && !self.hasEffect(ModEffects.FUNGALLY_INFECTED)) {
                         self.addEffect(new MobEffectInstance(ModEffects.FUNGALLY_INFECTED, APPLIED_EFFECT_DURATION, 0, false, true));
                         self.level().playSound(self, self.blockPosition(), MortemSoundEvents.FUNGAL_TERRORS, SoundSource.PLAYERS, 1, 2);
                         self.level().playSound(self, self.blockPosition(), MortemSoundEvents.FUNGAL_TERRORS, SoundSource.PLAYERS, 1F, 0.1F);

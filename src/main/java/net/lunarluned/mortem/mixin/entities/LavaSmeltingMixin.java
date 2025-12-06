@@ -1,6 +1,8 @@
 package net.lunarluned.mortem.mixin.entities;
 
 import net.lunarluned.mortem.RecycleResult;
+import net.lunarluned.mortem.block.ModBlocks;
+import net.lunarluned.mortem.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -104,6 +106,7 @@ private void onTick(CallbackInfo ci) {
         LAVA_RECIPES.put(Items.COPPER_SHOVEL, new RecycleResult(Items.COPPER_NUGGET, 5));
         LAVA_RECIPES.put(Items.COPPER_HOE, new RecycleResult(Items.COPPER_NUGGET, 12));
 
+        LAVA_RECIPES.put(Item.byBlock(ModBlocks.COPPER_RAIL), new RecycleResult(Items.COPPER_NUGGET, 2));
         LAVA_RECIPES.put(Items.RAW_COPPER_BLOCK, new RecycleResult(Items.COPPER_INGOT, 6));
 
         // Iron items
@@ -121,6 +124,8 @@ private void onTick(CallbackInfo ci) {
         LAVA_RECIPES.put(Items.RAW_IRON_BLOCK, new RecycleResult(Items.IRON_INGOT, 7));
 
         LAVA_RECIPES.put(Items.BUCKET, new RecycleResult(Items.IRON_INGOT, 2));
+        LAVA_RECIPES.put(Items.MINECART, new RecycleResult(Items.IRON_INGOT, 4));
+        LAVA_RECIPES.put(Items.RAIL, new RecycleResult(Items.IRON_NUGGET, 1));
         LAVA_RECIPES.put(Items.FLINT_AND_STEEL, new RecycleResult(Items.IRON_NUGGET, 5));
         LAVA_RECIPES.put(Items.SHEARS, new RecycleResult(Items.IRON_NUGGET, 15));
         LAVA_RECIPES.put(Items.COMPASS, new RecycleResult(Items.IRON_INGOT, 2));
