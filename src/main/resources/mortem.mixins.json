@@ -36,6 +36,7 @@
     "entities.hostile.ZombieMixin",
     "entities.hostile.ZombificationMixin",
     "entities.living_entity.FoodDataSlowedRegenMixin",
+    "entities.living_entity.HungerEffectsMixin",
     "entities.living_entity.LivingEntityElytraMixin",
     "entities.living_entity.LivingEntityFungalInfectionMixin",
     "entities.living_entity.LivingEntityMixin",
