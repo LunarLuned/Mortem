@@ -64,8 +64,8 @@ public abstract class HungerEffectsMixin extends Player {
         if (hunger <= 3) {
             this.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 0, true, false));
         }
-        if (hunger <= 1) {
-            this.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 1, true, false));
+        if (hunger <= 2) {
+            this.addEffect(new MobEffectInstance(ModEffects.STAGNATED, 20, 1, true, false));
         }
     }
 }
