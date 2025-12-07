@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.crafting.CampfireCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CampfireBlock;
@@ -40,7 +41,7 @@ public abstract class CampfireEntityMixin extends BlockEntity {
 
     @Inject(method = "cookTick", at = @At("HEAD"))
     private static void mortem_animateTick(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState, CampfireBlockEntity campfireBlockEntity, RecipeManager.CachedCheck<SingleRecipeInput, CampfireCookingRecipe> cachedCheck, CallbackInfo ci) {
-        if (!serverLevel.isClientSide()) {
+        if (!serverLevel.isClientSide() && !(serverLevel.dimension() == Level.NETHER)) {
 
             int randomValue = Mth.nextInt(RandomSource.create(), 1, 100);
 
