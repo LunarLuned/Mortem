@@ -3,7 +3,7 @@
   "description": {
     "translate": "enchantment.mortem.harvesting"
   },
-  "exclusive_set": "#minecraft:exclusive_set/mining",
+  "exclusive_set": "#mortem:exclusive_set/harvesting",
   "max_cost": {
     "base": 25,
     "per_level_above_first": 9
