@@ -1,5 +1,6 @@
 package net.lunarluned.mortem.mixin.entities.bosses;
 
+import net.lunarluned.mortem.world.entity.ai.goal.WitherDashGoal;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -13,6 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(WitherBoss.class)
@@ -37,4 +39,10 @@ public abstract class WitherMixin extends LivingEntity {
                 cir.setReturnValue(hurtServer(serverLevel, damageSource, 20));
             }
         }
+
+    @Inject(method = "registerGoals", at = @At("TAIL"))
+    private void addDashGoal(CallbackInfo ci) {
+        WitherBoss self = (WitherBoss) (Object) this;
+        self.targetSelector.addGoal(2, new WitherDashGoal(self));
+    }
     }
