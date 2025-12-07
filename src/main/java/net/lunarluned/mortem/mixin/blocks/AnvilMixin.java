@@ -41,14 +41,14 @@ public class AnvilMixin extends Block {
         if (stack.is(Items.IRON_INGOT) && !blockState.is(Blocks.ANVIL)) {
             if (!level.isClientSide()) {
                 if (blockState.is(Blocks.CHIPPED_ANVIL)) {
-                    level.setBlock(blockPos, Blocks.ANVIL.defaultBlockState().setValue(FACING, (Direction)blockState.getValue(FACING)), 3);
+                    level.setBlockAndUpdate(blockPos, Blocks.ANVIL.defaultBlockState().setValue(FACING, (Direction)blockState.getValue(FACING)));
                     cir.setReturnValue(InteractionResult.SUCCESS);
                     level.playSound(null, blockPos, SoundEvents.IRON_GOLEM_REPAIR, SoundSource.BLOCKS, 1.0F, 1.0F);
                     if (!player.isCreative()) {
                         stack.consume(1, player);
                     }
                 } else if (blockState.is(Blocks.DAMAGED_ANVIL)) {
-                    level.setBlock(blockPos, Blocks.CHIPPED_ANVIL.defaultBlockState().setValue(FACING, (Direction)blockState.getValue(FACING)), 3);
+                    level.setBlockAndUpdate(blockPos, Blocks.CHIPPED_ANVIL.defaultBlockState().setValue(FACING, (Direction)blockState.getValue(FACING)));
                     cir.setReturnValue(InteractionResult.SUCCESS);
                     level.playSound(null, blockPos, SoundEvents.IRON_GOLEM_REPAIR, SoundSource.BLOCKS, 1.0F, 1.0F);
                     if (!player.isCreative()) {
