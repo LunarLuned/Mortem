@@ -10,6 +10,7 @@
     "blocks.CampfireBlockMixin",
     "blocks.CampfireEntityMixin",
     "blocks.CobwebMixin",
+    "blocks.FarmBlockFallMixin",
     "blocks.FireBlockMixin",
     "blocks.IceMeltRandomTickMixin",
     "blocks.SugarCaneBlockMixin",
@@ -26,9 +27,12 @@
     "entities.bosses.dragon.EndCrystalMixin",
     "entities.bosses.dragon.EndCrystalMobMixin",
     "entities.bosses.dragon.EnderDragonMixin",
+    "entities.bosses.projectiles.WitherSkullMixin",
     "entities.goals.SwellGoalMixin",
+    "entities.hostile.AbstractSkeletonMixin",
     "entities.hostile.CreeperMixin",
     "entities.hostile.EndermanMixin",
+    "entities.hostile.SkeletonConversionMixin",
     "entities.hostile.SkeletonMixin",
     "entities.hostile.SlimeMixin",
     "entities.hostile.SpiderMixin",
@@ -51,6 +55,7 @@
     "items.ClearAllStatusEffectsConsumeEffectMixin",
     "items.FoodCancelMixin",
     "items.HoeItemMixin",
+    "items.PotionStackSizeMixin",
     "items.ToolMaterialMixin"
   ],
   "injectors": {
