@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": "minecraft:cake"
+  },
+  "result": {
+    "id": "mortem:cake_slice",
+    "count": 6
+  }
+}

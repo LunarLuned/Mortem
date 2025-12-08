@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#L#",
+    "LGL",
+    "#L#"
+  ],
+  "key": {
+    "#": "minecraft:amethyst_shard",
+    "L": "minecraft:lapis_lazuli",
+    "G": "minecraft:glass_bottle"
+  },
+  "result": {
+    "id": "minecraft:experience_bottle",
+    "count": 4
+  }
+}

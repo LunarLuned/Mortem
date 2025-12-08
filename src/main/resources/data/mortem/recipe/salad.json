@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "P#P",
+    " B "
+  ],
+  "key": {
+    "#": "minecraft:leaf_litter",
+    "P": "mortem:cooked_potato_wedge",
+    "B": "minecraft:bowl"
+  },
+  "result": {
+    "id": "mortem:salad",
+    "count": 1
+  }
+}

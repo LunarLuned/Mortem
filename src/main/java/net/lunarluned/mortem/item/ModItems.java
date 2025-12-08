@@ -60,6 +60,69 @@ public class ModItems {
             new Item(new Item.Properties().food(ModFoods.DRUG, ModConsumables.DRUG)
                     .useItemDescriptionPrefix().stacksTo(99).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:drug")))));
 
+    public static final Item COOKED_SEEDS = registerItem("cooked_seeds",
+            new Item(new Item.Properties().food(ModFoods.COOKED_SEEDS, ModConsumables.COOKED_SEEDS)
+                    .stacksTo(99).useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cooked_seeds")))));
+
+    public static final Item RAW_PUMPKIN_GUTS = registerItem("raw_pumpkin_guts",
+            new Item(new Item.Properties().food(ModFoods.RAW_PUMPKIN_GUTS, ModConsumables.RAW_PUMPKIN_GUTS)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:raw_pumpkin_guts")))));
+
+    public static final Item BAKED_PUMPKIN_GUTS = registerItem("baked_pumpkin_guts",
+            new Item(new Item.Properties().food(ModFoods.BAKED_PUMPKIN_GUTS, ModConsumables.BAKED_PUMPKIN_GUTS)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:baked_pumpkin_guts")))));
+
+    public static final Item SALAD = registerItem("salad",
+            new Item(new Item.Properties().food(ModFoods.SALAD, ModConsumables.SALAD).usingConvertsTo(Items.BOWL)
+                    .useItemDescriptionPrefix().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:salad")))));
+
+    public static final Item CHICKEN_SALAD = registerItem("chicken_salad",
+            new Item(new Item.Properties().food(ModFoods.CHICKEN_SALAD, ModConsumables.CHICKEN_SALAD)
+                    .useItemDescriptionPrefix().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:chicken_salad")))));
+
+    // not done yet below
+
+
+    public static final Item BAKED_APPLE = registerItem("baked_apple",
+            new Item(new Item.Properties().food(ModFoods.BAKED_APPLE, ModConsumables.BAKED_APPLE)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:baked_apple")))));
+
+    public static final Item APPLE_PIE_SLICE = registerItem("apple_pie_slice",
+           new Item(new Item.Properties().food(ModFoods.APPLE_PIE_SLICE, ModConsumables.APPLE_PIE_SLICE)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:apple_pie_slice")))));
+
+    public static final Item CAKE_SLICE = registerItem("cake_slice",
+            new Item(new Item.Properties().food(ModFoods.CAKE_SLICE, ModConsumables.CAKE_SLICE)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cake_slice")))));
+
+//    public static final Item PUMPKIN_PIE_SLICE = registerItem("pumpkie_pie_slice",
+//            new Item(new Item.Properties().food(ModFoods.PUMPKIN_PIE_SLICE, ModConsumables.PUMPKIN_PIE_SLICE)
+//                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:pumpkie_pie_slice")))));
+
+    public static final Item POTATO_WEDGE = registerItem("potato_wedge",
+            new Item(new Item.Properties().food(ModFoods.POTATO_WEDGE, ModConsumables.POTATO_WEDGE)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:potato_wedge")))));
+
+    public static final Item BAKED_POTATO_WEDGE = registerItem("baked_potato_wedge",
+            new Item(new Item.Properties().food(ModFoods.BAKED_POTATO_WEDGE, ModConsumables.BAKED_POTATO_WEDGE)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:baked_potato_wedge")))));
+
+    public static final Item RAW_MUTTON_SLICE = registerItem("raw_mutton_slice",
+            new Item(new Item.Properties().food(ModFoods.RAW_MUTTON_SLICE, ModConsumables.RAW_MUTTON_SLICE)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:raw_mutton_slice")))));
+
+    public static final Item COOKED_MUTTON_SLICE = registerItem("cooked_mutton_slice",
+            new Item(new Item.Properties().food(ModFoods.COOKED_MUTTON_SLICE, ModConsumables.COOKED_MUTTON_SLICE)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cooked_mutton_slice")))));
+
+    public static final Item RAW_CHICKEN_NUGGET = registerItem("raw_chicken_nugget",
+            new Item(new Item.Properties().food(ModFoods.RAW_CHICKEN_NUGGET, ModConsumables.RAW_CHICKEN_NUGGET)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:raw_chicken_nugget")))));
+
+    public static final Item COOKED_CHICKEN_NUGGET = registerItem("cooked_chicken_nugget",
+            new Item(new Item.Properties().food(ModFoods.COOKED_CHICKEN_NUGGET, ModConsumables.COOKED_CHICKEN_NUGGET)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:cooked_chicken_nugget")))));
+
     public static final Item RESIN_CANDY = registerItem("resin_candy",
             new Item(new Item.Properties().food(ModFoods.RESIN_CANDY, ModConsumables.RESIN_CANDY)
                     .useItemDescriptionPrefix().stacksTo(99).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("mortem:resin_candy")))));

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type" : "minecraft:model",
+    "model": "mortem:item/raw_chicken_nugget"
+  }
+}

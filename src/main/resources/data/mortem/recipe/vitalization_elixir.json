@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "CMC",
+    "BFB"
+  ],
+  "key": {
+    "#": "minecraft:honey_bottle",
+    "C": "minecraft:charcoal",
+    "M": "minecraft:milk_bucket",
+    "B": "minecraft:blaze_powder",
+    "F": "minecraft:ghast_tear"
+  },
+  "result": {
+    "id": "mortem:vitalization_elixir",
+    "count": 1
+  }
+}

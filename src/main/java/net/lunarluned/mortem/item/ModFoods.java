@@ -55,4 +55,31 @@ public class ModFoods {
     public static final FoodProperties COCOA_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(6).saturationModifier(.6f).build());
     public static final FoodProperties MUSHROOM_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(9).saturationModifier(.5f).build());
     public static final FoodProperties PORK_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(12).saturationModifier(.4f).build());
+
+    public static final FoodProperties COOKED_SEEDS = (new FoodProperties.Builder().nutrition(1).saturationModifier(.1f).build());
+    public static final FoodProperties RAW_PUMPKIN_GUTS = (new FoodProperties.Builder().nutrition(3).saturationModifier(.5f).build());
+    public static final FoodProperties BAKED_PUMPKIN_GUTS = (new FoodProperties.Builder().nutrition(5).saturationModifier(.5f).build());
+    public static final FoodProperties SALAD = (new FoodProperties.Builder().nutrition(6).saturationModifier(.55f).build());
+    public static final FoodProperties CHICKEN_SALAD = (new FoodProperties.Builder().nutrition(8).saturationModifier(.65f).build());
+
+    public static final FoodProperties BAKED_APPLE = (new FoodProperties.Builder().nutrition(5).saturationModifier(.45f).build());
+
+    public static final FoodProperties APPLE_PIE_SLICE = (new FoodProperties.Builder().nutrition(4).saturationModifier(.15f).build());
+    public static final FoodProperties CAKE_SLICE = (new FoodProperties.Builder().nutrition(3).saturationModifier(.35f).build());
+    public static final FoodProperties PUMPKIN_PIE_SLICE = (new FoodProperties.Builder().nutrition(5).saturationModifier(.5f).build());
+
+    public static final FoodProperties POTATO_WEDGE = (new FoodProperties.Builder().nutrition(1).saturationModifier(.05f).build());
+    public static final FoodProperties BAKED_POTATO_WEDGE = (new FoodProperties.Builder().nutrition(3).saturationModifier(.35f).build());
+    public static final FoodProperties RAW_MUTTON_SLICE = (new FoodProperties.Builder().nutrition(1).saturationModifier(.1f).build());
+    public static final FoodProperties COOKED_MUTTON_SLICE = (new FoodProperties.Builder().nutrition(4).saturationModifier(.45f).build());
+    public static final FoodProperties RAW_CHICKEN_NUGGET = (new FoodProperties.Builder().nutrition(1).saturationModifier(.1f).build());
+    public static final FoodProperties COOKED_CHICKEN_NUGGET = (new FoodProperties.Builder().nutrition(3).saturationModifier(.35f).build());
+
+    public static final FoodProperties CARROT_BEETROOT_SOUP = (new FoodProperties.Builder().nutrition(4).saturationModifier(.45f).build());
+    public static final FoodProperties POTATO_BEETROOT_SOUP = (new FoodProperties.Builder().nutrition(5).saturationModifier(.35f).build());
+    public static final FoodProperties MUSHROOM_BEETROOT_SOUP = (new FoodProperties.Builder().nutrition(4).saturationModifier(.45f).build());
+    public static final FoodProperties FUNGAL_BEETROOT_SOUP = (new FoodProperties.Builder().nutrition(4).saturationModifier(.55f).build());
+    public static final FoodProperties PITCHER_BEETROOT_SOUP = (new FoodProperties.Builder().nutrition(5).saturationModifier(.35f).build());
+    public static final FoodProperties GOURMET_BEETROOT_SOUP = (new FoodProperties.Builder().nutrition(8).saturationModifier(.55f).build());
+
 }

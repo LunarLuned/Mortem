@@ -20,12 +20,30 @@
   "effect.mortem.enhanced_luck": "Elixir's Luck",
 
   "item.mortem.poison_elixir": "Elixir of Poison",
+  "item.mortem.poison_elixir.desc.removes": "Poison, Wither, Hunger, Nausea, Infected,",
+  "item.mortem.poison_elixir.desc.removes2": "Mining Fatigue, Fungally Infected",
+  "item.mortem.poison_elixir.desc.grants": "Enhanced Immunity (00:01)",
   "item.mortem.misfortune_elixir": "Elixir of Misfortune",
+  "item.mortem.misfortune_elixir.desc.removes": "Darkness, Levitation, Infested, Oozing",
+  "item.mortem.misfortune_elixir.desc.removes2": "Slow Falling, Weaving, Wind Charged",
+  "item.mortem.misfortune_elixir.desc.grants": "Enhanced Luck (00:01)",
   "item.mortem.vitalization_elixir": "Elixir of Vitalization",
+  "item.mortem.vitalization_elixir.desc.removes": "Slowness, Weakness, Nausea, Hunger",
+  "item.mortem.vitalization_elixir.desc.removes2": "Blindness, Mining Fatigue",
+  "item.mortem.vitalization_elixir.desc.grants": "Enhanced Resistance (00:01)",
 
   "item.mortem.enhanced_poison_elixir": "Enhanced Elixir of Poison",
+  "item.mortem.enhanced_poison_elixir.desc.removes": "Poison, Wither, Hunger, Nausea, Infected,",
+  "item.mortem.enhanced_poison_elixir.desc.removes2": "Mining Fatigue, Fungally Infected",
+  "item.mortem.enhanced_poison_elixir.desc.grants": "Enhanced Immunity (08:00)",
   "item.mortem.enhanced_misfortune_elixir": "Enhanced Elixir of Misfortune",
+  "item.mortem.enhanced_misfortune_elixir.desc.removes": "Darkness, Levitation, Infested, Oozing",
+  "item.mortem.enhanced_misfortune_elixir.desc.removes2": "Slow Falling, Weaving, Wind Charged",
+  "item.mortem.enhanced_misfortune_elixir.desc.grants": "Enhanced Luck (08:00)",
   "item.mortem.enhanced_vitalization_elixir": "Enhanced Elixir of Vitalization",
+  "item.mortem.enhanced_vitalization_elixir.desc.removes": "Slowness, Weakness, Nausea, Hunger",
+  "item.mortem.enhanced_vitalization_elixir.desc.removes2": "Blindness, Mining Fatigue",
+  "item.mortem.enhanced_vitalization_elixir.desc.grants": "Enhanced Resistance (08:00)",
 
   "item.minecraft.potion.effect.infected": "Potion of Infection",
   "item.minecraft.splash_potion.effect.infected": "Splash Potion of Infection",
@@ -54,8 +72,18 @@
   "block.mortem.crumbling_end_stone": "Crumbling End Stone",
   "block.mortem.hardened_deepslate_iron_ore": "Hardened Deepslate Iron Ore",
   "block.mortem.hardened_iron_ore": "Hardened Iron Ore",
-
   "block.mortem.copper_rail": "Copper Rail",
+
+  "block.mortem.apple_pie": "Apple Pie",
+  "item.mortem.apple_pie_slice": "Apple Pie Slice",
+  "item.mortem.baked_apple": "Baked Apple",
+
+  "item.mortem.cake_slice": "Cake Slice",
+  "item.mortem.pumpkin_pie_slice": "Pumpkin Pie Slice",
+
+
+  "item.mortem.baked_potato_wedge": "Baked Potato Wedge",
+  "item.mortem.potato_wedge": "Potato Wedge",
 
   "item.mortem.hoglin_tusk": "Hoglin Tusk",
 
@@ -64,6 +92,17 @@
 
   "item.mortem.drug": "Drug",
   "item.mortem.resin_candy": "Resin Candy",
+
+  "item.mortem.cooked_seeds": "Cooked Seeds",
+  "item.mortem.baked_pumpkin_guts": "Baked Pumpkin Guts",
+  "item.mortem.salad": "Salad",
+  "item.mortem.chicken_salad": "Chicken Salad",
+
+  "item.mortem.raw_chicken_nugget": "Raw Chicken Nugget",
+  "item.mortem.cooked_chicken_nugget": "Cooked Chicken Nugget",
+
+  "item.mortem.raw_mutton_slice": "Raw Mutton Slice",
+  "item.mortem.cooked_mutton_slice": "Cooked Mutton Slice",
 
   "item.mortem.hard_boiled_egg": "Hard Boiled Egg",
   "item.mortem.scrambled_eggs": "Bowl of Scrambled Eggs",
@@ -98,7 +137,6 @@
   "item.mortem.fungal_stew": "Fungal Stew",
   "item.mortem.mushroom_stew_tusk": "Tusk of Mushroom Stew",
   "item.mortem.scrambled_eggs_tusk": "Tusk of Scrambled Eggs",
-
 
   "enchantment.mortem.ricochet": "Ricochet",
   "enchantment.mortem.chining": "Chining",

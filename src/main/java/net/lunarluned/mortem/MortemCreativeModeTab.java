@@ -28,9 +28,24 @@ public class MortemCreativeModeTab {
         // Food and Drinks Tab
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
             entries.addAfter(Items.COOKIE, ModItems.RESIN_CANDY);
+            // new foods
+            entries.addAfter(Items.APPLE, ModItems.BAKED_APPLE);
+            entries.addAfter(Items.CAKE, ModItems.RAW_PUMPKIN_GUTS, ModItems.BAKED_PUMPKIN_GUTS, ModItems.CAKE_SLICE, ModBlocks.APPLE_PIE, ModItems.APPLE_PIE_SLICE);
+
+            entries.addAfter(Items.CHICKEN, ModItems.RAW_CHICKEN_NUGGET);
+            entries.addAfter(Items.COOKED_CHICKEN, ModItems.COOKED_CHICKEN_NUGGET);
+
+            entries.addAfter(Items.MUTTON, ModItems.RAW_MUTTON_SLICE);
+            entries.addAfter(Items.COOKED_MUTTON, ModItems.COOKED_MUTTON_SLICE);
+
+            entries.addAfter(Items.POTATO, ModItems.POTATO_WEDGE);
+            entries.addAfter(Items.BAKED_POTATO, ModItems.BAKED_POTATO_WEDGE);
+
+
             entries.addAfter(Items.SPIDER_EYE, ModItems.DRUG);
-            entries.addBefore(Items.MUSHROOM_STEW, ModItems.CRIMSON_STEW, ModItems.WARPED_STEW, ModItems.FUNGAL_STEW, ModItems.SCRAMBLED_EGGS_TUSK, ModItems.MUSHROOM_STEW_TUSK);
-            entries.addBefore(Items.CARROT, ModItems.HARD_BOILED_EGG, ModItems.SCRAMBLED_EGGS);
+            entries.addBefore(Items.MUSHROOM_STEW, ModItems.CRIMSON_STEW, ModItems.WARPED_STEW, ModItems.FUNGAL_STEW, ModItems.SCRAMBLED_EGGS_TUSK, ModItems.MUSHROOM_STEW_TUSK,
+                    ModItems.SALAD, ModItems.CHICKEN_SALAD);
+            entries.addBefore(Items.CARROT, ModItems.COOKED_SEEDS, ModItems.HARD_BOILED_EGG, ModItems.SCRAMBLED_EGGS);
             entries.addAfter(Items.DRIED_KELP, ModItems.SUSHI_ROLL);
             entries.addAfter(Items.BAKED_POTATO, ModItems.SWEET_POTATO);
             entries.addAfter(Items.PORKCHOP, ModItems.RAW_BACON);

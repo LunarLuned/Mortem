@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": "mortem:potato_wedge",
+  "result": {
+    "id": "mortem:baked_potato_wedge"
+  },
+  "experience": 0.1,
+  "cookingtime": 100
+}

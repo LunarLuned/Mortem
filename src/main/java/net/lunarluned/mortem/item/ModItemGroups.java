@@ -29,6 +29,20 @@ public class ModItemGroups {
                         entries.accept(ModItems.HOGLIN_TUSK);
                         entries.accept(ModItems.EGG_TUSK);
 
+                        entries.accept(ModItems.COOKED_SEEDS);
+                        entries.accept(ModItems.BAKED_PUMPKIN_GUTS);
+                        entries.accept(ModItems.SALAD);
+                        entries.accept(ModItems.CHICKEN_SALAD);
+
+                        entries.accept(ModItems.POTATO_WEDGE);
+                        entries.accept(ModItems.BAKED_POTATO_WEDGE);
+
+                        entries.accept(ModItems.BAKED_APPLE);
+                        entries.accept(ModBlocks.APPLE_PIE);
+                        entries.accept(ModItems.APPLE_PIE_SLICE);
+
+                        entries.accept(ModItems.CAKE_SLICE);
+
                         entries.accept(ModItems.SWEET_POTATO);
                         entries.accept(ModItems.RAW_BACON);
                         entries.accept(ModItems.COOKED_BACON);
@@ -36,6 +50,12 @@ public class ModItemGroups {
                         entries.accept(ModItems.COOKED_BEEF_PATTY);
                         entries.accept(ModItems.BURGER);
                         entries.accept(ModItems.BACON_BURGER);
+
+                        entries.accept(ModItems.RAW_MUTTON_SLICE);
+                        entries.accept(ModItems.COOKED_MUTTON_SLICE);
+                        entries.accept(ModItems.RAW_CHICKEN_NUGGET);
+                        entries.accept(ModItems.COOKED_CHICKEN_NUGGET);
+
                         entries.accept(ModItems.TOASTED_BREAD);
                         entries.accept(ModItems.TOAST);
                         entries.accept(ModItems.BREAKFAST_SANDWICH);

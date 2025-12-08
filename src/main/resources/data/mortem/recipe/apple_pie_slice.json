@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": "mortem:apple_pie"
+  },
+  "result": {
+    "id": "mortem:apple_pie_slice",
+    "count": 6
+  }
+}

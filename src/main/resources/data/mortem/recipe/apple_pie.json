@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "SES",
+    "WMW"
+  ],
+  "key": {
+    "#": "mortem:baked_apple",
+    "S": "minecraft:sugar",
+    "E": "minecraft:egg",
+    "W": "minecraft:wheat",
+    "M": "minecraft:milk_bucket"
+  },
+  "result": {
+    "id": "mortem:apple_pie",
+    "count": 1
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "CPC",
+    " B "
+  ],
+  "key": {
+    "#": "minecraft:leaf_litter",
+    "C": "mortem:cooked_chicken_nugget",
+    "P": "mortem:cooked_potato_wedge",
+    "B": "minecraft:bowl"
+  },
+  "result": {
+    "id": "mortem:chicken_salad",
+    "count": 1
+  }
+}

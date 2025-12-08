@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "CMC",
+    "BFB"
+  ],
+  "key": {
+    "#": "minecraft:honey_bottle",
+    "C": "minecraft:charcoal",
+    "M": "minecraft:milk_bucket",
+    "B": "minecraft:blaze_powder",
+    "F": "minecraft:lapis_lazuli"
+  },
+  "result": {
+    "id": "mortem:misfortune_elixir",
+    "count": 1
+  }
+}

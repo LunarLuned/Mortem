@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": "#mortem:cookable_seeds",
+  "result": {
+    "id": "mortem:cooked_seeds"
+  },
+  "experience": 0.1,
+  "cookingtime": 50
+}

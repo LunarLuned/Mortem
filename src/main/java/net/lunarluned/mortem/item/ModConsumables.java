@@ -19,6 +19,30 @@ public class ModConsumables {
     public static final Consumable DRUG;
     public static final Consumable RESIN_CANDY;
 
+    public static final Consumable COOKED_SEEDS;
+    public static final Consumable RAW_PUMPKIN_GUTS;
+    public static final Consumable BAKED_PUMPKIN_GUTS;
+    public static final Consumable SALAD;
+    public static final Consumable CHICKEN_SALAD;
+    public static final Consumable BAKED_APPLE;
+    public static final Consumable APPLE_PIE_SLICE;
+    public static final Consumable CAKE_SLICE;
+    public static final Consumable PUMPKIN_PIE_SLICE;
+
+    public static final Consumable POTATO_WEDGE;
+    public static final Consumable BAKED_POTATO_WEDGE;
+    public static final Consumable RAW_MUTTON_SLICE;
+    public static final Consumable COOKED_MUTTON_SLICE;
+    public static final Consumable RAW_CHICKEN_NUGGET;
+    public static final Consumable COOKED_CHICKEN_NUGGET;
+
+    public static final Consumable CARROT_BEETROOT_SOUP;
+    public static final Consumable POTATO_BEETROOT_SOUP;
+    public static final Consumable MUSHROOM_BEETROOT_SOUP;
+    public static final Consumable FUNGAL_BEETROOT_SOUP;
+    public static final Consumable PITCHER_BEETROOT_SOUP;
+    public static final Consumable GORMET_BEETROOT_SOUP;
+
     public static final Consumable CRIMSON_STEW;
     public static final Consumable WARPED_STEW;
     public static final Consumable FUNGAL_STEW;
@@ -77,8 +101,34 @@ public class ModConsumables {
         ENHANCED_VITALIZATION_ELIXIR = defaultElixir().build();
 
 
-        DRUG = defaultFood().consumeSeconds(0.3F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SPEED, 250, 1), 0.5F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.POISON, 300, 1), 0.8F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.9F)).build();
+        DRUG = defaultFood().consumeSeconds(0.1F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SPEED, 250, 1), 0.5F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.POISON, 300, 1), 0.8F)).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.9F)).build();
         RESIN_CANDY = defaultFood().consumeSeconds(0.5F).sound(SoundEvents.GENERIC_EAT).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SPEED, 250, 0), 0.1F)).build();
+
+        COOKED_SEEDS = defaultFood().consumeSeconds(0.4F).build();
+        RAW_PUMPKIN_GUTS = defaultFood().consumeSeconds(1.5F).build();
+        BAKED_PUMPKIN_GUTS = defaultFood().consumeSeconds(1.1F).build();
+        SALAD = defaultFood().consumeSeconds(1.2F).build();
+        CHICKEN_SALAD = defaultFood().consumeSeconds(1.5F).build();
+        BAKED_APPLE = defaultFood().consumeSeconds(1F).build();
+
+        APPLE_PIE_SLICE = defaultFood().consumeSeconds(1.35F).build();
+        CAKE_SLICE = defaultFood().consumeSeconds(1.2F).build();
+        PUMPKIN_PIE_SLICE = defaultFood().consumeSeconds(1.5F).build();
+
+        POTATO_WEDGE = defaultFood().consumeSeconds(.8F).build();
+        BAKED_POTATO_WEDGE = defaultFood().consumeSeconds(0.6F).build();
+        RAW_MUTTON_SLICE = defaultFood().consumeSeconds(1F).build();
+        COOKED_MUTTON_SLICE = defaultFood().consumeSeconds(0.7F).build();
+
+        RAW_CHICKEN_NUGGET = defaultFood().consumeSeconds(1.5F).build();
+        COOKED_CHICKEN_NUGGET = defaultFood().consumeSeconds(0.8F).build();
+
+        CARROT_BEETROOT_SOUP = defaultFood().consumeSeconds(1.15F).build();
+        POTATO_BEETROOT_SOUP = defaultFood().consumeSeconds(1.25F).build();
+        MUSHROOM_BEETROOT_SOUP = defaultFood().consumeSeconds(1.0F).build();
+        FUNGAL_BEETROOT_SOUP = defaultFood().consumeSeconds(1.25F).build();
+        PITCHER_BEETROOT_SOUP = defaultFood().consumeSeconds(1.0F).build();
+        GORMET_BEETROOT_SOUP = defaultFood().consumeSeconds(1.25F).build();
 
         CRIMSON_STEW = defaultDrink().consumeSeconds(1.55F).build();
         WARPED_STEW = defaultDrink().consumeSeconds(1.55F).build();
