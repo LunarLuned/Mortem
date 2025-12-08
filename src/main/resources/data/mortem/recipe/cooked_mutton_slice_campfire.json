@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": "mortem:raw_mutton_slice",
+  "result": {
+    "id": "mortem:cooked_mutton_slice"
+  },
+  "experience": 0.1,
+  "cookingtime": 80
+}

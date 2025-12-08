@@ -30,6 +30,7 @@ public class ModItemGroups {
                         entries.accept(ModItems.EGG_TUSK);
 
                         entries.accept(ModItems.COOKED_SEEDS);
+                        entries.accept(ModItems.RAW_PUMPKIN_GUTS);
                         entries.accept(ModItems.BAKED_PUMPKIN_GUTS);
                         entries.accept(ModItems.SALAD);
                         entries.accept(ModItems.CHICKEN_SALAD);

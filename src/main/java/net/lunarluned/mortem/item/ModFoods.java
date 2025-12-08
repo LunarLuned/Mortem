@@ -57,8 +57,8 @@ public class ModFoods {
     public static final FoodProperties PORK_SPREAD_TOAST = (new FoodProperties.Builder().nutrition(12).saturationModifier(.4f).build());
 
     public static final FoodProperties COOKED_SEEDS = (new FoodProperties.Builder().nutrition(1).saturationModifier(.1f).build());
-    public static final FoodProperties RAW_PUMPKIN_GUTS = (new FoodProperties.Builder().nutrition(3).saturationModifier(.5f).build());
-    public static final FoodProperties BAKED_PUMPKIN_GUTS = (new FoodProperties.Builder().nutrition(5).saturationModifier(.5f).build());
+    public static final FoodProperties RAW_PUMPKIN_GUTS = (new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build());
+    public static final FoodProperties BAKED_PUMPKIN_GUTS = (new FoodProperties.Builder().nutrition(4).saturationModifier(.5f).build());
     public static final FoodProperties SALAD = (new FoodProperties.Builder().nutrition(6).saturationModifier(.55f).build());
     public static final FoodProperties CHICKEN_SALAD = (new FoodProperties.Builder().nutrition(8).saturationModifier(.65f).build());
 

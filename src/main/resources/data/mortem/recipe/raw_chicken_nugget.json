@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "mortem:raw_chicken_nugget"
+  ],
+  "result": {
+    "id": "mortem:cooked_chicken_nugget",
+    "count": 4
+  }
+}
