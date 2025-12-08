@@ -1,0 +1,72 @@
+{
+  "itemgroup.mortem.mortem": "死 (Shi/Mortem, sugoi style.) ",
+
+  "advancements.adventure.trial_by_fire.title": "Training Arc",
+  "advancements.adventure.trial_by_fire.description": "Fight off your inner demon and become a true shinobu warrior.",
+
+  "advancements.adventure.cure_zombified.title": "Awaken your Inner Hollow...",
+  "advancements.adventure.cure_zombified.description": "Make peace with your inner hollow and become stronger",
+
+  "advancements.adventure.become_zombified.title": "What's On Your Head?",
+  "advancements.adventure.become_zombified.description": "Notice that theres a scary mask on your head... You must fight it... the hollows...",
+
+  "effect.mortem.infected": "Hollowification",
+  "effect.mortem.fungally_infected": "Vasto Lorde-ification",
+  "effect.mortem.immune": "Sugoi",
+
+  "item.minecraft.potion.effect.infected": "Aizen Potion",
+  "item.minecraft.splash_potion.effect.infected": "Splash Aizen Potion",
+  "item.minecraft.lingering_potion.effect.infected": "Lingering Aizen Potion",
+  "item.minecraft.tipped_arrow.effect.infected": "Arrow of Aizen",
+
+  "item.minecraft.potion.effect.immune": "Potion of Sugoi",
+  "item.minecraft.splash_potion.effect.immune": "Splash Potion of Sugoi",
+  "item.minecraft.lingering_potion.effect.immune": "Lingering Potion of Sugoi",
+  "item.minecraft.tipped_arrow.effect.immune": "Arrow of Sugoi",
+
+  "block.mortem.hardened_deepslate_iron_ore": "Powerful Deepslate Zoro-feat Ore",
+  "block.mortem.hardened_iron_ore": "Powerful Zoro-feat Ore",
+
+  "item.mortem.hoglin_tusk": "Pig Beast Tusk",
+
+  "item.mortem.egg_bowl": "Uncooked Japanese-style Eggs Bowl",
+  "item.mortem.egg_tusk": "Uncooked Japanese-style Eggs Tusk",
+
+  "item.mortem.drug": "WESTERNER GARBAGE (NOT in japan.)",
+  "item.mortem.resin_candy": "Scary Japanese Urahara Candy",
+
+  "item.mortem.hard_boiled_egg": "Hard Boiled Japanese-styled Egg",
+  "item.mortem.scrambled_eggs": "Scrambled Japanese-styled Eggs Bowl",
+  "item.mortem.sushi_roll": "Salmon, Egg & Kelp Sushi Roll (comes from japan)",
+  "item.mortem.sweet_potato": "Japanese-style Sweet Potato",
+  "item.mortem.raw_bacon": "Raw Westerner Baka Gaijin Bacon Strip",
+  "item.mortem.cooked_bacon": "Cooked Westerner Baka Gaijin Bacon Strip",
+  "item.mortem.beef_patty": "American Garbage......",
+  "item.mortem.cooked_beef_patty": "Cooked American Garbage......",
+  "item.mortem.burger": "Actually its a Japanese Style Hamburger Not to be Associated With America",
+  "item.mortem.bacon_burger": "Filthy American Westerner Garbage Burger That Needs to be Burned",
+  "item.mortem.toast": "Toast",
+  "item.mortem.toasted_bread": "Authentic Japanese Aged Bread",
+
+  "item.mortem.sweet_berry_jam": "Sweet Berry Jam",
+  "item.mortem.apple_jam": "Apple Jam",
+  "item.mortem.cactus_jam": "Cactus Jam",
+  "item.mortem.cocoa_spread": "Cocoa Spread",
+  "item.mortem.mushroom_puree": "Mushroom Puree",
+  "item.mortem.pork_pate": "Pork Pâté",
+
+  "item.mortem.berry_spread_toast": "Toast with Sweet Berry Jam",
+  "item.mortem.apple_spread_toast": "Toast with Apple Jam",
+  "item.mortem.cactus_spread_toast": "Toast with Cactus Jam",
+  "item.mortem.cocoa_spread_toast": "Toast with Cocoa Spread",
+  "item.mortem.mushroom_spread_toast": "Toast with Mushroom Puree",
+  "item.mortem.pork_spread_toast": "Toast with Pork Pâté",
+
+  "item.mortem.crimson_stew": "Crimson Stew",
+  "item.mortem.warped_stew": "Warped Stew",
+  "item.mortem.fungal_stew": "Fungal Stew",
+  "item.mortem.mushroom_stew_tusk": "Tusk of Mushroom Stew",
+  "item.mortem.scrambled_eggs_tusk": "Tusk of Scrambled Eggs",
+
+  "effect.fungal_infection.terrors": "Vasto-Lorde-ification spreads..."
+}

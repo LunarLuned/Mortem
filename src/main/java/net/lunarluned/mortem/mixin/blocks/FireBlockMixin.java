@@ -24,7 +24,7 @@ public abstract class FireBlockMixin {
 
     @Inject(method = "animateTick", at = @At("HEAD"))
     private void mortem_fastFireTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource, CallbackInfo ci) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 6; i++) {
             trySpread(level, blockPos, randomSource);
         }
     }

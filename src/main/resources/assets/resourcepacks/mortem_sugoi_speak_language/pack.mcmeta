@@ -1,0 +1,13 @@
+{
+	"pack":{
+		"pack_format": 7,
+		"description": "Become sugoitastic in this resourcepack"
+	},
+	"language": {
+		"sg_ss": {
+			"name": "Sugoi Speak",
+			"region": "Sugoiland, Japan!",
+			"bidirectional": false
+		}
+	}
+}
