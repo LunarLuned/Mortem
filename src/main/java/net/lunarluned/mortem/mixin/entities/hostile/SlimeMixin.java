@@ -23,7 +23,7 @@ public abstract class SlimeMixin extends Mob {
     @Inject(method = "checkSlimeSpawnRules", at = @At("HEAD"), cancellable = true)
     private static void mortem_slimeSpawnNaturally(EntityType<Slime> entityType, LevelAccessor levelAccessor, EntitySpawnReason entitySpawnReason, BlockPos blockPos, RandomSource randomSource, CallbackInfoReturnable<Boolean> cir) {
             if (levelAccessor.getBrightness(LightLayer.BLOCK, blockPos) <= 8
-                    && levelAccessor.getBrightness(LightLayer.SKY, blockPos) <= 8) {
+                    && levelAccessor.getBrightness(LightLayer.SKY, blockPos) <= 10) {
                 cir.setReturnValue(checkMobSpawnRules(entityType, levelAccessor, entitySpawnReason, blockPos, randomSource));
             }
     }
