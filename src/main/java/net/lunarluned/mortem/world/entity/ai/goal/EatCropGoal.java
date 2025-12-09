@@ -55,10 +55,10 @@ public class EatCropGoal extends Goal {
                             if (crop.isMaxAge(state)) {
                                 targetPos = pos;
                                 return true;
+                            } else {
+                                targetPos = pos;
+                                return true;
                             }
-                        } else {
-                            targetPos = pos;
-                            return true;
                         }
                     }
                 }
