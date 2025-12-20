@@ -10,6 +10,7 @@ import net.minecraft.world.item.BoneMealItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -63,12 +64,21 @@ public class BoneMealItemMixin {
                     continue;
                 }
 
-                BoneMealItem.growCrop(useOnContext.getItemInHand(), level, nearbyPos);
+                Block var5 = blockState.getBlock();
+                if (var5 instanceof BonemealableBlock bonemealableBlock) {
+                    if (bonemealableBlock.isValidBonemealTarget(level, nearbyPos, blockState)) {
+                        if (level instanceof ServerLevel) {
+                            if (bonemealableBlock.isBonemealSuccess(level, level.random, nearbyPos, blockState)) {
+                                bonemealableBlock.performBonemeal((ServerLevel)level, level.random, nearbyPos, blockState);
+                            }
+                        }
+                    }
+                }
                 ((ServerLevel) level).getChunkSource().blockChanged(nearbyPos);
                 spawnBoneMealParticles((ServerLevel) level, nearbyPos);
             }
         }
-
+        useOnContext.getItemInHand().shrink(1);
         level.playSound(null, pos, SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
         cir.setReturnValue(InteractionResult.SUCCESS);
     }

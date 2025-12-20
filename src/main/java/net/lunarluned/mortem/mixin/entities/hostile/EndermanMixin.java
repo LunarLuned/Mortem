@@ -11,6 +11,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.vehicle.Boat;
@@ -41,8 +42,8 @@ public abstract class EndermanMixin extends Monster {
 
     @Override
     public boolean doHurtTarget(ServerLevel serverLevel, Entity entity) {
-        if (super.doHurtTarget(serverLevel, entity)) {
-            if (entity instanceof LivingEntity && entity.getRandom().nextInt(9) > 3) {
+        if (super.doHurtTarget(serverLevel, entity)) {  // lol \/
+            if (entity instanceof LivingEntity && !(entity instanceof EnderDragon) && entity.getRandom().nextInt(9) > 3) {
                 int i = 0;
                 if (this.level().getDifficulty() == Difficulty.NORMAL) {
                     i = 7;
