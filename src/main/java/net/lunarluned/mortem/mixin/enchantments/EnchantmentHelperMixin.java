@@ -1,7 +1,7 @@
 package net.lunarluned.mortem.mixin.enchantments;
 
 import com.google.common.collect.Lists;
-import net.minecraft.Util;
+import net.minecraft.util.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.util.Mth;
@@ -66,7 +66,7 @@ public abstract class EnchantmentHelperMixin {
                 WeightedRandom.getRandomItem(randomSource, list2, EnchantmentInstance::weight).ifPresent(list::add);
                 while (randomSource.nextInt(50) <= level) {
                     if (!list.isEmpty()) {
-                        filterCompatibleEnchantments(list2, Util.lastOf(list));
+                        filterCompatibleEnchantments(list2, list.getLast());
                     }
 
                     WeightedRandom.getRandomItem(randomSource, list2, EnchantmentInstance::weight).ifPresent(list::add);

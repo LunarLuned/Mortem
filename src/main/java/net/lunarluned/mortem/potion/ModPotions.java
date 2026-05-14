@@ -6,7 +6,7 @@ import net.lunarluned.mortem.effect.ModEffects;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.alchemy.Potion;
 
@@ -18,7 +18,7 @@ public class ModPotions {
     public static Holder<Potion> EXTENDED_IMMUNITY;
 
     private static Holder<Potion> register(String name, Potion potion) {
-        return Registry.registerForHolder(BuiltInRegistries.POTION, ResourceLocation.tryBuild(Mortem.MOD_ID, name), potion);
+        return Registry.registerForHolder(BuiltInRegistries.POTION, Identifier.tryBuild(Mortem.MOD_ID, name), potion);
     }
 
     public static void registerPotions() {

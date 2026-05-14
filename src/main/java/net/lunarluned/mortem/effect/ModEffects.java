@@ -5,7 +5,7 @@ import net.lunarluned.mortem.Mortem;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -27,7 +27,7 @@ public class ModEffects {
     private static final UUID FUNGAL_SPEED_UUID = UUID.fromString("9b5f8b8e-3f7a-4a3d-9c3a-1d1a2a4e7f10");
 
     private static Holder<MobEffect> register(String name, MobEffect mobEffect) {
-        return Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, ResourceLocation.tryBuild(Mortem.MOD_ID, name), mobEffect);
+        return Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, Identifier.tryBuild(Mortem.MOD_ID, name), mobEffect);
     }
 
     public static void registerEffects() {
@@ -41,7 +41,7 @@ public class ModEffects {
         INFECTED = register("infected", new InfectedEffect(MobEffectCategory.HARMFUL, 1657351));
         FUNGALLY_INFECTED = register("fungally_infected", new FungalInfectedEffect(MobEffectCategory.HARMFUL, 16253176).addAttributeModifier(
                 Attributes.MOVEMENT_SPEED,
-                ResourceLocation.parse("9b5f8b8e-3f7a-4a3d-9c3a-1d1a2a4e7f10"),
+                Identifier.parse("9b5f8b8e-3f7a-4a3d-9c3a-1d1a2a4e7f10"),
                 -0.15D,
                 AttributeModifier.Operation.ADD_MULTIPLIED_BASE
         ));

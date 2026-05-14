@@ -6,7 +6,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -51,7 +51,7 @@ public abstract class LivingEntityNaturalRegenMixin {
                 // Server level and gamerule check
                 ServerLevel level = player.level() instanceof ServerLevel ? (ServerLevel) player.level() : null;
                 if (level != null
-                        && level.getGameRules().getBoolean(GameRules.RULE_NATURAL_REGENERATION)
+                        && level.getGameRules().get(GameRules.NATURAL_HEALTH_REGENERATION)
                         // more checks and allat
                         && player.getFoodData().getFoodLevel() <= 18
                         && player.getHealth() < player.getMaxHealth()

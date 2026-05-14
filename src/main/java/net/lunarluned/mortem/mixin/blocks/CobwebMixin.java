@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.WebBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -28,10 +29,11 @@ public class CobwebMixin {
         instance.makeStuckInBlock(blockState, new Vec3(0.65, 0.25000000074505806, 0.65));
     }
 
+    @Unique
     private static final Map<UUID, Integer> entityCobwebTimer = new HashMap<>();
 
     @Inject(method = "entityInside", at = @At("TAIL"))
-    public void mortem_cobwebBreak(BlockState blockState, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, CallbackInfo ci) {
+    public void mortem_cobwebBreak(BlockState blockState, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, boolean bl, CallbackInfo ci) {
         if (!level.isClientSide() && entity instanceof LivingEntity) {
             UUID entityUUID = entity.getUUID();
             int timeInCobweb = entityCobwebTimer.getOrDefault(entityUUID, 0) + 1;
@@ -50,7 +52,7 @@ public class CobwebMixin {
     }
 
     @Inject(method = "entityInside", at = @At("TAIL"))
-    public void mortem_cobwebBreakReset(BlockState blockState, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, CallbackInfo ci) {
+    public void mortem_cobwebBreakReset(BlockState blockState, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, boolean bl, CallbackInfo ci) {
         // Reset the timer if the entity leaves the cobweb
         if (!level.isClientSide() && !(entity.blockPosition().equals(pos))) {
             entityCobwebTimer.remove(entity.getId());

@@ -6,7 +6,7 @@ import net.lunarluned.mortem.sounds.MortemSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
@@ -51,7 +51,7 @@ public abstract class LivingEntityFungalInfectionMixin extends Entity {
         Optional<ResourceKey<Biome>> optKey = biomeHolder.unwrapKey();
         if (optKey.isPresent()) {
             ResourceKey<Biome> key = optKey.get();
-            ResourceLocation id = key.location();
+            Identifier id = key.identifier();
             String idStr = id.toString();
             if ("minecraft:warped_forest".equals(idStr) || "minecraft:crimson_forest".equals(idStr)) {
                 inTarget = true;
@@ -59,7 +59,7 @@ public abstract class LivingEntityFungalInfectionMixin extends Entity {
         } else {
         }
 
-        if (!this.getType().is(MortemTags.FUNGUS_IMMUNE)) {
+        if (!this.is(MortemTags.FUNGUS_IMMUNE)) {
             if (inTarget) {
                 fungalBiomeTicks++;
                 if (!this.level().isClientSide()) {

@@ -6,16 +6,15 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.entity.vehicle.boat.Boat;
 import net.minecraft.world.level.Level;
+import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -75,22 +74,22 @@ public abstract class EndermanMixin extends Monster {
     }
 
     @Inject(method = "setPersistentAngerTarget", at = @At("TAIL"))
-    private void mortem_spreadAnger(UUID uUID, CallbackInfo ci) {
+    private void mortem_spreadAnger(final @Nullable EntityReference<LivingEntity> persistentAngerTarget, CallbackInfo ci) {
         EnderMan self = (EnderMan) (Object) this;
         Level world = self.level();
 
-        if (uUID == null || world.isClientSide()) return;
+        if (persistentAngerTarget == null || world.isClientSide()) return;
 
-        LivingEntity targetEntity = world.getPlayerByUUID(uUID);
+        LivingEntity targetEntity = world.getPlayerByUUID(uuid);
         if (targetEntity == null) return;
 
-        for (EnderMan ender : world.getEntities(EntityType.ENDERMAN,
+        for (EnderMan ender : world.getEntities(EntityTypes.ENDERMAN,
                 self.getBoundingBox().inflate(AGGRO_RADIUS),
                 e -> e != self)) {
 
             if (ender.getPersistentAngerTarget() == null) {
                 ender.setLastHurtByMob(targetEntity);
-                ender.setPersistentAngerTarget(uUID);
+                ender.setPersistentAngerTarget(persistentAngerTarget);
             }
         }
     }

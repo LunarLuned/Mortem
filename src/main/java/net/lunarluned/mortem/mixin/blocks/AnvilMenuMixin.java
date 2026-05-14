@@ -45,7 +45,7 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
         }
     }
 
-    @Inject(method = "createResult", at = @At("TAIL"), cancellable = true)
+    @Inject(method = "createResult", at = @At("TAIL"))
     private void mortem_createResult(CallbackInfo ci) {
         ItemStack left = this.inputSlots.getItem(0);
         ItemStack right = this.inputSlots.getItem(1);

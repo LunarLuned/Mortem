@@ -4,8 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.lunarluned.mortem.Mortem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
 
 public class ModEnchantmentEffects {
@@ -15,7 +14,7 @@ public class ModEnchantmentEffects {
 
     private static MapCodec<? extends EnchantmentEntityEffect> registerEntityEffect(String name,
                                                                                     MapCodec<? extends EnchantmentEntityEffect> codec) {
-        return Registry.register(BuiltInRegistries.ENCHANTMENT_ENTITY_EFFECT_TYPE, ResourceLocation.tryBuild(Mortem.MOD_ID, name), codec);
+        return Registry.register(BuiltInRegistries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.tryBuild(Mortem.MOD_ID, name), codec);
     }
 
     public static void registerEnchantmentEffects() {

@@ -28,9 +28,9 @@ public class CopperRailBlock extends BaseRailBlock {
 
 
     protected void updateState(BlockState blockState, Level level, BlockPos blockPos, Block block) {
-        if (block.defaultBlockState().isSignalSource() && (new RailState(level, blockPos, blockState)).countPotentialConnections() == 3) {
-            this.updateDir(level, blockPos, blockState, false);
-        }
+        //if (block.defaultBlockState().isSignalSource() && (new RailState(level, blockPos, blockState)).count() == 3) {
+          //  this.updateDir(level, blockPos, blockState, false);
+        //}
         boolean bl = (Boolean)blockState.getValue(POWERED);
         boolean bl2 = level.hasNeighborSignal(blockPos) || this.findPoweredRailSignal(level, blockPos, blockState, true, 0) || this.findPoweredRailSignal(level, blockPos, blockState, false, 0);
         if (bl2 != bl) {

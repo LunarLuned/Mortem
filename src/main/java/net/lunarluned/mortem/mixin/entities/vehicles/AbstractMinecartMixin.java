@@ -5,7 +5,7 @@ import net.lunarluned.mortem.block.ModBlocks;
 import net.lunarluned.mortem.block.custom.CopperRailBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.vehicle.AbstractMinecart;
+import net.minecraft.world.entity.vehicle.minecart.AbstractMinecart;
 import net.minecraft.world.entity.vehicle.VehicleEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseRailBlock;

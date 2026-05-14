@@ -5,7 +5,7 @@ import com.google.common.collect.Multimap;
 import com.mojang.authlib.GameProfile;
 import net.lunarluned.mortem.effect.ModEffects;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
@@ -29,8 +29,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class HungerEffectsMixin extends Player {
 
     @Unique
-    private static final ResourceLocation HUNGER_SLOWNESS_ID =
-            ResourceLocation.tryBuild("mortem", "hunger_slowness");
+    private static final Identifier HUNGER_SLOWNESS_ID =
+            Identifier.tryBuild("mortem", "hunger_slowness");
 
     public HungerEffectsMixin(Level level, GameProfile gameProfile) {
         super(level, gameProfile);

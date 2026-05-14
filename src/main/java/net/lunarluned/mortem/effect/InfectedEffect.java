@@ -8,27 +8,24 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
-import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.horse.Horse;
-import net.minecraft.world.entity.animal.horse.Mule;
-import net.minecraft.world.entity.animal.horse.ZombieHorse;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.equine.Horse;
+import net.minecraft.world.entity.animal.equine.Mule;
+import net.minecraft.world.entity.animal.equine.ZombieHorse;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.illager.Vindicator;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
-import net.minecraft.world.entity.npc.Villager;
-import net.minecraft.world.entity.npc.WanderingTrader;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.variant.BiomeCheck;
-import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.entity.monster.zombie.Drowned;
+import net.minecraft.world.entity.monster.zombie.Zombie;
+import net.minecraft.world.entity.monster.zombie.ZombieVillager;
+import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
+import net.minecraft.world.entity.npc.villager.Villager;
+import net.minecraft.world.entity.npc.wanderingtrader.WanderingTrader;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3f;
 
@@ -39,7 +36,7 @@ public class InfectedEffect extends MobEffect {
 
     @Override
     public void onEffectStarted(LivingEntity livingEntity, int i) {
-        if (livingEntity.getType().is(MortemTags.CANNOT_BE_ZOMBIFIED)) {
+        if (livingEntity.is(MortemTags.CANNOT_BE_ZOMBIFIED)) {
             livingEntity.removeEffect(ModEffects.INFECTED);
         }
     }
@@ -121,7 +118,7 @@ public class InfectedEffect extends MobEffect {
     // ok i added the tag but im too lazy to make it work rn
 
     public void onMobHurt(ServerLevel serverLevel, LivingEntity l, int i, DamageSource damageSource, float f) {
-        if ((l.getHealth() < 1) && !l.getType().is(MortemTags.CANNOT_BE_ZOMBIFIED)) {
+        if ((l.getHealth() < 1) && !l.is(MortemTags.CANNOT_BE_ZOMBIFIED)) {
             if (l.getHealth() == 1) {
                 l.die(damageSource);
             }
@@ -141,7 +138,7 @@ public class InfectedEffect extends MobEffect {
     }
 
     private void spawnZombie(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
-        Zombie zombie = (Zombie) EntityType.ZOMBIE.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        Zombie zombie = EntityTypes.ZOMBIE.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zombie != null) {
             RandomSource randomSource = livingEntity.getRandom();
             float g = ((float)Math.PI / 2F);
@@ -156,7 +153,7 @@ public class InfectedEffect extends MobEffect {
         }
     }
     private void spawnVillagerZombie(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
-        ZombieVillager zombie = (ZombieVillager) EntityType.ZOMBIE_VILLAGER.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        ZombieVillager zombie = (ZombieVillager) EntityTypes.ZOMBIE_VILLAGER.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zombie != null) {
             RandomSource randomSource = livingEntity.getRandom();
             float g = ((float)Math.PI / 2F);
@@ -171,7 +168,7 @@ public class InfectedEffect extends MobEffect {
         }
     }
     private void spawnDrowned(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
-        Drowned zombie = (Drowned) EntityType.DROWNED.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        Drowned zombie = (Drowned) EntityTypes.DROWNED.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zombie != null) {
             RandomSource randomSource = livingEntity.getRandom();
             float g = ((float)Math.PI / 2F);
@@ -186,7 +183,7 @@ public class InfectedEffect extends MobEffect {
         }
     }
     private void spawnZombifiedPiglin(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
-        ZombifiedPiglin zPiglin = (ZombifiedPiglin) EntityType.ZOMBIFIED_PIGLIN.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        ZombifiedPiglin zPiglin = (ZombifiedPiglin) EntityTypes.ZOMBIFIED_PIGLIN.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zPiglin != null) {
             RandomSource randomSource = livingEntity.getRandom();
             float g = ((float)Math.PI / 2F);
@@ -201,7 +198,7 @@ public class InfectedEffect extends MobEffect {
         }
     }
     private void spawnZombieHorse(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
-        ZombieHorse zHorse = (ZombieHorse) EntityType.ZOMBIE_HORSE.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        ZombieHorse zHorse = (ZombieHorse) EntityTypes.ZOMBIE_HORSE.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zHorse != null) {
             RandomSource randomSource = livingEntity.getRandom();
             float g = ((float)Math.PI / 2F);

@@ -3,8 +3,8 @@ package net.lunarluned.mortem.block.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -27,6 +27,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.BiConsumer;
 
 import static net.lunarluned.mortem.block.ModBlocks.HARDENED_DEEPSLATE_IRON_ORE;
@@ -38,11 +39,11 @@ public class HardenedIronOre extends Block {
     }
 
     @Override
-    protected @NotNull List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
-        ItemStack tool = builder.getOptionalParameter(LootContextParams.TOOL);
+    protected @NotNull List<ItemStack> getDrops(@NotNull BlockState blockState, LootParams.Builder builder) {
+        ItemStack tool = (ItemStack) builder.getOptionalParameter(LootContextParams.TOOL);
         Level level = builder.getLevel();
 
-        ResourceKey<Enchantment> enchantKey = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.tryBuild("minecraft", "silk_touch"));
+        ResourceKey<Enchantment> enchantKey = ResourceKey.create(Registries.ENCHANTMENT, Objects.requireNonNull(Identifier.tryBuild("minecraft", "silk_touch")));
 
         Holder.Reference<Enchantment> holder = resolveHolder(level, Registries.ENCHANTMENT, enchantKey);
 

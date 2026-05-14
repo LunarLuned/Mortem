@@ -29,20 +29,37 @@ public class CampfireBlockMixin {
     @Inject(method = "useItemOn", at = @At("HEAD"), cancellable = true)
     private void mortem_campfireLightFromTorch(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
         ItemStack stack = player.getItemInHand(interactionHand);
-        if (stack.is(MortemTags.TORCHES)) {
-            if (!level.isClientSide()) {
-                // set campfire lit
-                if (blockState.hasProperty(CampfireBlock.LIT) && !blockState.getValue(CampfireBlock.LIT)) {
-                    level.playSound(null, blockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    level.setBlock(blockPos, blockState.setValue(CampfireBlock.LIT, true), 3);
+        if (!blockState.getValue(CampfireBlock.LIT)) {
+            if (stack.is(MortemTags.TORCHES)) {
+                if (!level.isClientSide()) {
+                    // set campfire lit
+                    if (blockState.hasProperty(CampfireBlock.LIT) && !blockState.getValue(CampfireBlock.LIT)) {
+                        level.playSound(null, blockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        level.setBlock(blockPos, blockState.setValue(CampfireBlock.LIT, true), 3);
 
-                    if (!player.isCreative() && player.getRandom().nextInt(10) >= 5) {
-                        stack.shrink(1);
-                        player.addItem(new ItemStack(Items.STICK));
+                        if (!player.isCreative() && player.getRandom().nextInt(10) >= 5) {
+                            stack.shrink(1);
+                            player.addItem(new ItemStack(Items.STICK));
+                        }
                     }
                 }
+                cir.setReturnValue(InteractionResult.SUCCESS);
+            } else if (stack.is(Items.STICK)) {
+                if (!level.isClientSide()) {
+                    if (player.getRandom().nextInt(6) >= 5) {
+                        // set campfire lit
+                        if (blockState.hasProperty(CampfireBlock.LIT) && !blockState.getValue(CampfireBlock.LIT)) {
+                            level.playSound(null, blockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                            level.setBlock(blockPos, blockState.setValue(CampfireBlock.LIT, true), 3);
+                        }
+                    }
+                }
+                level.playSound(null, blockPos, SoundEvents.WOOD_STEP, SoundSource.BLOCKS, 1.0F, 1.0F);
+                if (!player.isCreative()) {
+                    stack.shrink(1);
+                }
+                cir.setReturnValue(InteractionResult.SUCCESS);
             }
-            cir.setReturnValue(InteractionResult.SUCCESS);
         }
     }
 
@@ -56,7 +73,7 @@ public class CampfireBlockMixin {
     }
 
     @Inject(method = "entityInside", at = @At("TAIL"))
-    private void mortem_setFireEntityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, CallbackInfo ci) {
+    private void mortem_setFireEntityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, boolean bl, CallbackInfo ci) {
         if (blockState.hasProperty(CampfireBlock.LIT) && blockState.getValue(CampfireBlock.LIT) && !(entity instanceof ItemEntity)) {
             insideBlockEffectApplier.apply(InsideBlockEffectType.CLEAR_FREEZE);
             insideBlockEffectApplier.apply(InsideBlockEffectType.FIRE_IGNITE);

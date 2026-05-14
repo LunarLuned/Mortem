@@ -3,13 +3,13 @@ package net.lunarluned.mortem.mixin.enchantments;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.ThrownTrident;
+import net.minecraft.world.entity.projectile.arrow.ThrownTrident;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -33,9 +33,9 @@ public abstract class ImpalingWetDamageMixin extends AbstractArrow {
     Level level = this.level();
 
     @Unique
-    ResourceKey<Enchantment> enchantKey = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.tryBuild("minecraft", "impaling"));
+    ResourceKey<Enchantment> enchantKey = ResourceKey.create(Registries.ENCHANTMENT, Identifier.tryBuild("minecraft", "impaling"));
     @Unique
-    ResourceKey<Enchantment> loyaltyenchantKey = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.tryBuild("minecraft", "loyalty"));
+    ResourceKey<Enchantment> loyaltyenchantKey = ResourceKey.create(Registries.ENCHANTMENT, Identifier.tryBuild("minecraft", "loyalty"));
 
     @Unique
     Holder.Reference<Enchantment> holder = resolveHolder(level, Registries.ENCHANTMENT, enchantKey);

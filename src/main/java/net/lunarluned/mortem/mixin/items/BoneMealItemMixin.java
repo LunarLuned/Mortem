@@ -60,7 +60,7 @@ public class BoneMealItemMixin {
 
                 double probability = 1.0 - (distance / maxDistance);
 
-                if (level.random.nextDouble() > probability) {
+                if (level.getRandom().nextDouble() > probability) {
                     continue;
                 }
 
@@ -68,8 +68,8 @@ public class BoneMealItemMixin {
                 if (var5 instanceof BonemealableBlock bonemealableBlock) {
                     if (bonemealableBlock.isValidBonemealTarget(level, nearbyPos, blockState)) {
                         if (level instanceof ServerLevel) {
-                            if (bonemealableBlock.isBonemealSuccess(level, level.random, nearbyPos, blockState)) {
-                                bonemealableBlock.performBonemeal((ServerLevel)level, level.random, nearbyPos, blockState);
+                            if (bonemealableBlock.isBonemealSuccess(level, level.getRandom(), nearbyPos, blockState)) {
+                                bonemealableBlock.performBonemeal((ServerLevel)level, level.getRandom(), nearbyPos, blockState);
                             }
                         }
                     }
@@ -86,11 +86,11 @@ public class BoneMealItemMixin {
     @Unique
     private void spawnBoneMealParticles(ServerLevel level, BlockPos pos) {
         for (int i = 0; i < 10; i++) {
-            double offsetX = level.random.nextDouble();
-            double offsetY = level.random.nextDouble() * 0.5 + 0.5;
-            double offsetZ = level.random.nextDouble();
-            double deltaY = level.random.nextDouble() * 0.1;
-            double speed = level.random.nextDouble() * 0.05;
+            double offsetX = level.getRandom().nextDouble();
+            double offsetY = level.getRandom().nextDouble() * 0.5 + 0.5;
+            double offsetZ = level.getRandom().nextDouble();
+            double deltaY = level.getRandom().nextDouble() * 0.1;
+            double speed = level.getRandom().nextDouble() * 0.05;
 
             Vec3 particlePos = new Vec3(pos.getX() + offsetX, pos.getY() + offsetY, pos.getZ() + offsetZ);
 

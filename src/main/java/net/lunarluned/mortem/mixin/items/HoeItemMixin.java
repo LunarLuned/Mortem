@@ -7,7 +7,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -42,7 +42,7 @@ import java.util.function.Predicate;
 
 import static net.lunarluned.mortem.misc.EnchantmentHolderHelper.resolveHolder;
 import static net.minecraft.world.item.HoeItem.changeIntoState;
-import static net.minecraft.world.level.block.FarmBlock.MOISTURE;
+import static net.minecraft.world.level.block.FarmlandBlock.MOISTURE;
 
 
 @Mixin(HoeItem.class)
@@ -57,10 +57,10 @@ public abstract class HoeItemMixin extends Item {
         Level level = useOnContext.getLevel();
 
         // holders for the enchantment keys
-        ResourceKey<Enchantment> chiningenchantKey = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.tryBuild("mortem", "chining"));
+        ResourceKey<Enchantment> chiningenchantKey = ResourceKey.create(Registries.ENCHANTMENT, Identifier.tryBuild("mortem", "chining"));
         Holder.Reference<Enchantment> holder = resolveHolder(level, Registries.ENCHANTMENT, chiningenchantKey);
 
-        ResourceKey<Enchantment> harvestingenchantKey = ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.tryBuild("mortem", "harvesting"));
+        ResourceKey<Enchantment> harvestingenchantKey = ResourceKey.create(Registries.ENCHANTMENT, Identifier.tryBuild("mortem", "harvesting"));
         Holder.Reference<Enchantment> harvestingholder = resolveHolder(level, Registries.ENCHANTMENT, harvestingenchantKey);
 
         if (!(level instanceof ServerLevel serverLevel) || level.isClientSide()) {
@@ -179,11 +179,11 @@ public abstract class HoeItemMixin extends Item {
     @Unique
     private void spawnChiningParticles(ServerLevel level, BlockPos pos) {
         for (int i = 0; i < 3; i++) {
-            double offsetX = level.random.nextDouble();
-            double offsetY = level.random.nextDouble() * 0.5 + 0.5;
-            double offsetZ = level.random.nextDouble();
-            double deltaY = level.random.nextDouble() * 0.1;
-            double speed = level.random.nextDouble() * 0.05;
+            double offsetX = level.getRandom().nextDouble();
+            double offsetY = level.getRandom().nextDouble() * 0.5 + 0.5;
+            double offsetZ = level.getRandom().nextDouble();
+            double deltaY = level.getRandom().nextDouble() * 0.1;
+            double speed = level.getRandom().nextDouble() * 0.05;
 
             Vec3 particlePos = new Vec3(pos.getX() + offsetX, pos.getY() + offsetY, pos.getZ() + offsetZ);
 

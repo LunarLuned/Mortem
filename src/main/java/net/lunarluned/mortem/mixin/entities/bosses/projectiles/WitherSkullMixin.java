@@ -6,8 +6,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
-import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
-import net.minecraft.world.entity.projectile.WitherSkull;
+import net.minecraft.world.entity.projectile.hurtingprojectile.AbstractHurtingProjectile;
+import net.minecraft.world.entity.projectile.hurtingprojectile.WitherSkull;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -23,7 +23,7 @@ public abstract class WitherSkullMixin extends AbstractHurtingProjectile {
         super(entityType, level);
     }
 
-    @Inject(at = @At("HEAD"), method = "Lnet/minecraft/world/entity/projectile/WitherSkull;onHitEntity(Lnet/minecraft/world/phys/EntityHitResult;)V")
+    @Inject(at = @At("HEAD"), method = "Lnet/minecraft/world/entity/projectile/hurtingprojectile/WitherSkull;onHitEntity(Lnet/minecraft/world/phys/EntityHitResult;)V")
     private void mortem_onHitEntityBuff(EntityHitResult entityHitResult, CallbackInfo ci){
         Entity entity = entityHitResult.getEntity();
             Entity entity2 = this.getOwner();

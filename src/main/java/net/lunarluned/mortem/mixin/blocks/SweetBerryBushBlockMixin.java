@@ -21,7 +21,7 @@ public abstract class SweetBerryBushBlockMixin extends VegetationBlock implement
     }
 
     @Inject(method = "entityInside", cancellable = true, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;hurtServer(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
-    private void mortem_crouchingLikeTheMagma(BlockState blockState, Level level, BlockPos blockPos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, CallbackInfo ci) {
+    private void mortem_crouchingLikeTheMagma(BlockState blockState, Level level, BlockPos blockPos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, boolean bl, CallbackInfo ci) {
         if (entity.isSteppingCarefully() && entity instanceof LivingEntity) {
             ci.cancel();
         }

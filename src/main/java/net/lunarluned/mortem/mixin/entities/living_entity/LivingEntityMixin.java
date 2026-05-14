@@ -146,7 +146,7 @@ public abstract class LivingEntityMixin extends Entity {
             }
         }
 
-        if ((this.hasEffect(ModEffects.INFECTED)) && this.getType().is(MortemTags.CANNOT_BE_ZOMBIFIED)) {
+        if ((this.hasEffect(ModEffects.INFECTED)) && this.is(MortemTags.CANNOT_BE_ZOMBIFIED)) {
                 this.removeEffect(ModEffects.INFECTED);
         }
 

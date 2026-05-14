@@ -49,8 +49,6 @@
     "entities.living_entity.LivingEntityMixin",
     "entities.living_entity.LivingEntityNaturalRegenMixin",
     "entities.vehicles.AbstractMinecartMixin",
-    "entities.vehicles.NewMinecartBehaviorMixin",
-    "entities.vehicles.OldMinecartBehaviorMixin",
     "items.ArmorMaterialsMixin",
     "items.BlocksAttacksMixin",
     "items.BoneMealItemMixin",

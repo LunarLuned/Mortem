@@ -30,7 +30,7 @@ public class IceMeltRandomTickMixin {
             double z = pos.getZ() + 0.5;
 
         if (state.is(Blocks.PACKED_ICE) || state.is(Blocks.BLUE_ICE) || state.is(Blocks.ICE)) {
-            if (level.dimensionType().ultraWarm()) {
+            if (level.dimensionType().hasCeiling()) {
                 level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
                 level.playSound(null, pos, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 1, 1);
                 level.levelEvent(2001, pos, Block.getId(state));

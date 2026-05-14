@@ -7,7 +7,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -15,6 +14,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.item.trading.VillagerTrades;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -26,7 +26,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.List;
 import java.util.Optional;
 
-@Mixin(VillagerTrades.EnchantBookForEmeralds.class)
+@Mixin(VillagerTrades.class)
 public class EnchantBookFactoryMixin {
     @Shadow
     @Final
@@ -38,8 +38,8 @@ public class EnchantBookFactoryMixin {
 
     @Shadow @Final private int villagerXp;
 
-    // Mending & Flame are unobtainable
-
+    // #TODO Rewrite this entirely soon. Theyve completely changed it.
+/*
     @Inject(method = "getOffer", at = @At("HEAD"), cancellable = true)
     private void mortem_removeEnchantsFromTradeOffers(Entity entity, RandomSource randomSource, CallbackInfoReturnable<MerchantOffer> cir) {
             Optional<Holder<Enchantment>> optional = entity.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getRandomElementOf(this.tradeableEnchantments, randomSource);
@@ -82,4 +82,6 @@ public class EnchantBookFactoryMixin {
         List<String> invalidEnchants = List.of("Enchantment Flame", "Enchantment Mending");
         return invalidEnchants.contains(enchantment);
     }
+
+ */
 }
