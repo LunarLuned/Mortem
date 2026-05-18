@@ -1,6 +1,10 @@
 {
   "replace": false,
-  "values": [],
+  "values": [
+    "mortem:chining",
+    "mortem:harvesting",
+    "mortem:ricochet"
+  ],
   "remove": [
     "minecraft:mending",
     "minecraft:flame"

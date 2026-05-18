@@ -1,7 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:tooltip_order"
+    "mortem:chining",
+    "mortem:harvesting",
+    "mortem:ricochet"
   ],
   "remove": [
     "minecraft:mending",

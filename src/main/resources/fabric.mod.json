@@ -20,6 +20,9 @@
 		"main": [
 			"net.lunarluned.mortem.Mortem"
 		],
+		"fabric-datagen": [
+			"net.lunarluned.mortem.MortemDataGenerator"
+		],
 		"client": [
 			"net.lunarluned.mortem.MortemClient"
 		]
