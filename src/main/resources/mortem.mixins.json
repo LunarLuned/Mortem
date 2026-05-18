@@ -34,6 +34,7 @@
     "entities.bosses.projectiles.WitherSkullMixin",
     "entities.goals.SwellGoalMixin",
     "entities.hostile.AbstractSkeletonMixin",
+    "entities.hostile.CreakingMixin",
     "entities.hostile.CreeperMixin",
     "entities.hostile.EndermanMixin",
     "entities.hostile.SkeletonConversionMixin",
