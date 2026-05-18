@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [],
+  "remove": [
+    "minecraft:mending",
+    "minecraft:flame"
+  ]
+}

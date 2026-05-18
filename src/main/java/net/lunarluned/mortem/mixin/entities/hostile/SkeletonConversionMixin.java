@@ -8,7 +8,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.skeleton.Skeleton;
 import net.minecraft.world.entity.monster.skeleton.WitherSkeleton;
@@ -30,7 +29,7 @@ public abstract class SkeletonConversionMixin {
 
             ServerLevel serverLevel = (ServerLevel) self.level();
             WitherSkeleton wSkeleton =
-                    EntityTypes.WITHER_SKELETON.create(serverLevel, EntitySpawnReason.TRIGGERED);
+                    EntityType.WITHER_SKELETON.create(serverLevel, EntitySpawnReason.TRIGGERED);
 
             if (wSkeleton != null) {
                 RandomSource randomSource = self.getRandom();

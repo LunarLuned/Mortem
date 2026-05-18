@@ -26,6 +26,7 @@
     "entities.IronGolemMixin",
     "entities.LavaSmeltingMixin",
     "entities.VillagerMixin",
+    "entities.bosses.WitherHoverMixin",
     "entities.bosses.WitherMixin",
     "entities.bosses.dragon.EndCrystalMixin",
     "entities.bosses.dragon.EndCrystalMobMixin",

@@ -37,11 +37,11 @@ public abstract class SwellGoalMixin extends Goal {
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
-    public void mortem_BetterCreeperIgnite(CallbackInfo ci) {
+    public void mortem_betterCreeperIgnite(CallbackInfo ci) {
         double d = this.creeper.distanceToSqr(this.target);
         if (this.target == null) {
             this.creeper.setSwellDir(-1);
-        } else if (d > 16.0D) {
+        } else if (d > 24.0D) {
             this.creeper.setSwellDir(-1);
         } else {
             this.creeper.setSwellDir(1);

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:tooltip_order"
+  ],
+  "remove": [
+    "minecraft:mending",
+    "minecraft:flame"
+  ]
+}

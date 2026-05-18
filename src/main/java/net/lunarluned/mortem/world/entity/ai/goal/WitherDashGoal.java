@@ -75,7 +75,7 @@ public class WitherDashGoal extends Goal {
                     wither.getY(),
                     wither.getZ(),
                     10,
-                    0.2, 0.2, 0.2, 0.01
+                    1.2, 1.2, 1.2, 0.01
             );
         }
         dashTicks--;

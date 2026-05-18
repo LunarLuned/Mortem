@@ -1,6 +1,7 @@
 package net.lunarluned.mortem.mixin.entities.bosses;
 
 import net.lunarluned.mortem.world.entity.ai.goal.WitherDashGoal;
+import net.lunarluned.mortem.world.entity.ai.goal.WitherSlamdownGoal;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -44,5 +45,6 @@ public abstract class WitherMixin extends LivingEntity {
     private void addDashGoal(CallbackInfo ci) {
         WitherBoss self = (WitherBoss) (Object) this;
         self.targetSelector.addGoal(2, new WitherDashGoal(self));
+        self.targetSelector.addGoal(3, new WitherSlamdownGoal(self));
     }
     }

@@ -27,22 +27,6 @@ public class ModBlocks {
     public static final Block COPPER_RAIL = registerBlock("copper_rail",
             new CopperRailBlock(BlockBehaviour.Properties.of().strength(.7f).setId(ResourceKey.create(Registries.BLOCK, Identifier.tryBuild(Mortem.MOD_ID, "copper_rail"))).sound(SoundType.METAL).noCollision()));
 
-    public static final Block CRUMBLING_STONE = registerBlock("crumbling_stone",
-            new CrumblingBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.tryBuild(Mortem.MOD_ID, "crumbling_stone")))
-                    .strength(0.5f).sound(SoundType.NETHERRACK)));
-
-    public static final Block CRUMBLING_NETHERRACK = registerBlock("crumbling_netherrack",
-            new CrumblingBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.tryBuild(Mortem.MOD_ID, "crumbling_netherrack")))
-                    .strength(0.5f).sound(SoundType.NETHERRACK)));
-
-    public static final Block CRUMBLING_DEEPSLATE = registerBlock("crumbling_deepslate",
-            new CrumblingBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.tryBuild(Mortem.MOD_ID, "crumbling_deepslate")))
-                    .strength(0.5f).sound(SoundType.NETHERRACK)));
-
-    public static final Block CRUMBLING_END_STONE = registerBlock("crumbling_end_stone",
-            new CrumblingBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.tryBuild(Mortem.MOD_ID, "crumbling_end_stone")))
-                    .strength(0.5f).sound(SoundType.NETHERRACK)));
-
     public static final Block HARDENED_IRON_ORE = registerBlock("hardened_iron_ore",
             new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.tryBuild(Mortem.MOD_ID, "hardened_iron_ore")))
                     .strength(8f).explosionResistance(1).sound(SoundType.STONE)));

@@ -12,7 +12,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,6 +25,9 @@ import java.util.Map;
 
 @Mixin(ItemEntity.class)
 public abstract class LavaSmeltingMixin {
+    @Shadow
+    public abstract ItemStack getItem();
+
     @Unique
     private static final Map<Item, RecycleResult> LAVA_RECIPES = new HashMap<>();
 
@@ -57,6 +62,14 @@ private void onTick(CallbackInfo ci) {
 
             // Particles & sounds
             if (level instanceof ServerLevel serverLevel) {
+
+                if (getItem().is(Items.TNT_MINECART)) {
+                    serverLevel.explode(entity, entity.getX(), entity.getY(), entity.getZ(), 1.0F, true, Level.ExplosionInteraction.TNT);
+                }
+                if (getItem().is(Items.TNT)) {
+                    serverLevel.explode(entity, entity.getX(), entity.getY(), entity.getZ(), 3.0F, true, Level.ExplosionInteraction.TNT);
+                }
+
                 serverLevel.sendParticles(
                         ParticleTypes.LAVA,
                         entity.getX(),
@@ -92,6 +105,9 @@ private void onTick(CallbackInfo ci) {
         LAVA_RECIPES.put(Items.GOLDEN_PICKAXE, new RecycleResult(Items.GOLD_NUGGET, 7));
         LAVA_RECIPES.put(Items.GOLDEN_SHOVEL, new RecycleResult(Items.GOLD_NUGGET, 5));
         LAVA_RECIPES.put(Items.GOLDEN_HOE, new RecycleResult(Items.GOLD_NUGGET, 12));
+        LAVA_RECIPES.put(Items.GOLDEN_SPEAR, new RecycleResult(Items.GOLD_NUGGET, 8));
+        LAVA_RECIPES.put(Items.GOLDEN_NAUTILUS_ARMOR, new RecycleResult(Items.GOLD_INGOT, 2));
+        LAVA_RECIPES.put(Items.GOLDEN_HORSE_ARMOR, new RecycleResult(Items.GOLD_INGOT, 3));
 
         LAVA_RECIPES.put(Items.RAW_GOLD_BLOCK, new RecycleResult(Items.GOLD_INGOT, 5));
 
@@ -105,6 +121,9 @@ private void onTick(CallbackInfo ci) {
         LAVA_RECIPES.put(Items.COPPER_PICKAXE, new RecycleResult(Items.COPPER_NUGGET, 7));
         LAVA_RECIPES.put(Items.COPPER_SHOVEL, new RecycleResult(Items.COPPER_NUGGET, 5));
         LAVA_RECIPES.put(Items.COPPER_HOE, new RecycleResult(Items.COPPER_NUGGET, 12));
+        LAVA_RECIPES.put(Items.COPPER_SPEAR, new RecycleResult(Items.COPPER_NUGGET, 8));
+        LAVA_RECIPES.put(Items.COPPER_NAUTILUS_ARMOR, new RecycleResult(Items.COPPER_INGOT, 2));
+        LAVA_RECIPES.put(Items.COPPER_HORSE_ARMOR, new RecycleResult(Items.COPPER_INGOT, 3));
 
         LAVA_RECIPES.put(Item.byBlock(ModBlocks.COPPER_RAIL), new RecycleResult(Items.COPPER_NUGGET, 2));
         LAVA_RECIPES.put(Items.RAW_COPPER_BLOCK, new RecycleResult(Items.COPPER_INGOT, 6));
@@ -121,10 +140,18 @@ private void onTick(CallbackInfo ci) {
         LAVA_RECIPES.put(Items.IRON_SHOVEL, new RecycleResult(Items.IRON_NUGGET, 5));
         LAVA_RECIPES.put(Items.IRON_HOE, new RecycleResult(Items.IRON_NUGGET, 10));
 
+        LAVA_RECIPES.put(Items.IRON_SPEAR, new RecycleResult(Items.IRON_NUGGET, 8));
+        LAVA_RECIPES.put(Items.IRON_NAUTILUS_ARMOR, new RecycleResult(Items.IRON_INGOT, 2));
+        LAVA_RECIPES.put(Items.IRON_HORSE_ARMOR, new RecycleResult(Items.IRON_INGOT, 3));
+
         LAVA_RECIPES.put(Items.RAW_IRON_BLOCK, new RecycleResult(Items.IRON_INGOT, 7));
 
         LAVA_RECIPES.put(Items.BUCKET, new RecycleResult(Items.IRON_INGOT, 2));
         LAVA_RECIPES.put(Items.MINECART, new RecycleResult(Items.IRON_INGOT, 4));
+        LAVA_RECIPES.put(Items.HOPPER_MINECART, new RecycleResult(Items.IRON_INGOT, 7));
+        LAVA_RECIPES.put(Items.CHEST_MINECART, new RecycleResult(Items.IRON_INGOT, 4));
+        LAVA_RECIPES.put(Items.FURNACE_MINECART, new RecycleResult(Items.IRON_INGOT, 4));
+        LAVA_RECIPES.put(Items.TNT_MINECART, new RecycleResult(Items.IRON_INGOT, 2));
         LAVA_RECIPES.put(Items.RAIL, new RecycleResult(Items.IRON_NUGGET, 1));
         LAVA_RECIPES.put(Items.FLINT_AND_STEEL, new RecycleResult(Items.IRON_NUGGET, 5));
         LAVA_RECIPES.put(Items.SHEARS, new RecycleResult(Items.IRON_NUGGET, 15));

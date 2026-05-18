@@ -138,7 +138,7 @@ public class InfectedEffect extends MobEffect {
     }
 
     private void spawnZombie(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
-        Zombie zombie = EntityTypes.ZOMBIE.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        Zombie zombie = EntityType.ZOMBIE.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zombie != null) {
             RandomSource randomSource = livingEntity.getRandom();
             float g = ((float)Math.PI / 2F);
@@ -153,7 +153,7 @@ public class InfectedEffect extends MobEffect {
         }
     }
     private void spawnVillagerZombie(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
-        ZombieVillager zombie = (ZombieVillager) EntityTypes.ZOMBIE_VILLAGER.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        ZombieVillager zombie = (ZombieVillager) EntityType.ZOMBIE_VILLAGER.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zombie != null) {
             RandomSource randomSource = livingEntity.getRandom();
             float g = ((float)Math.PI / 2F);
@@ -168,7 +168,7 @@ public class InfectedEffect extends MobEffect {
         }
     }
     private void spawnDrowned(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
-        Drowned zombie = (Drowned) EntityTypes.DROWNED.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        Drowned zombie = (Drowned) EntityType.DROWNED.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zombie != null) {
             RandomSource randomSource = livingEntity.getRandom();
             float g = ((float)Math.PI / 2F);
@@ -183,7 +183,7 @@ public class InfectedEffect extends MobEffect {
         }
     }
     private void spawnZombifiedPiglin(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
-        ZombifiedPiglin zPiglin = (ZombifiedPiglin) EntityTypes.ZOMBIFIED_PIGLIN.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        ZombifiedPiglin zPiglin = (ZombifiedPiglin) EntityType.ZOMBIFIED_PIGLIN.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zPiglin != null) {
             RandomSource randomSource = livingEntity.getRandom();
             float g = ((float)Math.PI / 2F);
@@ -198,7 +198,7 @@ public class InfectedEffect extends MobEffect {
         }
     }
     private void spawnZombieHorse(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
-        ZombieHorse zHorse = (ZombieHorse) EntityTypes.ZOMBIE_HORSE.create(serverLevel, EntitySpawnReason.TRIGGERED);
+        ZombieHorse zHorse = (ZombieHorse) EntityType.ZOMBIE_HORSE.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zHorse != null) {
             RandomSource randomSource = livingEntity.getRandom();
             float g = ((float)Math.PI / 2F);

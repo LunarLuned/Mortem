@@ -2,6 +2,8 @@ package net.lunarluned.mortem.mixin.entities.hostile;
 
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.monster.skeleton.AbstractSkeleton;
 import net.minecraft.world.item.ItemStack;
@@ -23,8 +25,10 @@ public abstract class AbstractSkeletonMixin {
             // 30% chance to get a bow, bone or nothing
             if (randomSource.nextFloat() < 0.30f) {
                 skeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BONE));
+                skeleton.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 100000, 0, true, true));
             } else if (randomSource.nextFloat() < 0.30f) {
                 skeleton.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
+                skeleton.addEffect(new MobEffectInstance(MobEffects.SPEED, 100000, 0, true, true));
             } else if (randomSource.nextFloat() < 0.30f) {
                 skeleton.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
             }

@@ -29,14 +29,9 @@ import java.util.UUID;
 public abstract class EndermanMixin extends Monster {
 
 
-    @Shadow protected abstract boolean teleport(double d, double e, double f);
-
     protected EndermanMixin(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
-
-    @Unique
-    private static final double AGGRO_RADIUS = 8.0;
 
 
     @Override
@@ -70,27 +65,6 @@ public abstract class EndermanMixin extends Monster {
             this.level().playSound((Entity)null, this.xo, this.yo, this.zo, SoundEvents.ENDERMAN_TELEPORT, this.getSoundSource(), 1.0F, 1.0F);
             this.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
             entity.teleportTo(d, e, f);
-        }
-    }
-
-    @Inject(method = "setPersistentAngerTarget", at = @At("TAIL"))
-    private void mortem_spreadAnger(final @Nullable EntityReference<LivingEntity> persistentAngerTarget, CallbackInfo ci) {
-        EnderMan self = (EnderMan) (Object) this;
-        Level world = self.level();
-
-        if (persistentAngerTarget == null || world.isClientSide()) return;
-
-        LivingEntity targetEntity = world.getPlayerByUUID(uuid);
-        if (targetEntity == null) return;
-
-        for (EnderMan ender : world.getEntities(EntityTypes.ENDERMAN,
-                self.getBoundingBox().inflate(AGGRO_RADIUS),
-                e -> e != self)) {
-
-            if (ender.getPersistentAngerTarget() == null) {
-                ender.setLastHurtByMob(targetEntity);
-                ender.setPersistentAngerTarget(persistentAngerTarget);
-            }
         }
     }
 
