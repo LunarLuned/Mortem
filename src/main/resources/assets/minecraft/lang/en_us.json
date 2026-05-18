@@ -1,5 +1,7 @@
 {
   "replace": false,
 
+  "enchantment.minecraft.protection": "Physical Protection",
+
   "block.minecraft.rail": "Iron Rail"
 }
