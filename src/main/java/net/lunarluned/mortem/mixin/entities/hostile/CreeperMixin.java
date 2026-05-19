@@ -34,6 +34,8 @@ public abstract class CreeperMixin extends Monster {
         AttributeSupplier.Builder builder = cir.getReturnValue();
 
         builder.add(Attributes.FOLLOW_RANGE, 20);
+        builder.add(Attributes.MOVEMENT_SPEED, (double)0.28F);
+
 
         cir.setReturnValue(builder);
     }
