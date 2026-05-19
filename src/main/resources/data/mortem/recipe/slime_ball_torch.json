@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "/"
+  ],
+  "key": {
+    "#": "minecraft:slime_ball",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "minecraft:torch"
+  }
+}
