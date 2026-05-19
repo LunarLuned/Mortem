@@ -3,5 +3,8 @@
 
   "enchantment.minecraft.protection": "Physical Protection",
 
+  "container.stonecutter": "Saw Table",
+
+  "block.minecraft.stonecutter": "Saw Table",
   "block.minecraft.rail": "Iron Rail"
 }

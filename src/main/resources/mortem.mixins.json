@@ -13,6 +13,7 @@
     "blocks.FarmBlockFallMixin",
     "blocks.FireBlockMixin",
     "blocks.IceMeltRandomTickMixin",
+    "blocks.StonecutterBlockMixin",
     "blocks.SugarCaneBlockMixin",
     "blocks.SweetBerryBushBlockMixin",
     "blocks.TNTBlockMixin",
