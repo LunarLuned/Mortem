@@ -188,7 +188,7 @@ public abstract class LivingEntityMixin extends Entity {
                 return;
             }
 
-            fireDamageCooldown = 20; // e.g., 1 second cooldown
+            fireDamageCooldown = 20;
             self.invulnerableTime = 0; // ignore normal i-frames
         }
     }

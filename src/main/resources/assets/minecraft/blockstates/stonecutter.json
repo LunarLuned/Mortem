@@ -1,0 +1,56 @@
+{
+  "variants": {
+
+    "face=floor,facing=north": {
+      "model": "minecraft:block/stonecutter"
+    },
+    "face=floor,facing=south": {
+      "model": "minecraft:block/stonecutter",
+      "y": 180
+    },
+    "face=floor,facing=west": {
+      "model": "minecraft:block/stonecutter",
+      "y": 270
+    },
+    "face=floor,facing=east": {
+      "model": "minecraft:block/stonecutter",
+      "y": 90
+    },
+
+    "face=ceiling,facing=north": {
+      "model": "minecraft:block/stonecutter",
+      "x": 180
+    },
+    "face=ceiling,facing=south": {
+      "model": "minecraft:block/stonecutter",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=west": {
+      "model": "minecraft:block/stonecutter",
+      "x": 180,
+      "y": 270
+    },
+    "face=ceiling,facing=east": {
+      "model": "minecraft:block/stonecutter",
+      "x": 180,
+      "y": 90
+    },
+
+    "face=wall,facing=north": {
+      "model": "minecraft:block/stonecutter_wall"
+    },
+    "face=wall,facing=south": {
+      "model": "minecraft:block/stonecutter_wall",
+      "y": 180
+    },
+    "face=wall,facing=west": {
+      "model": "minecraft:block/stonecutter_wall",
+      "y": 270
+    },
+    "face=wall,facing=east": {
+      "model": "minecraft:block/stonecutter_wall",
+      "y": 90
+    }
+  }
+}
