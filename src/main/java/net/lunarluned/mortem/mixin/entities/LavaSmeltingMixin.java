@@ -51,16 +51,10 @@ private void onTick(CallbackInfo ci) {
             ItemStack result = new ItemStack(recipe.result(), count);
 
             // Spawn new item(s) above lava
-            ItemEntity newEntity = new ItemEntity(
-                    level,
-                    entity.getX(),
-                    entity.getY() + 0.6,
-                    entity.getZ(),
-                    result
-            );
+            ItemEntity newEntity = new ItemEntity(level, entity.getX(), entity.getY() + 0.6, entity.getZ(), result);
             level.addFreshEntity(newEntity);
 
-            // Particles & sounds
+            // Particles & sounds & TNT
             if (level instanceof ServerLevel serverLevel) {
 
                 if (getItem().is(Items.TNT_MINECART)) {
@@ -70,23 +64,9 @@ private void onTick(CallbackInfo ci) {
                     serverLevel.explode(entity, entity.getX(), entity.getY(), entity.getZ(), 3.0F, true, Level.ExplosionInteraction.TNT);
                 }
 
-                serverLevel.sendParticles(
-                        ParticleTypes.LAVA,
-                        entity.getX(),
-                        entity.getY() + 0.3,
-                        entity.getZ(),
-                        10,
-                        0.2, 0.2, 0.2, 0.01
-                );
+                serverLevel.sendParticles(ParticleTypes.LAVA, entity.getX(), entity.getY() + 0.3, entity.getZ(), 10, 0.2, 0.2, 0.2, 0.01);
                 serverLevel.levelEvent(2001, pos, net.minecraft.world.level.block.Block.getId(level.getBlockState(pos)));
-                level.playSound(
-                        null,
-                        pos,
-                        net.minecraft.sounds.SoundEvents.LAVA_EXTINGUISH,
-                        net.minecraft.sounds.SoundSource.BLOCKS,
-                        1.0F,
-                        1.0F
-                );
+                level.playSound(null, pos, net.minecraft.sounds.SoundEvents.LAVA_EXTINGUISH, net.minecraft.sounds.SoundSource.BLOCKS, 1.0F, 1.0F);
             }
 
         entity.discard();
