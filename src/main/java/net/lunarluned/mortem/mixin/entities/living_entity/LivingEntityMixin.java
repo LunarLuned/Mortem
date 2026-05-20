@@ -1,6 +1,7 @@
 package net.lunarluned.mortem.mixin.entities.living_entity;
 
 import net.lunarluned.mortem.MortemTags;
+import net.lunarluned.mortem.effect.InfectedEffect;
 import net.lunarluned.mortem.effect.ModEffects;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
@@ -137,12 +138,37 @@ public abstract class LivingEntityMixin extends Entity {
 
     }
 
+    @Inject(method = "completeUsingItem", at = @At("HEAD"))
+    private void mortem_fleshInfect(CallbackInfo ci) {
+        LivingEntity entity = (LivingEntity)(Object)this;
+
+        if (!(entity instanceof Player player)) {
+            return;
+        }
+
+        ItemStack stack = player.getUseItem();
+
+        if (stack.is(Items.ROTTEN_FLESH) && player.getRandom().nextInt(10) >= 5) {
+            player.addEffect(new MobEffectInstance(ModEffects.INFECTED, 900, 0));
+        }
+    }
+
     @Inject(method = "tick", at = @At("HEAD"))
     public void mortem_cancelOutEffects(CallbackInfo ci) {
         if ((this.hasEffect(MobEffects.WEAKNESS) && (this.hasEffect(MobEffects.REGENERATION)) && (this.hasEffect(ModEffects.INFECTED)))) {
-            if ((this.tickCount % 10 == 0)) {
-                this.removeAllEffects();
-                this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 400, 0));
+                if ((this.tickCount % 10 == 0)) {
+                    if (!this.isOnFire()) {
+                    this.removeAllEffects();
+                    this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 400, 0));
+                } else if (this.hasEffect(ModEffects.INFECTED) && this.getEffect(ModEffects.INFECTED).getAmplifier() > 0) {
+                     return;
+                    }
+                    else if (this.getRandom().nextInt(10) >= 6) {
+                        this.addEffect(new MobEffectInstance(ModEffects.INFECTED, 12000, 1));
+                    } else {
+                        this.removeAllEffects();
+                        this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 200, 0));
+                    }
             }
         }
 
