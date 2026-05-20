@@ -8,19 +8,19 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 public class MortemTags {
-    public static final TagKey<Block> ARROW_BREAKABLE = TagKey.create(Registries.BLOCK, Identifier.tryBuild("mortem", "arrow_breakable"));
-    public static final TagKey<Block> FLAMMABLE_BLOCKS = TagKey.create(Registries.BLOCK, Identifier.tryBuild("mortem", "flammable_blocks"));
-    public static final TagKey<Block> EXPLOSION_PROOF = TagKey.create(Registries.BLOCK, Identifier.tryBuild("mortem", "explosion_proof_blocks"));
+    public static final TagKey<Block> ARROW_BREAKABLE = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("mortem", "arrow_breakable"));
+    public static final TagKey<Block> FLAMMABLE_BLOCKS = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("mortem", "flammable_blocks"));
+    public static final TagKey<Block> EXPLOSION_PROOF = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("mortem", "explosion_proof_blocks"));
 
 
 
-    public static final TagKey<EntityType<?>> CANNOT_BE_ZOMBIFIED = TagKey.create(Registries.ENTITY_TYPE, Identifier.tryBuild("mortem", "cannot_be_zombified"));
-    public static final TagKey<EntityType<?>> FUNGUS_IMMUNE = TagKey.create(Registries.ENTITY_TYPE, Identifier.tryBuild("mortem", "fungus_immune"));
+    public static final TagKey<EntityType<?>> CANNOT_BE_ZOMBIFIED = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath("mortem", "cannot_be_zombified"));
+    public static final TagKey<EntityType<?>> FUNGUS_IMMUNE = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath("mortem", "fungus_immune"));
 
 
-    public static final TagKey<Item> FARMING_TOOLS = TagKey.create(Registries.ITEM, Identifier.tryBuild("mortem", "farming_tools"));
-    public static final TagKey<Item> TORCHES = TagKey.create(Registries.ITEM, Identifier.tryBuild("mortem", "torches"));
-    public static final TagKey<Item> METAL_ITEMS = TagKey.create(Registries.ITEM, Identifier.tryBuild("mortem", "metal_items"));
-    public static final TagKey<Item> COOKABLE_SEEDS = TagKey.create(Registries.ITEM, Identifier.tryBuild("mortem", "cookable_seeds"));
-    public static final TagKey<Item> JAMS = TagKey.create(Registries.ITEM, Identifier.tryBuild("mortem", "jams"));
+    public static final TagKey<Item> FARMING_TOOLS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "farming_tools"));
+    public static final TagKey<Item> TORCHES = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "torches"));
+    public static final TagKey<Item> METAL_ITEMS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "metal_items"));
+    public static final TagKey<Item> COOKABLE_SEEDS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "cookable_seeds"));
+    public static final TagKey<Item> JAMS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "jams"));
 }
