@@ -5,7 +5,7 @@
     "SSS"
   ],
   "key": {
-    "#": "minecraft:oak_log",
+    "#": "#minecraft:logs",
     "=": "minecraft:iron_ingot",
     "S": "minecraft:stone"
   },
@@ -13,3 +13,4 @@
     "id": "minecraft:stonecutter"
   }
 }
+
