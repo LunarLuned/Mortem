@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
 import net.lunarluned.mortem.enchantments.ModEnchantments;
+import net.lunarluned.mortem.misc.FungalInfectSpreadHandler;
 import net.lunarluned.mortem.potion.ModPotions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
@@ -53,6 +54,7 @@ public class Mortem implements ModInitializer {
 		registerPotions();
 		registerSounds();
 		registerCompostables();
+		FungalInfectSpreadHandler.init();
 
 		registerEnchantmentEffects();
 
