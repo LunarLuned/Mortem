@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "mortem:raw_mutton_slice",
+    "mortem:raw_chicken_nugget",
+    "mortem:raw_bacon",
+    "mortem:beef_patty"
+  ]
+}
