@@ -15,7 +15,7 @@ public class CreakingMixin {
     private static void modifyFollowRange(CallbackInfoReturnable<AttributeSupplier.Builder> cir) {
         AttributeSupplier.Builder builder = cir.getReturnValue();
 
-        builder.add(Attributes.ATTACK_DAMAGE, 20);
+        builder.add(Attributes.ATTACK_DAMAGE, 10);
 
         cir.setReturnValue(builder);
     }

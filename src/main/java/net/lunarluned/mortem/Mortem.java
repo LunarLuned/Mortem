@@ -30,6 +30,7 @@ import static net.lunarluned.mortem.effect.ModEffects.registerEffects;
 import static net.lunarluned.mortem.enchantments.ModEnchantmentEffects.registerEnchantmentEffects;
 import static net.lunarluned.mortem.item.ModItemGroups.registerItemGroups;
 import static net.lunarluned.mortem.item.ModItems.registerModItems;
+import static net.lunarluned.mortem.misc.ModCompostables.registerCompostables;
 import static net.lunarluned.mortem.potion.ModPotions.registerPotions;
 import static net.lunarluned.mortem.sounds.MortemSoundEvents.registerSounds;
 
@@ -51,6 +52,7 @@ public class Mortem implements ModInitializer {
 		registerCreativeTabs();
 		registerPotions();
 		registerSounds();
+		registerCompostables();
 
 		registerEnchantmentEffects();
 
