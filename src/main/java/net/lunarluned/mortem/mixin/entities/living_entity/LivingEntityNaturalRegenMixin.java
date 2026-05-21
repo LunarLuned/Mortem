@@ -22,7 +22,7 @@ public abstract class LivingEntityNaturalRegenMixin {
 
     @Shadow @Nullable public abstract LivingEntity asLivingEntity();
 
-    @Unique public int regenerationChance = 15;
+    @Unique public int regenerationChance = 10;
 
     @Inject(method = "heal", at = @At("HEAD"), cancellable = true)
     private void mortem_redirectHealForNaturalRegen(float amount, CallbackInfo ci) {
@@ -30,16 +30,16 @@ public abstract class LivingEntityNaturalRegenMixin {
                 if (player.hasEffect(ModEffects.STAGNATED)) {
                     switch (Objects.requireNonNull(player.getEffect(ModEffects.STAGNATED)).getAmplifier()) {
                         case 0:
-                            regenerationChance = 12;
+                            regenerationChance = 7;
                             break;
                         case 1:
-                            regenerationChance = 9;
+                            regenerationChance = 5;
                             break;
                         case 2:
-                            regenerationChance = 6;
+                            regenerationChance = 3;
                             break;
                         case 3:
-                            regenerationChance = 3;
+                            regenerationChance = 1;
                             break;
                         case 4:
                             regenerationChance = 0;
@@ -53,12 +53,11 @@ public abstract class LivingEntityNaturalRegenMixin {
                 if (level != null
                         && level.getGameRules().get(GameRules.NATURAL_HEALTH_REGENERATION)
                         // more checks and allat
-                        && player.getFoodData().getFoodLevel() <= 18
                         && player.getHealth() < player.getMaxHealth()
                         && !player.isSpectator()
                         && !player.isCreative()
                         // regen time slowed
-                ) if (!(regenerationChance == 0) && player.tickCount % 200 == 0) {
+                ) if (!(regenerationChance == 0) && player.tickCount % 100 == 0) {
                     float g = player.getHealth();
                     int randomValue = Mth.nextInt(RandomSource.create(), 1, 100);
                     if (randomValue < regenerationChance) {
