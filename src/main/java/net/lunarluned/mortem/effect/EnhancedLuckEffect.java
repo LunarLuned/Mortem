@@ -45,6 +45,10 @@ public class EnhancedLuckEffect extends MobEffect {
 
         livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.ZOMBIE_VILLAGER_CONVERTED, SoundSource.HOSTILE, 1.0F, 3);
         livingEntity.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 200, 0));
+
+        if (livingEntity.hasEffect(MobEffects.INVISIBILITY)) {
+            livingEntity.removeEffect(MobEffects.INVISIBILITY);
+        }
         super.onEffectStarted(livingEntity, i);
     }
 

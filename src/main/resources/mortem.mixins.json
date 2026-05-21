@@ -53,6 +53,7 @@
     "entities.living_entity.LivingEntityFungalInfectionMixin",
     "entities.living_entity.LivingEntityMixin",
     "entities.living_entity.LivingEntityNaturalRegenMixin",
+    "entities.passive.WanderingTraderMixin",
     "entities.vehicles.AbstractMinecartMixin",
     "items.ArmorMaterialsMixin",
     "items.BlocksAttacksMixin",

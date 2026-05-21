@@ -60,5 +60,10 @@ public class ElixirItem extends Item {
         consumer.accept(Component.empty());
         consumer.accept(Component.literal("When Applied:").withStyle(ChatFormatting.DARK_PURPLE));
         consumer.accept(Component.translatable(this.getDescriptionId() + ".desc.grants").withStyle(ChatFormatting.BLUE));
+        if (elixirType == 2 || elixirType == 3) {
+            consumer.accept(Component.empty());
+            consumer.accept(Component.literal("Removes for one time:").withStyle(ChatFormatting.DARK_PURPLE));
+            consumer.accept(Component.translatable(this.getDescriptionId() + ".desc.removesOnUse").withStyle(ChatFormatting.GRAY));
+        }
     }
 }
