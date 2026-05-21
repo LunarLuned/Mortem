@@ -44,11 +44,12 @@ public class StonecutterBlockBehaviorMixin {
         AABB bladeBox;
 
         double thickness = 0.25D;
+        double extension = 0.2D;
 
         if (facing.getAxis() == Direction.Axis.X) {
-            bladeBox = new AABB(pos.getX() + 0.5D - thickness, pos.getY(), pos.getZ(), pos.getX() + 0.5D + thickness, pos.getY() + 1.0D, pos.getZ() + 1.0D);
+            bladeBox = new AABB(pos.getX() + 0.5D - thickness, pos.getY(), pos.getZ() - extension, pos.getX() + 0.5D + thickness, pos.getY() + 1.0D, pos.getZ() + 1.0D + extension);
         } else {
-            bladeBox = new AABB(pos.getX(), pos.getY(), pos.getZ() + 0.5D - thickness, pos.getX() + 1.0D, pos.getY() + 1.0D, pos.getZ() + 0.5D + thickness);
+            bladeBox = new AABB(pos.getX() - extension, pos.getY(), pos.getZ() + 0.5D - thickness, pos.getX() + 1.0D + extension, pos.getY() + 1.0D, pos.getZ() + 0.5D + thickness);
         }
 
         if (entity.getBoundingBox().intersects(bladeBox)) {
