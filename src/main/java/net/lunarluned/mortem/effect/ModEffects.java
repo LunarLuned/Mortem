@@ -45,6 +45,6 @@ public class ModEffects {
                 -0.15D,
                 AttributeModifier.Operation.ADD_MULTIPLIED_BASE
         ));
-        STAGNATED = register("stagnated", new StagnatedEffect(MobEffectCategory.HARMFUL, 1657351));
+        STAGNATED = register("stagnated", new StagnatedEffect(MobEffectCategory.HARMFUL, 16432830));
     }
 }
