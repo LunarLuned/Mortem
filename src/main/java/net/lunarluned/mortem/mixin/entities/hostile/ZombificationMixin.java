@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.npc.villager.Villager;
@@ -22,11 +23,15 @@ public class ZombificationMixin {
 
     @Inject(method = "doHurtTarget", at = @At("HEAD"))
     public void mortem_doHurtTarget(ServerLevel serverLevel, Entity entity, CallbackInfoReturnable<Boolean> cir) {
+
+        Zombie self = (Zombie) (Object) this;
+
         if (entity instanceof Player player) {
             int randomValue = Mth.nextInt(RandomSource.create(), 1, 10);
             int effectiveInfectChance = getInfectChance(player);
             if (randomValue < effectiveInfectChance) {
-                if (!player.hasEffect(ModEffects.INFECTED) && !player.isBlocking()) {
+                if (self.hasEffect(MobEffects.WEAKNESS)) return;
+                if (!player.hasEffect(ModEffects.INFECTED) && !player.isBlocking() && self.isWithinMeleeAttackRange(player)) {
                     if (player.hasEffect(ModEffects.IMMUNE)) {
                         player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.HOSTILE, 1.0F, 3);
                     } else {
