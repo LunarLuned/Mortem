@@ -34,8 +34,7 @@ public class IceMeltRandomTickMixin {
                 level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
                 level.playSound(null, pos, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 1, 1);
                 level.levelEvent(2001, pos, Block.getId(state));
-                serverLevel.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, x, y, z,
-                        8, 0.25, 0.25, 0.25, 0.02f);
+                serverLevel.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, x, y, z, 8, 0.25, 0.25, 0.25, 0.02f);
             }
         }
         }
