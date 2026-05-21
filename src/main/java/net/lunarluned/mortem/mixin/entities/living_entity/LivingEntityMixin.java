@@ -55,6 +55,12 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Shadow @Nullable public abstract LivingEntity asLivingEntity();
 
+    @Shadow
+    public abstract float getMaxHealth();
+
+    @Shadow
+    public abstract float getHealth();
+
     @ModifyVariable(method = "hurtServer", at = @At("HEAD"), argsOnly = true)
     private float mortem_multiplyDamageForWeakness(float amount) {
         if (this.hasEffect(MobEffects.WEAKNESS)) {
@@ -157,13 +163,13 @@ public abstract class LivingEntityMixin extends Entity {
     public void mortem_cancelOutEffects(CallbackInfo ci) {
         if ((this.hasEffect(MobEffects.WEAKNESS) && (this.hasEffect(MobEffects.REGENERATION)) && (this.hasEffect(ModEffects.INFECTED)))) {
                 if ((this.tickCount % 10 == 0)) {
-                    if (!this.isOnFire()) {
+                    if (this.getHealth() >= this.getMaxHealth() / 2) {
                     this.removeAllEffects();
                     this.addEffect(new MobEffectInstance(ModEffects.IMMUNE, 400, 0));
                 } else if (this.hasEffect(ModEffects.INFECTED) && this.getEffect(ModEffects.INFECTED).getAmplifier() > 0) {
                      return;
                     }
-                    else if (this.getRandom().nextInt(10) >= 6) {
+                    else if (this.getRandom().nextInt(10) >= 8) {
                         this.addEffect(new MobEffectInstance(ModEffects.INFECTED, 12000, 1));
                     } else {
                         this.removeAllEffects();
