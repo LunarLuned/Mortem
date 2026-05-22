@@ -22,7 +22,7 @@ public abstract class FoodCancelMixin extends LivingEntity {
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void mortem_tick(CallbackInfo ci) {
-        if (this.hurtTime > 0 && this.isUsingItem()) {
+        if (this.hurtTime > 0 && this.isUsingItem() && !this.isOnFire()) {
             if (this.getUseItem().getItem() != Items.SHIELD) {
                 this.stopUsingItem();
                 this.getCooldowns().addCooldown(this.getUseItem(), 20);
