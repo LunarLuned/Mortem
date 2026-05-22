@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pumpkin_guts": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mortem:raw_pumpkin_guts"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mortem:pumpkin_pie"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_pumpkin_guts",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:pumpkin_pie",
+      "mortem:pumpkin_pie_slice",
+      "mortem:baked_pumpkin_guts"
+    ]
+  }
+}
