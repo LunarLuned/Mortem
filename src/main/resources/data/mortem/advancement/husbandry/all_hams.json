@@ -1,0 +1,62 @@
+{
+  "parent": "minecraft:husbandry/breed_an_animal",
+  "criteria": {
+    "has_porks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:porkchop"
+          },
+          {
+            "items": "minecraft:cooked_porkchop"
+          },
+          {
+            "items": "mortem:raw_bacon"
+          },
+          {
+            "items": "mortem:cooked_bacon"
+          },
+          {
+            "items": "mortem:breakfast_sandwich"
+          },
+          {
+            "items": "mortem:bacon_burger"
+          },
+          {
+            "items": "mortem:pork_pate"
+          },
+          {
+            "items": "mortem:pork_spread_toast"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.all_hams.description"
+    },
+    "frame": "task",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:porkchop"
+    },
+    "title": {
+      "translate": "advancements.all_hams.title"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "has_porks"
+    ]
+  ],
+  "rewards": {
+    "experience": 250,
+    "loot": []
+  },
+  "sends_telemetry_event": true
+}
