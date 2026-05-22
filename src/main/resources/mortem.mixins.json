@@ -64,6 +64,7 @@
     "items.ClearAllStatusEffectsConsumeEffectMixin",
     "items.FoodCancelMixin",
     "items.HoeItemMixin",
+    "items.ResinRepairItemStackMixin",
     "items.PotionStackSizeMixin",
     "items.ToolMaterialMixin"
   ],

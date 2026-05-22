@@ -23,4 +23,6 @@ public class MortemTags {
     public static final TagKey<Item> METAL_ITEMS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "metal_items"));
     public static final TagKey<Item> COOKABLE_SEEDS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "cookable_seeds"));
     public static final TagKey<Item> JAMS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "jams"));
+
+    public static final TagKey<Item> RESIN_REPAIRABLES = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "resin_repairables"));
 }
