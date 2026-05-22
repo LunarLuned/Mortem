@@ -50,10 +50,10 @@ public class InfectedEffect extends MobEffect {
         if (randomValue < 5) serverLevel.playSound(null, livingEntity.blockPosition(), SoundEvents.ZOMBIE_AMBIENT, SoundSource.HOSTILE, 0.2F, 0.8F + serverLevel.getRandom().nextFloat() * 0.4F);
         if (amplifier == 0) {
                 if (randomValue < 2) {
-                    randomValue = Mth.nextInt(RandomSource.create(), 1, 4);
+                    randomValue = Mth.nextInt(RandomSource.create(), 1, 3);
                     switch (randomValue) {
                         case 1:
-                            livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 0));
+                            livingEntity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 300, 0));
                             break;
                         case 2:
                             livingEntity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 400, 0));
@@ -61,25 +61,19 @@ public class InfectedEffect extends MobEffect {
                         case 3:
                             livingEntity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 800, 0));
                             break;
-                        case 4:
-                            livingEntity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 300, 0));
-                            break;
                     }
                 }
                 if (amplifier == 1) {
                     if (randomValue < 3) {
-                        randomValue = Mth.nextInt(RandomSource.create(), 1, 4);
+                        randomValue = Mth.nextInt(RandomSource.create(), 1, 3);
                         switch (randomValue) {
                             case 1:
-                                livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 400, 1));
-                                break;
-                            case 2:
                                 livingEntity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 850, 1));
                                 break;
-                            case 3:
+                            case 2:
                                 livingEntity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 1200, 1));
                                 break;
-                            case 4:
+                            case 3:
                                 livingEntity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 360, 1));
                                 break;
                         }
