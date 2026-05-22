@@ -1,0 +1,518 @@
+{
+  "parent": "minecraft:husbandry/plant_seed",
+  "criteria": {
+    "resin_candy": {
+      "conditions": {
+        "item": {
+          "items": "mortem:resin_candy"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "hard_boiled_egg": {
+      "conditions": {
+        "item": {
+          "items": "mortem:hard_boiled_egg"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "scrambled_eggs": {
+      "conditions": {
+        "item": {
+          "items": "mortem:scrambled_eggs"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "sushi_roll": {
+      "conditions": {
+        "item": {
+          "items": "mortem:sushi_roll"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cooked_seeds": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cooked_seeds"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "raw_pumpkin_guts": {
+      "conditions": {
+        "item": {
+          "items": "mortem:raw_pumpkin_guts"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "baked_pumpkin_guts": {
+      "conditions": {
+        "item": {
+          "items": "mortem:baked_pumpkin_guts"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "salad": {
+      "conditions": {
+        "item": {
+          "items": "mortem:salad"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "chicken_salad": {
+      "conditions": {
+        "item": {
+          "items": "mortem:chicken_salad"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "potato_wedge": {
+      "conditions": {
+        "item": {
+          "items": "mortem:potato_wedge"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "baked_potato_wedge": {
+      "conditions": {
+        "item": {
+          "items": "mortem:baked_potato_wedge"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "baked_apple": {
+      "conditions": {
+        "item": {
+          "items": "mortem:baked_apple"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "apple_pie_slice": {
+      "conditions": {
+        "item": {
+          "items": "mortem:apple_pie_slice"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cake_slice": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cake_slice"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "sweet_potato": {
+      "conditions": {
+        "item": {
+          "items": "mortem:sweet_potato"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "raw_bacon": {
+      "conditions": {
+        "item": {
+          "items": "mortem:raw_bacon"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cooked_bacon": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cooked_bacon"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "beef_patty": {
+      "conditions": {
+        "item": {
+          "items": "mortem:beef_patty"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cooked_beef_patty": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cooked_beef_patty"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "burger": {
+      "conditions": {
+        "item": {
+          "items": "mortem:burger"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "bacon_burger": {
+      "conditions": {
+        "item": {
+          "items": "mortem:bacon_burger"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "raw_mutton_slice": {
+      "conditions": {
+        "item": {
+          "items": "mortem:raw_mutton_slice"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cooked_mutton_slice": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cooked_mutton_slice"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "raw_chicken_nugget": {
+      "conditions": {
+        "item": {
+          "items": "mortem:raw_chicken_nugget"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cooked_chicken_nugget": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cooked_chicken_nugget"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "toasted_bread": {
+      "conditions": {
+        "item": {
+          "items": "mortem:toasted_bread"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "toast": {
+      "conditions": {
+        "item": {
+          "items": "mortem:toast"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "breakfast_sandwich": {
+      "conditions": {
+        "item": {
+          "items": "mortem:breakfast_sandwich"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "sweet_berry_jam": {
+      "conditions": {
+        "item": {
+          "items": "mortem:sweet_berry_jam"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "apple_jam": {
+      "conditions": {
+        "item": {
+          "items": "mortem:apple_jam"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cactus_jam": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cactus_jam"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cocoa_spread": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cocoa_spread"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "mushroom_puree": {
+      "conditions": {
+        "item": {
+          "items": "mortem:mushroom_puree"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "pork_pate": {
+      "conditions": {
+        "item": {
+          "items": "mortem:pork_pate"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "berry_spread_toast": {
+      "conditions": {
+        "item": {
+          "items": "mortem:berry_spread_toast"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "apple_spread_toast": {
+      "conditions": {
+        "item": {
+          "items": "mortem:apple_spread_toast"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cactus_spread_toast": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cactus_spread_toast"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cocoa_spread_toast": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cocoa_spread_toast"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "mushroom_spread_toast": {
+      "conditions": {
+        "item": {
+          "items": "mortem:mushroom_spread_toast"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "pork_spread_toast": {
+      "conditions": {
+        "item": {
+          "items": "mortem:pork_spread_toast"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "crimson_stew": {
+      "conditions": {
+        "item": {
+          "items": "mortem:crimson_stew"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "warped_stew": {
+      "conditions": {
+        "item": {
+          "items": "mortem:warped_stew"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "fungal_stew": {
+      "conditions": {
+        "item": {
+          "items": "mortem:warped_stew"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "mushroom_stew_tusk": {
+      "conditions": {
+        "item": {
+          "items": "mortem:mushroom_stew_tusk"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "scrambled_eggs_tusk": {
+      "conditions": {
+        "item": {
+          "items": "mortem:scrambled_eggs_tusk"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.husbandry.all_mortem_foods.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "mortem:bacon_burger"
+    },
+    "title": {
+      "translate": "advancements.husbandry.all_mortem_foods.title"
+    }
+  },
+  "requirements": [
+    [
+      "resin_candy"
+    ],
+    [
+      "hard_boiled_egg"
+    ],
+    [
+      "scrambled_eggs"
+    ],
+    [
+      "sushi_roll"
+    ],
+    [
+      "cooked_seeds"
+    ],
+    [
+      "raw_pumpkin_guts"
+    ],
+    [
+      "baked_pumpkin_guts"
+    ],
+    [
+      "salad"
+    ],
+    [
+      "chicken_salad"
+    ],
+    [
+      "potato_wedge"
+    ],
+    [
+      "baked_potato_wedge"
+    ],
+    [
+      "baked_apple"
+    ],
+    [
+      "apple_pie_slice"
+    ],
+    [
+      "cake_slice"
+    ],
+    [
+      "sweet_potato"
+    ],
+    [
+      "raw_bacon"
+    ],
+    [
+      "cooked_bacon"
+    ],
+    [
+      "beef_patty"
+    ],
+    [
+      "cooked_beef_patty"
+    ],
+    [
+      "burger"
+    ],
+    [
+      "bacon_burger"
+    ],
+    [
+      "raw_mutton_slice"
+    ],
+    [
+      "cooked_mutton_slice"
+    ],
+    [
+      "raw_chicken_nugget"
+    ],
+    [
+      "cooked_chicken_nugget"
+    ],
+    [
+      "toasted_bread"
+    ],
+    [
+      "toast"
+    ],
+    [
+      "breakfast_sandwich"
+    ],
+    [
+      "sweet_berry_jam"
+    ],
+    [
+      "apple_jam"
+    ],
+    [
+      "cactus_jam"
+    ],
+    [
+      "cocoa_spread"
+    ],
+    [
+      "mushroom_puree"
+    ],
+    [
+      "pork_pate"
+    ],
+    [
+      "berry_spread_toast"
+    ],
+    [
+      "apple_spread_toast"
+    ],
+    [
+      "cactus_spread_toast"
+    ],
+    [
+      "cocoa_spread_toast"
+    ],
+    [
+      "mushroom_spread_toast"
+    ],
+    [
+      "pork_spread_toast"
+    ],
+    [
+      "crimson_stew"
+    ],
+    [
+      "warped_stew"
+    ],
+    [
+      "fungal_stew"
+    ],
+    [
+      "mushroom_stew_tusk"
+    ],
+    [
+      "scrambled_eggs_tusk"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

@@ -10,6 +10,12 @@
   "advancements.adventure.become_zombified.title": "What's In Your Head?",
   "advancements.adventure.become_zombified.description": "Become infected by a zombie",
 
+  "advancements.husbandry.jams.title": "Thats My Jam!",
+  "advancements.husbandry.jams.description": "Obtain all Jams",
+
+  "advancements.husbandry.all_mortem_foods.title": "A Farmer's Delight",
+  "advancements.husbandry.all_mortem_foods.description": "What more could a farmer want? Eat all foods in Mortem.",
+
   "effect.mortem.infected": "Infected",
   "effect.mortem.fungally_infected": "Fungally Infected",
   "effect.mortem.immune": "Immunity",

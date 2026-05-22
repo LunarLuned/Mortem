@@ -1,0 +1,89 @@
+{
+  "parent": "minecraft:husbandry/safely_harvest_honey",
+  "criteria": {
+    "sweet_berry_jam": {
+      "conditions": {
+        "item": {
+          "items": "mortem:sweet_berry_jam"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "apple_jam": {
+      "conditions": {
+        "item": {
+          "items": "mortem:apple_jam"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cactus_jam": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cactus_jam"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cocoa_spread": {
+      "conditions": {
+        "item": {
+          "items": "mortem:cocoa_spread"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "mushroom_puree": {
+      "conditions": {
+        "item": {
+          "items": "mortem:mushroom_puree"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "pork_pate": {
+      "conditions": {
+        "item": {
+          "items": "mortem:pork_pate"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.husbandry.jams.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "mortem:sweet_berry_jam"
+    },
+    "title": {
+      "translate": "advancements.husbandry.jams.title"
+    }
+  },
+  "requirements": [
+    [
+      "sweet_berry_jam"
+    ],
+    [
+      "apple_jam"
+    ],
+    [
+      "cactus_jam"
+    ],
+    [
+      "cocoa_spread"
+    ],
+    [
+      "mushroom_puree"
+    ],
+    [
+      "pork_pate"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}
