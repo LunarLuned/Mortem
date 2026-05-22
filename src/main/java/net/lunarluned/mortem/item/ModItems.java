@@ -1,6 +1,7 @@
 package net.lunarluned.mortem.item;
 
 import net.lunarluned.mortem.Mortem;
+import net.lunarluned.mortem.item.custom.BeetrootBrothItem;
 import net.lunarluned.mortem.item.custom.ElixirItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
@@ -79,9 +80,6 @@ public class ModItems {
     public static final Item CHICKEN_SALAD = registerItem("chicken_salad",
             new Item(new Item.Properties().food(ModFoods.CHICKEN_SALAD, ModConsumables.CHICKEN_SALAD)
                     .useItemDescriptionPrefix().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:chicken_salad")))));
-
-    // not done yet below
-
 
     public static final Item BAKED_APPLE = registerItem("baked_apple",
             new Item(new Item.Properties().food(ModFoods.BAKED_APPLE, ModConsumables.BAKED_APPLE)
@@ -245,6 +243,15 @@ public class ModItems {
     public static final Item PORK_SPREAD_TOAST = registerItem("pork_spread_toast",
             new Item(new Item.Properties().food(ModFoods.PORK_SPREAD_TOAST, ModConsumables.PORK_SPREAD_TOAST)
                     .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:pork_spread_toast")))));
+
+    public static final Item BEETROOT_BROTH = registerItem("beetroot_broth",
+            new BeetrootBrothItem(new Item.Properties()
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:beetroot_broth")))));
+
+    public static final Item BEETROOT_HOTPOT_SERVING = registerItem("beetroot_hotpot_serving",
+            new Item(new Item.Properties()
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:beetroot_hotpot_serving")))));
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, Identifier.tryBuild(Mortem.MOD_ID, name), item);

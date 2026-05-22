@@ -25,4 +25,10 @@ public class MortemTags {
     public static final TagKey<Item> JAMS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "jams"));
 
     public static final TagKey<Item> RESIN_REPAIRABLES = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "resin_repairables"));
+
+    public static final TagKey<Item> HIGH_NUTRITION_HOTPOT_FOODS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "high_nutrition_hotpot_foods"));
+    public static final TagKey<Item> MEDIUM_NUTRITION_HOTPOT_FOODS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "medium_nutrition_hotpot_foods"));
+    public static final TagKey<Item> LOW_NUTRITION_HOTPOT_FOODS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "low_nutrition_hotpot_foods"));
+
+
 }

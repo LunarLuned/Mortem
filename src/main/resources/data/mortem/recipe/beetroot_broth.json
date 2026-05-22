@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:carrot",
+    "minecraft:beetroot",
+    "minecraft:carrot",
+    "minecraft:beetroot",
+    "minecraft:carrot",
+    "minecraft:beetroot",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "mortem:beetroot_broth"
+  }
+}
