@@ -109,7 +109,7 @@ public abstract class LivingEntityMixin extends Entity {
     private void mortem_applyWeaknessWhenOnFire(CallbackInfo ci) {
         LivingEntity self = (LivingEntity) (Object) this;
 
-        if (self.isOnFire()) {
+        if (self.isOnFire() && !(self.level().dimension() == Level.NETHER)) {
             if (self instanceof Monster && fireTickCounter > 1) {
                 self.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 100, 1, false, true));
             }
