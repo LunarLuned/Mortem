@@ -17,6 +17,14 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "pumpkin_pie_slice": {
+      "conditions": {
+        "item": {
+          "items": "mortem:pumpkin_pie_slice"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "scrambled_eggs": {
       "conditions": {
         "item": {
@@ -509,10 +517,13 @@
     ],
     [
       "scrambled_eggs_tusk"
+    ],
+    [
+      "pumpkin_pie_slice"
     ]
   ],
   "rewards": {
-    "experience": 100
+    "experience": 350
   },
   "sends_telemetry_event": true
 }
