@@ -25,6 +25,14 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "pot_pie": {
+      "conditions": {
+        "item": {
+          "items": "minecraft:pumpkin_pie"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "scrambled_eggs": {
       "conditions": {
         "item": {
@@ -520,6 +528,9 @@
     ],
     [
       "pumpkin_pie_slice"
+    ],
+    [
+      "pot_pie"
     ]
   ],
   "rewards": {
