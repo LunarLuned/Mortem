@@ -31,7 +31,7 @@ public class MortemCreativeModeTab {
             entries.insertAfter(Items.COOKIE, ModItems.RESIN_CANDY);
             // new foods
             entries.insertAfter(Items.APPLE, ModItems.BAKED_APPLE);
-            entries.insertAfter(Items.CAKE, ModItems.RAW_PUMPKIN_GUTS, ModItems.BAKED_PUMPKIN_GUTS, ModItems.CAKE_SLICE, ModBlocks.APPLE_PIE, ModItems.APPLE_PIE_SLICE);
+            entries.insertAfter(Items.CAKE, ModItems.RAW_PUMPKIN_GUTS, ModItems.BAKED_PUMPKIN_GUTS, ModBlocks.PUMPKIN_PIE_BLOCK, ModItems.PUMPKIN_PIE_SLICE, ModItems.CAKE_SLICE, ModBlocks.APPLE_PIE, ModItems.APPLE_PIE_SLICE);
 
             entries.insertAfter(Items.CHICKEN, ModItems.RAW_CHICKEN_NUGGET);
             entries.insertAfter(Items.COOKED_CHICKEN, ModItems.COOKED_CHICKEN_NUGGET);

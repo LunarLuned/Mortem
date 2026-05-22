@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "SEM"
+  ],
+  "key": {
+    "#": "mortem:baked_pumpkin_guts",
+    "S": "minecraft:sugar",
+    "E": "minecraft:egg",
+    "M": "minecraft:milk_bucket"
+  },
+  "result": {
+    "id": "mortem:pumpkin_pie",
+    "count": 1
+  }
+}

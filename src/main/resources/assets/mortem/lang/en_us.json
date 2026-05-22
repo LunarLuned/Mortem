@@ -86,8 +86,10 @@
   "item.mortem.apple_pie_slice": "Apple Pie Slice",
   "item.mortem.baked_apple": "Baked Apple",
 
-  "item.mortem.cake_slice": "Cake Slice",
+  "block.mortem.pumpkin_pie": "Pumpkin Pie",
   "item.mortem.pumpkin_pie_slice": "Pumpkin Pie Slice",
+
+  "item.mortem.cake_slice": "Cake Slice",
 
 
   "item.mortem.baked_potato_wedge": "Baked Potato Wedge",

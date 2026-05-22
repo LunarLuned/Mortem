@@ -95,9 +95,9 @@ public class ModItems {
             new Item(new Item.Properties().food(ModFoods.CAKE_SLICE, ModConsumables.CAKE_SLICE)
                     .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:cake_slice")))));
 
-//    public static final Item PUMPKIN_PIE_SLICE = registerItem("pumpkie_pie_slice",
-//            new Item(new Item.Properties().food(ModFoods.PUMPKIN_PIE_SLICE, ModConsumables.PUMPKIN_PIE_SLICE)
-//                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:pumpkie_pie_slice")))));
+    public static final Item PUMPKIN_PIE_SLICE = registerItem("pumpkin_pie_slice",
+            new Item(new Item.Properties().food(ModFoods.PUMPKIN_PIE_SLICE, ModConsumables.PUMPKIN_PIE_SLICE)
+                   .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:pumpkin_pie_slice")))));
 
     public static final Item POTATO_WEDGE = registerItem("potato_wedge",
             new Item(new Item.Properties().food(ModFoods.POTATO_WEDGE, ModConsumables.POTATO_WEDGE)

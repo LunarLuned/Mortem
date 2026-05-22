@@ -38,9 +38,13 @@ public class ModItemGroups {
                         entries.accept(ModItems.POTATO_WEDGE);
                         entries.accept(ModItems.BAKED_POTATO_WEDGE);
 
+                        entries.accept(ModBlocks.PUMPKIN_PIE_BLOCK);
+                        entries.accept(ModItems.PUMPKIN_PIE_SLICE);
+
                         entries.accept(ModItems.BAKED_APPLE);
                         entries.accept(ModBlocks.APPLE_PIE);
                         entries.accept(ModItems.APPLE_PIE_SLICE);
+
 
                         entries.accept(ModItems.CAKE_SLICE);
 
