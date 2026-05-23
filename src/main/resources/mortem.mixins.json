@@ -55,6 +55,7 @@
     "entities.living_entity.LivingEntityFungalInfectionMixin",
     "entities.living_entity.LivingEntityMixin",
     "entities.living_entity.LivingEntityNaturalRegenMixin",
+    "entities.passive.TemptGoalMixin",
     "entities.passive.WanderingTraderMixin",
     "entities.vehicles.AbstractMinecartMixin",
     "items.ArmorMaterialsMixin",
@@ -64,8 +65,8 @@
     "items.ClearAllStatusEffectsConsumeEffectMixin",
     "items.FoodCancelMixin",
     "items.HoeItemMixin",
-    "items.ResinRepairItemStackMixin",
     "items.PotionStackSizeMixin",
+    "items.ResinRepairItemStackMixin",
     "items.ToolMaterialMixin"
   ],
   "injectors": {
