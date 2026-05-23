@@ -1,6 +1,7 @@
 package net.lunarluned.mortem.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.lunarluned.mortem.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.stats.Stats;
@@ -8,6 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -24,6 +26,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 
 public class ApplePieBlock extends Block {
     public static final MapCodec<ApplePieBlock> CODEC = simpleCodec(ApplePieBlock::new);
@@ -45,15 +49,26 @@ public class ApplePieBlock extends Block {
         return SHAPES[blockState.getValue(BITES)];
     }
 
+    @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
-        if (level.isClientSide()) {
-            if (eat(level, blockPos, blockState, player).consumesAction()) {
-                return InteractionResult.SUCCESS;
+        if (player.getItemInHand(InteractionHand.MAIN_HAND).isEmpty()
+                && player.isCrouching()) {
+
+            if (!level.isClientSide()) {
+
+                if (!player.isCreative()) {
+                    player.addItem(new ItemStack(ModItems.APPLE_PIE_SLICE));
+                }
+                int bites = blockState.getValue(ApplePieBlock.BITES);
+
+                if (bites < 6) {
+                    level.setBlock(blockPos, blockState.setValue(ApplePieBlock.BITES, bites + 1), 3);
+                } else {
+                    level.removeBlock(blockPos, false);
+                }
             }
 
-            if (player.getItemInHand(InteractionHand.MAIN_HAND).isEmpty()) {
-                return InteractionResult.CONSUME;
-            }
+            return InteractionResult.SUCCESS;
         }
 
         return eat(level, blockPos, blockState, player);

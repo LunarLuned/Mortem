@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "group": "pot_pies",
   "ingredients": [
-    "minecraft:egg",
+    "#minecraft:eggs",
     "minecraft:milk_bucket",
     "minecraft:potato",
     "minecraft:wheat",
