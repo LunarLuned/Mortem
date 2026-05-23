@@ -26,7 +26,7 @@ public class TemptGoalMixin {
 
 
         if (mob instanceof Animal animal) {
-            if (animal.getAge() > 0 && animal.isBaby()) {
+            if (animal.getAge() > 0 || animal.isBaby()) {
                 cir.setReturnValue(false);
             }
         }
