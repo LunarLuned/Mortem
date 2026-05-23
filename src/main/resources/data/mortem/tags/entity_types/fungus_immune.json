@@ -9,6 +9,7 @@
     "minecraft:hoglin",
     "minecraft:zoglin",
     "minecraft:zombified_piglin",
-    "minecraft:enderman"
+    "minecraft:enderman",
+    "minecraft:wither_skeleton"
   ]
 }
