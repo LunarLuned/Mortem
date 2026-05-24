@@ -82,7 +82,7 @@ public class WitherDashGoal extends Goal {
 
         // actually damage if close
         if (wither.distanceTo(target) < 1.5F) {
-            target.hurt(wither.damageSources().mobAttack(wither), 10.0F);
+            target.hurt(wither.damageSources().mobAttack(wither), 5.0F);
             target.addEffect(new MobEffectInstance(ModEffects.STAGNATED, 200, 0));
             dashTicks = 0;
         }

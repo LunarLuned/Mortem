@@ -39,7 +39,7 @@ public abstract class WitherSkullMixin extends AbstractHurtingProjectile {
         Entity entity2 = this.getOwner();
         if (!this.level().isClientSide()) {
             if (entity2 instanceof WitherBoss witherBoss && witherBoss.isPowered()) {
-                this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1.0F, false, Level.ExplosionInteraction.MOB);
+                this.level().explode(this, this.getX(), this.getY(), this.getZ(), 0.5F, false, Level.ExplosionInteraction.MOB);
             }
             this.discard();
         }
