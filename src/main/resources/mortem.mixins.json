@@ -70,6 +70,7 @@
     "items.ElytraDamageCapMixin",
     "items.FoodCancelMixin",
     "items.HoeItemMixin",
+    "items.ItemStackMixin",
     "items.PotionStackSizeMixin",
     "items.ResinRepairItemStackMixin",
     "items.ToolMaterialMixin"
