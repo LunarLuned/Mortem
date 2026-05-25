@@ -62,6 +62,7 @@
     "entities.passive.VillagerMixin",
     "entities.passive.WanderingTraderMixin",
     "entities.vehicles.AbstractMinecartMixin",
+    "events.RaidMixin",
     "items.ArmorMaterialsMixin",
     "items.BlocksAttacksMixin",
     "items.BoneMealItemMixin",
