@@ -1,6 +1,7 @@
 package net.lunarluned.mortem.enchantments;
 
 import net.lunarluned.mortem.Mortem;
+import net.lunarluned.mortem.MortemTags;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -14,13 +15,17 @@ import net.minecraft.world.item.enchantment.Enchantment;
 
 public class ModEnchantments {
     public static final ResourceKey<Enchantment> RICOCHET =
-            ResourceKey.create(Registries.ENCHANTMENT, Identifier.tryBuild(Mortem.MOD_ID, "ricochet"));
+            ResourceKey.create(Registries.ENCHANTMENT, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "ricochet"));
 
     public static final ResourceKey<Enchantment> CHINING =
-            ResourceKey.create(Registries.ENCHANTMENT, Identifier.tryBuild(Mortem.MOD_ID, "chining"));
+            ResourceKey.create(Registries.ENCHANTMENT, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "chining"));
 
     public static final ResourceKey<Enchantment> HARVESTING =
-            ResourceKey.create(Registries.ENCHANTMENT, Identifier.tryBuild(Mortem.MOD_ID, "harvesting"));
+            ResourceKey.create(Registries.ENCHANTMENT, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "harvesting"));
+
+    public static final ResourceKey<Enchantment> INFINITY =
+            ResourceKey.create(Registries.ENCHANTMENT, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "infinity"));
+
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
 
@@ -34,6 +39,22 @@ public class ModEnchantments {
                                 items.getOrThrow(ItemTags.TRIDENT_ENCHANTABLE),
                                 15, // weight
                                 1,  // max level
+                                Enchantment.dynamicCost(1, 10),   // min cost
+                                Enchantment.dynamicCost(16, 30),  // max cost
+                                2,
+                                EquipmentSlotGroup.MAINHAND
+                        )
+                )
+        );
+
+        register(
+                context,
+                INFINITY,
+                Enchantment.enchantment(
+                        Enchantment.definition(
+                                items.getOrThrow(MortemTags.BOW_AND_CROSSBOW_ENCHANTABLES),
+                                15, // weight
+                                3,  // max level
                                 Enchantment.dynamicCost(1, 10),   // min cost
                                 Enchantment.dynamicCost(16, 30),  // max cost
                                 2,

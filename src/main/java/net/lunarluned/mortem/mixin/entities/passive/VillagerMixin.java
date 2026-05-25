@@ -48,6 +48,7 @@ public abstract class VillagerMixin extends AbstractVillager {
 
         Holder<Enchantment> mending = registry.getOrThrow(Enchantments.MENDING);
         Holder<Enchantment> flame = registry.getOrThrow(Enchantments.FLAME);
+        Holder<Enchantment> infinity = registry.getOrThrow(Enchantments.INFINITY);
 
         for (int i = 0; i < merchantOffers.size(); ++i) {
             MerchantOffer offer = merchantOffers.get(i);
@@ -61,7 +62,8 @@ public abstract class VillagerMixin extends AbstractVillager {
 
             boolean hasBlockedEnchant =
                     enchantments.keySet().contains(mending) ||
-                            enchantments.keySet().contains(flame);
+                            enchantments.keySet().contains(flame) ||
+                            enchantments.keySet().contains(infinity);
 
             if (!hasBlockedEnchant) continue;
 

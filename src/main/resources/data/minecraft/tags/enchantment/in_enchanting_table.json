@@ -3,10 +3,12 @@
   "values": [
     "mortem:chining",
     "mortem:harvesting",
-    "mortem:ricochet"
+    "mortem:ricochet",
+    "mortem:infinity"
   ],
   "remove": [
     "minecraft:mending",
-    "minecraft:flame"
+    "minecraft:flame",
+    "minecraft:infinity"
   ]
 }
