@@ -31,6 +31,7 @@
     "entities.IronGolemMixin",
     "entities.LavaSmeltingMixin",
     "entities.SawTableCraftingMixin",
+    "entities.SnowballMixin",
     "entities.VillagerMixin",
     "entities.bosses.WitherHoverMixin",
     "entities.bosses.WitherMixin",
