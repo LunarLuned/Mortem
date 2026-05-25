@@ -14,6 +14,7 @@
     "blocks.CryingObsidianBlockMixin",
     "blocks.FarmBlockFallMixin",
     "blocks.FireBlockMixin",
+    "blocks.GlassBlockMixin",
     "blocks.IceMeltRandomTickMixin",
     "blocks.MagmaBlockMixin",
     "blocks.StonecutterBlockBehaviorMixin",
