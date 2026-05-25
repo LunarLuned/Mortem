@@ -4,7 +4,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.raid.Raid;
+import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import org.spongepowered.asm.mixin.Final;
@@ -12,12 +16,14 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Raid.class)
 public abstract class RaidMixin {
 
-    @Shadow @Final
+    @Shadow
+    @Final
     private BlockPos center;
 
     @Inject(
@@ -53,6 +59,19 @@ public abstract class RaidMixin {
 
             cir.setReturnValue(topPos);
             return;
+        }
+    }
+
+
+    @Inject(
+            method = "joinRaid",
+            at = @At("TAIL")
+    )
+    private void mortem_giveRaidersFireRes(ServerLevel level, int groupNumber, Raider raider, BlockPos pos, boolean exists, CallbackInfo ci) {
+        Difficulty difficulty = level.getDifficulty();
+
+        if (difficulty == Difficulty.HARD) {
+            raider.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, -1, 0, true, true));
         }
     }
 }
