@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "minecraft:resin",
+    "#": "minecraft:resin_clump",
     "C": "minecraft:end_stone",
     "S": "minecraft:eye_armor_trim_smithing_template"
   },

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "minecraft:resin",
+    "#": "minecraft:resin_clump",
     "C": "minecraft:terracotta",
     "S": "minecraft:wayfinder_armor_trim_smithing_template"
   },
