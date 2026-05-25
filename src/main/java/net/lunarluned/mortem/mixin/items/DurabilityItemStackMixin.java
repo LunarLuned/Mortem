@@ -15,13 +15,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.List;
 
 @Mixin(ItemStack.class)
-public abstract class ItemStackMixin {
+public abstract class DurabilityItemStackMixin {
 
     @Inject(
             method = "getTooltipLines",
             at = @At("RETURN")
     )
-    private void addDurabilityTooltip(
+    private void mortem_addDurabilityTooltip(
             Item.TooltipContext context, @Nullable Player player, TooltipFlag tooltipFlag, CallbackInfoReturnable<List<Component>> cir
     ) {
         ItemStack stack = (ItemStack)(Object)this;
