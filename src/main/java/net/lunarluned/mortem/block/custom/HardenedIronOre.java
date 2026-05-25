@@ -45,8 +45,11 @@ public class HardenedIronOre extends Block {
 
         ResourceKey<Enchantment> enchantKey = ResourceKey.create(Registries.ENCHANTMENT, Objects.requireNonNull(Identifier.tryBuild("minecraft", "silk_touch")));
 
+        ResourceKey<Enchantment> enchantKey2 = ResourceKey.create(Registries.ENCHANTMENT, Objects.requireNonNull(Identifier.tryBuild("minecraft", "fortune")));
+
         Holder.Reference<Enchantment> holder = resolveHolder(level, Registries.ENCHANTMENT, enchantKey);
 
+        Holder.Reference<Enchantment> holder2 = resolveHolder(level, Registries.ENCHANTMENT, enchantKey2);
 
 
         if (tool != null) {
@@ -59,6 +62,8 @@ public class HardenedIronOre extends Block {
             else if (miningLevel > 200) {
                 if (EnchantmentHelper.getItemEnchantmentLevel(holder, tool) > 0) {
                     return Collections.singletonList(new ItemStack(this.asItem()));
+                } else if (EnchantmentHelper.getItemEnchantmentLevel(holder2, tool) > 0) {
+                    return Collections.singletonList(new ItemStack(Items.RAW_IRON, Mth.nextInt(RandomSource.create(), 1, 6)));
                 } else return Collections.singletonList(new ItemStack(Items.RAW_IRON, 1));
             } else {
                 return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 1, 2)));
