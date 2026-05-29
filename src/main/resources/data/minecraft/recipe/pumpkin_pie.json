@@ -8,7 +8,7 @@
   "key": {
     "#": "mortem:baked_pumpkin_guts",
     "S": "minecraft:sugar",
-    "E": "minecraft:egg",
+    "E": "#minecraft:eggs",
     "M": "minecraft:milk_bucket"
   },
   "result": {
