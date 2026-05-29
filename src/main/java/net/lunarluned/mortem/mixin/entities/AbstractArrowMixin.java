@@ -1,13 +1,22 @@
 package net.lunarluned.mortem.mixin.entities;
 
 import net.lunarluned.mortem.MortemTags;
+import net.lunarluned.mortem.enchantments.ModEnchantments;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.BaseFireBlock;
@@ -104,6 +113,35 @@ public abstract class AbstractArrowMixin extends Projectile {
 
             // Prevent vanilla from stopping it
             info.cancel();
+        }
+    }
+
+        @Inject(method = "setOwner", at = @At("TAIL"))
+        private void mortem_tagRefundedArrow(Entity owner, CallbackInfo ci) {
+            AbstractArrow arrow = (AbstractArrow)(Object)this;
+
+            if (owner instanceof Player player) {
+
+                ItemStack weapon = player.getMainHandItem();
+
+                Registry<Enchantment> registry =
+                        player.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+
+                Holder<Enchantment> infinity = registry.getOrThrow(ModEnchantments.INFINITY);
+
+                int enchLevel = EnchantmentHelper.getItemEnchantmentLevel(infinity, weapon);
+                if (enchLevel <= 0) return;
+
+                float chance = switch (enchLevel) {
+                    case 1 -> 0.11f;
+                    case 2 -> 0.33f;
+                    case 3 -> 0.66f;
+                    default -> 0f;
+                };
+
+            if (player.getRandom().nextFloat() < chance) {
+                arrow.pickup = AbstractArrow.Pickup.DISALLOWED;
+            }
         }
     }
 }

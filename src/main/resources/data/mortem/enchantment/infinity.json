@@ -12,10 +12,10 @@
     "base": 5,
     "per_level_above_first": 7
   },
-  "primary_items": "#mortem:bow_and_crossbow_enchantables",
+  "primary_items": "#minecraft:enchantable/bow",
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#mortem:bow_and_crossbow_enchantables",
+  "supported_items": "#minecraft:enchantable/bow",
   "weight": 5
 }

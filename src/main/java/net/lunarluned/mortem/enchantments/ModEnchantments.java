@@ -52,7 +52,7 @@ public class ModEnchantments {
                 INFINITY,
                 Enchantment.enchantment(
                         Enchantment.definition(
-                                items.getOrThrow(MortemTags.BOW_AND_CROSSBOW_ENCHANTABLES),
+                                items.getOrThrow(ItemTags.BOW_ENCHANTABLE),
                                 15, // weight
                                 3,  // max level
                                 Enchantment.dynamicCost(1, 10),   // min cost
