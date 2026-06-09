@@ -10,6 +10,9 @@
   "advancements.adventure.become_zombified.title": "What's In Your Head?",
   "advancements.adventure.become_zombified.description": "Become infected by a zombie",
 
+  "advancements.mortem.infected_zombie.title": "Mass Outbreak",
+  "advancements.mortem.infected_zombie.description": "Witness or cause 10 infected zombies to multiply.",
+
   "advancements.husbandry.jams.title": "Thats My Jam!",
   "advancements.husbandry.jams.description": "Obtain all Jams",
 
@@ -56,6 +59,21 @@
   "item.mortem.enhanced_vitalization_elixir.desc.removes": "Slowness, Weakness, Nausea, Hunger",
   "item.mortem.enhanced_vitalization_elixir.desc.removes2": "Blindness, Mining Fatigue",
   "item.mortem.enhanced_vitalization_elixir.desc.grants": "Enhanced Resistance (08:00)",
+
+  "item.minecraft.potion.effect.rot": "Potion of Rot",
+  "item.minecraft.splash_potion.effect.rot": "Splash Potion of Rot",
+  "item.minecraft.lingering_potion.effect.rot": "Lingering Potion of Rot",
+  "item.minecraft.tipped_arrow.effect.rot": "Arrow of Rot",
+
+  "item.minecraft.potion.effect.deep_rot": "Potion of Deep Rot",
+  "item.minecraft.splash_potion.effect.deep_rot": "Splash Potion of Deep Rot",
+  "item.minecraft.lingering_potion.effect.deep_rot": "Lingering Potion of Deep Rot",
+  "item.minecraft.tipped_arrow.effect.deep_rot": "Arrow of Deep Rot",
+
+  "item.minecraft.potion.effect.longer_rot": "Potion of Rot",
+  "item.minecraft.splash_potion.effect.longer_rot": "Splash Potion of Rot",
+  "item.minecraft.lingering_potion.effect.longer_rot": "Lingering Potion of Rot",
+  "item.minecraft.tipped_arrow.effect.longer_rot": "Arrow of Rot",
 
   "item.minecraft.potion.effect.infected": "Potion of Infection",
   "item.minecraft.splash_potion.effect.infected": "Splash Potion of Infection",

@@ -1,8 +1,11 @@
 package net.lunarluned.mortem.effect;
 
 import net.lunarluned.mortem.MortemTags;
-import net.minecraft.core.BlockPos;
+import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
@@ -17,6 +20,7 @@ import net.minecraft.world.entity.animal.equine.Horse;
 import net.minecraft.world.entity.animal.equine.Mule;
 import net.minecraft.world.entity.animal.equine.ZombieHorse;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.illager.Pillager;
 import net.minecraft.world.entity.monster.illager.Vindicator;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
@@ -26,8 +30,10 @@ import net.minecraft.world.entity.monster.zombie.ZombieVillager;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
 import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.entity.npc.wanderingtrader.WanderingTrader;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3f;
+import org.jspecify.annotations.NonNull;
 
 public class InfectedEffect extends MobEffect {
     protected InfectedEffect(MobEffectCategory mobEffectCategory, int i) {
@@ -40,6 +46,8 @@ public class InfectedEffect extends MobEffect {
             livingEntity.removeEffect(ModEffects.INFECTED);
         }
     }
+
+    int infectedCount = 0;
 
     @Override
     public boolean applyEffectTick(ServerLevel serverLevel, LivingEntity livingEntity, int amplifier) {
@@ -109,16 +117,11 @@ public class InfectedEffect extends MobEffect {
         return true;
     }
 
-    // ok i added the tag but im too lazy to make it work rn
-
-    public void onMobHurt(ServerLevel serverLevel, LivingEntity l, int i, DamageSource damageSource, float f) {
+    public void onMobHurt(@NonNull ServerLevel serverLevel, LivingEntity l, int i, DamageSource damageSource, float f) {
         if ((l.getHealth() < 1) && !l.is(MortemTags.CANNOT_BE_ZOMBIFIED)) {
-            if (l.getHealth() == 1) {
-                l.die(damageSource);
-            }
             if (l.isUnderWater()) {
                 spawnDrowned(serverLevel, l, l.getX(), l.getY(), l.getZ());
-            } if (l instanceof Villager || l instanceof Vindicator || l instanceof Witch || l instanceof WanderingTrader) {
+            } if (l instanceof Villager || l instanceof Vindicator || l instanceof Pillager || l instanceof Witch || l instanceof WanderingTrader) {
                 spawnVillagerZombie(serverLevel, l, l.getX(), l.getY(), l.getZ());
             } if (l instanceof Horse || l instanceof Mule) {
                 spawnZombieHorse(serverLevel, l, l.getX(), l.getY(), l.getZ());
@@ -135,15 +138,45 @@ public class InfectedEffect extends MobEffect {
         Zombie zombie = EntityType.ZOMBIE.create(serverLevel, EntitySpawnReason.TRIGGERED);
         if (zombie != null) {
             RandomSource randomSource = livingEntity.getRandom();
-            float g = ((float)Math.PI / 2F);
-            float h = Mth.randomBetween(randomSource, (-(float)Math.PI / 2F), ((float)Math.PI / 2F));
+            float g = ((float) Math.PI / 2F);
+            float h = Mth.randomBetween(randomSource, (-(float) Math.PI / 2F), ((float) Math.PI / 2F));
             Vector3f vector3f = livingEntity.getLookAngle().toVector3f().mul(0.3F).mul(1.0F, 1.5F, 1.0F).rotateY(h);
             zombie.snapTo(d, e, f, serverLevel.getRandom().nextFloat() * 360.0F, 0.0F);
             zombie.setDeltaMovement(new Vec3(vector3f));
             serverLevel.addFreshEntity(zombie);
-            zombie.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 200, 1, true, true));
-            zombie.addEffect(new MobEffectInstance(MobEffects.SPEED, 350, 0, true, true));
+            zombie.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 800, 1, true, true));
+            zombie.addEffect(new MobEffectInstance(MobEffects.SPEED, 650, 0, true, true));
             zombie.playSound(SoundEvents.ZOMBIE_INFECT);
+            AABB area = new AABB(zombie.blockPosition()).inflate(32.0D);
+
+
+            for (Zombie z : serverLevel.getEntitiesOfClass(Zombie.class, area)) {
+                if (z.hasEffect(MobEffects.SPEED) &&
+                        z.hasEffect(MobEffects.RESISTANCE)) {
+                    infectedCount++;
+                }
+            }
+
+            if (infectedCount >= 10) {
+
+                Identifier id = Identifier.fromNamespaceAndPath(
+                        "mortem",
+                        "adventure/infected_zombie"
+                );
+
+                for (ServerPlayer player : serverLevel.getEntitiesOfClass(ServerPlayer.class, area)) {
+
+                    AdvancementHolder advancement = player.server.getAdvancements().get(id);
+                    if (advancement == null) continue;
+
+                    AdvancementProgress progress =
+                            player.getAdvancements().getOrStartProgress(advancement);
+
+                    for (String criterion : progress.getRemainingCriteria()) {
+                        player.getAdvancements().award(advancement, criterion);
+                    }
+                }
+            }
         }
     }
     private void spawnVillagerZombie(ServerLevel serverLevel, LivingEntity livingEntity, double d, double e, double f) {
@@ -156,8 +189,8 @@ public class InfectedEffect extends MobEffect {
             zombie.snapTo(d, e, f, serverLevel.getRandom().nextFloat() * 360.0F, 0.0F);
             zombie.setDeltaMovement(new Vec3(vector3f));
             serverLevel.addFreshEntity(zombie);
-            zombie.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 200, 1, true, true));
-            zombie.addEffect(new MobEffectInstance(MobEffects.SPEED, 350, 0, true, true));
+            zombie.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 800, 1, true, true));
+            zombie.addEffect(new MobEffectInstance(MobEffects.SPEED, 650, 0, true, true));
             zombie.playSound(SoundEvents.ZOMBIE_INFECT);
         }
     }
@@ -171,8 +204,8 @@ public class InfectedEffect extends MobEffect {
             zombie.snapTo(d, e, f, serverLevel.getRandom().nextFloat() * 360.0F, 0.0F);
             zombie.setDeltaMovement(new Vec3(vector3f));
             serverLevel.addFreshEntity(zombie);
-            zombie.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 200, 1, true, true));
-            zombie.addEffect(new MobEffectInstance(MobEffects.SPEED, 350, 0, true, true));
+            zombie.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 800, 1, true, true));
+            zombie.addEffect(new MobEffectInstance(MobEffects.SPEED, 650, 0, true, true));
             zombie.playSound(SoundEvents.ZOMBIE_INFECT);
         }
     }
@@ -186,8 +219,8 @@ public class InfectedEffect extends MobEffect {
             zPiglin.snapTo(d, e, f, serverLevel.getRandom().nextFloat() * 360.0F, 0.0F);
             zPiglin.setDeltaMovement(new Vec3(vector3f));
             serverLevel.addFreshEntity(zPiglin);
-            zPiglin.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 200, 1, true, true));
-            zPiglin.addEffect(new MobEffectInstance(MobEffects.SPEED, 350, 0, true, true));
+            zPiglin.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 800, 1, true, true));
+            zPiglin.addEffect(new MobEffectInstance(MobEffects.SPEED, 650, 0, true, true));
             zPiglin.playSound(SoundEvents.ZOMBIE_INFECT);
         }
     }
@@ -201,8 +234,8 @@ public class InfectedEffect extends MobEffect {
             zHorse.snapTo(d, e, f, serverLevel.getRandom().nextFloat() * 360.0F, 0.0F);
             zHorse.setDeltaMovement(new Vec3(vector3f));
             serverLevel.addFreshEntity(zHorse);
-            zHorse.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 200, 1, true, true));
-            zHorse.addEffect(new MobEffectInstance(MobEffects.SPEED, 350, 0, true, true));
+            zHorse.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 800, 1, true, true));
+            zHorse.addEffect(new MobEffectInstance(MobEffects.SPEED, 650, 0, true, true));
             zHorse.playSound(SoundEvents.ZOMBIE_INFECT);
         }
     }
