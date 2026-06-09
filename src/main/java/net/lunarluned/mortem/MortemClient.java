@@ -1,13 +1,13 @@
 package net.lunarluned.mortem;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.lunarluned.mortem.block.ModBlocks;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.lunarluned.mortem.client.CompassActionbar;
 
 public class MortemClient implements ClientModInitializer {
+
 	@Override
 	public void onInitializeClient() {
-		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
+		CompassActionbar.register();
 		// BlockRenderLayerMap.putBlock(ModBlocks.COPPER_RAIL, ChunkSectionLayer.CUTOUT);
 	}
 }
