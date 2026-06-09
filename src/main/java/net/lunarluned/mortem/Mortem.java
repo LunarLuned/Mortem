@@ -62,6 +62,16 @@ public class Mortem implements ModInitializer {
 		});
 
 		FabricPotionBrewingBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(ModPotions.INFECTED, Ingredient.of(Items.WITHER_ROSE), ModPotions.ROT);
+		});
+		FabricPotionBrewingBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(ModPotions.ROT, Ingredient.of(Items.GLOWSTONE_DUST), ModPotions.DEEP_ROT);
+		});
+		FabricPotionBrewingBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(ModPotions.ROT, Ingredient.of(Items.REDSTONE), ModPotions.LONGER_ROT);
+		});
+
+		FabricPotionBrewingBuilder.BUILD.register(builder -> {
 			builder.registerPotionRecipe(Potions.MUNDANE, Ingredient.of(Items.ROTTEN_FLESH), ModPotions.INFECTED);
 		});
 

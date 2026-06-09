@@ -8,17 +8,21 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.alchemy.Potion;
 
 public class ModPotions {
 
     public static Holder<Potion> INFECTED;
     public static Holder<Potion> DEEP_INFECTION;
+    public static Holder<Potion> ROT;
+    public static Holder<Potion> LONGER_ROT;
+    public static Holder<Potion> DEEP_ROT;
     public static Holder<Potion> IMMUNE;
     public static Holder<Potion> EXTENDED_IMMUNITY;
 
     private static Holder<Potion> register(String name, Potion potion) {
-        return Registry.registerForHolder(BuiltInRegistries.POTION, Identifier.tryBuild(Mortem.MOD_ID, name), potion);
+        return Registry.registerForHolder(BuiltInRegistries.POTION, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, name), potion);
     }
 
     public static void registerPotions() {
@@ -27,6 +31,16 @@ public class ModPotions {
 
         DEEP_INFECTION = register("deep_infection",
                 new Potion("deep_infection", new MobEffectInstance(ModEffects.INFECTED, 6000, 1)));
+
+        ROT = register("rot",
+                new Potion("rot", new MobEffectInstance(MobEffects.WITHER, 3600, 0)));
+
+        LONGER_ROT = register("longer_rot",
+                new Potion("longer_rot", new MobEffectInstance(MobEffects.WITHER, 9600, 0)));
+
+        DEEP_ROT = register("deep_rot",
+                new Potion("deep_rot", new MobEffectInstance(MobEffects.WITHER, 2600, 1)));
+
 
         IMMUNE = register("immune",
                 new Potion("immune", new MobEffectInstance(ModEffects.IMMUNE, 4000, 0)));
