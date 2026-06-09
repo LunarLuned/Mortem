@@ -3,22 +3,15 @@ package net.lunarluned.mortem;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
-import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
-import net.lunarluned.mortem.enchantments.ModEnchantments;
 import net.lunarluned.mortem.misc.FungalInfectSpreadHandler;
 import net.lunarluned.mortem.potion.ModPotions;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
@@ -31,6 +24,7 @@ import static net.lunarluned.mortem.effect.ModEffects.registerEffects;
 import static net.lunarluned.mortem.enchantments.ModEnchantmentEffects.registerEnchantmentEffects;
 import static net.lunarluned.mortem.item.ModItemGroups.registerItemGroups;
 import static net.lunarluned.mortem.item.ModItems.registerModItems;
+import static net.lunarluned.mortem.item.ModRepairMaterials.registerRepairMaterials;
 import static net.lunarluned.mortem.misc.ModCompostables.registerCompostables;
 import static net.lunarluned.mortem.potion.ModPotions.registerPotions;
 import static net.lunarluned.mortem.sounds.MortemSoundEvents.registerSounds;
@@ -54,6 +48,7 @@ public class Mortem implements ModInitializer {
 		registerPotions();
 		registerSounds();
 		registerCompostables();
+		registerRepairMaterials();
 		FungalInfectSpreadHandler.init();
 
 		registerEnchantmentEffects();
