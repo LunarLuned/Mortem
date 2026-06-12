@@ -29,22 +29,24 @@ public abstract class LivingEntityNaturalRegenMixin {
     private void mortem_redirectHealForNaturalRegen(float amount, CallbackInfo ci) {
         if (this.asLivingEntity() instanceof Player player) {
                 if (player.hasEffect(ModEffects.STAGNATED)) {
-                    switch (Objects.requireNonNull(player.getEffect(ModEffects.STAGNATED)).getAmplifier()) {
-                        case 0:
-                            regenerationChance = 7;
-                            break;
-                        case 1:
-                            regenerationChance = 5;
-                            break;
-                        case 2:
-                            regenerationChance = 3;
-                            break;
-                        case 3:
-                            regenerationChance = 1;
-                            break;
-                        case 4:
-                            regenerationChance = 0;
-                            break;
+                    if (player.getEffect(ModEffects.STAGNATED) != null) {
+                        switch ((Objects.requireNonNull(player.getEffect(ModEffects.STAGNATED))).getAmplifier()) {
+                            case 0:
+                                regenerationChance = 7;
+                                break;
+                            case 1:
+                                regenerationChance = 5;
+                                break;
+                            case 2:
+                                regenerationChance = 3;
+                                break;
+                            case 3:
+                                regenerationChance = 1;
+                                break;
+                            case 4:
+                                regenerationChance = 0;
+                                break;
+                        }
                     }
             } if (player.isOnFire()) {
                     regenerationChance = regenerationChance / 2;
