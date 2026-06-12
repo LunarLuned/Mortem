@@ -19,8 +19,12 @@ public class ModItemGroups {
                         entries.accept(ModBlocks.COPPER_RAIL);
                         entries.accept(ModBlocks.HARDENED_IRON_ORE);
                         entries.accept(ModBlocks.HARDENED_DEEPSLATE_IRON_ORE);
+                        entries.accept(ModBlocks.REINFORCED_MAGMA);
                         entries.accept(ModItems.DRUG);
                         entries.accept(ModItems.RESIN_CANDY);
+
+                        entries.accept(ModItems.SHREDDED_FLESH);
+                        entries.accept(ModItems.BEEF_JERKY);
 
                         entries.accept(ModItems.HARD_BOILED_EGG);
                         entries.accept(ModItems.EGG_BOWL);

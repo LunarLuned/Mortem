@@ -19,6 +19,9 @@ public class ModConsumables {
     public static final Consumable DRUG;
     public static final Consumable RESIN_CANDY;
 
+    public static final Consumable SHREDDED_FLESH;
+    public static final Consumable BEEF_JERKY;
+
     public static final Consumable COOKED_SEEDS;
     public static final Consumable RAW_PUMPKIN_GUTS;
     public static final Consumable BAKED_PUMPKIN_GUTS;
@@ -114,6 +117,9 @@ public class ModConsumables {
         APPLE_PIE_SLICE = defaultFood().consumeSeconds(1.35F).build();
         CAKE_SLICE = defaultFood().consumeSeconds(1.2F).build();
         PUMPKIN_PIE_SLICE = defaultFood().consumeSeconds(1.5F).build();
+
+        SHREDDED_FLESH = defaultFood().consumeSeconds(1.6F).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HUNGER, 250, 0), 0.5F)).build();
+        BEEF_JERKY = defaultFood().consumeSeconds(1.2F).build();
 
         POTATO_WEDGE = defaultFood().consumeSeconds(.8F).build();
         BAKED_POTATO_WEDGE = defaultFood().consumeSeconds(0.6F).build();

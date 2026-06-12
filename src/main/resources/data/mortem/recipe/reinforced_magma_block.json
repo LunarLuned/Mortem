@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#M#",
+    "###"
+  ],
+  "key": {
+    "#": "minecraft:netherrack",
+    "M": "minecraft:magma_block"
+  },
+  "result": {
+    "count": 8,
+    "id": "mortem:reinforced_magma"
+  }
+}

@@ -95,6 +95,9 @@
   "item.minecraft.lingering_potion.effect.extended_immunity": "Lingering Potion of Extended Immunity",
   "item.minecraft.tipped_arrow.effect.extended_immunity": "Arrow of Extended Immunity",
 
+  "block.mortem.reinforced_magma": "Reinforced Magma Block",
+
+  "block.mortem.sifting_table": "Sifting Table",
 
   "block.mortem.hardened_deepslate_iron_ore": "Hardened Deepslate Iron Ore",
   "block.mortem.hardened_iron_ore": "Hardened Iron Ore",
@@ -109,6 +112,8 @@
 
   "item.mortem.cake_slice": "Cake Slice",
 
+  "item.mortem.shredded_flesh": "Shredded Flesh",
+  "item.mortem.beef_jerky": "Beef Jerky",
 
   "item.mortem.baked_potato_wedge": "Baked Potato Wedge",
   "item.mortem.potato_wedge": "Potato Wedge",

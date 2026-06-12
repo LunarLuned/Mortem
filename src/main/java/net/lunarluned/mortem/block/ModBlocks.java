@@ -14,6 +14,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 public class ModBlocks {
@@ -21,6 +23,11 @@ public class ModBlocks {
     public static final Block PUMPKIN_PIE_BLOCK = registerBlockWithItemThatStacksToOne("pumpkin_pie",
             new PumpkinPieBlock(BlockBehaviour.Properties.of().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "pumpkin_pie")))));
 
+    public static final Block REINFORCED_MAGMA = registerBlock("reinforced_magma",
+            new ReinforcedMagmaBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops().lightLevel((_) -> 3).strength(0.5F)
+                    .emissiveRendering(Blocks::always).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "reinforced_magma")))
+            ));
 
 
 

@@ -61,6 +61,14 @@ public class ModItems {
             new Item(new Item.Properties().food(ModFoods.DRUG, ModConsumables.DRUG)
                     .useItemDescriptionPrefix().stacksTo(99).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:drug")))));
 
+    public static final Item SHREDDED_FLESH = registerItem("shredded_flesh",
+            new Item(new Item.Properties().food(ModFoods.SHREDDED_FLESH, ModConsumables.SHREDDED_FLESH)
+                    .stacksTo(99).useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:shredded_flesh")))));
+
+    public static final Item BEEF_JERKY = registerItem("beef_jerky",
+            new Item(new Item.Properties().food(ModFoods.BEEF_JERKY, ModConsumables.BEEF_JERKY)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:beef_jerky")))));
+
     public static final Item COOKED_SEEDS = registerItem("cooked_seeds",
             new Item(new Item.Properties().food(ModFoods.COOKED_SEEDS, ModConsumables.COOKED_SEEDS)
                     .stacksTo(99).useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:cooked_seeds")))));

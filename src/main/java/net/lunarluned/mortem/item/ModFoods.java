@@ -6,12 +6,12 @@ public class ModFoods {
 
     // Misc Foods
 
-    public static final FoodProperties POISON_ELIXIR = (new FoodProperties.Builder().nutrition(1).build());
-    public static final FoodProperties ENHANCED_POISON_ELIXIR = (new FoodProperties.Builder().nutrition(2).build());
-    public static final FoodProperties MISFORTUNE_ELIXIR = (new FoodProperties.Builder().nutrition(1).build());
-    public static final FoodProperties ENHANCED_MISFORTUNE_ELIXIR = (new FoodProperties.Builder().nutrition(2).build());
-    public static final FoodProperties VITALIZATION_ELIXIR = (new FoodProperties.Builder().nutrition(1).build());
-    public static final FoodProperties ENHANCED_VITALIZATION_ELIXIR = (new FoodProperties.Builder().nutrition(2).build());
+    public static final FoodProperties POISON_ELIXIR = (new FoodProperties.Builder().nutrition(1).alwaysEdible().build());
+    public static final FoodProperties ENHANCED_POISON_ELIXIR = (new FoodProperties.Builder().nutrition(2).alwaysEdible().build());
+    public static final FoodProperties MISFORTUNE_ELIXIR = (new FoodProperties.Builder().nutrition(1).alwaysEdible().build());
+    public static final FoodProperties ENHANCED_MISFORTUNE_ELIXIR = (new FoodProperties.Builder().nutrition(2).alwaysEdible().build());
+    public static final FoodProperties VITALIZATION_ELIXIR = (new FoodProperties.Builder().nutrition(1).alwaysEdible().build());
+    public static final FoodProperties ENHANCED_VITALIZATION_ELIXIR = (new FoodProperties.Builder().nutrition(2).alwaysEdible().build());
 
     // Nether Foods
 
@@ -27,6 +27,9 @@ public class ModFoods {
     public static final FoodProperties SUSHI_ROLL = (new FoodProperties.Builder().nutrition(4).saturationModifier(.25F).build());
 
     // Overworld Foods
+
+    public static final FoodProperties SHREDDED_FLESH = new FoodProperties.Builder().nutrition(1).saturationModifier(0.15f).build();
+    public static final FoodProperties BEEF_JERKY = new FoodProperties.Builder().nutrition(3).saturationModifier(0.35f).build();
 
     public static final FoodProperties DRUG = new FoodProperties.Builder().nutrition(1).saturationModifier(0.25f).alwaysEdible().build();
     public static final FoodProperties RESIN_CANDY = new FoodProperties.Builder().nutrition(1).saturationModifier(.1f).alwaysEdible().build();

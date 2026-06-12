@@ -16,6 +16,11 @@ public class MortemCreativeModeTab {
 
     public static void registerCreativeTabs() {
 
+        // Functional Blocks Tab
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
+            entries.insertAfter(Blocks.MAGMA_BLOCK, ModBlocks.REINFORCED_MAGMA);
+        });
+
         // Natural Blocks Tab
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.insertBefore(Blocks.IRON_ORE, ModBlocks.HARDENED_IRON_ORE, ModBlocks.HARDENED_DEEPSLATE_IRON_ORE);
@@ -42,6 +47,7 @@ public class MortemCreativeModeTab {
             entries.insertAfter(Items.POTATO, ModItems.POTATO_WEDGE);
             entries.insertAfter(Items.BAKED_POTATO, ModItems.BAKED_POTATO_WEDGE);
 
+            entries.insertAfter(Items.ROTTEN_FLESH, ModItems.SHREDDED_FLESH, ModItems.BEEF_JERKY);
 
             entries.insertAfter(Items.SPIDER_EYE, ModItems.DRUG);
             entries.insertBefore(Items.MUSHROOM_STEW, ModItems.CRIMSON_STEW, ModItems.WARPED_STEW, ModItems.FUNGAL_STEW, ModItems.SCRAMBLED_EGGS_TUSK, ModItems.MUSHROOM_STEW_TUSK,

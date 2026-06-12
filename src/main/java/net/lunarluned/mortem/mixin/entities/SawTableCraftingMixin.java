@@ -2,6 +2,7 @@ package net.lunarluned.mortem.mixin.entities;
 
 import net.lunarluned.mortem.RecycleResult;
 import net.lunarluned.mortem.block.ModBlocks;
+import net.lunarluned.mortem.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -73,6 +74,8 @@ private void onTick(CallbackInfo ci) {
 }
 
     static {
+        SAW_TABLE_RECIPES.put(Items.ROTTEN_FLESH, new RecycleResult(ModItems.SHREDDED_FLESH, 2));
+
         // Log items
         SAW_TABLE_RECIPES.put(Items.OAK_LOG, new RecycleResult(Blocks.OAK_PLANKS.asItem(), 4));
         SAW_TABLE_RECIPES.put(Items.OAK_WOOD, new RecycleResult(Blocks.OAK_PLANKS.asItem(), 4));
