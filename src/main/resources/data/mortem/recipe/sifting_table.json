@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#I#",
+    "#u#",
+    "OOO"
+  ],
+  "key": {
+    "#": "minecraft:cobblestone",
+    "I": "minecraft:iron_bars",
+    "u": "minecraft:water_bucket",
+    "O": "#minecraft:planks"
+  },
+  "result": {
+    "id": "mortem:sifting_table"
+  }
+}

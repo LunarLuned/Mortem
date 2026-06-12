@@ -9,6 +9,22 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "shredded_flesh": {
+      "conditions": {
+        "item": {
+          "items": "mortem:shredded_flesh"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "beef_jerky": {
+      "conditions": {
+        "item": {
+          "items": "mortem:beef_jerky"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "hard_boiled_egg": {
       "conditions": {
         "item": {
@@ -420,6 +436,12 @@
     ],
     [
       "potato_wedge"
+    ],
+    [
+      "beef_jerky"
+    ],
+    [
+      "shredded_flesh"
     ],
     [
       "baked_potato_wedge"
