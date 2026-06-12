@@ -3,6 +3,8 @@
   "values": [
     "mortem:copper_rail",
     "mortem:hardened_iron_ore",
-    "mortem:hardened_deepslate_iron_ore"
+    "mortem:hardened_deepslate_iron_ore",
+    "mortem:reinforced_magma",
+    "mortem:sifting_table"
   ]
 }

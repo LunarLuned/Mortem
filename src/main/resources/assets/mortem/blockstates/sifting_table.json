@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "mortem:block/sifting_table",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "mortem:block/sifting_table"
+    },
+    "facing=south": {
+      "model": "mortem:block/sifting_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mortem:block/sifting_table",
+      "y": 270
+    }
+  }
+}

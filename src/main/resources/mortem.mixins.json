@@ -3,6 +3,7 @@
   "package": "net.lunarluned.mortem.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "DamageSourceMixin",
     "blocks.AnvilMenuMixin",
     "blocks.AnvilMixin",
     "blocks.BlockExplosionResistanceMixin",
@@ -27,6 +28,7 @@
     "enchantments.ImpalingWetDamageMixin",
     "enchantments.RicochetThrownTridentMixin",
     "entities.AbstractArrowMixin",
+    "entities.SiftingTableMixin",
     "entities.FireworkRocketCooldownMixin",
     "entities.IronGolemMixin",
     "entities.LavaSmeltingMixin",

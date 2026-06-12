@@ -29,6 +29,9 @@ public class ModBlocks {
                     .emissiveRendering(Blocks::always).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "reinforced_magma")))
             ));
 
+    public static final Block SIFTING_TABLE = registerBlock("sifting_table",
+            new SiftingTableBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "sifting_table")))
+                    .strength(3.5f).mapColor(MapColor.STONE).instrument(NoteBlockInstrument.PLING)));
 
 
     public static final Block APPLE_PIE = registerBlockWithItemThatStacksToOne("apple_pie",
