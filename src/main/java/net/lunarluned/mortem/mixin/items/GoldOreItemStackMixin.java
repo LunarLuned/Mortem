@@ -23,7 +23,7 @@ public abstract class GoldOreItemStackMixin {
 
             ItemStack stack = (ItemStack)(Object)this;
 
-            if (stack.is(Items.COPPER_PICKAXE)) {
+            if (stack.is(Items.COPPER_PICKAXE) || stack.is(Items.GOLDEN_PICKAXE)) {
                 stack.setDamageValue(5);
                 cir.setReturnValue(true);
             }
