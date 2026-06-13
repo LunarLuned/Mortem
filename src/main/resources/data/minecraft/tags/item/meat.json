@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "mortem:shredded_flesh",
+    "mortem:beef_jerky",
+    "mortem:cooked_beef_patty",
+    "mortem:beef_patty",
+    "mortem:burger",
+    "mortem:bacon_burger",
+    "mortem:raw_mutton_slice",
+    "mortem:cooked_mutton_slice",
+    "mortem:raw_chicken_nugget",
+    "mortem:cooked_chicken_nugget",
+    "mortem:breakfast_sandwich"
+  ]
+}
