@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "mortem:mineshaft_base",
+      "weight": 3
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 48,
+    "separation": 16,
+    "salt": 424222353
+  }
+}
