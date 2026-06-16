@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "o##",
+    " C#",
+    "o o"
+  ],
+  "key": {
+    "o": "minecraft:prismarine_shard",
+    "#": "minecraft:iron_ingot",
+    "C": "minecraft:conduit"
+  },
+  "result": {
+    "id": "minecraft:trident",
+    "count": 1
+  }
+}
