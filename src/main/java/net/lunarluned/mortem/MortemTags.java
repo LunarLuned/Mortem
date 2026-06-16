@@ -17,6 +17,10 @@ public class MortemTags {
     public static final TagKey<EntityType<?>> CANNOT_BE_ZOMBIFIED = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath("mortem", "cannot_be_zombified"));
     public static final TagKey<EntityType<?>> FUNGUS_IMMUNE = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath("mortem", "fungus_immune"));
 
+    public static final TagKey<Item> FIREPROOF_ITEMS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "fireproof_items"));
+
+    public static final TagKey<Item> FLOATING_ITEMS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "floating_items"));
+
 
     public static final TagKey<Item> FARMING_TOOLS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "farming_tools"));
     public static final TagKey<Item> TORCHES = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("mortem", "torches"));

@@ -30,6 +30,7 @@
     "entities.AbstractArrowMixin",
     "entities.FireworkRocketCooldownMixin",
     "entities.IronGolemMixin",
+    "entities.ItemTagsForTheItemEntityMixin",
     "entities.LavaSmeltingMixin",
     "entities.SawTableCraftingMixin",
     "entities.SiftingTableMixin",
