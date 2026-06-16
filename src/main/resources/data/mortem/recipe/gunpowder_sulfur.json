@@ -3,7 +3,7 @@
   "group": "gunpowders",
   "ingredients": [
     "minecraft:charcoal",
-    "#minecraft:potent_sulfur"
+    "minecraft:potent_sulfur"
   ],
   "result": {
     "id": "minecraft:gunpowder",
