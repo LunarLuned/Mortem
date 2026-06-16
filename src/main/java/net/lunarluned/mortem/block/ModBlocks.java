@@ -26,7 +26,7 @@ public class ModBlocks {
     public static final Block REINFORCED_MAGMA = registerBlock("reinforced_magma",
             new ReinforcedMagmaBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.BASEDRUM)
                     .requiresCorrectToolForDrops().lightLevel((_) -> 3).strength(0.5F)
-                    .emissiveRendering(Blocks::always).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "reinforced_magma")))
+                    .emissiveRendering((var0) -> true).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "reinforced_magma")))
             ));
 
     public static final Block SIFTING_TABLE = registerBlock("sifting_table",
