@@ -3,10 +3,10 @@
   "group": "gunpowders",
   "ingredients": [
     "minecraft:charcoal",
-    "#minecraft:sand"
+    "#minecraft:potent_sulfur"
   ],
   "result": {
     "id": "minecraft:gunpowder",
-    "count": 2
+    "count": 8
   }
 }
