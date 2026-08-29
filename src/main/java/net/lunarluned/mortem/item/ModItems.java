@@ -3,6 +3,7 @@ package net.lunarluned.mortem.item;
 import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.item.custom.BeetrootBrothItem;
 import net.lunarluned.mortem.item.custom.ElixirItem;
+import net.lunarluned.mortem.item.custom.MortemFishingRodItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -14,6 +15,41 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 
 public class ModItems {
+
+    /*
+    // base rod
+
+    public static final Item MAKESHIFT_ROD = registerItem("makeshift_rod",
+            new MortemFishingRodItem(new Item.Properties().useItemDescriptionPrefix()
+                    .setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:makeshift_rod")))
+                    .durability(75), 0.95F, 0.90F)
+    );
+
+    // iron fishing rod
+
+    public static final Item REINFORCED_ROD = registerItem("reinforced_rod",
+            new MortemFishingRodItem(new Item.Properties().useItemDescriptionPrefix()
+                    .setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:reinforced_rod")))
+                    .durability(150), 1.35F, 1.10F)
+    );
+
+    // golden rod
+
+    public static final Item GOLDEN_ROD = registerItem("golden_rod",
+            new MortemFishingRodItem(new Item.Properties().useItemDescriptionPrefix()
+                    .setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:golden_rod")))
+                    .durability(200), 1.9F, 1.75F)
+    );
+
+    // netherite and magma rod bruh
+
+    public static final Item MOLTEN_ROD = registerItem("molten_rod",
+            new MortemFishingRodItem(new Item.Properties().useItemDescriptionPrefix()
+                    .setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:molten_rod")))
+                    .durability(400), 1.25F, 1.35F)
+    );
+
+    */
 
     public static final Item POISON_ELIXIR = registerItem("poison_elixir",
             new ElixirItem(0, new Item.Properties().food(ModFoods.POISON_ELIXIR, ModConsumables.POISON_ELIXIR)
@@ -38,6 +74,10 @@ public class ModItems {
     public static final Item ENHANCED_VITALIZATION_ELIXIR = registerItem("enhanced_vitalization_elixir",
             new ElixirItem(5, new Item.Properties().food(ModFoods.ENHANCED_VITALIZATION_ELIXIR, ModConsumables.ENHANCED_VITALIZATION_ELIXIR)
                     .useItemDescriptionPrefix().rarity(Rarity.RARE).stacksTo(8).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:enhanced_vitalization_elixir")))));
+
+    public static final Item NETHERITE_UPGRADE_FRAGMENT = registerItem("netherite_upgrade_fragment",
+            new Item(new Item.Properties()
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:netherite_upgrade_fragment")))));
 
 
     public static final Item HOGLIN_TUSK = registerItem("hoglin_tusk",
@@ -252,6 +292,7 @@ public class ModItems {
             new Item(new Item.Properties().food(ModFoods.PORK_SPREAD_TOAST, ModConsumables.PORK_SPREAD_TOAST)
                     .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:pork_spread_toast")))));
 
+    /*
     public static final Item BEETROOT_BROTH = registerItem("beetroot_broth",
             new BeetrootBrothItem(new Item.Properties()
                     .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:beetroot_broth")))));
@@ -259,10 +300,14 @@ public class ModItems {
     public static final Item BEETROOT_HOTPOT_SERVING = registerItem("beetroot_hotpot_serving",
             new Item(new Item.Properties()
                     .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:beetroot_hotpot_serving")))));
+*/
+
+    // NETHER
+
 
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(BuiltInRegistries.ITEM, Identifier.tryBuild(Mortem.MOD_ID, name), item);
+        return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, name), item);
     }
 
     public static void registerModItems() {

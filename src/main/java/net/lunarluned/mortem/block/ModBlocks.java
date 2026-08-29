@@ -44,6 +44,11 @@ public class ModBlocks {
             new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "hardened_iron_ore")))
                     .strength(8f).explosionResistance(1).sound(SoundType.STONE)));
 
+    public static final Block BLACKSTONE_IRON_ORE = registerBlock("blackstone_iron_ore",
+            new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "blackstone_iron_ore")))
+                    .strength(8f).explosionResistance(1).sound(SoundType.GILDED_BLACKSTONE)));
+
+
     public static final Block HARDENED_DEEPSLATE_IRON_ORE = registerBlock("hardened_deepslate_iron_ore",
             new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "hardened_deepslate_iron_ore")))
                     .strength(12f).explosionResistance(4).sound(SoundType.DEEPSLATE)));

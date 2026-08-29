@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "mortem:pillager_nether_outpost",
+      "weight": 3
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 38,
+    "separation": 16,
+    "salt": 217822353
+  }
+}

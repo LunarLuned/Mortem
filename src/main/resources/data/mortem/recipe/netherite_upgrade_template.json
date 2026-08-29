@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#=#",
+    "###"
+  ],
+  "key": {
+    "#": "mortem:netherite_upgrade_fragment",
+    "=": "minecraft:nether_brick"
+  },
+  "result": {
+    "id": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

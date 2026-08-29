@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type" : "minecraft:model",
+    "model": "mortem:item/netherite_upgrade_fragment"
+  }
+}
