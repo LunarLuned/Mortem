@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -97,6 +98,15 @@ public abstract class SiftingTableMixin {
 
     static {
         SIFTING_RECIPES.put(Items.DIRT, ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("mortem", "sifting/dirt")));
+        SIFTING_RECIPES.put(Items.ROOTED_DIRT, ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("mortem", "sifting/dirt")));
         SIFTING_RECIPES.put(Items.GRAVEL, ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("mortem", "sifting/gravel")));
+
+        SIFTING_RECIPES.put(Items.SAND, ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("mortem", "sifting/sand")));
+        SIFTING_RECIPES.put(Items.CLAY, ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("mortem", "sifting/clay")));
+        SIFTING_RECIPES.put(Items.COBBLESTONE, ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("mortem", "sifting/cobblestone")));
+        SIFTING_RECIPES.put(Items.COBBLED_DEEPSLATE, ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("mortem", "sifting/cobbled_deepslate")));
+        SIFTING_RECIPES.put(Items.SOUL_SAND, ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("mortem", "sifting/soul_sand")));
+        SIFTING_RECIPES.put(Items.SOUL_SOIL, ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("mortem", "sifting/soul_sand")));
+        SIFTING_RECIPES.put(Items.COBWEB, ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("mortem", "sifting/cobweb")));
     }
 }

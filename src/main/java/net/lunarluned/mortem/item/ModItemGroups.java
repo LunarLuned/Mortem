@@ -96,6 +96,8 @@ public class ModItemGroups {
                         entries.accept(ModItems.VITALIZATION_ELIXIR);
                         entries.accept(ModItems.ENHANCED_VITALIZATION_ELIXIR);
 
+                        entries.accept(ModItems.NETHERITE_UPGRADE_FRAGMENT);
+
                     }).build());
 
 

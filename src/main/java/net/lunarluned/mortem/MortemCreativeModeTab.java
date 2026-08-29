@@ -68,6 +68,7 @@ public class MortemCreativeModeTab {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {
             entries.insertAfter(Items.EGG, ModItems.EGG_BOWL, ModItems.EGG_TUSK);
             entries.insertAfter(Items.BOWL, ModItems.HOGLIN_TUSK);
+            entries.insertBefore(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ModItems.NETHERITE_UPGRADE_FRAGMENT);
         });
 
     }

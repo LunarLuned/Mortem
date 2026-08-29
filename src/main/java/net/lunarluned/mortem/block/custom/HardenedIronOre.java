@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 
+import static net.lunarluned.mortem.block.ModBlocks.BLACKSTONE_IRON_ORE;
 import static net.lunarluned.mortem.block.ModBlocks.HARDENED_DEEPSLATE_IRON_ORE;
 import static net.lunarluned.mortem.misc.EnchantmentHolderHelper.resolveHolder;
 
@@ -77,6 +78,8 @@ public class HardenedIronOre extends Block {
     protected void onExplosionHit(BlockState blockState, ServerLevel level, BlockPos blockPos, Explosion explosion, BiConsumer<ItemStack, BlockPos> biConsumer) {
         if (this.defaultBlockState().is(HARDENED_DEEPSLATE_IRON_ORE)) {
         level.setBlock(blockPos, Blocks.DEEPSLATE_IRON_ORE.defaultBlockState(), 3);
+        } else if (this.defaultBlockState().is(BLACKSTONE_IRON_ORE)) {
+            level.setBlock(blockPos, Blocks.RAW_IRON_BLOCK.defaultBlockState(), 3);
         } else {
         level.setBlock(blockPos, Blocks.IRON_ORE.defaultBlockState(), 3);
         }

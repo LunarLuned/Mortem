@@ -138,6 +138,8 @@ private void onTick(CallbackInfo ci) {
         SAW_TABLE_RECIPES.put(Items.IRON_ORE, new RecycleResult(Items.RAW_IRON, 2));
         SAW_TABLE_RECIPES.put(Items.DEEPSLATE_IRON_ORE, new RecycleResult(Items.RAW_IRON, 4));
 
+        SAW_TABLE_RECIPES.put(ModBlocks.BLACKSTONE_IRON_ORE.asItem(), new RecycleResult(Items.RAW_IRON, 10));
+
         SAW_TABLE_RECIPES.put(ModBlocks.HARDENED_IRON_ORE.asItem(), new RecycleResult(Items.RAW_IRON, 3));
         SAW_TABLE_RECIPES.put(ModBlocks.HARDENED_DEEPSLATE_IRON_ORE.asItem(), new RecycleResult(Items.RAW_IRON, 6));
 

@@ -103,6 +103,8 @@
   "block.mortem.hardened_iron_ore": "Hardened Iron Ore",
   "block.mortem.copper_rail": "Copper Rail",
 
+  "block.mortem.blackstone_iron_ore": "Blackstone Iron Ore",
+
   "block.mortem.apple_pie": "Apple Pie",
   "item.mortem.apple_pie_slice": "Apple Pie Slice",
   "item.mortem.baked_apple": "Baked Apple",
@@ -171,6 +173,8 @@
   "item.mortem.fungal_stew": "Fungal Stew",
   "item.mortem.mushroom_stew_tusk": "Tusk of Mushroom Stew",
   "item.mortem.scrambled_eggs_tusk": "Tusk of Scrambled Eggs",
+
+  "item.mortem.netherite_upgrade_fragment": "Netherite Upgrade Fragment",
 
   "enchantment.mortem.ricochet": "Ricochet",
   "enchantment.mortem.chining": "Chining",
