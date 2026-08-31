@@ -11,8 +11,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
+import org.jspecify.annotations.NonNull;
 
-    public class CompassActionbar {
+public class CompassActionbar {
 
         private static int tickCounter = 0;
 
@@ -29,21 +30,7 @@ import net.minecraft.world.item.Items;
                 tickCounter = 0;
 
                 BlockPos pos = client.player.getOnPos();
-                Direction facing = client.player.getDirection();
-                String facingFinal =
-                        switch (facing) {
-                            case WEST -> "West";
-                            case EAST -> "East";
-                            case NORTH -> "North";
-                            case SOUTH -> "South";
-                            default -> "???";
-                        };
-
-                String coords = "XYZ: " +
-                        pos.getX() + ", " +
-                        pos.getY() + ", " +
-                        pos.getZ() + ", " +
-                        "Facing: " + facingFinal;
+                String coords = getCoords(client, pos);
 
                 client.player.sendOverlayMessage(
                         Component.literal(coords)
@@ -51,7 +38,26 @@ import net.minecraft.world.item.Items;
             });
         }
 
-        private static boolean isHoldingCompass(Minecraft client) {
+    private static @NonNull String getCoords(Minecraft client, BlockPos pos) {
+        Direction facing = client.player.getDirection();
+        String facingFinal =
+                switch (facing) {
+                    case WEST -> "West";
+                    case EAST -> "East";
+                    case NORTH -> "North";
+                    case SOUTH -> "South";
+                    default -> "???";
+                };
+
+        String coords = "XYZ: " +
+                pos.getX() + ", " +
+                pos.getY() + ", " +
+                pos.getZ() + ", " +
+                "Facing: " + facingFinal;
+        return coords;
+    }
+
+    private static boolean isHoldingCompass(Minecraft client) {
             assert client.player != null;
             return client.player.getMainHandItem().is(Items.COMPASS) || client.player.getOffhandItem().is(Items.COMPASS)
                     || client.player.getMainHandItem().is(Items.FILLED_MAP) || client.player.getOffhandItem().is(Items.FILLED_MAP);

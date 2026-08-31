@@ -1,4 +1,4 @@
-package net.lunarluned;
+package net.lunarluned.mortem;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 
 public class ModLootTables {
 
-    public static void register() {
+    public static void registerLootTableChanges() {
         PlayerBlockBreakEvents.AFTER.register((level, player, pos, state, entity) -> {
 
             if (state.is(Blocks.SHORT_GRASS) || state.is(Blocks.TALL_GRASS)) {

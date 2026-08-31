@@ -4,7 +4,6 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
-import net.lunarluned.ModLootTables;
 import net.lunarluned.mortem.misc.FungalInfectSpreadHandler;
 import net.lunarluned.mortem.potion.ModPotions;
 import net.minecraft.core.BlockPos;
@@ -19,6 +18,7 @@ import net.minecraft.world.level.block.CropBlock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static net.lunarluned.mortem.ModLootTables.registerLootTableChanges;
 import static net.lunarluned.mortem.MortemCreativeModeTab.registerCreativeTabs;
 import static net.lunarluned.mortem.block.ModBlocks.registerModBlocks;
 import static net.lunarluned.mortem.effect.ModEffects.registerEffects;
@@ -51,7 +51,7 @@ public class Mortem implements ModInitializer {
 		registerCompostables();
 		registerRepairMaterials();
 		FungalInfectSpreadHandler.init();
-		ModLootTables.register();
+		registerLootTableChanges();
 
 		registerEnchantmentEffects();
 
