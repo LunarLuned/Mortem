@@ -47,6 +47,8 @@
     "entities.hostile.CreakingMixin",
     "entities.hostile.CreeperMixin",
     "entities.hostile.EndermanMixin",
+    "entities.hostile.LivingEntityAngerMixin",
+    "entities.hostile.MobNeutralMixin",
     "entities.hostile.SkeletonConversionMixin",
     "entities.hostile.SkeletonMixin",
     "entities.hostile.SlimeMixin",
