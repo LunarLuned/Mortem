@@ -23,7 +23,7 @@ public class MortemCreativeModeTab {
 
         // Natural Blocks Tab
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
-            entries.insertBefore(Blocks.IRON_ORE, ModBlocks.HARDENED_IRON_ORE, ModBlocks.HARDENED_DEEPSLATE_IRON_ORE);
+            entries.insertBefore(Blocks.IRON_ORE, ModBlocks.HARDENED_IRON_ORE, ModBlocks.HARDENED_DEEPSLATE_IRON_ORE, ModBlocks.BLACKSTONE_IRON_ORE);
         });
 
         // Redstone Blocks Tab
