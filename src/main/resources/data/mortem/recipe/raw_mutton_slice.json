@@ -1,10 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
+    "minecraft:mutton",
+    "minecraft:mutton",
+    "minecraft:mutton",
     "minecraft:mutton"
   ],
   "result": {
     "id": "mortem:raw_mutton_slice",
-    "count": 4
+    "count": 8
   }
 }

@@ -1,10 +1,14 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
+    "minecraft:porkchop",
+    "minecraft:porkchop",
+    "minecraft:porkchop",
     "minecraft:porkchop"
+
   ],
   "result": {
     "id": "mortem:raw_bacon",
-    "count": 4
+    "count": 8
   }
 }
