@@ -29,7 +29,7 @@ public abstract class PiglinBruteMixin extends Mob {
         AttributeSupplier.Builder builder = cir.getReturnValue();
 
 
-        builder.add(Attributes.ATTACK_DAMAGE, 2);
+        builder.add(Attributes.ATTACK_DAMAGE, 1);
 
         cir.setReturnValue(builder);
     }
