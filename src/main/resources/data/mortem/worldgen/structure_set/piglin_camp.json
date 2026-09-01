@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "mortem:piglin_camp",
+      "weight": 2
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 64,
+    "separation": 24,
+    "salt": 229422353
+  }
+}
