@@ -50,6 +50,7 @@
     "entities.hostile.LivingEntityAngerMixin",
     "entities.hostile.MobNeutralMixin",
     "entities.hostile.PiglinAiMixin",
+    "entities.hostile.PiglinBruteMixin",
     "entities.hostile.SkeletonConversionMixin",
     "entities.hostile.SkeletonMixin",
     "entities.hostile.SlimeMixin",
