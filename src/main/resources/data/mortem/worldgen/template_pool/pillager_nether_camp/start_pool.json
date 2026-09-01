@@ -1,12 +1,12 @@
 {
-  "name": "mortem:pillager_nether_outpost/start_pool",
+  "name": "mortem:pillager_nether_camp/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "mortem:pillager_nether_outpost",
+        "location": "mortem:pillager_nether_camp",
         "processors": "minecraft:empty",
         "projection": "rigid"
       }
