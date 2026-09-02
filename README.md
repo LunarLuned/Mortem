@@ -18,7 +18,9 @@ Something that really means a lot to me as both a player and a modder is how mod
 Way too many things for me to put here. You can read the entire changelog of the entire mod (so far) [here](https://github.com/LunarLuned/Mortem/wiki/Changelog), but to include a few of my favorite changes:
 * Each hostile nightly mob has had lots of changes to make each one have their own new twist
 * So many items from the past getting their own new uses, even as simple as crafting recipes
-  * Such as Resin being able to repair all metal items, similar to how Amber was used to repair many valuable ceramics in the past.
+  * Such as Charcoal being able to be used to create gunpowder with sand or potent sulfur
+  * Such as Campfires being much more useful early game, being your saving grace when your natural healing is lacking without many high saturation foods, or high-producing charcoal.
+  * Such as Resin being able to repair all metal items, similar to how amber was used to repair many valuable ceramics in the past.
 * The gameplay systems that be have been overhauled to be more challenging while not being brainshatteringly exhausting (regeneration, material progression, etc)
 * Many generally 'stupid' systems have been reworked or changed entirely (Anvils and how EXP work, certain enchantments and how they were just kind of bandaid fixes, Milk)
   * Mending for example, is an enchantment solely needed because anvils make items cost too much after repairing too many times, and durability is unforgiving. Enchanted items for example NOLONGER BREAK, but instead become unusable at around 3 durability, allowing you to go repair them at the NEW AND IMPROVED ANVIL that doesnt have XP scaling; meaning repairing a diamond helmet is as good as 3 diamonds and 3 levels, always.
