@@ -6,6 +6,7 @@
     "DamageSourceMixin",
     "blocks.AnvilMenuMixin",
     "blocks.AnvilMixin",
+    "blocks.BedBlockMixin",
     "blocks.BlockExplosionResistanceMixin",
     "blocks.CactusBlockMixin",
     "blocks.CakeSliceMixin",

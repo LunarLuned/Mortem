@@ -1,6 +1,8 @@
 {
   "itemgroup.mortem.mortem": "Mortem",
 
+  "mortem.gameplay.cannot_rest": "The air is too still for comfort",
+
   "advancements.adventure.trial_by_fire.title": "Trial by Fire",
   "advancements.adventure.trial_by_fire.description": "Cure your zombification by burning yourself with a campfire.",
 
