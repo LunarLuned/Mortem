@@ -21,6 +21,7 @@ public class ModItemGroups {
                         entries.accept(ModBlocks.HARDENED_DEEPSLATE_IRON_ORE);
                         entries.accept(ModBlocks.BLACKSTONE_IRON_ORE);
                         entries.accept(ModBlocks.REINFORCED_MAGMA);
+                        entries.accept(ModBlocks.SIFTING_TABLE);
                         entries.accept(ModItems.DRUG);
                         entries.accept(ModItems.RESIN_CANDY);
 

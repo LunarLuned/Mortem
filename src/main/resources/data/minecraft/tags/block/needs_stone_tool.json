@@ -3,6 +3,7 @@
   "values": [
     "mortem:hardened_iron_ore",
     "mortem:reinforced_magma",
-    "mortem:blackstone_iron_ore"
+    "mortem:blackstone_iron_ore",
+    "mortem:sifting_table"
   ]
 }

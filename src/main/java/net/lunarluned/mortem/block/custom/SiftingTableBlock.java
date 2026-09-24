@@ -23,7 +23,7 @@ public class SiftingTableBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
-    public MapCodec<SiftingTableBlock> codec() {
+    public @NonNull MapCodec<SiftingTableBlock> codec() {
         return CODEC;
     }
 

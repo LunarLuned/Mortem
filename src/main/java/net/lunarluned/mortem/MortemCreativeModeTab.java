@@ -19,6 +19,7 @@ public class MortemCreativeModeTab {
         // Functional Blocks Tab
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
             entries.insertAfter(Blocks.MAGMA_BLOCK, ModBlocks.REINFORCED_MAGMA);
+            entries.insertBefore(Blocks.COMPOSTER, ModBlocks.SIFTING_TABLE);
         });
 
         // Natural Blocks Tab
