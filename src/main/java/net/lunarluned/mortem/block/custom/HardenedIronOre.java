@@ -1,5 +1,6 @@
 package net.lunarluned.mortem.block.custom;
 
+import net.lunarluned.mortem.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -30,6 +31,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 
+import static net.lunarluned.mortem.Mortem.IS_ENIGMA_INSTALLED;
 import static net.lunarluned.mortem.block.ModBlocks.BLACKSTONE_IRON_ORE;
 import static net.lunarluned.mortem.block.ModBlocks.HARDENED_DEEPSLATE_IRON_ORE;
 import static net.lunarluned.mortem.misc.EnchantmentHolderHelper.resolveHolder;
@@ -58,7 +60,9 @@ public class HardenedIronOre extends Block {
             if (miningLevel < 130) {
                 return Collections.emptyList();
             } else if (miningLevel == 190) {
-                return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 3, 6)));
+                if (IS_ENIGMA_INSTALLED) {
+                    return Collections.singletonList(new ItemStack(ModItems.RAW_IRON_CHUNK, Mth.nextInt(RandomSource.create(), 3, 6)));
+                } else return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 3, 6)));
             }
             else if (miningLevel > 200) {
                 if (EnchantmentHelper.getItemEnchantmentLevel(holder, tool) > 0) {
@@ -67,7 +71,9 @@ public class HardenedIronOre extends Block {
                     return Collections.singletonList(new ItemStack(Items.RAW_IRON, Mth.nextInt(RandomSource.create(), 1, 6)));
                 } else return Collections.singletonList(new ItemStack(Items.RAW_IRON, 1));
             } else {
-                return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 1, 2)));
+                if (IS_ENIGMA_INSTALLED) {
+                    return Collections.singletonList(new ItemStack(ModItems.RAW_IRON_CHUNK, Mth.nextInt(RandomSource.create(), 1, 3)));
+                } else return Collections.singletonList(new ItemStack(Items.IRON_NUGGET, Mth.nextInt(RandomSource.create(), 1, 3)));
             }
         }
 

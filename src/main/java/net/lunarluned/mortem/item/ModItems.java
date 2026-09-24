@@ -105,6 +105,11 @@ public class ModItems {
             new Item(new Item.Properties().food(ModFoods.SHREDDED_FLESH, ModConsumables.SHREDDED_FLESH)
                     .stacksTo(99).useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:shredded_flesh")))));
 
+    public static final Item RAW_IRON_CHUNK = registerItem("raw_iron_chunk",
+            new Item(new Item.Properties()
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:raw_iron_chunk")))));
+
+
     public static final Item BEEF_JERKY = registerItem("beef_jerky",
             new Item(new Item.Properties().food(ModFoods.BEEF_JERKY, ModConsumables.BEEF_JERKY)
                     .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:beef_jerky")))));
