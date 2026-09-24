@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
+import net.fabricmc.loader.api.FabricLoader;
 import net.lunarluned.mortem.misc.FungalInfectSpreadHandler;
 import net.lunarluned.mortem.potion.ModPotions;
 import net.minecraft.core.BlockPos;
@@ -32,6 +33,8 @@ import static net.lunarluned.mortem.sounds.MortemSoundEvents.registerSounds;
 
 public class Mortem implements ModInitializer {
 	public static final String MOD_ID = "mortem";
+
+	public static final Boolean IS_ENIGMA_INSTALLED = FabricLoader.getInstance().isModLoaded("moenigma");
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -101,6 +104,10 @@ public class Mortem implements ModInitializer {
 		});
 
 		LOGGER.info("Post Mortem.");
+
+		if (IS_ENIGMA_INSTALLED) {
+			System.out.println("Mortem: Enigma detected! Have fun :)");
+		}
 	}
 
 }
