@@ -32,12 +32,21 @@ public class NetherWartPitFeature extends Feature<NoneFeatureConfiguration> {
 
         BlockPos ground = pos.below();
         int r = 2 + random.nextInt(2);
-        int depth = 2 + random.nextInt(5);
+        int depth = 3 + random.nextInt(5);
         int floorY = ground.getY() - depth;
 
         float inner = r + 0.5f;
         float outer = r + 5.5f;
         int bound = r + 1;
+        int size = bound * 2 + 1;
+        int[][] floorAt = new int[size][size];
+        for (int dx = -bound; dx <= bound; dx++)
+            for (int dz = -bound; dz <= bound; dz++) {
+                float t = (float) Math.sqrt(dx * dx + dz * dz) / inner;
+                int raise = Math.round(t * t * (depth - 1));
+                if (random.nextFloat() < 0.25f) raise++;
+                floorAt[dx + bound][dz + bound] = floorY + Math.min(raise, depth - 1);
+            }
 
         for (int dx = -bound; dx <= bound; dx++)
             for (int dz = -bound; dz <= bound; dz++) {
