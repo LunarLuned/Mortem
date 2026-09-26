@@ -30,6 +30,7 @@ import static net.lunarluned.mortem.item.ModRepairMaterials.registerRepairMateri
 import static net.lunarluned.mortem.misc.ModCompostables.registerCompostables;
 import static net.lunarluned.mortem.potion.ModPotions.registerPotions;
 import static net.lunarluned.mortem.sounds.MortemSoundEvents.registerSounds;
+import static net.lunarluned.mortem.world.MortemFeatures.registerFeatures;
 
 public class Mortem implements ModInitializer {
 	public static final String MOD_ID = "mortem";
@@ -49,6 +50,7 @@ public class Mortem implements ModInitializer {
 		registerItemGroups();
 		registerEffects();
 		registerCreativeTabs();
+		registerFeatures();
 		registerPotions();
 		registerSounds();
 		registerCompostables();

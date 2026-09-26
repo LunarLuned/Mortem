@@ -75,6 +75,7 @@ private void onTick(CallbackInfo ci) {
 
     static {
         SAW_TABLE_RECIPES.put(Items.ROTTEN_FLESH, new RecycleResult(ModItems.SHREDDED_FLESH, 2));
+        SAW_TABLE_RECIPES.put(Items.NETHER_WART_BLOCK, new RecycleResult(Items.NETHER_WART, 7));
 
         // Log items
         SAW_TABLE_RECIPES.put(Items.OAK_LOG, new RecycleResult(Blocks.OAK_PLANKS.asItem(), 4));
