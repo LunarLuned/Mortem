@@ -4,6 +4,7 @@ import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.item.custom.BeetrootBrothItem;
 import net.lunarluned.mortem.item.custom.ElixirItem;
 import net.lunarluned.mortem.item.custom.MortemFishingRodItem;
+import net.lunarluned.mortem.item.custom.WartStewItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -205,6 +206,15 @@ public class ModItems {
     public static final Item SCRAMBLED_EGGS_TUSK = registerItem("scrambled_eggs_tusk",
             new Item(new Item.Properties().usingConvertsTo(HOGLIN_TUSK).food(ModFoods.SCRAMBLED_EGGS_TUSK, ModConsumables.SCRAMBLED_EGGS_TUSK)
                     .useItemDescriptionPrefix().stacksTo(16).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:scrambled_eggs_tusk")))));
+
+    public static final Item WART_STEW = registerItem("wart_stew",
+            new WartStewItem(new Item.Properties().usingConvertsTo(Items.BOWL).food(ModFoods.WART_STEW, ModConsumables.WART_STEW)
+                    .useItemDescriptionPrefix().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:wart_stew")))));
+
+    public static final Item WART_TUSK = registerItem("wart_tusk",
+            new WartStewItem(new Item.Properties().usingConvertsTo(HOGLIN_TUSK).food(ModFoods.WART_STEW, ModConsumables.WART_STEW)
+                    .useItemDescriptionPrefix().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:wart_tusk")))));
+
 
     public static final Item SWEET_POTATO = registerItem("sweet_potato",
             new Item(new Item.Properties().food(ModFoods.SWEET_POTATO, ModConsumables.SWEET_POTATO)

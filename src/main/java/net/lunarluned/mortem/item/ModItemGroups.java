@@ -85,11 +85,13 @@ public class ModItemGroups {
                         entries.accept(ModItems.MUSHROOM_SPREAD_TOAST);
                         entries.accept(ModItems.PORK_SPREAD_TOAST);
 
+                        entries.accept(ModItems.WART_STEW);
                         entries.accept(ModItems.CRIMSON_STEW);
                         entries.accept(ModItems.WARPED_STEW);
                         entries.accept(ModItems.FUNGAL_STEW);
                         entries.accept(ModItems.MUSHROOM_STEW_TUSK);
                         entries.accept(ModItems.SCRAMBLED_EGGS_TUSK);
+                        entries.accept(ModItems.WART_TUSK);
 
                         entries.accept(ModItems.POISON_ELIXIR);
                         entries.accept(ModItems.ENHANCED_POISON_ELIXIR);

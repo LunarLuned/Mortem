@@ -1,5 +1,6 @@
 package net.lunarluned.mortem.item;
 
+import net.lunarluned.mortem.effect.ModEffects;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -45,6 +46,8 @@ public class ModConsumables {
     public static final Consumable FUNGAL_BEETROOT_SOUP;
     public static final Consumable PITCHER_BEETROOT_SOUP;
     public static final Consumable GORMET_BEETROOT_SOUP;
+
+    public static final Consumable WART_STEW;
 
     public static final Consumable CRIMSON_STEW;
     public static final Consumable WARPED_STEW;
@@ -137,6 +140,7 @@ public class ModConsumables {
         GORMET_BEETROOT_SOUP = defaultFood().consumeSeconds(1.25F).build();
 
         CRIMSON_STEW = defaultDrink().consumeSeconds(1.55F).build();
+        WART_STEW = defaultDrink().consumeSeconds(3.5F).build();
         WARPED_STEW = defaultDrink().consumeSeconds(1.55F).build();
         FUNGAL_STEW = defaultDrink().consumeSeconds(2.25F).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 140, 0), 0.75F)).build();
         MUSHROOM_STEW_TUSK = defaultDrink().consumeSeconds(1F).build();

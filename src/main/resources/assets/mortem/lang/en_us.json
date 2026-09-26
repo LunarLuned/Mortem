@@ -172,6 +172,12 @@
   "item.mortem.mushroom_spread_toast": "Toast with Mushroom Puree",
   "item.mortem.pork_spread_toast": "Toast with Pork Pâté",
 
+  "item.mortem.wart_stew": "Wart Stew",
+  "item.mortem.wart_stew.desc.applies": "Immune (00:01)",
+
+  "item.mortem.wart_tusk": "Tusk of Wart Stew",
+  "item.mortem.wart_tusk.desc.applies": "Immune (00:01)",
+
   "item.mortem.crimson_stew": "Crimson Stew",
   "item.mortem.warped_stew": "Warped Stew",
   "item.mortem.fungal_stew": "Fungal Stew",

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:charcoal",
+    "minecraft:nether_wart",
+    "mortem:mushroom_stew_tusk"
+  ],
+  "result": {
+    "id": "mortem:wart_tusk"
+  }
+}

@@ -51,7 +51,7 @@ public class MortemCreativeModeTab {
             entries.insertAfter(Items.ROTTEN_FLESH, ModItems.SHREDDED_FLESH, ModItems.BEEF_JERKY);
 
             entries.insertAfter(Items.SPIDER_EYE, ModItems.DRUG);
-            entries.insertBefore(Items.MUSHROOM_STEW, ModItems.CRIMSON_STEW, ModItems.WARPED_STEW, ModItems.FUNGAL_STEW, ModItems.SCRAMBLED_EGGS_TUSK, ModItems.MUSHROOM_STEW_TUSK,
+            entries.insertBefore(Items.MUSHROOM_STEW, ModItems.WART_STEW, ModItems.CRIMSON_STEW, ModItems.WARPED_STEW, ModItems.FUNGAL_STEW, ModItems.SCRAMBLED_EGGS_TUSK, ModItems.WART_TUSK, ModItems.MUSHROOM_STEW_TUSK,
                     ModItems.SALAD, ModItems.CHICKEN_SALAD);
             entries.insertBefore(Items.CARROT, ModItems.COOKED_SEEDS, ModItems.HARD_BOILED_EGG, ModItems.SCRAMBLED_EGGS);
             entries.insertAfter(Items.DRIED_KELP, ModItems.SUSHI_ROLL);

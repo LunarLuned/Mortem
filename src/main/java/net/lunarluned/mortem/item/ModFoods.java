@@ -15,6 +15,8 @@ public class ModFoods {
 
     // Nether Foods
 
+    public static final FoodProperties WART_STEW = (new FoodProperties.Builder().nutrition(3).saturationModifier(.5F).build());
+
     public static final FoodProperties CRIMSON_STEW = (new FoodProperties.Builder().nutrition(4).saturationModifier(.7F).build());
     public static final FoodProperties WARPED_STEW = (new FoodProperties.Builder().nutrition(3).saturationModifier(.8F).build());
     public static final FoodProperties FUNGAL_STEW = (new FoodProperties.Builder().nutrition(6).saturationModifier(.55F).build());
