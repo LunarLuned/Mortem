@@ -1,19 +1,13 @@
 {
-  "variants": {
-    "facing=east": {
-      "model": "mortem:block/sifting_table",
-      "y": 90
-    },
-    "facing=north": {
-      "model": "mortem:block/sifting_table"
-    },
-    "facing=south": {
-      "model": "mortem:block/sifting_table",
-      "y": 180
-    },
-    "facing=west": {
-      "model": "mortem:block/sifting_table",
-      "y": 270
-    }
-  }
+  "multipart": [
+    { "when": { "facing": "north", "water": "0" }, "apply": { "model": "mortem:block/sifting_table" } },
+    { "when": { "facing": "east",  "water": "0" }, "apply": { "model": "mortem:block/sifting_table", "y": 90 } },
+    { "when": { "facing": "south", "water": "0" }, "apply": { "model": "mortem:block/sifting_table", "y": 180 } },
+    { "when": { "facing": "west",  "water": "0" }, "apply": { "model": "mortem:block/sifting_table", "y": 270 } },
+
+    { "when": { "facing": "north", "water": "1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16" }, "apply": { "model": "mortem:block/sifting_table_water" } },
+    { "when": { "facing": "east",  "water": "1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16" }, "apply": { "model": "mortem:block/sifting_table_water", "y": 90 } },
+    { "when": { "facing": "south", "water": "1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16" }, "apply": { "model": "mortem:block/sifting_table_water", "y": 180 } },
+    { "when": { "facing": "west",  "water": "1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16" }, "apply": { "model": "mortem:block/sifting_table_water", "y": 270 } }
+  ]
 }

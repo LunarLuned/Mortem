@@ -1,6 +1,7 @@
 package net.lunarluned.mortem.mixin.entities;
 
 import net.lunarluned.mortem.block.ModBlocks;
+import net.lunarluned.mortem.block.custom.SiftingTableBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
@@ -16,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
@@ -50,7 +52,8 @@ public abstract class SiftingTableMixin {
 
         BlockPos pos = entity.blockPosition();
 
-        if (!level.getBlockState(pos).is(ModBlocks.SIFTING_TABLE)) return;
+        BlockState tableState = level.getBlockState(pos);
+        if (!tableState.is(ModBlocks.SIFTING_TABLE)) return;
 
         // Process once every 10 ticks
         if (entity.tickCount % 10 != 0) return;
@@ -60,6 +63,8 @@ public abstract class SiftingTableMixin {
 
         ResourceKey<LootTable> lootTableId = SIFTING_RECIPES.get(item);
         if (lootTableId == null) return;
+
+        if (tableState.getValue(SiftingTableBlock.WATER) <= 0) return;
 
         ServerLevel serverLevel = (ServerLevel) level;
 
@@ -84,6 +89,8 @@ public abstract class SiftingTableMixin {
 
         // Use only ONE item from the stack . . . no stack using at once oh my god
         stack.shrink(1);
+
+        SiftingTableBlock.consumeWater(level, pos, tableState);
 
         if (stack.isEmpty()) {
             entity.discard();
