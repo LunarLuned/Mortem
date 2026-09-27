@@ -25,6 +25,22 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "wart_stew": {
+      "conditions": {
+        "item": {
+          "items": "mortem:wart_stew"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "wart_tusk": {
+      "conditions": {
+        "item": {
+          "items": "mortem:wart_tusk"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "hard_boiled_egg": {
       "conditions": {
         "item": {
@@ -457,6 +473,12 @@
     ],
     [
       "sweet_potato"
+    ],
+    [
+      "wart_stew"
+    ],
+    [
+      "wart_tusk"
     ],
     [
       "raw_bacon"
