@@ -8,7 +8,7 @@
   "key": {
     "#": "minecraft:cobblestone",
     "I": "minecraft:iron_bars",
-    "u": "minecraft:water_bucket",
+    "u": "minecraft:bucket",
     "O": "#minecraft:planks"
   },
   "result": {
