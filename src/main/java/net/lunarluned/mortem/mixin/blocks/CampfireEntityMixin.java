@@ -1,6 +1,7 @@
 package net.lunarluned.mortem.mixin.blocks;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.MortemTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -37,7 +38,8 @@ public abstract class CampfireEntityMixin extends BlockEntity {
     public CampfireEntityMixin(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
     }
-
+    @Unique private static int BURN_TICKS = 0;
+    @Unique private static final int MAX_BURN_TICKS = 36000;
 
     @Inject(method = "cookTick", at = @At("HEAD"))
     private static void mortem_animateTick(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState, CampfireBlockEntity campfireBlockEntity, RecipeManager.CachedCheck<SingleRecipeInput, CampfireCookingRecipe> cachedCheck, CallbackInfo ci) {
@@ -50,6 +52,16 @@ public abstract class CampfireEntityMixin extends BlockEntity {
                     CampfireBlock.dowse(null, serverLevel, blockPos, blockState);
                     serverLevel.playSound(null, blockPos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
                     serverLevel.setBlock(blockPos, blockState.setValue(CampfireBlock.LIT, false), 3);
+                }
+                if (Mortem.IS_ENIGMA_INSTALLED) {
+                    BURN_TICKS++;
+
+                if (BURN_TICKS >= MAX_BURN_TICKS) {
+                    CampfireBlock.dowse(null, serverLevel, blockPos, blockState);
+                    serverLevel.playSound(null, blockPos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    serverLevel.setBlock(blockPos, blockState.setValue(CampfireBlock.LIT, false), 3);
+                    BURN_TICKS = 0;
+                }
                 }
             }
 
