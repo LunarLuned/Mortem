@@ -166,7 +166,7 @@ public class InfectedEffect extends MobEffect {
 
                 for (ServerPlayer player : serverLevel.getEntitiesOfClass(ServerPlayer.class, area)) {
 
-                    AdvancementHolder advancement = player.server.getAdvancements().get(id);
+                    AdvancementHolder advancement = serverLevel.getServer().getAdvancements().get(id);
                     if (advancement == null) continue;
 
                     AdvancementProgress progress =
