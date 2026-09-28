@@ -65,6 +65,7 @@ public class CampfireBlockMixin {
                 if (!player.isCreative()) {
                     stack.shrink(1);
                 }
+                player.causeFoodExhaustion(2);
                 cir.setReturnValue(InteractionResult.SUCCESS);
             }
         }
@@ -73,14 +74,14 @@ public class CampfireBlockMixin {
     // fuel campfire
     @Inject(method = "useItemOn", at = @At("HEAD"), cancellable = true)
     private void mortem$addFuel(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit, CallbackInfoReturnable<InteractionResult> cir) {
-        if (!Mortem.IS_ENIGMA_INSTALLED || !state.getValue(CampfireBlock.LIT)) return;
-
+        if (!Mortem.IS_ENIGMA_INSTALLED || !state.getValue(CampfireBlock.LIT)) cir.setReturnValue(InteractionResult.FAIL);
         int fuel = mortem$fuelValue(itemStack);
-        if (fuel <= 0) return;
-        if (fuel >= 10000) return;
+
+        if (fuel <= 0) cir.setReturnValue(InteractionResult.FAIL);
 
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof CampfireBlockEntity be) {
             CampfireBurnTracker tracker = (CampfireBurnTracker) be;
+            if (tracker.mortem_getBurnTicks() <= 100) cir.setReturnValue(InteractionResult.FAIL);
             tracker.mortem_setBurnTicks(Math.max(0, tracker.mortem_getBurnTicks() - fuel));
             be.setChanged();
 
@@ -91,6 +92,7 @@ public class CampfireBlockMixin {
             level.playSound(null, pos, SoundEvents.CAMPFIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F);
         }
 
+        player.causeFoodExhaustion(1);
         cir.setReturnValue(InteractionResult.SUCCESS);
     }
 
@@ -98,13 +100,13 @@ public class CampfireBlockMixin {
     private static int mortem$fuelValue(ItemStack stack) {
         if (stack.is(ItemTags.COALS)) return 1000;
         if (stack.is(ItemTags.LOGS_THAT_BURN)) return 600;
-        if (stack.is(ItemTags.PLANKS)) return 400;
-        if (stack.is(Items.STICK)) return 100;
+        if (stack.is(ItemTags.PLANKS)) return 150;
+        if (stack.is(Items.STICK)) return 80;
         return 0;
     }
 
     @Inject(at = @At("RETURN"), method = "getStateForPlacement", cancellable = true)
-    protected void getStateForPlacementProxy(BlockPlaceContext blockPlaceContext, CallbackInfoReturnable<BlockState> cir) {
+    protected void getStateForPlacementProxy(BlockPlaceContext context, CallbackInfoReturnable<BlockState> cir) {
         if (cir.getReturnValue() != null) {
             cir.setReturnValue(cir.getReturnValue()
                     .setValue(CampfireBlock.LIT, false)
@@ -113,11 +115,11 @@ public class CampfireBlockMixin {
     }
 
     @Inject(method = "entityInside", at = @At("TAIL"))
-    private void mortem_setFireEntityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, boolean bl, CallbackInfo ci) {
-        if (blockState.hasProperty(CampfireBlock.LIT) && blockState.getValue(CampfireBlock.LIT) && !(entity instanceof ItemEntity)) {
-            insideBlockEffectApplier.apply(InsideBlockEffectType.CLEAR_FREEZE);
-            insideBlockEffectApplier.apply(InsideBlockEffectType.FIRE_IGNITE);
-            insideBlockEffectApplier.runAfter(InsideBlockEffectType.FIRE_IGNITE, (entityx) -> entityx.hurt(entityx.level().damageSources().inFire(), 1));
+    private void mortem_setFireEntityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean isPrecise, CallbackInfo ci) {
+        if (state.hasProperty(CampfireBlock.LIT) && state.getValue(CampfireBlock.LIT) && !(entity instanceof ItemEntity)) {
+            effectApplier.apply(InsideBlockEffectType.CLEAR_FREEZE);
+            effectApplier.apply(InsideBlockEffectType.FIRE_IGNITE);
+            effectApplier.runAfter(InsideBlockEffectType.FIRE_IGNITE, (entityx) -> entityx.hurt(entityx.level().damageSources().inFire(), 1));
         }
     }
     }
