@@ -74,14 +74,16 @@ public class CampfireBlockMixin {
     // fuel campfire
     @Inject(method = "useItemOn", at = @At("HEAD"), cancellable = true)
     private void mortem$addFuel(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit, CallbackInfoReturnable<InteractionResult> cir) {
-        if (!Mortem.IS_ENIGMA_INSTALLED || !state.getValue(CampfireBlock.LIT)) cir.setReturnValue(InteractionResult.FAIL);
+        if (!Mortem.IS_ENIGMA_INSTALLED || !state.getValue(CampfireBlock.LIT)) return;
         int fuel = mortem$fuelValue(itemStack);
 
-        if (fuel <= 0) cir.setReturnValue(InteractionResult.FAIL);
+        if (fuel <= 0) return;
 
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof CampfireBlockEntity be) {
             CampfireBurnTracker tracker = (CampfireBurnTracker) be;
-            if (tracker.mortem_getBurnTicks() <= 100) cir.setReturnValue(InteractionResult.FAIL);
+            if (tracker.mortem_getBurnTicks() <= 100) {
+                return;
+            }
             tracker.mortem_setBurnTicks(Math.max(0, tracker.mortem_getBurnTicks() - fuel));
             be.setChanged();
 
