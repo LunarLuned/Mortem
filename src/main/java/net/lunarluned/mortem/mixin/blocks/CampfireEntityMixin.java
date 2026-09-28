@@ -3,6 +3,7 @@ package net.lunarluned.mortem.mixin.blocks;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.MortemTags;
+import net.lunarluned.mortem.util.CampfireBurnTracker;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -31,13 +32,21 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CampfireBlockEntity.class)
-public abstract class CampfireEntityMixin extends BlockEntity {
+public abstract class CampfireEntityMixin extends BlockEntity implements CampfireBurnTracker {
 
     public CampfireEntityMixin(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
     }
-    @Unique private int mortem$burnTicks = 0;
-    @Unique private static final int MAX_BURN_TICKS = 36000;
+    @Unique private int mortem_burnTicks = 0;
+    @Unique private static final int MAX_BURN_TICKS = 12000;
+
+    @Override public int mortem_getBurnTicks() {
+        return this.mortem_burnTicks;
+    }
+
+    @Override public void mortem_setBurnTicks(int ticks) {
+        this.mortem_burnTicks = ticks;
+    }
 
     @Inject(method = "cookTick", at = @At("HEAD"))
     private static void mortem_animateTick(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState, CampfireBlockEntity campfireBlockEntity, RecipeManager.CachedCheck<SingleRecipeInput, CampfireCookingRecipe> cachedCheck, CallbackInfo ci) {
@@ -46,21 +55,23 @@ public abstract class CampfireEntityMixin extends BlockEntity {
         // Rain extinguishing campfire
         if (serverLevel.isRainingAt(blockPos.above()) && serverLevel.getRandom().nextInt(100) < 20) {
             mortem$extinguish(serverLevel, blockPos, blockState);
-            self.mortem$burnTicks = 0;
+            assert self != null;
+            self.mortem_burnTicks = 0;
             campfireBlockEntity.setChanged();
             return;
         }
 
         // Burnout over time
         if (Mortem.IS_ENIGMA_INSTALLED) {
-            self.mortem$burnTicks++;
-            if (self.mortem$burnTicks >= MAX_BURN_TICKS) {
+            assert self != null;
+            self.mortem_burnTicks++;
+            if (self.mortem_burnTicks >= MAX_BURN_TICKS) {
                 mortem$extinguish(serverLevel, blockPos, blockState);
-                self.mortem$burnTicks = 0;
+                self.mortem_burnTicks = 0;
                 campfireBlockEntity.setChanged();
                 return;
             }
-            if (self.mortem$burnTicks % 100 == 0) campfireBlockEntity.setChanged();
+            if (self.mortem_burnTicks % 100 == 0) campfireBlockEntity.setChanged();
         }
 
         // Regen for nearby players, once per second
@@ -128,13 +139,13 @@ public abstract class CampfireEntityMixin extends BlockEntity {
     }
 
     @Inject(method = "saveAdditional", at = @At("TAIL"))
-    private void mortem$saveBurnTicks(ValueOutput output, CallbackInfo ci) {
-        output.putInt("mortem_burn_ticks", this.mortem$burnTicks);
+    private void mortem_saveBurnTicks(ValueOutput output, CallbackInfo ci) {
+        output.putInt("mortem_burn_ticks", this.mortem_burnTicks);
     }
 
     @Inject(method = "loadAdditional", at = @At("TAIL"))
-    private void mortem$loadBurnTicks(ValueInput input, CallbackInfo ci) {
-        this.mortem$burnTicks = input.getIntOr("mortem_burn_ticks", 0);
+    private void mortem_loadBurnTicks(ValueInput input, CallbackInfo ci) {
+        this.mortem_burnTicks = input.getIntOr("mortem_burn_ticks", 0);
     }
 
 

@@ -1,9 +1,12 @@
 package net.lunarluned.mortem.mixin.blocks;
 
+import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.MortemTags;
+import net.lunarluned.mortem.util.CampfireBurnTracker;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -16,9 +19,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CampfireBlock;
+import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -26,16 +31,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CampfireBlock.class)
 public class CampfireBlockMixin {
+
+    // light campfire initally
     @Inject(method = "useItemOn", at = @At("HEAD"), cancellable = true)
-    private void mortem_campfireLightFromTorch(ItemStack itemStack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
-        ItemStack stack = player.getItemInHand(interactionHand);
-        if (!blockState.getValue(CampfireBlock.LIT)) {
+    private void mortem_campfireLightFromTorch(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult, CallbackInfoReturnable<InteractionResult> cir) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (!state.getValue(CampfireBlock.LIT)) {
             if (stack.is(MortemTags.TORCHES)) {
                 if (!level.isClientSide()) {
                     // set campfire lit
-                    if (blockState.hasProperty(CampfireBlock.LIT) && !blockState.getValue(CampfireBlock.LIT)) {
-                        level.playSound(null, blockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                        level.setBlock(blockPos, blockState.setValue(CampfireBlock.LIT, true), 3);
+                    if (state.hasProperty(CampfireBlock.LIT) && !state.getValue(CampfireBlock.LIT)) {
+                        level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        level.setBlock(pos, state.setValue(CampfireBlock.LIT, true), 3);
 
                         if (!player.isCreative() && player.getRandom().nextInt(10) >= 5) {
                             stack.shrink(1);
@@ -48,19 +55,52 @@ public class CampfireBlockMixin {
                 if (!level.isClientSide()) {
                     if (player.getRandom().nextInt(6) >= 5) {
                         // set campfire lit
-                        if (blockState.hasProperty(CampfireBlock.LIT) && !blockState.getValue(CampfireBlock.LIT)) {
-                            level.playSound(null, blockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                            level.setBlock(blockPos, blockState.setValue(CampfireBlock.LIT, true), 3);
+                        if (state.hasProperty(CampfireBlock.LIT) && !state.getValue(CampfireBlock.LIT)) {
+                            level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                            level.setBlock(pos, state.setValue(CampfireBlock.LIT, true), 3);
                         }
                     }
                 }
-                level.playSound(null, blockPos, SoundEvents.WOOD_STEP, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.playSound(null, pos, SoundEvents.WOOD_STEP, SoundSource.BLOCKS, 1.0F, 1.0F);
                 if (!player.isCreative()) {
                     stack.shrink(1);
                 }
                 cir.setReturnValue(InteractionResult.SUCCESS);
             }
         }
+    }
+
+    // fuel campfire
+    @Inject(method = "useItemOn", at = @At("HEAD"), cancellable = true)
+    private void mortem$addFuel(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit, CallbackInfoReturnable<InteractionResult> cir) {
+        if (!Mortem.IS_ENIGMA_INSTALLED || !state.getValue(CampfireBlock.LIT)) return;
+
+        int fuel = mortem$fuelValue(itemStack);
+        if (fuel <= 0) return;
+        if (fuel >= 10000) return;
+
+        if (!level.isClientSide() && level.getBlockEntity(pos) instanceof CampfireBlockEntity be) {
+            CampfireBurnTracker tracker = (CampfireBurnTracker) be;
+            tracker.mortem_setBurnTicks(Math.max(0, tracker.mortem_getBurnTicks() - fuel));
+            be.setChanged();
+
+            level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+            if (!player.isCreative()) {
+                itemStack.consume(1, player);
+            }
+            level.playSound(null, pos, SoundEvents.CAMPFIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F);
+        }
+
+        cir.setReturnValue(InteractionResult.SUCCESS);
+    }
+
+    @Unique
+    private static int mortem$fuelValue(ItemStack stack) {
+        if (stack.is(ItemTags.COALS)) return 1000;
+        if (stack.is(ItemTags.LOGS_THAT_BURN)) return 600;
+        if (stack.is(ItemTags.PLANKS)) return 400;
+        if (stack.is(Items.STICK)) return 100;
+        return 0;
     }
 
     @Inject(at = @At("RETURN"), method = "getStateForPlacement", cancellable = true)
