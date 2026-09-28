@@ -1,5 +1,7 @@
 package net.lunarluned.mortem.mixin.items;
 
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -22,7 +24,7 @@ public abstract class FoodCancelMixin extends LivingEntity {
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void mortem_tick(CallbackInfo ci) {
-        if (this.hurtTime > 0 && this.isUsingItem() && !this.isOnFire()) {
+        if (this.hurtTime > 0 && this.isUsingItem() && !this.isOnFire() && !this.hasEffect(MobEffects.WITHER) && !this.hasEffect(MobEffects.POISON)) {
             if (this.getUseItem().getItem() != Items.SHIELD) {
                 this.stopUsingItem();
                 this.getCooldowns().addCooldown(this.getUseItem(), 20);
