@@ -36,7 +36,7 @@ public class SiftingTableBlock extends Block {
     public static final EnumProperty<Direction> FACING;
     public static final MapCodec<SiftingTableBlock> CODEC = simpleCodec(SiftingTableBlock::new);
     public static final IntegerProperty WATER = IntegerProperty.create("water", 0, 16);
-    public static final int MAX_WATER = 0;
+    public static final int MAX_WATER = 16;
 
     public SiftingTableBlock(Properties properties) {
         super(properties);
