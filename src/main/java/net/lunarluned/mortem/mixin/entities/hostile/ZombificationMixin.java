@@ -10,6 +10,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.zombie.Zombie;
+import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
 import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
@@ -32,6 +33,18 @@ public class ZombificationMixin {
             if (player.getHealth() >= player.getMaxHealth()) return;
             if (randomValue < effectiveInfectChance) {
                 if (self.hasEffect(MobEffects.WEAKNESS)) return;
+                if (self instanceof ZombifiedPiglin) {
+                    if (!player.hasEffect(ModEffects.FUNGALLY_INFECTED) && !player.isBlocking() && self.isWithinMeleeAttackRange(player)) {
+                        if (player.hasEffect(ModEffects.IMMUNE)) {
+                            player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.HOSTILE, 1.0F, 3);
+                        } else {
+                            if (!player.level().isClientSide()) {
+                                player.addEffect(new MobEffectInstance(ModEffects.FUNGALLY_INFECTED, 18000, 0));
+                            }
+                        }
+                    }
+                    return;
+                }
                 if (!player.hasEffect(ModEffects.INFECTED) && !player.isBlocking() && self.isWithinMeleeAttackRange(player)) {
                     if (player.hasEffect(ModEffects.IMMUNE)) {
                         player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.HOSTILE, 1.0F, 3);
