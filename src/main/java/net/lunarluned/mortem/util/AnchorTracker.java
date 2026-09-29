@@ -19,7 +19,6 @@ public final class AnchorTracker {
     }
 
     public static boolean isProtected(Level level, Vec3 at) {
-        if (level.dimension() != Level.NETHER) return false;
         Set<BlockPos> set = ANCHORS.get(level.dimension());
         if (set == null) return false;
         Iterator<BlockPos> it = set.iterator();
