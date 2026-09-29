@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:husbandry/breed_an_animal/all_hams",
+  "criteria": {
+    "has_hammed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mortem:hammed_jam"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.hammed_jam.description"
+    },
+    "frame": "task",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:porkchop"
+    },
+    "title": {
+      "translate": "advancements.hammed_jam.title"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "has_hammed"
+    ]
+  ],
+  "rewards": {
+    "experience": 250,
+    "loot": []
+  },
+  "sends_telemetry_event": true
+}

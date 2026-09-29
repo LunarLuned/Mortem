@@ -65,6 +65,7 @@ public class ModConsumables {
     public static final Consumable BREAKFAST_SANDWICH;
     public static final Consumable BURGER;
     public static final Consumable BACON_BURGER;
+    public static final Consumable HAMMED_JAM;
     public static final Consumable TOAST;
     public static final Consumable TOASTED_BREAD;
 
@@ -156,6 +157,7 @@ public class ModConsumables {
         BREAKFAST_SANDWICH = defaultFood().consumeSeconds(1.95F).build();
         BURGER = defaultFood().consumeSeconds(2.35F).build();
         BACON_BURGER = defaultFood().consumeSeconds(2.45F).build();
+        HAMMED_JAM = defaultFood().consumeSeconds(5F).build();
         TOAST = defaultFood().consumeSeconds(0.55f).build();
         TOASTED_BREAD = defaultFood().consumeSeconds(1.0F).build();
 

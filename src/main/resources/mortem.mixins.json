@@ -91,7 +91,8 @@
     "items.InfinityReworkMixin",
     "items.PotionStackSizeMixin",
     "items.ResinRepairItemStackMixin",
-    "items.ToolMaterialMixin"
+    "items.ToolMaterialMixin",
+    "stupid.ConsumableMixin"
   ],
   "injectors": {
     "defaultRequire": 1

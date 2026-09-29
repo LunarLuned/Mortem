@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#S#",
+    "OCO",
+    "#S#"
+  ],
+  "key": {
+    "#": "mortem:pork_pate",
+    "S": "mortem:pork_spread_toast",
+    "O": "mortem:cooked_bacon",
+    "C": "minecraft:cooked_porkchop"
+  },
+  "result": {
+    "id": "mortem:hammed_jam"
+  }
+}

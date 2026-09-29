@@ -85,6 +85,8 @@ public class ModItemGroups {
                         entries.accept(ModItems.MUSHROOM_SPREAD_TOAST);
                         entries.accept(ModItems.PORK_SPREAD_TOAST);
 
+                        entries.accept(ModItems.HAMMED_JAM);
+
                         entries.accept(ModItems.WART_STEW);
                         entries.accept(ModItems.CRIMSON_STEW);
                         entries.accept(ModItems.WARPED_STEW);

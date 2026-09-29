@@ -135,6 +135,11 @@ public class ModItems {
             new Item(new Item.Properties().food(ModFoods.CHICKEN_SALAD, ModConsumables.CHICKEN_SALAD)
                     .useItemDescriptionPrefix().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:chicken_salad")))));
 
+    public static final Item HAMMED_JAM = registerItem("hammed_jam",
+            new Item(new Item.Properties().food(ModFoods.HAMMED_JAM, ModConsumables.HAMMED_JAM)
+                    .useItemDescriptionPrefix().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:hammed_jam")))));
+
+
     public static final Item BAKED_APPLE = registerItem("baked_apple",
             new Item(new Item.Properties().food(ModFoods.BAKED_APPLE, ModConsumables.BAKED_APPLE)
                     .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:baked_apple")))));

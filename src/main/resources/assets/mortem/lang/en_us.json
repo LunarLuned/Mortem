@@ -21,6 +21,9 @@
   "advancements.all_hams.title": "That's My Ham..!",
   "advancements.all_hams.description": "Obtain all porks...?",
 
+  "advancements.hammed_jam.title": "And Welcome to the Ham",
+  "advancements.hammed_jam.description": "Obtain the best food in the game.",
+
   "advancements.husbandry.all_mortem_foods.title": "A Farmer's Delight",
   "advancements.husbandry.all_mortem_foods.description": "What more could a farmer want? Eat all foods in Mortem.",
 
@@ -131,6 +134,8 @@
 
   "item.mortem.drug": "Drug",
   "item.mortem.resin_candy": "Resin Candy",
+
+  "item.mortem.hammed_jam": "The Hammed Jam",
 
   "item.mortem.cooked_seeds": "Cooked Seeds",
   "item.mortem.raw_pumpkin_guts": "Raw Pumpkin Guts",
