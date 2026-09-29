@@ -75,7 +75,13 @@ private void onTick(CallbackInfo ci) {
 
     static {
         SAW_TABLE_RECIPES.put(Items.ROTTEN_FLESH, new RecycleResult(ModItems.SHREDDED_FLESH, 2));
-        SAW_TABLE_RECIPES.put(Items.NETHER_WART_BLOCK, new RecycleResult(Items.NETHER_WART, 7));
+        SAW_TABLE_RECIPES.put(Items.BEEF, new RecycleResult(ModItems.BEEF_PATTY, 2));
+        SAW_TABLE_RECIPES.put(Items.PORKCHOP, new RecycleResult(ModItems.RAW_BACON, 3));
+        SAW_TABLE_RECIPES.put(Items.MUTTON, new RecycleResult(ModItems.RAW_MUTTON_SLICE, 2));
+        SAW_TABLE_RECIPES.put(Items.CHICKEN, new RecycleResult(ModItems.RAW_CHICKEN_NUGGET, 4));
+        SAW_TABLE_RECIPES.put(Items.POTATO, new RecycleResult(ModItems.POTATO_WEDGE, 4));
+
+        SAW_TABLE_RECIPES.put(Items.NETHER_WART_BLOCK, new RecycleResult(Items.NETHER_WART, 3));
 
         // Log items
         SAW_TABLE_RECIPES.put(Items.OAK_LOG, new RecycleResult(Blocks.OAK_PLANKS.asItem(), 4));
