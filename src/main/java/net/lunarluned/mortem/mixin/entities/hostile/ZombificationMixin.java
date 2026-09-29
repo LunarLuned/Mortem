@@ -29,6 +29,7 @@ public class ZombificationMixin {
         if (entity instanceof Player player) {
             int randomValue = Mth.nextInt(RandomSource.create(), 1, 10);
             int effectiveInfectChance = getInfectChance(player);
+            if (player.getHealth() >= player.getMaxHealth()) return;
             if (randomValue < effectiveInfectChance) {
                 if (self.hasEffect(MobEffects.WEAKNESS)) return;
                 if (!player.hasEffect(ModEffects.INFECTED) && !player.isBlocking() && self.isWithinMeleeAttackRange(player)) {
