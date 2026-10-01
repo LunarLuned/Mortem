@@ -1,6 +1,126 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "mortem:item/cactus_spread_toast"
-  }
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "mortem:item/cactus_spread_toast"
+	},
+	"elements": [
+		{
+			"name": "apple_spread_toast",
+			"from": [4, 0, 8],
+			"to": [12, 12, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -1, 8]},
+			"faces": {
+				"north": {"uv": [12, 3, 4, 15], "texture": "#1"},
+				"east": {"uv": [11, 3, 12, 15], "texture": "#1"},
+				"south": {"uv": [4, 3, 12, 15], "texture": "#1"},
+				"west": {"uv": [4, 3, 5, 15], "texture": "#1"},
+				"up": {"uv": [4, 3, 12, 4], "texture": "#1"},
+				"down": {"uv": [4, 14, 12, 15], "texture": "#1"}
+			}
+		},
+		{
+			"name": "apple_spread_toast",
+			"from": [3, 0, 8],
+			"to": [4, 11, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -1, 8]},
+			"faces": {
+				"north": {"uv": [4, 4, 3, 15], "texture": "#1"},
+				"east": {"uv": [3, 4, 4, 15], "texture": "#1"},
+				"south": {"uv": [3, 4, 4, 15], "texture": "#1"},
+				"west": {"uv": [3, 4, 4, 15], "texture": "#1"},
+				"up": {"uv": [3, 4, 4, 5], "texture": "#1"},
+				"down": {"uv": [3, 14, 4, 15], "texture": "#1"}
+			}
+		},
+		{
+			"name": "apple_spread_toast",
+			"from": [12, 0, 8],
+			"to": [13, 11, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -1, 8]},
+			"faces": {
+				"north": {"uv": [13, 4, 12, 15], "texture": "#1"},
+				"east": {"uv": [12, 4, 13, 15], "texture": "#1"},
+				"south": {"uv": [12, 4, 13, 15], "texture": "#1"},
+				"west": {"uv": [12, 4, 13, 15], "texture": "#1"},
+				"up": {"uv": [12, 4, 13, 5], "texture": "#1"},
+				"down": {"uv": [12, 14, 13, 15], "texture": "#1"}
+			}
+		},
+		{
+			"name": "apple_spread_toast",
+			"from": [2, 6, 8],
+			"to": [3, 10, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -1, 8]},
+			"faces": {
+				"north": {"uv": [3, 5, 2, 9], "texture": "#1"},
+				"east": {"uv": [2, 5, 3, 9], "texture": "#1"},
+				"south": {"uv": [2, 5, 3, 9], "texture": "#1"},
+				"west": {"uv": [2, 5, 3, 9], "texture": "#1"},
+				"up": {"uv": [2, 5, 3, 6], "texture": "#1"},
+				"down": {"uv": [2, 8, 3, 9], "texture": "#1"}
+			}
+		},
+		{
+			"name": "apple_spread_toast",
+			"from": [13, 6, 8],
+			"to": [14, 10, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -1, 8]},
+			"faces": {
+				"north": {"uv": [14, 5, 13, 9], "texture": "#1"},
+				"east": {"uv": [13, 5, 14, 9], "texture": "#1"},
+				"south": {"uv": [13, 5, 14, 9], "texture": "#1"},
+				"west": {"uv": [13, 5, 14, 9], "texture": "#1"},
+				"up": {"uv": [13, 5, 14, 6], "texture": "#1"},
+				"down": {"uv": [13, 8, 14, 9], "texture": "#1"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 3, 1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 3, 1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -46.5, 0],
+			"translation": [0, 3, 1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -46.5, 0],
+			"translation": [0, 3, 1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"ground": {
+			"translation": [0, 2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"translation": [0, 1.75, 0]
+		},
+		"head": {
+			"rotation": [69, 0, 0],
+			"translation": [0, -3.75, -8.25]
+		},
+		"fixed": {
+			"rotation": [0, -180, 0]
+		},
+		"on_shelf": {
+			"rotation": [0, -180, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "apple_spread_toast",
+			"origin": [8, 8, 8],
+			"scope": 0,
+			"color": 0,
+			"children": [0, 1, 2, 3, 4]
+		}
+	]
 }

@@ -11,9 +11,15 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.equipment.Equippable;
 
 public class ModItems {
 
@@ -137,7 +143,11 @@ public class ModItems {
 
     public static final Item HAMMED_JAM = registerItem("hammed_jam",
             new Item(new Item.Properties().food(ModFoods.HAMMED_JAM, ModConsumables.HAMMED_JAM)
-                    .useItemDescriptionPrefix().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:hammed_jam")))));
+                    .useItemDescriptionPrefix().stacksTo(1).equippable(EquipmentSlot.HEAD).attributes(ItemAttributeModifiers.builder()
+                            .add(Attributes.ARMOR,
+                                    new AttributeModifier(Identifier.fromNamespaceAndPath("mortem", "hammed_armor"),
+                                            0.5, AttributeModifier.Operation.ADD_VALUE),
+                                    EquipmentSlotGroup.HEAD).build()).durability(1).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:hammed_jam")))));
 
 
     public static final Item BAKED_APPLE = registerItem("baked_apple",
@@ -256,7 +266,7 @@ public class ModItems {
 
     public static final Item TOAST = registerItem("toast",
             new Item(new Item.Properties().food(ModFoods.TOAST, ModConsumables.TOAST)
-                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:toast")))));
+                    .useItemDescriptionPrefix().equippable(EquipmentSlot.HEAD).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:toast")))));
 
     public static final Item TOASTED_BREAD = registerItem("toasted_bread",
             new Item(new Item.Properties().food(ModFoods.TOASTED_BREAD, ModConsumables.TOASTED_BREAD)
@@ -290,27 +300,27 @@ public class ModItems {
 
     public static final Item BERRY_SPREAD_TOAST = registerItem("berry_spread_toast",
             new Item(new Item.Properties().food(ModFoods.BERRY_SPREAD_TOAST, ModConsumables.BERRY_SPREAD_TOAST)
-                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:berry_spread_toast")))));
+                    .useItemDescriptionPrefix().stacksTo(8).equippable(EquipmentSlot.HEAD).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:berry_spread_toast")))));
 
     public static final Item APPLE_SPREAD_TOAST = registerItem("apple_spread_toast",
             new Item(new Item.Properties().food(ModFoods.APPLE_SPREAD_TOAST, ModConsumables.APPLE_SPREAD_TOAST)
-                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:apple_spread_toast")))));
+                    .useItemDescriptionPrefix().stacksTo(8).equippable(EquipmentSlot.HEAD).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:apple_spread_toast")))));
 
     public static final Item CACTUS_SPREAD_TOAST = registerItem("cactus_spread_toast",
             new Item(new Item.Properties().food(ModFoods.CACTUS_SPREAD_TOAST, ModConsumables.CACTUS_SPREAD_TOAST)
-                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:cactus_spread_toast")))));
+                    .useItemDescriptionPrefix().stacksTo(8).equippable(EquipmentSlot.HEAD).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:cactus_spread_toast")))));
 
     public static final Item COCOA_SPREAD_TOAST = registerItem("cocoa_spread_toast",
             new Item(new Item.Properties().food(ModFoods.COCOA_SPREAD_TOAST, ModConsumables.COCOA_SPREAD_TOAST)
-                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:cocoa_spread_toast")))));
+                    .useItemDescriptionPrefix().stacksTo(8).equippable(EquipmentSlot.HEAD).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:cocoa_spread_toast")))));
 
     public static final Item MUSHROOM_SPREAD_TOAST = registerItem("mushroom_spread_toast",
             new Item(new Item.Properties().food(ModFoods.MUSHROOM_SPREAD_TOAST, ModConsumables.MUSHROOM_SPREAD_TOAST)
-                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:mushroom_spread_toast")))));
+                    .useItemDescriptionPrefix().stacksTo(8).equippable(EquipmentSlot.HEAD).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:mushroom_spread_toast")))));
 
     public static final Item PORK_SPREAD_TOAST = registerItem("pork_spread_toast",
             new Item(new Item.Properties().food(ModFoods.PORK_SPREAD_TOAST, ModConsumables.PORK_SPREAD_TOAST)
-                    .useItemDescriptionPrefix().stacksTo(8).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:pork_spread_toast")))));
+                    .useItemDescriptionPrefix().stacksTo(8).equippable(EquipmentSlot.HEAD).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:pork_spread_toast")))));
 
     /*
     public static final Item BEETROOT_BROTH = registerItem("beetroot_broth",
