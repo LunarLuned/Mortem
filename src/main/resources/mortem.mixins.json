@@ -76,6 +76,8 @@
     "entities.passive.WanderingTraderMixin",
     "entities.projectiles.SmallFireballMixin",
     "entities.vehicles.AbstractMinecartMixin",
+    "entities.vehicles.NewMinecartBehaviorMixin",
+    "entities.vehicles.OldMinecartBehaviorMixin",
     "events.RaidMixin",
     "items.AnchorSavesItemEntityMixin",
     "items.ArmorMaterialsMixin",
