@@ -1,7 +1,9 @@
 package net.lunarluned.mortem.mixin.entities.hostile;
 
+import net.lunarluned.mortem.MortemTags;
 import net.lunarluned.mortem.world.entity.ai.goal.EatCropGoal;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -36,7 +38,9 @@ public abstract class ZombieMixin extends Mob {
     private void onRegisterGoals(CallbackInfo ci) {
         Zombie self = (Zombie) (Object) this;
         self.targetSelector.addGoal(5, new EatCropGoal(self, 1.1D));
-        self.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(self, Animal.class, true));
+        self.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(
+                self, LivingEntity.class, 10, true, false,
+                (target, level) -> target.is(MortemTags.ZOMBIE_PREY)));
     }
 }
 

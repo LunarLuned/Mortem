@@ -1,0 +1,26 @@
+{
+  "values":
+  [
+    "minecraft:cow",
+    "minecraft:pig",
+    "minecraft:sheep",
+    "minecraft:mooshroom",
+    "minecraft:mule",
+    "minecraft:parrot",
+    "minecraft:allay",
+    "minecraft:axolotl",
+    "minecraft:camel",
+    "minecraft:rabbit",
+    "minecraft:cat",
+    "minecraft:wolf",
+    "minecraft:cod",
+    "minecraft:copper_golem",
+    "minecraft:salmon",
+    "minecraft:squid",
+    "minecraft:frog",
+    "minecraft:tadpole",
+    "minecraft:tropical_fish",
+    "minecraft:turtle",
+    "minecraft:horse"
+  ]
+}
