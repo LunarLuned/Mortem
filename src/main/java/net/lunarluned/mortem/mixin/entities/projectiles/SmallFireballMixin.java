@@ -22,7 +22,7 @@ public abstract class SmallFireballMixin {
             at = @At(value = "INVOKE",
                     target = "Lnet/minecraft/world/entity/Entity;hurtServer(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/damagesource/DamageSource;F)Z")
     )
-    private boolean enigma$nerfPlayerDamage(Entity instance, ServerLevel serverLevel, DamageSource damageSource, float v, Operation<Boolean> original) {
+    private boolean mortem_nerfPlayerDamage(Entity instance, ServerLevel serverLevel, DamageSource damageSource, float v, Operation<Boolean> original) {
         if (instance instanceof Player) {
             v = 1f;
         }
@@ -30,7 +30,7 @@ public abstract class SmallFireballMixin {
     }
 
     @Inject(method = "onHitBlock", at = @At("HEAD"), cancellable = true)
-    private void enigma$noBlazeFire(BlockHitResult hitResult, CallbackInfo ci) {
+    private void mortem_noBlazeFire(BlockHitResult hitResult, CallbackInfo ci) {
         if (((SmallFireball) (Object) this).getOwner() instanceof Blaze) {
             ci.cancel();
         }

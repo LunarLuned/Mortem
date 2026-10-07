@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class PiglinAiMixin {
 
     @Inject(method = "isWearingSafeArmor", at = @At("HEAD"), cancellable = true)
-    private static void enigma$armorPointThreshold(LivingEntity livingEntity, CallbackInfoReturnable<Boolean> cir) {
+    private static void mortem_armorPointThreshold(LivingEntity livingEntity, CallbackInfoReturnable<Boolean> cir) {
         if (livingEntity.getArmorValue() >= 18) {
             cir.setReturnValue(true);
         }

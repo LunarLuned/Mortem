@@ -63,6 +63,7 @@
     "entities.hostile.ZombieMixin",
     "entities.hostile.ZombificationMixin",
     "entities.hostile.ZombifiedPiglinMixin",
+    "entities.living_entity.ChickenMixin",
     "entities.living_entity.DepthStiderAndDolphinGraceMixin",
     "entities.living_entity.FoodDataSlowedRegenMixin",
     "entities.living_entity.HungerEffectsMixin",
