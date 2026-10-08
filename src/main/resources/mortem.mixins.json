@@ -17,6 +17,7 @@
     "blocks.FarmBlockFallMixin",
     "blocks.FireBlockMixin",
     "blocks.GlassBlockMixin",
+    "blocks.HugeMushroomBlockMixin",
     "blocks.IceMeltRandomTickMixin",
     "blocks.MagmaBlockMixin",
     "blocks.RespawnAnchorBlockMixin",
