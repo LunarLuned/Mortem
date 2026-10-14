@@ -1,6 +1,6 @@
 {
   "type": "minecraft:smoking",
-  "ingredient": "mortem:shredded_meat",
+  "ingredient": "mortem:shredded_flesh",
   "result": {
     "id": "mortem:beef_jerky"
   },
