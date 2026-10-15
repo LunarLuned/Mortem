@@ -2,6 +2,7 @@ package net.lunarluned.mortem.mixin.entities.living_entity;
 
 import net.lunarluned.mortem.MortemTags;
 import net.lunarluned.mortem.effect.ModEffects;
+import net.lunarluned.mortem.misc.FungalTicksAccess;
 import net.lunarluned.mortem.sounds.MortemSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -25,7 +26,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Optional;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityFungalInfectionMixin extends Entity {
+public abstract class LivingEntityFungalInfectionMixin extends Entity implements FungalTicksAccess {
+
+    @Override
+    public int mortem_getFungalTicks() {
+        return this.fungalBiomeTicks;
+    }
+
+    @Override
+    public void mortem_setFungalTicks(int ticks) {
+        this.fungalBiomeTicks = ticks;
+    }
 
     @Unique private int fungalBiomeTicks = 0;
     @Unique private static final int TICKS_REQUIRED = 18000;
