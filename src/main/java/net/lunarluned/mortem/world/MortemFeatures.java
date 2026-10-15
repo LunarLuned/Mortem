@@ -27,6 +27,8 @@ public class MortemFeatures {
         addFeature("nether_wart_pit",
                 BiomeSelectors.includeByKey(Biomes.NETHER_WASTES, Biomes.CRIMSON_FOREST),
                 GenerationStep.Decoration.LOCAL_MODIFICATIONS);
+
+        addOre("blackstone_iron_ore", BiomeSelectors.foundInTheNether());
     }
 
     private static void addFeature(String featureName, Predicate<BiomeSelectionContext> selector,
@@ -34,6 +36,16 @@ public class MortemFeatures {
         BiomeModifications.addFeature(
                 selector,
                 step,
+                ResourceKey.create(
+                        Registries.PLACED_FEATURE,
+                        Identifier.fromNamespaceAndPath("mortem", featureName)
+                )
+        );
+    }
+    private static void addOre(String featureName, Predicate<BiomeSelectionContext> selector) {
+        BiomeModifications.addFeature(
+                selector,
+                GenerationStep.Decoration.UNDERGROUND_ORES,
                 ResourceKey.create(
                         Registries.PLACED_FEATURE,
                         Identifier.fromNamespaceAndPath("mortem", featureName)
