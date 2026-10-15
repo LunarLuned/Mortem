@@ -27,7 +27,7 @@ public class ModEffects {
     private static final UUID FUNGAL_SPEED_UUID = UUID.fromString("9b5f8b8e-3f7a-4a3d-9c3a-1d1a2a4e7f10");
 
     private static Holder<MobEffect> register(String name, MobEffect mobEffect) {
-        return Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, Identifier.tryBuild(Mortem.MOD_ID, name), mobEffect);
+        return Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, name), mobEffect);
     }
 
     public static void registerEffects() {

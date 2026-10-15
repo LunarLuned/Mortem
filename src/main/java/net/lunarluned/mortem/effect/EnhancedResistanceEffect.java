@@ -8,6 +8,7 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import org.jspecify.annotations.NonNull;
 
 public class EnhancedResistanceEffect extends MobEffect {
     public EnhancedResistanceEffect(MobEffectCategory mobEffectCategory, int i) {
@@ -15,7 +16,7 @@ public class EnhancedResistanceEffect extends MobEffect {
     }
 
     @Override
-    public boolean applyEffectTick(ServerLevel serverLevel, LivingEntity livingEntity, int amplifier) {
+    public boolean applyEffectTick(@NonNull ServerLevel serverLevel, LivingEntity livingEntity, int amplifier) {
         if (livingEntity.hasEffect(MobEffects.SLOWNESS)) {
             livingEntity.removeEffect(MobEffects.SLOWNESS);
         }
