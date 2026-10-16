@@ -1,6 +1,7 @@
 package net.lunarluned.mortem.item;
 
 import net.lunarluned.mortem.Mortem;
+import net.lunarluned.mortem.block.ModBlocks;
 import net.lunarluned.mortem.item.custom.BeetrootBrothItem;
 import net.lunarluned.mortem.item.custom.ElixirItem;
 import net.lunarluned.mortem.item.custom.MortemFishingRodItem;
@@ -15,6 +16,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
@@ -333,6 +335,15 @@ public class ModItems {
 */
 
     // NETHER
+
+    public static final Item RHYNEAPPLE_CROWN = registerItem("rhyneapple_crown",
+            new BlockItem(ModBlocks.RHYNEAPPLE_CROP, new Item.Properties().useItemDescriptionPrefix()
+                    .setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:rhyneapple_crown")))));
+
+
+    public static final Item RHYNEAPPLE = registerItem("rhyneapple",
+            new Item(new Item.Properties().food(ModFoods.RHYNEAPPLE, ModConsumables.RHYNEAPPLE)
+                    .useItemDescriptionPrefix().usingConvertsTo(RHYNEAPPLE_CROWN).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:rhyneapple")))));
 
 
 

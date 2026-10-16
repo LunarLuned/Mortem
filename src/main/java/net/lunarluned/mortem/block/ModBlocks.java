@@ -3,6 +3,7 @@ package net.lunarluned.mortem.block;
 
 import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.block.custom.*;
+import net.lunarluned.mortem.block.custom.crops.RhyneappleCropBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -48,6 +49,10 @@ public class ModBlocks {
             new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "blackstone_iron_ore")))
                     .strength(8f).explosionResistance(1).sound(SoundType.GILDED_BLACKSTONE)));
 
+    public static final Block RHYNEAPPLE_CROP = registerBlockWithoutBlockItem("rhyneapple_crop",
+            new RhyneappleCropBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "rhyneapple_crop")))
+                    .noCollision().randomTicks().sound(SoundType.METAL).pushReaction(PushReaction.BLOCK).explosionResistance(1).strength(3)));
+
 
     public static final Block HARDENED_DEEPSLATE_IRON_ORE = registerBlock("hardened_deepslate_iron_ore",
             new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "hardened_deepslate_iron_ore")))
@@ -55,6 +60,10 @@ public class ModBlocks {
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
+        return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, name), block);
+    }
+
+    private static Block registerBlockWithoutBlockItem(String name, Block block) {
         return Registry.register(BuiltInRegistries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, name), block);
     }
 

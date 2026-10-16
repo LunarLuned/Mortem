@@ -23,12 +23,14 @@ public class ModFoods {
     public static final FoodProperties MUSHROOM_STEW_TUSK = (new FoodProperties.Builder().nutrition(3).saturationModifier(.9F).build());
     public static final FoodProperties SCRAMBLED_EGGS_TUSK = (new FoodProperties.Builder().nutrition(5).saturationModifier(.65F).build());
 
+    public static final FoodProperties RHYNEAPPLE = (new FoodProperties.Builder().nutrition(3).saturationModifier(1.95F).build());
+
+    // Overworld Foods
+
     public static final FoodProperties HARD_BOILED_EGG = (new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build());
     public static final FoodProperties SCRAMBLED_EGGS = (new FoodProperties.Builder().nutrition(6).saturationModifier(.45F).build());
 
     public static final FoodProperties SUSHI_ROLL = (new FoodProperties.Builder().nutrition(4).saturationModifier(.25F).build());
-
-    // Overworld Foods
 
     public static final FoodProperties SHREDDED_FLESH = new FoodProperties.Builder().nutrition(1).saturationModifier(0.15f).build();
     public static final FoodProperties BEEF_JERKY = new FoodProperties.Builder().nutrition(3).saturationModifier(0.35f).build();

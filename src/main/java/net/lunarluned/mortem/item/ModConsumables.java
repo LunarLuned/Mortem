@@ -55,6 +55,8 @@ public class ModConsumables {
     public static final Consumable MUSHROOM_STEW_TUSK;
     public static final Consumable SCRAMBLED_EGGS_TUSK;
 
+    public static final Consumable RHYNEAPPLE;
+
     public static final Consumable SUSHI_ROLL;
 
     public static final Consumable SWEET_POTATO;
@@ -146,6 +148,8 @@ public class ModConsumables {
         FUNGAL_STEW = defaultDrink().consumeSeconds(2.25F).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 140, 0), 0.75F)).build();
         MUSHROOM_STEW_TUSK = defaultDrink().consumeSeconds(1F).build();
         SCRAMBLED_EGGS_TUSK = defaultDrink().consumeSeconds(2F).build();
+
+        RHYNEAPPLE = defaultFood().consumeSeconds(2.5F).build();
 
         SUSHI_ROLL = defaultFood().consumeSeconds(1.15F).build();
 

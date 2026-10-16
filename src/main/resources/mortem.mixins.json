@@ -21,6 +21,7 @@
     "blocks.HugeMushroomBlockMixin",
     "blocks.IceMeltRandomTickMixin",
     "blocks.MagmaBlockMixin",
+    "blocks.NetherWartMixin",
     "blocks.RespawnAnchorBlockMixin",
     "blocks.StonecutterBlockBehaviorMixin",
     "blocks.StonecutterBlockMixin",
