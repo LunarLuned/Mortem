@@ -24,7 +24,7 @@ public class NetherCropBlock extends CropBlock {
     }
 
     @Override
-    protected void randomTick(@NonNull BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    protected void randomTick(@NonNull BlockState state, ServerLevel level, @NonNull BlockPos pos, @NonNull RandomSource random) {
         if (level.dimension() != Level.NETHER) {
             level.destroyBlock(pos, true);
             return;
@@ -36,13 +36,13 @@ public class NetherCropBlock extends CropBlock {
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    protected boolean canSurvive(@NonNull BlockState state, @NonNull LevelReader level, BlockPos pos) {
         BlockPos below = pos.below();
         return this.mayPlaceOn(level.getBlockState(below), level, below);
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(@NonNull Level level, @NonNull RandomSource random, @NonNull BlockPos pos, @NonNull BlockState state) {
         if (Mortem.IS_ENIGMA_INSTALLED) {
             return false;
         } else

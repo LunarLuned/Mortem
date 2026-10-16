@@ -1,6 +1,5 @@
 package net.lunarluned.mortem.item;
 
-import net.lunarluned.mortem.effect.ModEffects;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

@@ -2,9 +2,7 @@ package net.lunarluned.mortem.item;
 
 import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.block.ModBlocks;
-import net.lunarluned.mortem.item.custom.BeetrootBrothItem;
 import net.lunarluned.mortem.item.custom.ElixirItem;
-import net.lunarluned.mortem.item.custom.MortemFishingRodItem;
 import net.lunarluned.mortem.item.custom.WartStewItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
@@ -21,7 +19,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
-import net.minecraft.world.item.equipment.Equippable;
 
 public class ModItems {
 
