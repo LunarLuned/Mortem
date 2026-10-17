@@ -16,7 +16,7 @@ public abstract class ResinRepairItemStackMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    private void moenigma$resinRepairsMetal(
+    private void mortem_resinRepairsMetal(
             ItemStack repairItem, CallbackInfoReturnable<Boolean> cir
     ) {
 
