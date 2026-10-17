@@ -5,6 +5,8 @@ import net.lunarluned.mortem.block.ModBlocks;
 import net.lunarluned.mortem.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -109,6 +111,9 @@ private void onTick(CallbackInfo ci) {
         LAVA_RECIPES.put(Items.RAW_COPPER_BLOCK, new RecycleResult(Items.COPPER_INGOT, 6));
 
         // Iron items
+        LAVA_RECIPES.put(BuiltInRegistries.ITEM.getValue(
+                Identifier.fromNamespaceAndPath("moenigma", "pressed_iron")), new RecycleResult(Items.IRON_NUGGET, 12));
+
         LAVA_RECIPES.put(Items.IRON_HELMET, new RecycleResult(Items.IRON_INGOT, 2));
         LAVA_RECIPES.put(Items.IRON_CHESTPLATE, new RecycleResult(Items.IRON_INGOT, 4));
         LAVA_RECIPES.put(Items.IRON_LEGGINGS, new RecycleResult(Items.IRON_INGOT, 3));
@@ -138,5 +143,9 @@ private void onTick(CallbackInfo ci) {
         LAVA_RECIPES.put(Items.COMPASS, new RecycleResult(Items.IRON_INGOT, 2));
         LAVA_RECIPES.put(Items.IRON_DOOR, new RecycleResult(Items.IRON_INGOT, 2));
         LAVA_RECIPES.put(Items.IRON_TRAPDOOR, new RecycleResult(Items.IRON_INGOT, 2));
+
+        // Misc recipes
+
+        LAVA_RECIPES.put(Items.QUARTZ, new RecycleResult(Items.COAL, 1));
     }
 }
