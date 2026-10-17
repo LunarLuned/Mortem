@@ -161,5 +161,17 @@ private void onTick(CallbackInfo ci) {
 
         SAW_TABLE_RECIPES.put(Items.LAPIS_ORE, new RecycleResult(Items.LAPIS_LAZULI, 9));
         SAW_TABLE_RECIPES.put(Items.DEEPSLATE_LAPIS_ORE, new RecycleResult(Items.LAPIS_LAZULI, 14));
+
+        // Misc
+
+        SAW_TABLE_RECIPES.put(Items.LEATHER_BOOTS, new RecycleResult(Items.LEATHER, 3));
+        SAW_TABLE_RECIPES.put(Items.LEATHER_LEGGINGS, new RecycleResult(Items.LEATHER, 6));
+        SAW_TABLE_RECIPES.put(Items.LEATHER_CHESTPLATE, new RecycleResult(Items.LEATHER, 7));
+        SAW_TABLE_RECIPES.put(Items.LEATHER_HELMET, new RecycleResult(Items.LEATHER, 4));
+
+        SAW_TABLE_RECIPES.put(Items.CHAINMAIL_BOOTS, new RecycleResult(Items.IRON_NUGGET, 3));
+        SAW_TABLE_RECIPES.put(Items.CHAINMAIL_LEGGINGS, new RecycleResult(Items.IRON_NUGGET, 4));
+        SAW_TABLE_RECIPES.put(Items.CHAINMAIL_CHESTPLATE, new RecycleResult(Items.IRON_NUGGET, 6));
+        SAW_TABLE_RECIPES.put(Items.CHAINMAIL_HELMET, new RecycleResult(Items.IRON_NUGGET, 5));
     }
 }
