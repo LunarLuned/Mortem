@@ -10,10 +10,73 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mortem:rhyneapple"
+          "name": "mortem:rhyneapple_crown"
         }
       ],
-      "rolls": 1
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "mortem:rhyneapple_crop",
+          "properties": {
+            "age": "0"
+          }
+        }
+      ]
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "mortem:rhyneapple_crown"
+        }
+      ],
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "mortem:rhyneapple_crop",
+          "properties": {
+            "age": "3"
+          }
+        }
+      ]
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "mortem:rhyneapple_crown"
+        }
+      ],
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "mortem:rhyneapple_crop",
+          "properties": {
+            "age": "2"
+          }
+        }
+      ]
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "mortem:rhyneapple_crown"
+        }
+      ],
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "mortem:rhyneapple_crop",
+          "properties": {
+            "age": "1"
+          }
+        }
+      ]
     },
     {
       "conditions": [
