@@ -94,8 +94,11 @@ public class ModItemGroups {
                         entries.accept(ModItems.MUSHROOM_STEW_TUSK);
                         entries.accept(ModItems.SCRAMBLED_EGGS_TUSK);
                         entries.accept(ModItems.WART_TUSK);
-                        entries.accept(ModItems.RHYNEAPPLE_CROWN);
                         entries.accept(ModItems.RHYNEAPPLE);
+                        entries.accept(ModItems.RHYNEAPPLE_CROWN);
+                        entries.accept(ModItems.GHOST_PEPPER);
+                        entries.accept(ModItems.BLOOD_ORANGE);
+                        entries.accept(ModItems.BLOOD_ORANGE_SLICE);
 
                         entries.accept(ModItems.POISON_ELIXIR);
                         entries.accept(ModItems.ENHANCED_POISON_ELIXIR);

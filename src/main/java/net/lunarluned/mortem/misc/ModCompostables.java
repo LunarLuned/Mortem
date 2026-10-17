@@ -45,5 +45,8 @@ public class ModCompostables {
         ComposterBlock.COMPOSTABLES.put(ModItems.CACTUS_SPREAD_TOAST, 1.0F);
         ComposterBlock.COMPOSTABLES.put(ModItems.MUSHROOM_SPREAD_TOAST, 1.0F);
         ComposterBlock.COMPOSTABLES.put(ModItems.PORK_SPREAD_TOAST, 1.0F);
+
+        ComposterBlock.COMPOSTABLES.put(ModItems.RHYNEAPPLE_CROWN, 0.8F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.RHYNEAPPLE, 0.8F);
     }
 }

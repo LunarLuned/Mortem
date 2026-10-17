@@ -3,6 +3,8 @@ package net.lunarluned.mortem.block;
 
 import net.lunarluned.mortem.Mortem;
 import net.lunarluned.mortem.block.custom.*;
+import net.lunarluned.mortem.block.custom.crops.BloodOrangeBushBlock;
+import net.lunarluned.mortem.block.custom.crops.GhostPepperCropBlock;
 import net.lunarluned.mortem.block.custom.crops.RhyneappleCropBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -44,18 +46,31 @@ public class ModBlocks {
             new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "hardened_iron_ore")))
                     .strength(8f).explosionResistance(1).sound(SoundType.STONE)));
 
+
+    public static final Block HARDENED_DEEPSLATE_IRON_ORE = registerBlock("hardened_deepslate_iron_ore",
+            new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "hardened_deepslate_iron_ore")))
+                    .strength(12f).explosionResistance(4).sound(SoundType.DEEPSLATE)));
+
     public static final Block BLACKSTONE_IRON_ORE = registerBlock("blackstone_iron_ore",
             new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "blackstone_iron_ore")))
                     .strength(8f).explosionResistance(1).sound(SoundType.GILDED_BLACKSTONE)));
+
+    // NETHER
 
     public static final Block RHYNEAPPLE_CROP = registerBlockWithoutBlockItem("rhyneapple_crop",
             new RhyneappleCropBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "rhyneapple_crop")))
                     .noCollision().randomTicks().sound(SoundType.METAL).pushReaction(PushReaction.BLOCK).explosionResistance(1).strength(3)));
 
 
-    public static final Block HARDENED_DEEPSLATE_IRON_ORE = registerBlock("hardened_deepslate_iron_ore",
-            new HardenedIronOre(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "hardened_deepslate_iron_ore")))
-                    .strength(12f).explosionResistance(4).sound(SoundType.DEEPSLATE)));
+    public static final Block GHOST_PEPPER_CROP = registerBlockWithoutBlockItem("ghost_pepper_crop",
+            new GhostPepperCropBlock(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "ghost_pepper_crop")))
+                    .noCollision().randomTicks().sound(SoundType.SOUL_SAND).pushReaction(PushReaction.DESTROY).instabreak()));
+
+    public static final Block BLOOD_ORANGE_BUSH = registerBlockWithoutBlockItem("blood_orange_bush",
+            new BloodOrangeBushBlock(BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Mortem.MOD_ID, "blood_orange_bush")))
+                    .noCollision().randomTicks().sound(SoundType.SOUL_SAND).pushReaction(PushReaction.BLOCK).explosionResistance(1).strength(3)));
+
+
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

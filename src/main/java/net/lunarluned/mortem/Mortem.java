@@ -4,10 +4,13 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.lunarluned.mortem.misc.FungalInfectSpreadHandler;
 import net.lunarluned.mortem.potion.ModPotions;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -110,6 +113,14 @@ public class Mortem implements ModInitializer {
 		if (IS_ENIGMA_INSTALLED) {
 			System.out.println("Mortem: Enigma detected! Have fun :)");
 		}
+
+		FabricLoader.getInstance().getModContainer("mortem").ifPresent(container ->
+				ResourceManagerHelper.registerBuiltinResourcePack(
+						Identifier.fromNamespaceAndPath("mortem", "mortem_sugoi_speak_language"),
+						container,
+						Component.literal("Sugoi Speak"),
+						ResourcePackActivationType.NORMAL
+				));
 	}
 
 }

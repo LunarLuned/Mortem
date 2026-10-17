@@ -55,6 +55,9 @@ public class ModConsumables {
     public static final Consumable SCRAMBLED_EGGS_TUSK;
 
     public static final Consumable RHYNEAPPLE;
+    public static final Consumable GHOST_PEPPER;
+    public static final Consumable BLOOD_ORANGE;
+    public static final Consumable BLOOD_ORANGE_SLICE;
 
     public static final Consumable SUSHI_ROLL;
 
@@ -149,6 +152,9 @@ public class ModConsumables {
         SCRAMBLED_EGGS_TUSK = defaultDrink().consumeSeconds(2F).build();
 
         RHYNEAPPLE = defaultFood().consumeSeconds(2.5F).build();
+        GHOST_PEPPER = defaultFood().consumeSeconds(1.5F).build();
+        BLOOD_ORANGE = defaultFood().consumeSeconds(1.25f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.REGENERATION, 80, 1), 0.7F)).build();
+        BLOOD_ORANGE_SLICE = defaultFood().consumeSeconds(0.5f).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.REGENERATION, 40, 2), 0.4F)).build();
 
         SUSHI_ROLL = defaultFood().consumeSeconds(1.15F).build();
 

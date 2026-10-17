@@ -337,10 +337,21 @@ public class ModItems {
             new BlockItem(ModBlocks.RHYNEAPPLE_CROP, new Item.Properties().useItemDescriptionPrefix()
                     .setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:rhyneapple_crown")))));
 
-
     public static final Item RHYNEAPPLE = registerItem("rhyneapple",
             new Item(new Item.Properties().food(ModFoods.RHYNEAPPLE, ModConsumables.RHYNEAPPLE)
                     .useItemDescriptionPrefix().usingConvertsTo(RHYNEAPPLE_CROWN).setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:rhyneapple")))));
+
+    public static final Item GHOST_PEPPER = registerItem("ghost_pepper",
+            new BlockItem(ModBlocks.GHOST_PEPPER_CROP, new Item.Properties().food(ModFoods.GHOST_PEPPER, ModConsumables.GHOST_PEPPER)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:ghost_pepper")))));
+
+    public static final Item BLOOD_ORANGE = registerItem("blood_orange",
+            new BlockItem(ModBlocks.BLOOD_ORANGE_BUSH, new Item.Properties().food(ModFoods.BLOOD_ORANGE, ModConsumables.BLOOD_ORANGE)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:blood_orange")))));
+
+    public static final Item BLOOD_ORANGE_SLICE = registerItem("blood_orange_slice",
+            new Item(new Item.Properties().food(ModFoods.BLOOD_ORANGE_SLICE, ModConsumables.BLOOD_ORANGE_SLICE)
+                    .useItemDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, Identifier.parse("mortem:blood_orange_slice")))));
 
 
 

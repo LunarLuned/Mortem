@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "mortem:block/ghost_pepper_crop_stage0"
+  }
+}
