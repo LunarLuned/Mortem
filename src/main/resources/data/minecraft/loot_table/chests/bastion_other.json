@@ -221,6 +221,42 @@
               "add": false,
               "count": 1,
               "function": "minecraft:set_count"
+            }
+          ],
+          "name": "mortem:ghost_carrot",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "mortem:rhyneapple",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "mortem:blood_orange",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1,
+              "function": "minecraft:set_count"
             },
             {
               "function": "minecraft:enchant_randomly",
